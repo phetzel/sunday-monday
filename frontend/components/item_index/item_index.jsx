@@ -52,8 +52,8 @@ const ItemIndex = props => {
                         className={isActiveCat('sweatshirt')} 
                         onClick={() => handleClick('sweatshirt')}>Sweatshirts</li>
                     <li 
-                        className={isActiveCat('albumn')} 
-                        onClick={() => handleClick('albumn')}>Albumns</li>
+                        className={isActiveCat('album')} 
+                        onClick={() => handleClick('album')}>Albums</li>
                     <li 
                         className={isActiveCat('misc')} 
                         onClick={() => handleClick('misc')}>Other</li>

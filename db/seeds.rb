@@ -191,24 +191,24 @@ ActiveRecord::Base.transaction do
     )
     Item.create!(
         id: '15',
-        title: 'Blue albumn',
-        description: 'A Blue albumn',
+        title: 'Blue album',
+        description: 'A Blue album',
         price: '13',
-        category: 'albumn'
+        category: 'album'
     )
     Item.create!(
         id: '16',
-        title: 'Red albumn',
-        description: 'A Red albumn',
+        title: 'Red album',
+        description: 'A Red album',
         price: '154',
-        category: 'albumn'
+        category: 'album'
     )
     Item.create!(
         id: '17',
-        title: 'Green albumn',
-        description: 'A Green albumn',
+        title: 'Green album',
+        description: 'A Green album',
         price: '20',
-        category: 'albumn'
+        category: 'album'
     )
     Item.create!(
         id: '18',
@@ -216,7 +216,7 @@ ActiveRecord::Base.transaction do
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam 
         luctus urna suscipit',
         price: '99',
-        category: 'albumn'
+        category: 'album'
     )
 
 end

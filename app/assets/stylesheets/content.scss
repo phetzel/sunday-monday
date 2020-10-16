@@ -28,3 +28,31 @@ body {
 .money {
   color: #907dd4;
 }
+
+//button
+.button {
+  box-shadow: inset 0px 1px 0px 0px #91b8b3;
+  background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+  background-color: #768d87;
+  border: 1px solid #566963;
+  display: inline-block;
+  cursor: pointer;
+  color: #000;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: bold;
+  outline: none;
+  padding: 6px 12px;
+  text-decoration: none;
+  width: 150px;
+}
+
+.button:hover {
+  background: linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+  background-color: #6c7c7c;
+}
+
+.button:active {
+  position: relative;
+  top: 1px;
+}
