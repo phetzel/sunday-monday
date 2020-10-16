@@ -1,6 +1,6 @@
 const createArtist = artist => (
     $.ajax({
-        methos: 'POST',
+        method: 'POST',
         url: 'api/artists',
         data: { artist }
     })
