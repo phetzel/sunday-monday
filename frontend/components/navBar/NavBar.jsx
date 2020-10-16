@@ -9,10 +9,10 @@ const NavBar = ({ history }) => {
         setTab(num);
     }
     
-    const isActiveTab = (num) => tab === num ? "nav-active" : "nav-not-active";
+    const isActiveTab = (num) => tab === num ? "p-color" : "nav-not-active";
     
     return (
-        <div className='nav-bar'>
+        <div className='nav-bar background-main'>
             <div className="nav-bar-left" onClick={() => handleClick('/')}>
                 <h5>Sunday Monday</h5>
                 <img src={window.logo} alt="Logo"/>

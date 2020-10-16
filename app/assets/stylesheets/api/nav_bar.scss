@@ -5,7 +5,7 @@
   justify-content: space-around;
   align-items: center;
   position: fixed;
-  top: 100;
+  top: 0;
   width: 100%;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .nav-bar img {
-  height: 40px;
+  height: 35px;
 }
 
 .nav-bar h5 {
@@ -31,9 +31,10 @@
 .nav-bar li {
   padding: 0 15px;
   cursor: pointer;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 .nav-active {
-  color: #8a2e43;
-  font-weight: 500;
+  font-weight: 700;
 }

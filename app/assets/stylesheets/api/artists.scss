@@ -1,0 +1,64 @@
+// Place all the styles related to the api/artists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Index
+.artist-index-container {
+  width: 100%;
+}
+
+.artist-index {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 90%;
+}
+
+.artist-list-item {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  overflow: hidden;
+  width: 300px;
+}
+
+.artist-list-item h4 {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+//Show
+.artist-show {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.artist-show-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.artist-show-details img {
+  margin: 20px;
+  width: 400px;
+}
+
+.artist-show-details-text {
+  margin: 20px;
+  height: 400px;
+  width: 400px;
+  overflow: scroll;
+}
+
+.artist-show-details-text h4 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.artist-show-details-text p {
+  margin-top: 20px;
+}

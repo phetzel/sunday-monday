@@ -98,16 +98,242 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _navBar_NavBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navBar/NavBar */ "./frontend/components/navBar/NavBar.jsx");
+/* harmony import */ var _artist_index_artist_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./artist_index/artist_index */ "./frontend/components/artist_index/artist_index.jsx");
+/* harmony import */ var _artist_show_artist_show__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./artist_show/artist_show */ "./frontend/components/artist_show/artist_show.jsx");
+/* harmony import */ var _navBar_NavBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./navBar/NavBar */ "./frontend/components/navBar/NavBar.jsx");
+
+
 
 
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navBar_NavBar__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "React working"));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navBar_NavBar__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/artists",
+    component: _artist_index_artist_index__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/artists/:id",
+    component: _artist_show_artist_show__WEBPACK_IMPORTED_MODULE_3__["default"]
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./frontend/components/artist_index/artist_index.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/artist_index/artist_index.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util_artist_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/artist_api_util */ "./frontend/util/artist_api_util.js");
+/* harmony import */ var _artist_list_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./artist_list_item */ "./frontend/components/artist_index/artist_list_item.jsx");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+var ArtistIndex = function ArtistIndex(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState2 = _slicedToArray(_useState, 2),
+      artists = _useState2[0],
+      setArtists = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      error = _useState4[0],
+      setError = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      loading = _useState6[0],
+      setLoading = _useState6[1];
+
+  var fetchArtists = function fetchArtists() {
+    setLoading(true);
+    _util_artist_api_util__WEBPACK_IMPORTED_MODULE_1__["default"].fetchArtists().then(function (artists) {
+      var artistsArray = Object.values(artists);
+      setLoading(false);
+      setArtists(Array.from(artistsArray));
+    }, function (err) {
+      setError(err);
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    fetchArtists();
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "artist-index-container content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "artist-index"
+  }, artists && artists.map(function (artist) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_artist_list_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      artist: artist,
+      key: artist.id
+    });
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ArtistIndex);
+
+/***/ }),
+
+/***/ "./frontend/components/artist_index/artist_list_item.jsx":
+/*!***************************************************************!*\
+  !*** ./frontend/components/artist_index/artist_list_item.jsx ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+var ArtistListItem = function ArtistListItem(_ref) {
+  var artist = _ref.artist,
+      history = _ref.history;
+
+  var handleClick = function handleClick() {
+    history.push("/artists/".concat(artist.id));
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "artist-list-item",
+    onClick: handleClick
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://picsum.photos/300",
+    alt: "dj pic"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, artist.name));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(ArtistListItem));
+
+/***/ }),
+
+/***/ "./frontend/components/artist_show/artist_show.jsx":
+/*!*********************************************************!*\
+  !*** ./frontend/components/artist_show/artist_show.jsx ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util_artist_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/artist_api_util */ "./frontend/util/artist_api_util.js");
+/* harmony import */ var _artist_show_detail__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./artist_show_detail */ "./frontend/components/artist_show/artist_show_detail.jsx");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+var ArtistShow = function ArtistShow(_ref) {
+  var match = _ref.match;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState2 = _slicedToArray(_useState, 2),
+      artist = _useState2[0],
+      setArtist = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      error = _useState4[0],
+      setError = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      loading = _useState6[0],
+      setLoading = _useState6[1];
+
+  var fetchArtist = function fetchArtist() {
+    var id = match.params.id;
+    setLoading(true);
+    _util_artist_api_util__WEBPACK_IMPORTED_MODULE_1__["default"].fetchArtist(id).then(function (artist) {
+      setLoading(false);
+      setArtist(artist);
+    }, function (err) {
+      setError(err);
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    fetchArtist();
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "artist-show content"
+  }, artist && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_artist_show_detail__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    artist: artist
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ArtistShow);
+
+/***/ }),
+
+/***/ "./frontend/components/artist_show/artist_show_detail.jsx":
+/*!****************************************************************!*\
+  !*** ./frontend/components/artist_show/artist_show_detail.jsx ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var ArtistShowDetail = function ArtistShowDetail(_ref) {
+  var artist = _ref.artist;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "artist-show-details"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://picsum.photos/400",
+    alt: "dj pic"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "artist-show-details-text"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    className: "p-color"
+  }, artist.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, artist.description)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ArtistShowDetail);
 
 /***/ }),
 
@@ -152,11 +378,11 @@ var NavBar = function NavBar(_ref) {
   };
 
   var isActiveTab = function isActiveTab(num) {
-    return tab === num ? "nav-active" : "nav-not-active";
+    return tab === num ? "p-color" : "nav-not-active";
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "nav-bar"
+    className: "nav-bar background-main"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-bar-left",
     onClick: function onClick() {
@@ -247,6 +473,47 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById("root");
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], null), root);
+});
+
+/***/ }),
+
+/***/ "./frontend/util/artist_api_util.js":
+/*!******************************************!*\
+  !*** ./frontend/util/artist_api_util.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var createArtist = function createArtist(artist) {
+  return $.ajax({
+    methos: 'POST',
+    url: 'api/artists',
+    data: {
+      artist: artist
+    }
+  });
+};
+
+var fetchArtist = function fetchArtist(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "api/artists/".concat(id)
+  });
+};
+
+var fetchArtists = function fetchArtists() {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/artists'
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  createArtist: createArtist,
+  fetchArtist: fetchArtist,
+  fetchArtists: fetchArtists
 });
 
 /***/ }),
