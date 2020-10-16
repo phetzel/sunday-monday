@@ -1,0 +1,77 @@
+// Place all the styles related to the api/items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Index
+//------------------------------------------------------------------------------
+.item-index-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.item-index-sidebar {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  position: fixed;
+  width: 200px;
+}
+
+.item-index-sidebar h2 {
+  border-bottom: 1px solid black;
+  font-size: 30px;
+}
+
+.item-index-sidebar ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.item-index-sidebar li {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.item-index {
+  display: flex;
+  flex-wrap: wrap;
+  float: right;
+  justify-content: space-around;
+  padding-left: 200px;
+  width: 100%;
+}
+
+.item-list-item {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  width: 200px;
+  overflow: hidden;
+  margin: 20px;
+}
+
+.item-list-item img {
+  height: 200px;
+  width: 200px;
+}
+
+.item-list-item h4 {
+  font-size: 25px;
+  font-weight: 400;
+  overflow: hidden;
+  padding: 10px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.item-list-item h6 {
+  font-size: 20px;
+  font-weight: 400;
+}
