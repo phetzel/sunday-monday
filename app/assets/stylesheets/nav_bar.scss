@@ -1,0 +1,39 @@
+.nav-bar {
+  height: 70px;
+  border-bottom: 2px solid black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 100;
+  width: 100%;
+}
+
+.nav-bar-left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav-bar img {
+  height: 40px;
+}
+
+.nav-bar h5 {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.nav-bar ul {
+  display: flex;
+}
+
+.nav-bar li {
+  padding: 0 15px;
+  cursor: pointer;
+}
+
+.nav-active {
+  color: #8a2e43;
+  font-weight: 500;
+}
