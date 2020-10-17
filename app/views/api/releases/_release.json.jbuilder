@@ -1,0 +1,1 @@
+json.extract! release, :id, :title, :description, :spotify

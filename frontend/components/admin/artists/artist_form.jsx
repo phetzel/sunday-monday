@@ -1,17 +1,19 @@
 import React from "react";
 import { Formik } from "formik";
+import { withRouter } from 'react-router-dom';
 
 import artistApi from '../../../util/artist_api_util';
 
 
-const ArtistForm = (props) => {
+const ArtistForm = ({history}) => {
     const initialValues = {
         name: "",
         description: "",
     }
 
     const handleSubmit = (artist) => {
-        artistApi.createArtist(artist);
+        artistApi.createArtist(artist)
+            .then(res => history.push(`/artists/${res.id}`));;
     }
 
     return (
@@ -48,4 +50,4 @@ const ArtistForm = (props) => {
     )
 }
 
-export default ArtistForm;
+export default withRouter(ArtistForm);

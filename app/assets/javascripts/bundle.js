@@ -118,7 +118,11 @@ var AdminNav = function AdminNav(_ref) {
     onClick: function onClick() {
       return handleClick('/admin/items');
     }
-  }, "Items")));
+  }, "Items"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    onClick: function onClick() {
+      return handleClick('/admin/music');
+    }
+  }, "Music")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(AdminNav));
@@ -140,6 +144,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin_nav */ "./frontend/components/admin/admin_nav.jsx");
 /* harmony import */ var _artists_artists__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./artists/artists */ "./frontend/components/admin/artists/artists.jsx");
 /* harmony import */ var _items_items__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./items/items */ "./frontend/components/admin/items/items.jsx");
+/* harmony import */ var _releases_releases__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./releases/releases */ "./frontend/components/admin/releases/releases.jsx");
+
 
 
 
@@ -155,6 +161,10 @@ var AdminRouter = function AdminRouter() {
     exact: true,
     path: "/admin/items",
     component: _items_items__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/admin/music",
+    component: _releases_releases__WEBPACK_IMPORTED_MODULE_5__["default"]
   })));
 };
 
@@ -174,19 +184,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var _util_artist_api_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../util/artist_api_util */ "./frontend/util/artist_api_util.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_artist_api_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../util/artist_api_util */ "./frontend/util/artist_api_util.js");
 
 
 
 
-var ArtistForm = function ArtistForm(props) {
+
+var ArtistForm = function ArtistForm(_ref) {
+  var history = _ref.history;
   var initialValues = {
     name: "",
     description: ""
   };
 
   var handleSubmit = function handleSubmit(artist) {
-    _util_artist_api_util__WEBPACK_IMPORTED_MODULE_2__["default"].createArtist(artist);
+    _util_artist_api_util__WEBPACK_IMPORTED_MODULE_3__["default"].createArtist(artist).then(function (res) {
+      return history.push("/artists/".concat(res.id));
+    });
+    ;
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -197,9 +213,9 @@ var ArtistForm = function ArtistForm(props) {
     initialValues: initialValues,
     onSubmit: handleSubmit // validationSchema={validationSchema}
 
-  }, function (_ref) {
-    var handleChange = _ref.handleChange,
-        handleSubmit = _ref.handleSubmit;
+  }, function (_ref2) {
+    var handleChange = _ref2.handleChange,
+        handleSubmit = _ref2.handleSubmit;
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "admin-artist-form"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -218,7 +234,7 @@ var ArtistForm = function ArtistForm(props) {
   }));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (ArtistForm);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(ArtistForm));
 
 /***/ }),
 
@@ -259,13 +275,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var _util_item_api_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../util/item_api_util */ "./frontend/util/item_api_util.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_item_api_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../util/item_api_util */ "./frontend/util/item_api_util.js");
+
 
 
 
 var categories = ["shirt", "sweatshirt", "hat", "album", "misc"];
 
-var ItemForm = function ItemForm(props) {
+var ItemForm = function ItemForm(_ref) {
+  var history = _ref.history;
   var initialValues = {
     title: "",
     description: "",
@@ -274,7 +293,10 @@ var ItemForm = function ItemForm(props) {
   };
 
   var handleSubmit = function handleSubmit(item) {
-    _util_item_api_util__WEBPACK_IMPORTED_MODULE_2__["default"].createItem(item);
+    _util_item_api_util__WEBPACK_IMPORTED_MODULE_3__["default"].createItem(item).then(function (res) {
+      return history.push("/store/".concat(res.id));
+    });
+    ;
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -285,9 +307,9 @@ var ItemForm = function ItemForm(props) {
     initialValues: initialValues,
     onSubmit: handleSubmit // validationSchema={validationSchema}
 
-  }, function (_ref) {
-    var handleChange = _ref.handleChange,
-        handleSubmit = _ref.handleSubmit;
+  }, function (_ref2) {
+    var handleChange = _ref2.handleChange,
+        handleSubmit = _ref2.handleSubmit;
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "admin-item-form"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -304,8 +326,7 @@ var ItemForm = function ItemForm(props) {
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
       onChange: handleChange("category")
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-      value: "",
-      placeholder: true
+      value: ""
     }, "Category"), categories.map(function (cat, idx) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         key: idx,
@@ -320,7 +341,7 @@ var ItemForm = function ItemForm(props) {
   }));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (ItemForm);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(ItemForm));
 
 /***/ }),
 
@@ -349,6 +370,101 @@ var Items = function Items() {
 
 /***/ }),
 
+/***/ "./frontend/components/admin/releases/release_form.jsx":
+/*!*************************************************************!*\
+  !*** ./frontend/components/admin/releases/release_form.jsx ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_release_api_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../util/release_api_util */ "./frontend/util/release_api_util.js");
+
+
+
+
+
+var ReleaseForm = function ReleaseForm(_ref) {
+  var history = _ref.history;
+  var initialValues = {
+    title: "",
+    description: "",
+    spotify: ""
+  };
+
+  var handleSubmit = function handleSubmit(release) {
+    _util_release_api_util__WEBPACK_IMPORTED_MODULE_3__["default"].createRelease(release).then(function (res) {
+      return history.push("/music/".concat(res.id));
+    });
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "admin-release-form-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "p-color"
+  }, "Add a New Item"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_1__["Formik"], {
+    initialValues: initialValues,
+    onSubmit: handleSubmit // validationSchema={validationSchema}
+
+  }, function (_ref2) {
+    var handleChange = _ref2.handleChange,
+        handleSubmit = _ref2.handleSubmit;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "admin-release-form"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      onChange: handleChange("title"),
+      placeholder: "Title",
+      type: "text"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      onChange: handleChange("description"),
+      placeholder: "Description"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      onChange: handleChange("spotify"),
+      placeholder: "Spotify",
+      type: "text"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "button",
+      onClick: handleSubmit,
+      title: "Add Release",
+      ype: "submit"
+    }, "Add Release"));
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(ReleaseForm));
+
+/***/ }),
+
+/***/ "./frontend/components/admin/releases/releases.jsx":
+/*!*********************************************************!*\
+  !*** ./frontend/components/admin/releases/releases.jsx ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _release_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./release_form */ "./frontend/components/admin/releases/release_form.jsx");
+
+
+
+var Releases = function Releases() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "admin-release"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_release_form__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Releases);
+
+/***/ }),
+
 /***/ "./frontend/components/app.jsx":
 /*!*************************************!*\
   !*** ./frontend/components/app.jsx ***!
@@ -367,6 +483,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _item_index_item_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./item_index/item_index */ "./frontend/components/item_index/item_index.jsx");
 /* harmony import */ var _item_show_item_show__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./item_show/item_show */ "./frontend/components/item_show/item_show.jsx");
 /* harmony import */ var _navBar_NavBar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./navBar/NavBar */ "./frontend/components/navBar/NavBar.jsx");
+/* harmony import */ var _release_index_release_index__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./release_index/release_index */ "./frontend/components/release_index/release_index.jsx");
+/* harmony import */ var _release_show_release_show__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./release_show/release_show */ "./frontend/components/release_show/release_show.jsx");
+
+
 
 
 
@@ -379,6 +499,14 @@ __webpack_require__.r(__webpack_exports__);
 var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navBar_NavBar__WEBPACK_IMPORTED_MODULE_7__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
+    path: "/store",
+    component: _item_index_item_index__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/store/:id",
+    component: _item_show_item_show__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
     path: "/artists",
     component: _artist_index_artist_index__WEBPACK_IMPORTED_MODULE_3__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
@@ -387,12 +515,12 @@ var App = function App() {
     component: _artist_show_artist_show__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
-    path: "/store",
-    component: _item_index_item_index__WEBPACK_IMPORTED_MODULE_5__["default"]
+    path: "/music",
+    component: _release_index_release_index__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
-    path: "/store/:id",
-    component: _item_show_item_show__WEBPACK_IMPORTED_MODULE_6__["default"]
+    path: "/music/:id",
+    component: _release_show_release_show__WEBPACK_IMPORTED_MODULE_9__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/admin",
     component: _admin_admin_router__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -993,6 +1121,202 @@ var NavBar = function NavBar(_ref) {
 
 /***/ }),
 
+/***/ "./frontend/components/release_index/release_index.jsx":
+/*!*************************************************************!*\
+  !*** ./frontend/components/release_index/release_index.jsx ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util_release_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/release_api_util */ "./frontend/util/release_api_util.js");
+/* harmony import */ var _release_list_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./release_list_item */ "./frontend/components/release_index/release_list_item.jsx");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+var ReleaseIndex = function ReleaseIndex(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState2 = _slicedToArray(_useState, 2),
+      releases = _useState2[0],
+      setReleases = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      error = _useState4[0],
+      setError = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      loading = _useState6[0],
+      setLoading = _useState6[1];
+
+  var fetchReleases = function fetchReleases() {
+    setLoading(true);
+    _util_release_api_util__WEBPACK_IMPORTED_MODULE_1__["default"].fetchReleases().then(function (releases) {
+      var releasesArray = Object.values(releases);
+      setLoading(false);
+      setReleases(Array.from(releasesArray));
+    }, function (err) {
+      setError(err);
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    fetchReleases();
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "release-index-container content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "release-index"
+  }, releases && releases.map(function (release) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_release_list_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      release: release,
+      key: release.id
+    });
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ReleaseIndex);
+
+/***/ }),
+
+/***/ "./frontend/components/release_index/release_list_item.jsx":
+/*!*****************************************************************!*\
+  !*** ./frontend/components/release_index/release_list_item.jsx ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+var ReleaseListItem = function ReleaseListItem(_ref) {
+  var release = _ref.release,
+      history = _ref.history;
+
+  var handleClick = function handleClick() {
+    history.push("/music/".concat(release.id));
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "release-list-item",
+    onClick: handleClick
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    alt: release.title,
+    src: window.album,
+    title: release.title
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(ReleaseListItem));
+
+/***/ }),
+
+/***/ "./frontend/components/release_show/release_show.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/release_show/release_show.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util_release_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/release_api_util */ "./frontend/util/release_api_util.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+var ReleaseShow = function ReleaseShow(_ref) {
+  var match = _ref.match;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState2 = _slicedToArray(_useState, 2),
+      release = _useState2[0],
+      setRelease = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      error = _useState4[0],
+      setError = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      loading = _useState6[0],
+      setLoading = _useState6[1];
+
+  var fetchRelease = function fetchRelease() {
+    var id = match.params.id;
+    setLoading(true);
+    _util_release_api_util__WEBPACK_IMPORTED_MODULE_1__["default"].fetchRelease(id).then(function (release) {
+      setLoading(false);
+      setRelease(release);
+    }, function (err) {
+      setError(err);
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    fetchRelease();
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "release-show content"
+  }, release && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "release-show-details"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: window.dj,
+    alt: "dj pic"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("iframe", {
+    src: "https://open.spotify.com/embed/album/".concat(release.spotify),
+    width: "300",
+    height: "400",
+    frameborder: "0",
+    allowtransparency: "true",
+    allow: "encrypted-media"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "release-show-details-text"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    className: "p-color"
+  }, release.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, release.description))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ReleaseShow);
+
+/***/ }),
+
 /***/ "./frontend/components/root.jsx":
 /*!**************************************!*\
   !*** ./frontend/components/root.jsx ***!
@@ -1121,6 +1445,47 @@ var fetchItems = function fetchItems(data) {
   createItem: createItem,
   fetchItem: fetchItem,
   fetchItems: fetchItems
+});
+
+/***/ }),
+
+/***/ "./frontend/util/release_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/util/release_api_util.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var createRelease = function createRelease(release) {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/releases',
+    data: {
+      release: release
+    }
+  });
+};
+
+var fetchRelease = function fetchRelease(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "api/releases/".concat(id)
+  });
+};
+
+var fetchReleases = function fetchReleases() {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/releases'
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  createRelease: createRelease,
+  fetchRelease: fetchRelease,
+  fetchReleases: fetchReleases
 });
 
 /***/ }),

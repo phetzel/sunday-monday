@@ -1,26 +1,27 @@
 import React from 'react';
-import { Formik } from 'formik';
+import { Formik } from 'formik'
 import { withRouter } from 'react-router-dom';
 
-import itemsApi from '../../../util/item_api_util';
+import releasesApi from '../../../util/release_api_util';
 
-const categories = ["shirt", "sweatshirt", "hat", "album", "misc"]
 
-const ItemForm = ({history}) => {
+const ReleaseForm = ({history}) => {
     const initialValues = {
         title: "",
         description: "",
-        price: "",
-        category: ""
+        spotify: "",
     }
 
-    const handleSubmit = (item) => {
-        itemsApi.createItem(item)
-            .then(res => history.push(`/store/${res.id}`));;
+
+
+    const handleSubmit = (release) => {
+        releasesApi.createRelease(release)
+            .then(res => history.push(`/music/${res.id}`));
+
     }
 
     return (
-        <div className="admin-item-form-container">
+        <div className="admin-release-form-container">
             <h2 className="p-color">Add a New Item</h2>
             <Formik
                 initialValues={initialValues}
@@ -28,7 +29,7 @@ const ItemForm = ({history}) => {
                 // validationSchema={validationSchema}
             >
                 { ({ handleChange, handleSubmit}) => (
-                    <div className="admin-item-form" >
+                    <div className="admin-release-form" >
                         <input 
                             onChange={handleChange("title")} 
                             placeholder="Title"
@@ -39,25 +40,16 @@ const ItemForm = ({history}) => {
                             placeholder="Description" />
 
                         <input 
-                            onChange={handleChange("price")} 
-                            placeholder="Price"
+                            onChange={handleChange("spotify")} 
+                            placeholder="Spotify"
                             type="text"/>
-
-                        <select onChange={handleChange("category")}>
-                            <option value='' >Category</option>
-                            {
-                                categories.map((cat, idx) => (
-                                    <option key={idx} value={cat}>{cat}</option>
-                                ))
-                            }
-                        </select>
 
                         <button 
                             className="button"
                             onClick={handleSubmit} 
-                            title="Add Item" 
+                            title="Add Release" 
                             ype='submit'>
-                            Add Item
+                            Add Release
                         </button>
                     </ div>
                 )}
@@ -67,4 +59,4 @@ const ItemForm = ({history}) => {
     )
 }
 
-export default withRouter(ItemForm);
+export default withRouter(ReleaseForm);

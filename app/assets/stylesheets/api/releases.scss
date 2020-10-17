@@ -1,0 +1,58 @@
+// Place all the styles related to the api/releases controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Index
+//------------------------------------------------------------------------------
+
+.release-index {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+}
+
+.release-list-item {
+  cursor: pointer;
+  margin: 20px;
+}
+
+.release-list-item img {
+  height: 225px;
+  width: 225px;
+}
+
+//Show
+//------------------------------------------------------------------------------
+.release-show {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.release-show-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.release-show-details img {
+  height: 400px;
+  width: 400px;
+}
+
+.release-show-details-text {
+  height: 400px;
+  width: 400px;
+  overflow: scroll;
+}
+
+.release-show-details-text h4 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.release-show-details-text p {
+  margin-top: 20px;
+}
