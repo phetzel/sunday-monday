@@ -114,7 +114,11 @@ var AdminNav = function AdminNav(_ref) {
     onClick: function onClick() {
       return handleClick('/admin/artists');
     }
-  }, "Artists")));
+  }, "Artists"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    onClick: function onClick() {
+      return handleClick('/admin/items');
+    }
+  }, "Items")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(AdminNav));
@@ -135,6 +139,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _admin_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin_nav */ "./frontend/components/admin/admin_nav.jsx");
 /* harmony import */ var _artists_artists__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./artists/artists */ "./frontend/components/admin/artists/artists.jsx");
+/* harmony import */ var _items_items__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./items/items */ "./frontend/components/admin/items/items.jsx");
+
 
 
 
@@ -145,6 +151,10 @@ var AdminRouter = function AdminRouter() {
     exact: true,
     path: "/admin/artists",
     component: _artists_artists__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/admin/items",
+    component: _items_items__WEBPACK_IMPORTED_MODULE_4__["default"]
   })));
 };
 
@@ -200,9 +210,10 @@ var ArtistForm = function ArtistForm(props) {
       onChange: handleChange("description"),
       placeholder: "Biography"
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "button",
       onClick: handleSubmit,
       title: "Add Artist",
-      type: "submit"
+      ype: "submit"
     }, "Add Artist"));
   }));
 };
@@ -233,6 +244,108 @@ var Artists = function Artists(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Artists);
+
+/***/ }),
+
+/***/ "./frontend/components/admin/items/item_form.jsx":
+/*!*******************************************************!*\
+  !*** ./frontend/components/admin/items/item_form.jsx ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var _util_item_api_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../util/item_api_util */ "./frontend/util/item_api_util.js");
+
+
+
+var categories = ["shirt", "sweatshirt", "hat", "album", "misc"];
+
+var ItemForm = function ItemForm(props) {
+  var initialValues = {
+    title: "",
+    description: "",
+    price: "",
+    category: ""
+  };
+
+  var handleSubmit = function handleSubmit(item) {
+    _util_item_api_util__WEBPACK_IMPORTED_MODULE_2__["default"].createItem(item);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "admin-item-form-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "p-color"
+  }, "Add a New Item"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_1__["Formik"], {
+    initialValues: initialValues,
+    onSubmit: handleSubmit // validationSchema={validationSchema}
+
+  }, function (_ref) {
+    var handleChange = _ref.handleChange,
+        handleSubmit = _ref.handleSubmit;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "admin-item-form"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      onChange: handleChange("title"),
+      placeholder: "Title",
+      type: "text"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      onChange: handleChange("description"),
+      placeholder: "Description"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      onChange: handleChange("price"),
+      placeholder: "Price",
+      type: "text"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      onChange: handleChange("category")
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      value: "",
+      placeholder: true
+    }, "Category"), categories.map(function (cat, idx) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        key: idx,
+        value: cat
+      }, cat);
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "button",
+      onClick: handleSubmit,
+      title: "Add Item",
+      ype: "submit"
+    }, "Add Item"));
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ItemForm);
+
+/***/ }),
+
+/***/ "./frontend/components/admin/items/items.jsx":
+/*!***************************************************!*\
+  !*** ./frontend/components/admin/items/items.jsx ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _item_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./item_form */ "./frontend/components/admin/items/item_form.jsx");
+
+
+
+var Items = function Items() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "admin-item"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_item_form__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Items);
 
 /***/ }),
 

@@ -39,3 +39,24 @@
 .nav-active {
   font-weight: 700;
 }
+
+//bottom-nav
+//---------------------------------------------------------------------------
+.bottom-nav {
+  align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  margin-top: 70px;
+}
+
+.bottom-nav ul {
+  display: flex;
+}
+
+.bottom-nav li {
+  margin: 0 10px;
+  cursor: pointer;
+}

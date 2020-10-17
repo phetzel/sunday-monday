@@ -33,7 +33,11 @@ const ArtistForm = (props) => {
                             onChange={handleChange("description")}
                             placeholder="Biography" />
 
-                        <button onClick={handleSubmit} title="Add Artist" type='submit'>
+                        <button 
+                            className="button"
+                            onClick={handleSubmit} 
+                            title="Add Artist" 
+                            ype='submit'>
                             Add Artist
                         </button>
                     </ div>
