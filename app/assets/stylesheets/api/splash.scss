@@ -1,0 +1,19 @@
+.splash {
+  height: 1000px;
+}
+
+.splash-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.pallarax {
+  background-image: asset-url("tree.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  height: 400px;
+}
