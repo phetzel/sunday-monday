@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik } from "formik";
 import { withRouter } from 'react-router-dom';
 
@@ -6,15 +6,27 @@ import artistApi from '../../../util/artist_api_util';
 
 
 const ArtistForm = ({history}) => {
+    const [photo, setPhoto] = useState();
+
     const initialValues = {
         name: "",
         description: "",
+        photo: ''
     }
 
+    const handleFile = (e) => {
+        setPhoto(e.currentTarget.files[0]);
+    };
+
     const handleSubmit = (artist) => {
-        artistApi.createArtist(artist)
-            .then(res => history.push(`/artists/${res.id}`));;
-    }
+        const formData = new FormData();
+        
+        formData.append('artist[name]', artist.name);
+        formData.append('artist[description]', artist.description);
+        formData.append('artist[photo]', photo);
+        artistApi.createArtist(formData)
+            .then(res => history.push(`/artists/${res.id}`));
+    };
 
     return (
         <div className="admin-artist-form-container">
@@ -32,8 +44,12 @@ const ArtistForm = ({history}) => {
                             type="text"/>
 
                         <textarea 
-                            onChange={handleChange("description")}
+                            onChange={handleChange("description")} 
                             placeholder="Biography" />
+
+                        <input 
+                            onChange={handleFile}
+                            type="file"/>
 
                         <button 
                             className="button"

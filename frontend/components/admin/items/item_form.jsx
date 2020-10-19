@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
 import { withRouter } from 'react-router-dom';
 
@@ -7,6 +7,8 @@ import itemsApi from '../../../util/item_api_util';
 const categories = ["shirt", "sweatshirt", "hat", "album", "misc"]
 
 const ItemForm = ({history}) => {
+    const [photo, setPhoto] = useState();
+
     const initialValues = {
         title: "",
         description: "",
@@ -14,8 +16,20 @@ const ItemForm = ({history}) => {
         category: ""
     }
 
+    const handleFile = (e) => {
+        setPhoto(e.currentTarget.files[0]);
+    };
+
     const handleSubmit = (item) => {
-        itemsApi.createItem(item)
+        const formData = new FormData();
+
+        formData.append('item[title]', item.title);
+        formData.append('item[description]', item.description);
+        formData.append('item[price]', item.price);
+        formData.append('item[category]', item.category);
+        formData.append('item[photo]', photo);
+
+        itemsApi.createItem(formData)
             .then(res => history.push(`/store/${res.id}`));;
     }
 
@@ -51,6 +65,10 @@ const ItemForm = ({history}) => {
                                 ))
                             }
                         </select>
+
+                        <input 
+                            onChange={handleFile}
+                            type="file"/>
 
                         <button 
                             className="button"

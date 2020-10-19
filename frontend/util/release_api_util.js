@@ -2,7 +2,9 @@ const createRelease = release => (
     $.ajax({
         method: 'POST',
         url: 'api/releases',
-        data: { release }
+        data: release,
+        processData: false,
+        contentType: false,
     })
 )
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import BottomNav from '../navBar/bottom_nav';
 import itemApi from '../../util/item_api_util';
 
 const ItemShow = ({ match }) => {
@@ -23,18 +24,21 @@ const ItemShow = ({ match }) => {
     }, []);
 
     return (
-        <div className="item-show content">
-            {item && 
-            <div className="item-show-details">
-                <img src={window.dj} alt="dj pic"/>
+        <div>
+            <BottomNav />
+            <div className="item-show content">
+                {item && 
+                <div className="item-show-details">
+                    <img src={item.photoUrl} alt="dj pic"/>
 
-                <div className="item-show-details-text">
-                    <h4 className="p-color">{item.title}</h4>
-                    <p>{item.description}</p>
-                    <button className="button">Add to Cart</button>
+                    <div className="item-show-details-text">
+                        <h4 className="p-color">{item.title}</h4>
+                        <p>{item.description}</p>
+                        <button className="button">Add to Cart</button>
+                    </div>
                 </div>
+                }
             </div>
-            }
         </div>
     )
 };

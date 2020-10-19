@@ -1,6 +1,6 @@
 class Api::ItemsController < ApplicationController
     def index
-        @items = Item.all 
+        @items = Item.order(:title) 
 
         if category != ""
             @items = @items.select{ |item| item.category == category}
@@ -27,10 +27,12 @@ class Api::ItemsController < ApplicationController
     private
     def item_params
         params.require(:item).permit(
+            :id,
             :title,
             :description,
             :price,
-            :category
+            :category,
+            :photo
         )
     end 
 

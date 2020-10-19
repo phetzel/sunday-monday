@@ -22,9 +22,11 @@ class Api::ReleasesController < ApplicationController
     private
     def release_params
         params.require(:release).permit(
+            :id,
             :title,
             :description,
-            :spotify
+            :spotify,
+            :photo
         )
     end
 end

@@ -6,26 +6,10 @@ const ItemListItem = ({item, history}) => {
         history.push(`/store/${item.id}`);
     }
 
-    const getImg = () => {
-        switch (item.category) {
-            case 'hat': 
-                return <img src={window.hat} alt="item pic"/>;
-            case 'shirt': 
-                return <img src={window.shirt} alt="item pic"/>;
-            case 'misc': 
-                return <img src={window.misc} alt="item pic"/>;
-            case 'sweatshirt': 
-                return <img src={window.sweatshirt} alt="item pic"/>;
-            case 'album': 
-                return <img src={window.album} alt="item pic"/>;
-        }
-    }
-
-    const image = getImg();
-
+    console.log(item);
     return (
         <div className="item-list-item" onClick={handleClick}>
-            {image}
+            <img src={item.photoUrl} alt="item pic"/>
             <h4>{item.title}</h4>
             <h6 className="money">${item.price}</h6>
         </div>

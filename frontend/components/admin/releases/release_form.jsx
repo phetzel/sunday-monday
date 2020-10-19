@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik'
 import { withRouter } from 'react-router-dom';
 
@@ -6,23 +6,34 @@ import releasesApi from '../../../util/release_api_util';
 
 
 const ReleaseForm = ({history}) => {
+    const [photo, setPhoto] = useState();
+
     const initialValues = {
         title: "",
         description: "",
         spotify: "",
     }
 
-
+    const handleFile = (e) => {
+        setPhoto(e.currentTarget.files[0]);
+    };
 
     const handleSubmit = (release) => {
-        releasesApi.createRelease(release)
+        const formData = new FormData();
+
+        formData.append('release[title]', release.title);
+        formData.append('release[description]', release.description);
+        formData.append('release[spotify]', release.spotify);
+        formData.append('release[photo]', photo);
+
+        releasesApi.createRelease(formData)
             .then(res => history.push(`/music/${res.id}`));
 
     }
 
     return (
         <div className="admin-release-form-container">
-            <h2 className="p-color">Add a New Item</h2>
+            <h2 className="p-color">Add a New Album</h2>
             <Formik
                 initialValues={initialValues}
                 onSubmit={handleSubmit}
@@ -43,6 +54,11 @@ const ReleaseForm = ({history}) => {
                             onChange={handleChange("spotify")} 
                             placeholder="Spotify"
                             type="text"/>
+                        
+                        <input 
+                            onChange={handleFile}
+                            type="file"/>
+
 
                         <button 
                             className="button"

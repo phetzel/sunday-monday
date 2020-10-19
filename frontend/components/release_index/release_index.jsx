@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import BottomNav from '../navBar/bottom_nav';
 import releaseApi from '../../util/release_api_util';
 import ReleaseListItem from './release_list_item';
 
@@ -25,11 +26,14 @@ const ReleaseIndex = props => {
     }, []);
 
     return (
-        <div className="release-index-container content">
-            <ul className="release-index">
-                {releases && releases.map(release => 
-                    <ReleaseListItem release={release} key={release.id} />)}
-            </ul>
+        <div>
+            <BottomNav />
+            <div className="release-index-container content">
+                <ul className="release-index">
+                    {releases && releases.map(release => 
+                        <ReleaseListItem release={release} key={release.id} />)}
+                </ul>
+            </div>
         </div>
     )
 }

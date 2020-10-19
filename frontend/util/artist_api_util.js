@@ -2,7 +2,9 @@ const createArtist = artist => (
     $.ajax({
         method: 'POST',
         url: 'api/artists',
-        data: { artist }
+        data: artist,
+        processData: false,
+        contentType: false,
     })
 )
 

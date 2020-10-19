@@ -2,7 +2,9 @@ const createItem = item => (
     $.ajax({
         method: 'POST',
         url: 'api/items',
-        data: { item }
+        data: item,
+        processData: false,
+        contentType: false,
     })
 )
 

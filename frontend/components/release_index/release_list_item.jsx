@@ -8,7 +8,7 @@ const ReleaseListItem = ({release, history}) => {
 
     return (
         <div className="release-list-item" onClick={handleClick}>
-            <img alt={release.title} src={window.album} title={release.title}/>
+            <img alt={release.title} src={release.photoUrl} title={release.title}/>
         </div>
     )
 }
