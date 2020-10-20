@@ -23,8 +23,16 @@ const fetchItems = data => (
     })
 );
 
+const deleteItem = id => {
+    return $.ajax({
+        url: `/api/items/${id}`,
+        method: 'DELETE'
+    });
+}
+
 export default {
     createItem,
     fetchItem,
-    fetchItems
+    fetchItems,
+    deleteItem
 }

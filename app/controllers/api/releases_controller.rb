@@ -18,6 +18,13 @@ class Api::ReleasesController < ApplicationController
             render json: @release.errors.full_messages, status: 422
         end 
     end 
+    
+    def destroy
+        release = Release.find(params[:id])
+        release.destroy
+        @releases = Release.all 
+        render :index
+    end
 
     private
     def release_params

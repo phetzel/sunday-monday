@@ -19,6 +19,13 @@ class Api::ArtistsController < ApplicationController
         end
     end 
 
+    def destroy
+        artist = Artist.find(params[:id])
+        artist.destroy
+        @artists = Artist.all
+        render :index
+    end
+
     def artist_params 
         params.require(:artist).permit(
             :id,

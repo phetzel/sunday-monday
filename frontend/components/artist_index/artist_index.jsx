@@ -25,8 +25,6 @@ const ArtistIndex = props => {
         fetchArtists();
     }, []);
 
-    console.log(artists);
-
     return (
         <div>
             <BottomNav />

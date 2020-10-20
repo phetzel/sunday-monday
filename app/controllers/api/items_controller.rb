@@ -24,6 +24,13 @@ class Api::ItemsController < ApplicationController
         end 
     end
 
+    def destroy
+        item = Item.find(params[:id])
+        item.destroy
+        @items = Item.all
+        render :index
+    end
+
     private
     def item_params
         params.require(:item).permit(

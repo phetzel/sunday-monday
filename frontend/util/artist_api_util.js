@@ -22,8 +22,16 @@ const fetchArtists = () => (
     })
 );
 
+const deleteArtist = id => {
+    return $.ajax({
+        url: `/api/artists/${id}`,
+        method: 'DELETE'
+    });
+}
+
 export default {
     createArtist,
     fetchArtist,
-    fetchArtists
+    fetchArtists,
+    deleteArtist
 }

@@ -22,8 +22,16 @@ const fetchReleases = () => (
     })
 );
 
+const deleteRelease = id => {
+    return $.ajax({
+        url: `/api/releases/${id}`,
+        method: 'DELETE'
+    });
+}
+
 export default {
     createRelease,
     fetchRelease,
-    fetchReleases
+    fetchReleases,
+    deleteRelease
 }

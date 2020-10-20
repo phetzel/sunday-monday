@@ -1,0 +1,27 @@
+// Admin List
+//------------------------------------------------------------------------------
+
+.admin-list h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.admin-list ul {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  max-height: 400px;
+  overflow: scroll;
+}
+.admin-list li {
+  align-items: center;
+  display: flex;
+  height: 30px;
+  justify-content: space-between;
+  padding: 10px 5px;
+  width: 300px;
+}
+
+.admin-list li:hover {
+  background-color: #fcf8f7;
+  cursor: pointer;
+}
