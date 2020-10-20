@@ -2,20 +2,15 @@ import React, { useEffect, useState } from 'react';
 
 import BottomNav from '../navBar/bottom_nav';
 import resleaseApi from '../../util/release_api_util';
+import ReleaseShowArtists from './release_show_artists';
 
 const ReleaseShow = ({ match}) => {
     const [release, setRelease] = useState();
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
 
     const fetchRelease = () => {
         const id = match.params.id;
-        setLoading(true);
         resleaseApi.fetchRelease(id).then(release => {
-            setLoading(false);
             setRelease(release);
-        }, err => {
-            setError(err)
         })
     }
 
@@ -23,7 +18,8 @@ const ReleaseShow = ({ match}) => {
         fetchRelease();
     }, []);
     
-    console.log(release);
+    if (release) console.log(release);
+
     return(
         <div>
             <BottomNav />
@@ -39,8 +35,13 @@ const ReleaseShow = ({ match}) => {
                             allowtransparency="true" 
                             allow="encrypted-media" />  
                         <div className="release-show-details-text">
-                            <h4 className="p-color">{release.title}</h4>
-                            <p>{release.description}</p>
+                            <div>
+                                <h4 className="p-color">{release.title}</h4>
+                                <p>{release.description}</p>
+                            </div>
+                            {release.artists && 
+                                <ReleaseShowArtists artists={release.artists} />
+                            }
                         </div> 
                     </div>
                 }

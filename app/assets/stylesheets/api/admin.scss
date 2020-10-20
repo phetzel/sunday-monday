@@ -12,6 +12,7 @@
   max-height: 400px;
   overflow: scroll;
 }
+
 .admin-list li {
   align-items: center;
   display: flex;
@@ -24,4 +25,67 @@
 .admin-list li:hover {
   background-color: #fcf8f7;
   cursor: pointer;
+}
+
+//Feature Modal
+//------------------------------------------------------------------------------
+.admin-release-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 322px;
+}
+
+.admin-feature-modal-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.admin-feature-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 24px;
+  min-width: 300px;
+  max-width: 80vw;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-family: Proxima Nova, sans-serif;
+}
+
+.admin-feature-modal h3 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.admin-feature-modal ul {
+  max-height: 400px;
+  overflow: scroll;
+}
+
+.admin-feature-modal li {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  padding: 10px 5px;
+  width: 300px;
+}
+
+.admin-feature-modal-inactive:hover {
+  background-color: #fcf8f7;
+}
+
+.admin-feature-modal-active {
+  background-color: #a3e0bb;
 }

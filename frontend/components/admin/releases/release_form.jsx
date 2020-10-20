@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { Formik } from 'formik'
 import { withRouter } from 'react-router-dom';
 
+import Modal from './modal';
+import featureApi from '../../../util/feature_api_util';
 import releasesApi from '../../../util/release_api_util';
 
 
 const ReleaseForm = ({history}) => {
     const [photo, setPhoto] = useState();
+    const [features, setFeatures] = useState([]);
+    const [visible, setVisible] = useState(false);
 
     const initialValues = {
         title: "",
@@ -26,13 +30,26 @@ const ReleaseForm = ({history}) => {
         formData.append('release[spotify]', release.spotify);
         formData.append('release[photo]', photo);
 
-        releasesApi.createRelease(formData)
-            .then(res => history.push(`/music/${res.id}`));
+        releasesApi.createRelease(formData).then(res => {
+            features.forEach(feature => {
+                const newFeature = { release_id: res.id, artist_id: feature };
+                featureApi.createFeature(newFeature);
+            });
 
+            history.push(`/music/${res.id}`)
+        });
     }
+
+    const handleModal = (val) => setVisible(val);
+    
 
     return (
         <div className="admin-release-form-container">
+            <Modal
+                features={features}
+                setFeatures={setFeatures}
+                setVisible={setVisible}
+                visible={visible}/>
             <h2 className="p-color">Add a New Album</h2>
             <Formik
                 initialValues={initialValues}
@@ -59,14 +76,22 @@ const ReleaseForm = ({history}) => {
                             onChange={handleFile}
                             type="file"/>
 
+                        <div className="admin-release-buttons">
+                            <button 
+                                className="button"
+                                onClick={handleSubmit} 
+                                title="Add Release" 
+                                type='submit'>
+                                Add Release
+                            </button>
 
-                        <button 
-                            className="button"
-                            onClick={handleSubmit} 
-                            title="Add Release" 
-                            ype='submit'>
-                            Add Release
-                        </button>
+                            <button 
+                                className="button"
+                                onClick={() => handleModal('true')} 
+                                title="Add Artists" >
+                                Add Artists
+                            </button>
+                        </div>
                     </ div>
                 )}
 

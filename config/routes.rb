@@ -5,5 +5,6 @@ Rails.application.routes.draw do
       resources :artists, only: [:index, :show, :create, :destroy]
       resources :items, only: [:index, :show, :create, :destroy]
       resources :releases, only: [:index, :show, :create, :destroy]
+      resources :features, only: [:create, :destroy]
    end
 end

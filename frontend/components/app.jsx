@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import AdminRouter from './admin/admin_router';
 import ArtistIndex from './artist_index/artist_index';
 import ArtistShow from './artist_show/artist_show';
+import Contact from './contact/contact';
 import ItemIndex from './item_index/item_index'
 import ItemShow from './item_show/item_show';
 import NavBar from './navBar/NavBar';
@@ -25,6 +26,8 @@ const App = () => (
 
             <Route exact path="/music" component={ReleaseIndex} />
             <Route exact path="/music/:id" component={ReleaseShow} />
+
+            <Route exact path="/contact" component={Contact} />
 
             <Route path="/admin" component={AdminRouter} />
         </Switch>

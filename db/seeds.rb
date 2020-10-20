@@ -9,18 +9,18 @@
 ActiveRecord::Base.transaction do
     Artist.destroy_all
 
-    artist = Artist.create!(
-        id: '1',
-        name: 'Dj GoFuckYourself',
-        description: "Blending the smooth sounds of music, with the scary sounds of Jazz,
-         Dj GoFuckYourself, or Francis, will make you move both feet at the same time. Wow! This 
-         up and coming dj, out of the greater Stockton area, was named EDM Stockton's
-         2017 DJ of the Year before scandle hit... Outside of music Francis describes himself as
-         an average dude"
-        )
+    # artist = Artist.create!(
+    #     id: '1',
+    #     name: 'Dj GoFuckYourself',
+    #     description: "Blending the smooth sounds of music, with the scary sounds of Jazz,
+    #      Dj GoFuckYourself, or Francis, will make you move both feet at the same time. Wow! This 
+    #      up and coming dj, out of the greater Stockton area, was named EDM Stockton's
+    #      2017 DJ of the Year before scandle hit... Outside of music Francis describes himself as
+    #      an average dude"
+    #     )
 
-    file = File.open('app/assets/images/djs/dj1.jpg')
-    artist.photo.attach(io: file, filename: 'dj1.jpg')
+    # file = File.open('app/assets/images/djs/dj1.jpg')
+    # artist.photo.attach(io: file, filename: 'dj1.jpg')
 
 
     
@@ -226,5 +226,6 @@ ActiveRecord::Base.transaction do
     # )
 
         Release.destroy_all
+        Feature.destroy_all
 
 end

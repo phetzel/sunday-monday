@@ -43,18 +43,32 @@
 }
 
 .release-show-details-text {
+  display: flex;
+  flex-direction: column;
   height: 400px;
-  width: 400px;
+  justify-content: space-between;
   overflow: scroll;
+  width: 400px;
 }
 
 .release-show-details-text h4 {
   font-size: 30px;
   font-weight: 700;
+  margin-bottom: 20px;
 }
 
-.release-show-details-text p {
-  margin-top: 20px;
+.release-show-details-text div {
+  margin-bottom: 10px;
+}
+
+.release-show-artist li {
+  cursor: pointer;
+  font-size: 20px;
+  padding: 5px 0;
+}
+
+.release-show-artist li:hover {
+  background-color: #fcf8f7;
 }
 
 // Release Admin
