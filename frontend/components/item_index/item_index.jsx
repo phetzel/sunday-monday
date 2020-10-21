@@ -8,19 +8,13 @@ const ItemIndex = props => {
     const [category, setCategory] = useState('');
 
     const [items, setItems] = useState();
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
 
     let data = { category: category};
 
     const fetchItems = (data) => {
-        setLoading(true);
         itemApi.fetchItems(data).then(items => {
             const itemsArray = Object.values(items);
-            setLoading(false);
             setItems(Array.from(itemsArray));
-        }, err => {
-            setError(err)
         })
     }
 
@@ -61,6 +55,7 @@ const ItemIndex = props => {
                             className={isActiveCat('misc')} 
                             onClick={() => handleClick('misc')}>Other</li>
                     </ul>
+                    <button>&#128722;</button>
                 </div>
 
                 <ul className="item-index">

@@ -1224,12 +1224,12 @@ var ArtistShow = function ArtistShow(_ref) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     fetchArtist();
   }, []);
-  console.log(artist);
+  if (artist) console.log(artist.releases);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "artist-show content"
   }, artist && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_artist_show_detail__WEBPACK_IMPORTED_MODULE_2__["default"], {
     artist: artist
-  }), artist && artist.releases && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_artist_show_music__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), artist && artist.releases.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_artist_show_music__WEBPACK_IMPORTED_MODULE_3__["default"], {
     releases: artist.releases
   })));
 };
@@ -1384,28 +1384,14 @@ var ItemIndex = function ItemIndex(props) {
       items = _useState4[0],
       setItems = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      error = _useState6[0],
-      setError = _useState6[1];
-
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState8 = _slicedToArray(_useState7, 2),
-      loading = _useState8[0],
-      setLoading = _useState8[1];
-
   var data = {
     category: category
   };
 
   var fetchItems = function fetchItems(data) {
-    setLoading(true);
     _util_item_api_util__WEBPACK_IMPORTED_MODULE_2__["default"].fetchItems(data).then(function (items) {
       var itemsArray = Object.values(items);
-      setLoading(false);
       setItems(Array.from(itemsArray));
-    }, function (err) {
-      setError(err);
     });
   };
 
@@ -1460,7 +1446,7 @@ var ItemIndex = function ItemIndex(props) {
     onClick: function onClick() {
       return handleClick('misc');
     }
-  }, "Other"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+  }, "Other")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "\uD83D\uDED2")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "item-index"
   }, items && items.map(function (item) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_item_list_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -1879,7 +1865,6 @@ var ReleaseShow = function ReleaseShow(_ref) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     fetchRelease();
   }, []);
-  if (release) console.log(release);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "release-show content"
   }, release && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

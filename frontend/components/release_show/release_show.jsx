@@ -18,7 +18,6 @@ const ReleaseShow = ({ match}) => {
         fetchRelease();
     }, []);
     
-    if (release) console.log(release);
 
     return(
         <div>

@@ -19,14 +19,14 @@ const ArtistShow = ({ match}) => {
         fetchArtist();
     }, []);
     
-    console.log(artist);
+    if(artist) console.log(artist.releases);
 
     return(
         <div>
             <BottomNav />
             <div className="artist-show content">
                 {artist && <ArtistShowDetail artist={artist}/>}
-                {artist && artist.releases &&
+                {artist && artist.releases.length > 0 &&
                     <ArtistShowMusic releases={artist.releases} />}
             </div>
         </div>
