@@ -6,18 +6,11 @@ import BottomNav from '../navBar/bottom_nav';
 
 const ArtistIndex = props => {
     const [artists, setArtists] = useState();
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
 
 
     const fetchArtists = () => {
-        setLoading(true);
         artistApi.fetchArtists().then(artists => {
-            const artistsArray = Object.values(artists);
-            setLoading(false);
-            setArtists(Array.from(artistsArray));
-        }, err => {
-            setError(err)
+            setArtists(artists);
         })
     }
 

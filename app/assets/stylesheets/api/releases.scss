@@ -5,11 +5,16 @@
 //Index
 //------------------------------------------------------------------------------
 
+.release-index-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 .release-index {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  width: 90%;
+  // justify-content: center;
+  width: 80%;
 }
 
 .release-list-item {

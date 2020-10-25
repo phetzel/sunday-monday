@@ -1,5 +1,3 @@
-@artists.each do |artist|
-    json.set! artist.id do 
-        json.partial! 'artist', artist: artist 
-    end
+json.array! (@artists) do |artist|
+    json.partial! 'artist', artist: artist 
 end

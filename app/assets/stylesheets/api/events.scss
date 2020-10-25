@@ -1,0 +1,78 @@
+//Event Index
+//------------------------------------------------------------------------------
+.event-index-container {
+  width: 100%;
+}
+
+.event-index-container ul {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  z-index: -100;
+}
+
+.event-index-item {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 0;
+  width: 66%;
+}
+
+.event-map-container {
+  height: 350px;
+  width: 350px;
+  z-index: -100;
+}
+
+.event-index-item-text h3 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.event-index-item-text p {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+//Event Admin
+//------------------------------------------------------------------------------
+
+.admin-event {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.admin-event-form-container h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.admin-event-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 300px;
+}
+
+.admin-event-form input,
+.admin-event-form textarea {
+  border: 1px solid #ccc;
+  margin: 0 0 5px;
+  width: 100%;
+  padding: 10px;
+}
+
+.admin-event-form input:focus,
+.admin-event-form textarea:focus {
+  outline: none;
+}
+
+.admin-event-form textarea {
+  height: 150px;
+  width: 100%;
+  resize: none;
+}

@@ -1,5 +1,7 @@
 .splash {
-  height: 1000px;
+  background-color: blue;
+  height: 2000px;
+  position: relative;
 }
 
 .splash-placeholder {
@@ -15,5 +17,17 @@
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  height: 400px;
+  height: 200px;
+}
+
+.hor-pallarax {
+  position: absolute;
+  top: 28%;
+  left: 100px;
+  width: 100%;
+  text-align: center;
+  background-color: black;
+  margin-top: 100px;
+  height: 100px;
+  width: 100px;
 }

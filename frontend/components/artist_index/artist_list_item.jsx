@@ -6,7 +6,6 @@ const ArtistListItem = ({artist, history}) => {
         history.push(`/artists/${artist.id}`);
     }
 
-    console.log(artist);
     return (
         <div className="artist-list-item" onClick={handleClick}>
             <img src={artist.photoUrl} alt="dj pic"/>
