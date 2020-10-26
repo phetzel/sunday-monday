@@ -8,6 +8,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 200;
 }
 
 .nav-bar-left {
@@ -38,6 +39,25 @@
 
 .nav-active {
   font-weight: 700;
+}
+
+//drop-down
+//------------------------------------------------------------------------------
+.nav-drop-down {
+  border: 1px solid black;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  position: absolute;
+  padding: 10px;
+  // z-index: 250;
+}
+
+.nav-drop-down li {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 5px 0;
 }
 
 //bottom-nav

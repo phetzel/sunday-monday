@@ -1,8 +1,11 @@
 import React, { useState }  from 'react';
 import { withRouter } from 'react-router-dom';
 
+import MusicDropDown from './music_drop_down';
+
 const NavBar = ({ history }) => {
     const [tab, setTab] = useState(0);
+    const [musicVisible, setMusicVisible] = useState(false);
     
     const handleClick = (loc, num) => {
         history.push(loc);
@@ -24,8 +27,13 @@ const NavBar = ({ history }) => {
                 <li onClick={() => handleClick('/artists', 2)}>
                     <p className={isActiveTab(2)} >Artists</p>
                 </li>
-                <li onClick={() => handleClick('/music', 3)}>
+                <li 
+                    onMouseEnter={() => setMusicVisible(true)}
+                >
                    <p className={isActiveTab(3)} >Music</p>
+                   <div onMouseLeave={() => setMusicVisible(false)}>
+                        <MusicDropDown visible={musicVisible}/>
+                   </div>
                 </li>
                 <li onClick={() => handleClick('/events', 4)}>
                    <p className={isActiveTab(4)} >Events</p>

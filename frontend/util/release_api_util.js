@@ -15,10 +15,11 @@ const fetchRelease = id => (
     })
 )
 
-const fetchReleases = () => (
+const fetchReleases = (data) => (
     $.ajax({
         method: 'GET',
-        url: 'api/releases'
+        url: 'api/releases',
+        data
     })
 );
 

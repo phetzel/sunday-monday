@@ -4,20 +4,14 @@ import BottomNav from '../navBar/bottom_nav';
 import releaseApi from '../../util/release_api_util';
 import ReleaseListItem from './release_list_item';
 
-const ReleaseIndex = props => {
+const ReleaseIndex = ({medium, title}) => {
     const [releases, setReleases] = useState();
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
-
 
     const fetchReleases = () => {
-        setLoading(true);
-        releaseApi.fetchReleases().then(releases => {
+        const type = {medium: medium};
+        releaseApi.fetchReleases(type).then(releases => {
             const releasesArray = Object.values(releases);
-            setLoading(false);
             setReleases(Array.from(releasesArray));
-        }, err => {
-            setError(err)
         })
     }
 
@@ -25,10 +19,14 @@ const ReleaseIndex = props => {
         fetchReleases();
     }, []);
 
+
     return (
         <div>
             <BottomNav />
             <div className="release-index-container content">
+                <div className="release-index-header">
+                    <h1 className="p-color">{title}</h1>
+                </div>
                 <ul className="release-index">
                     {releases && releases.map(release => 
                         <ReleaseListItem release={release} key={release.id} />)}

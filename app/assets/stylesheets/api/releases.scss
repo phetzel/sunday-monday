@@ -6,14 +6,26 @@
 //------------------------------------------------------------------------------
 
 .release-index-container {
+  align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
 }
+
+.release-index-header {
+  width: 80%;
+}
+
+.release-index-header h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
 .release-index {
   display: flex;
   flex-wrap: wrap;
-  // justify-content: center;
   width: 80%;
 }
 
@@ -97,7 +109,8 @@
 }
 
 .admin-release-form input,
-.admin-release-form textarea {
+.admin-release-form textarea,
+.admin-release-form select {
   border: 1px solid #ccc;
   margin: 0 0 5px;
   width: 100%;

@@ -1,6 +1,11 @@
 class Api::ReleasesController < ApplicationController
     def index
         @releases = Release.all
+
+        if medium
+            @releases = @releases.select{ |release| release.medium == medium }
+        end
+
         render :index 
     end 
 
@@ -33,7 +38,12 @@ class Api::ReleasesController < ApplicationController
             :title,
             :description,
             :spotify,
-            :photo
+            :photo,
+            :medium
         )
+    end
+
+    def medium
+        params[:medium]
     end
 end

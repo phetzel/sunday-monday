@@ -6,6 +6,7 @@ import Modal from './modal';
 import featureApi from '../../../util/feature_api_util';
 import releasesApi from '../../../util/release_api_util';
 
+const mediums = ["album", "playlist"];
 
 const ReleaseForm = ({history}) => {
     const [photo, setPhoto] = useState();
@@ -16,6 +17,7 @@ const ReleaseForm = ({history}) => {
         title: "",
         description: "",
         spotify: "",
+        medium: "album"
     }
 
     const handleFile = (e) => {
@@ -28,6 +30,7 @@ const ReleaseForm = ({history}) => {
         formData.append('release[title]', release.title);
         formData.append('release[description]', release.description);
         formData.append('release[spotify]', release.spotify);
+        formData.append('release[medium]', release.medium);
         formData.append('release[photo]', photo);
 
         releasesApi.createRelease(formData).then(res => {
@@ -51,12 +54,11 @@ const ReleaseForm = ({history}) => {
                 setVisible={setVisible}
                 visible={visible}/>
 
-            <h2 className="p-color">Add a New Album</h2>
+            <h2 className="p-color">Add New Music</h2>
             
             <Formik
                 initialValues={initialValues}
                 onSubmit={handleSubmit}
-                // validationSchema={validationSchema}
             >
                 { ({ handleChange, handleSubmit}) => (
                     <div className="admin-release-form" >
@@ -73,6 +75,15 @@ const ReleaseForm = ({history}) => {
                             onChange={handleChange("spotify")} 
                             placeholder="Spotify"
                             type="text"/>
+
+                        <select onChange={handleChange("medium")}>
+                            <option value='album'>Medium</option>
+                            {
+                                mediums.map((medium, idx) => (
+                                    <option key={idx} value={medium}>{medium}</option>
+                                ))
+                            }
+                        </select>
                         
                         <input 
                             onChange={handleFile}
