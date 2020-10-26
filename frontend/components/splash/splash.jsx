@@ -3,6 +3,7 @@ import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 
 import BottomNav from '../navBar/bottom_nav';
 import SplashArtist from './splash_artist';
+import SplashRelease from './splash_release';
 
 const Splash = () => {
     return (
@@ -12,6 +13,7 @@ const Splash = () => {
                 Live Laugh Love
             </div>
             <SplashArtist />
+            <SplashRelease />
         </div>
     )
 }
