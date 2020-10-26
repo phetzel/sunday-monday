@@ -2615,7 +2615,7 @@ var ReleaseShow = function ReleaseShow(_ref) {
     className: "release-show-details-text"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
     className: "p-color"
-  }, release.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, release.description)), release.artists && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_release_show_artists__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, release.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, release.description)), release.artists && release.artists.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_release_show_artists__WEBPACK_IMPORTED_MODULE_3__["default"], {
     artists: release.artists
   })))));
 };
@@ -2706,7 +2706,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_scroll_parallax__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_scroll_parallax__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../navBar/bottom_nav */ "./frontend/components/navBar/bottom_nav.jsx");
 /* harmony import */ var _splash_artist__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./splash_artist */ "./frontend/components/splash/splash_artist.jsx");
+/* harmony import */ var _splash_event__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./splash_event */ "./frontend/components/splash/splash_event.jsx");
 /* harmony import */ var _splash_release__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./splash_release */ "./frontend/components/splash/splash_release.jsx");
+
 
 
 
@@ -2718,7 +2720,7 @@ var Splash = function Splash() {
     className: "splash"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-placeholder semi-serif"
-  }, "Live Laugh Love"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_artist__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_release__WEBPACK_IMPORTED_MODULE_5__["default"], null));
+  }, "Live Laugh Love"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_event__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_artist__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_release__WEBPACK_IMPORTED_MODULE_5__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Splash);
@@ -2791,6 +2793,75 @@ var SplashArtist = function SplashArtist(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(SplashArtist));
+
+/***/ }),
+
+/***/ "./frontend/components/splash/splash_event.jsx":
+/*!*****************************************************!*\
+  !*** ./frontend/components/splash/splash_event.jsx ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_event_api_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/event_api_util */ "./frontend/util/event_api_util.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+var SplashEvent = function SplashEvent(_ref) {
+  var history = _ref.history;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState2 = _slicedToArray(_useState, 2),
+      event = _useState2[0],
+      setEvent = _useState2[1];
+
+  var fetchEvent = function fetchEvent() {
+    _util_event_api_util__WEBPACK_IMPORTED_MODULE_2__["default"].fetchEvent().then(function (event) {
+      setEvent(event);
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    fetchEvent();
+  }, []);
+
+  var handleClick = function handleClick() {
+    history.push("/events/".concat(event.id));
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "splash-subcontainer"
+  }, event && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "splash-content",
+    onClick: handleClick
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "p-color"
+  }, "Next Event"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "splash-content-details"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, event.address), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: event.photoUrl
+  }))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(SplashEvent));
 
 /***/ }),
 

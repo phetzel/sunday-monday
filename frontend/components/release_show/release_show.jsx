@@ -38,7 +38,7 @@ const ReleaseShow = ({ match}) => {
                                 <h4 className="p-color">{release.title}</h4>
                                 <p>{release.description}</p>
                             </div>
-                            {release.artists && 
+                            {release.artists && release.artists.length > 0 &&
                                 <ReleaseShowArtists artists={release.artists} />
                             }
                         </div> 

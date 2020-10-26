@@ -13,7 +13,7 @@ class Api::ReleasesController < ApplicationController
         if params[:id] == 'undefined'
             @release = Release.all.last
         else 
-            release = Release.find(params[:id])
+            @release = Release.find(params[:id])
         end
 
         render :show

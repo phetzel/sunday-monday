@@ -1,11 +1,17 @@
 class Api::EventsController < ApplicationController
     def index
-        @events = Event.all
+        @events = Event.order(:datetime)
         render :index 
     end 
 
-    def show
-        @event = Event.find(params[:id])
+    def show        
+        if params[:id] == 'undefined'
+            events = Event.order(:datetime).select{ |e| e.datetime.future? }
+            @event = events.first
+        else 
+            @event = Event.find(params[:id])
+        end
+
         render :show
     end  
 
