@@ -2,25 +2,17 @@ import React from 'react';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 
 import BottomNav from '../navBar/bottom_nav';
+import SplashArtist from './splash_artist';
 
 const Splash = () => {
     return (
-        <ParallaxProvider>
-            <div className="splash">
-                <BottomNav />
-                <div className="splash-placeholder semi-serif">Live Laugh Love</div>
-                <div className="pallarax" /> 
-
-                <Parallax 
-                    className="hor-pallarax"
-                    y={[-20, 20]}
-                    
-                    >
-                    <div className="hor-pallarax"></div>
-                </Parallax>
-
+        <div className="splash">
+            <BottomNav />
+            <div className="splash-placeholder semi-serif">
+                Live Laugh Love
             </div>
-        </ParallaxProvider>
+            <SplashArtist />
+        </div>
     )
 }
 

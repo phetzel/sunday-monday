@@ -5,7 +5,12 @@ class Api::ArtistsController < ApplicationController
     end 
 
     def show
-        @artist = Artist.find(params[:id])
+        if params[:id] == 'undefined'
+            @artist = Artist.all.last
+        else 
+            @artist = Artist.find(params[:id])
+        end
+
         render :show
     end  
 

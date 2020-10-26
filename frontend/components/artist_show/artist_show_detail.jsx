@@ -2,7 +2,6 @@ import React from 'react';
 
 const ArtistShowDetail = ({ artist }) => {
     const description = artist.description.split('***');
-    console.log(description);
 
     return (
         <div className="artist-show-details">
@@ -11,9 +10,9 @@ const ArtistShowDetail = ({ artist }) => {
             <div className="artist-show-details-text">
                 <h4 className="p-color">{artist.name}</h4>
                 {
-                    description.map(desc => (
+                    description.map((desc, idx) => (
 
-                        <span>
+                        <span key={idx}>
                             <p>{desc}</p>
                             <br />
                         </span>

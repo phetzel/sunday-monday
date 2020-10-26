@@ -27,7 +27,7 @@ const ReleaseShow = ({ match}) => {
                     <div className="release-show-details">
                         <img src={release.photoUrl} alt="dj pic"/>
                         <iframe 
-                            src={`https://open.spotify.com/embed/playlist/${release.spotify}`}
+                            src={`https://open.spotify.com/embed/${release.medium}/${release.spotify}`}
                             width="300" 
                             height="400" 
                             frameBorder="0" 

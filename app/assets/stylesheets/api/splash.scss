@@ -1,7 +1,4 @@
 .splash {
-  // background-color: blue;
-  height: 2000px;
-  position: relative;
 }
 
 .splash-placeholder {
@@ -11,23 +8,36 @@
   height: 200px;
 }
 
-.pallarax {
-  background-image: asset-url("tree.jpg");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  height: 200px;
+.splash-subcontainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.hor-pallarax {
-  position: absolute;
-  top: 28%;
-  left: 100px;
-  width: 100%;
-  text-align: center;
-  background-color: black;
-  margin-top: 100px;
-  height: 100px;
-  width: 100px;
+.splash-content {
+  background-color: #f6eee4;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 25px;
+  width: 40%;
+}
+
+.splash-content h1 {
+  font-size: 30px;
+}
+
+.splash-content-details {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.splash-content-details h5 {
+  font-size: 25px;
+  margin: 0 0 20px 20px;
+}
+
+.splash-content-details img {
+  height: 200px;
+  width: 200px;
 }
