@@ -7,5 +7,6 @@ Rails.application.routes.draw do
       resources :events, only: [:index, :show, :create, :destroy]
       resources :releases, only: [:index, :show, :create, :destroy]
       resources :features, only: [:create, :destroy]
+      resources :performs, only: [:create, :destroy]
    end
 end

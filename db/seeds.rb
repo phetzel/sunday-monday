@@ -225,7 +225,9 @@ ActiveRecord::Base.transaction do
     #     category: 'album'
     # )
 
-        Release.destroy_all
-        Feature.destroy_all
+    Release.destroy_all
+    Feature.destroy_all
+    Event.destroy_all
+
 
 end

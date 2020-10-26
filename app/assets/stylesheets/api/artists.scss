@@ -13,6 +13,7 @@
 .artist-index {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   width: 90%;
 }
 
@@ -94,6 +95,26 @@
 .artist-show-music img {
   height: 150px;
   width: 150px;
+}
+
+.artist-show-event {
+  width: 840px;
+}
+.artist-show-event h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 30px 0;
+}
+
+.artist-show-event ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.artist-show-event li {
+  cursor: pointer;
+  margin: 5px;
 }
 
 // Artist Admin

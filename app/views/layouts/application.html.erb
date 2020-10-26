@@ -11,13 +11,14 @@
 
     <script type="text/javascript">
       window.logo = "<%= image_url('logo.png') %>"
-      window.colorLogo = "<%= image_url('logo-color.png') %>"
+      window.colorLogo = "<%= image_url('color-logo.png') %>"
       window.tree = "<%= image_url('tree.jpg') %>"
       window.googleAPIKey = "<%= Rails.application.credentials.google[:api_key] %>"
     </script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Flamenco">
+    <%= favicon_link_tag asset_path('tab-logo.jpg') %>
 
   </head>
 

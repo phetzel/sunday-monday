@@ -35,7 +35,8 @@ class Api::EventsController < ApplicationController
             :datetime,
             :lat,
             :lng, 
-            :address
+            :address,
+            :photo
         )
     end
 end

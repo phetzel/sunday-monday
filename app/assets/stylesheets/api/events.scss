@@ -16,15 +16,30 @@
 .event-index-item {
   border-bottom: 1px solid black;
   display: flex;
-  justify-content: space-between;
+  // flex-wrap: wrap;
   padding: 50px 0;
   width: 66%;
+}
+
+.event-index-item img {
+  cursor: pointer;
+  width: 250px;
 }
 
 .event-map-container {
   height: 350px;
   width: 350px;
   z-index: -100;
+}
+
+.event-index-item-text {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 200px;
+  width: 100%;
 }
 
 .event-index-item-text h3 {

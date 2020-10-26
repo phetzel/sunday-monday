@@ -5,3 +5,9 @@ json.releases do
         json.partial! 'api/releases/release', release: release
     end 
 end
+
+json.events do 
+    json.array! @artist.events do |event|
+        json.partial! 'api/events/event', event: event
+    end 
+end

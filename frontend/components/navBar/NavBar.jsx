@@ -30,11 +30,8 @@ const NavBar = ({ history }) => {
                 <li onClick={() => handleClick('/events', 4)}>
                    <p className={isActiveTab(4)} >Events</p>
                 </li>
-                <li onClick={() => handleClick('/contact', 5)}>
-                    <p className={isActiveTab(5)} >Contact</p>
-                </li>
-                <li onClick={() => handleClick('/admin', 6)}>
-                    <p className={isActiveTab(6)} >Admin</p>
+                <li onClick={() => handleClick('/admin', 5)}>
+                    <p className={isActiveTab(5)} >Admin</p>
                 </li>
             </ul>
         </div>

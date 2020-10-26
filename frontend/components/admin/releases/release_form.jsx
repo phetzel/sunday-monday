@@ -50,7 +50,9 @@ const ReleaseForm = ({history}) => {
                 setFeatures={setFeatures}
                 setVisible={setVisible}
                 visible={visible}/>
+
             <h2 className="p-color">Add a New Album</h2>
+            
             <Formik
                 initialValues={initialValues}
                 onSubmit={handleSubmit}
