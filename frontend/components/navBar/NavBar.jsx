@@ -1,11 +1,18 @@
-import React, { useState }  from 'react';
+import React, { useContext, useState }  from 'react';
 import { withRouter } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 
+import AdminDropDown from './admin_drop_down';
+import LoginDropDown from './login_drop_down';
 import MusicDropDown from './music_drop_down';
+import UserContext from '../../context/user_context';
 
 const NavBar = ({ history }) => {
+    const { user, setUser } = useContext(UserContext);
+
     const [tab, setTab] = useState(0);
     const [musicVisible, setMusicVisible] = useState(false);
+    const [loginVisible, setLoginVisible] = useState(true);
     
     const handleClick = (loc, num) => {
         history.push(loc);
@@ -13,6 +20,28 @@ const NavBar = ({ history }) => {
     }
     
     const isActiveTab = (num) => tab === num ? "p-color" : "nav-not-active";
+
+    const tabType = user ? (
+        <li
+            onMouseEnter={() => setLoginVisible(true)}
+            onMouseLeave={() => setLoginVisible(false)}
+        >
+            <p>Admin</p>
+            <div>
+                {loginVisible && <AdminDropDown />}
+            </div>
+        </li>
+    ) : (
+        <li
+            onMouseEnter={() => setLoginVisible(true)}
+            onMouseLeave={() => setLoginVisible(false)}
+        >
+            <p>Login</p>
+            <div>
+                {loginVisible && <LoginDropDown />}  
+            </div>
+        </li>
+    );
     
     return (
         <div className='nav-bar background-main'>
@@ -29,18 +58,19 @@ const NavBar = ({ history }) => {
                 </li>
                 <li 
                     onMouseEnter={() => setMusicVisible(true)}
+                    onMouseLeave={() => setMusicVisible(false)}
                 >
-                   <p className={isActiveTab(3)} >Music</p>
-                   <div onMouseLeave={() => setMusicVisible(false)}>
-                        <MusicDropDown visible={musicVisible}/>
-                   </div>
+                    <p className={isActiveTab(3)} >Music</p>
+                    <div>
+                        {musicVisible && <MusicDropDown />}                  
+                    </div>
                 </li>
                 <li onClick={() => handleClick('/events', 4)}>
                    <p className={isActiveTab(4)} >Events</p>
                 </li>
-                <li onClick={() => handleClick('/admin', 5)}>
-                    <p className={isActiveTab(5)} >Admin</p>
-                </li>
+
+                {tabType}
+
             </ul>
         </div>
     )

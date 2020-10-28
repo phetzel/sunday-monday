@@ -31,10 +31,14 @@
 }
 
 .nav-bar li {
-  padding: 0 15px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
   font-size: 20px;
   font-weight: 300;
+  height: 70px;
+  justify-content: center;
+  padding: 0 15px;
 }
 
 .nav-active {
@@ -49,15 +53,51 @@
   display: flex;
   flex-direction: column;
   margin-top: 5px;
+  width: 120px;
   position: absolute;
-  padding: 10px;
-  // z-index: 250;
 }
 
 .nav-drop-down li {
+  display: flex;
   font-size: 18px;
   font-weight: 400;
-  margin: 5px 0;
+  height: 20px;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.nav-drop-down li:hover {
+  background-color: #fcf8f7;
+  cursor: pointer;
+}
+
+.login-drop-down {
+  border: 1px solid black;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  width: 160px;
+  position: absolute;
+}
+
+.login-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form input {
+  border: 1px solid #ccc;
+  margin: 0 0 5px;
+  width: 120px;
+  padding: 8px;
+}
+
+.login-form input {
+  outline: none;
 }
 
 //bottom-nav

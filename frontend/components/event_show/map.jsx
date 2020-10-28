@@ -1,14 +1,5 @@
 import React from 'react';
 
-const mapOptions = {
-    center: { lat: 37.7758, lng: -122.435 }, // this is SF
-    zoom: 13
-};
-
-const getCoordsObj = latLng => ({
-    lat: latLng.lat(),
-    lng: latLng.lng()
-});
 
 class Map extends React.Component {
     constructor(props) {
@@ -20,7 +11,8 @@ class Map extends React.Component {
 
         const mapOptions = {
             center: { lat: lat, lng: lng },
-            zoom: 13
+            zoom: 13,
+            zoomControl: true
         };
 
         const map = this.refs.map;

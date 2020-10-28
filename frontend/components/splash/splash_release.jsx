@@ -23,7 +23,7 @@ const SplashRelease = ({history}) => {
     return (
         <div className="splash-subcontainer">
             {release && 
-                <div className="splash-content"  onClick={handleClick}>          
+                <div className="splash-content p-bg-color"  onClick={handleClick}>          
                     <h1 className="p-color">Featured Release</h1>
                     <div className="splash-content-details">
                         <h5>{release.title}</h5>

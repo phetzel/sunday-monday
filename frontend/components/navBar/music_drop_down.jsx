@@ -1,9 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-const MusicDropDown = ({visible, history}) => {
-    if (!visible) return null;
-
+const MusicDropDown = ({history}) => {
     const handleClick = (loc) => {
         history.push(loc);
     }

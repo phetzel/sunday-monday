@@ -17,6 +17,7 @@ const EventIndexItem = ({event, history}) => {
             <div className="event-index-item-text">
                 <h3 className="p-color">{event.title}</h3>
                 <p>{displayTime}</p>
+                <p>{event.address}</p>
             </div>
         </li>
     )

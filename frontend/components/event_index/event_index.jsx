@@ -6,6 +6,8 @@ import EventIndexItem from './event_index_item';
 
 const EventIndex = () => {
     const [events, setEvents] = useState();
+    const [selected, setSelected] = useState();
+
 
     const fetchEvents = () => {
         eventApi.fetchEvents().then(events => {
