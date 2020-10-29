@@ -2326,9 +2326,8 @@ var ArtistShowVideo = function ArtistShowVideo(_ref) {
     history.push("/videos/".concat(id));
   };
 
-  var feature = videos.shift();
-  console.log(videos);
-  console.log(feature);
+  var revVideos = videos.reverse();
+  var feature = revVideos.shift();
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "artist-show-video"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
@@ -2337,7 +2336,7 @@ var ArtistShowVideo = function ArtistShowVideo(_ref) {
     className: "artist-video-featured"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_player_lazy__WEBPACK_IMPORTED_MODULE_2___default.a, {
     url: "https://www.youtube.com/watch?v=".concat(feature.url)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, feature.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, videos.map(function (video) {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, feature.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, revVideos.map(function (video) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       key: video.id,
       onClick: function onClick() {

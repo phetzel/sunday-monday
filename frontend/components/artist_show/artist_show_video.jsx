@@ -8,9 +8,8 @@ const ArtistShowVideo = ({ history, videos }) => {
         history.push(`/videos/${id}`);
     }
 
-    const feature = videos.shift();
-    console.log(videos);
-    console.log(feature);
+    const revVideos = videos.reverse();
+    const feature = revVideos.shift();
 
     return (
         <div className="artist-show-video">
@@ -22,7 +21,7 @@ const ArtistShowVideo = ({ history, videos }) => {
             </div>
 
             <ul>
-                {videos.map(video => (
+                {revVideos.map(video => (
                     <li key={video.id} onClick={() => handleClick(video.id)}>
                         <img src={`https://img.youtube.com/vi/${video.url}/hqdefault.jpg`} alt=""/>
                         <p>{video.title}</p>
