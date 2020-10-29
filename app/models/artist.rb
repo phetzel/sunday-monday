@@ -6,7 +6,9 @@ class Artist < ApplicationRecord
     has_many :features
     has_many :releases, through: :features, source: :release
 
-
     has_many :performs
     has_many :events, through: :performs, source: :event
+
+    has_many :appearances
+    has_many :videos, through: :appearances, source: :video
 end

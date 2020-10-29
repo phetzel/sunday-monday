@@ -24,7 +24,6 @@ const Modal = ({features, setFeatures, setVisible, visible}) => {
         } else {
             setFeatures([...features, id]);
         }
-        console.log(features);
     }
 
     if (!visible) return null;

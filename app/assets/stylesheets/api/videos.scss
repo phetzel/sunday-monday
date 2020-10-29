@@ -1,0 +1,102 @@
+//Index
+//------------------------------------------------------------------------------
+
+.video-index-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.video-index-featured {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-index-featured h4 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+.video-index {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  width: 80%;
+}
+
+.video-index-item {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.video-index-item img {
+  margin-bottom: 20px;
+  width: 270px;
+}
+
+//Show
+//------------------------------------------------------------------------------
+.video-show {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.video-show-details {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-show-details h2 {
+  font-size: 25px;
+  margin-top: 15px;
+}
+
+//Admin
+//------------------------------------------------------------------------------
+.admin-video {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.admin-video-form-container h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.admin-video-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 300px;
+}
+
+.admin-video-form input,
+.admin-video-form textarea,
+.admin-video-form select {
+  border: 1px solid #ccc;
+  margin: 0 0 5px;
+  width: 100%;
+  padding: 10px;
+}
+
+.admin-video-form input:focus,
+.admin-video-form textarea:focus {
+  outline: none;
+}
+
+.admin-video-form textarea {
+  height: 150px;
+  width: 100%;
+  resize: none;
+}

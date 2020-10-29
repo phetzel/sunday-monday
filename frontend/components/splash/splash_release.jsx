@@ -17,7 +17,7 @@ const SplashRelease = ({history}) => {
     }, []);
     
     const handleClick = () => {
-        history.push(`/releases/${release.id}`)
+        history.push(`/music/${release.id}`)
     }
 
     return (

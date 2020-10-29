@@ -11,3 +11,9 @@ json.events do
         json.partial! 'api/events/event', event: event
     end 
 end
+
+json.videos do 
+    json.array! @artist.videos do |video|
+        json.partial! 'api/videos/video', video: video
+    end 
+end

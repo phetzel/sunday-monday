@@ -12,7 +12,7 @@ const NavBar = ({ history }) => {
 
     const [tab, setTab] = useState(0);
     const [musicVisible, setMusicVisible] = useState(false);
-    const [loginVisible, setLoginVisible] = useState(true);
+    const [loginVisible, setLoginVisible] = useState(false);
     
     const handleClick = (loc, num) => {
         history.push(loc);
@@ -65,8 +65,11 @@ const NavBar = ({ history }) => {
                         {musicVisible && <MusicDropDown />}                  
                     </div>
                 </li>
-                <li onClick={() => handleClick('/events', 4)}>
-                   <p className={isActiveTab(4)} >Events</p>
+                <li onClick={() => handleClick('/videos', 4)}>
+                    <p className={isActiveTab(4)} >Videos</p>
+                </li>
+                <li onClick={() => handleClick('/events', 5)}>
+                   <p className={isActiveTab(5)} >Events</p>
                 </li>
 
                 {tabType}

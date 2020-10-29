@@ -14,9 +14,16 @@ import PlaylistIndex from './release_index/playlist_index';
 import ReleaseShow from './release_show/release_show';
 import Splash from './splash/splash';
 import UserContext from '../context/user_context';
+import VideoIndex from './video_index/video_index';
+import VideoShow from './video_show/video_show';
 
 const App = () => {
-    const [user, setUser] = useState();
+    let currentUser;
+    if (window.currentUser) {
+        currentUser = window.currentUser;
+    }
+
+    const [user, setUser] = useState(currentUser);
 
     return (
         <UserContext.Provider value={{ user, setUser }}>
@@ -36,6 +43,9 @@ const App = () => {
 
                 <Route exact path="/events" component={EventIndex} />
                 <Route exact path="/events/:id" component={EventShow} />
+
+                 <Route exact path="/videos" component={VideoIndex} />
+                 <Route exact path="/videos/:id" component={VideoShow} />
 
                 <Route path="/admin" render={() => (
                     user ? (
