@@ -19,7 +19,6 @@ const EventShow = ({ match}) => {
     useEffect(() => {
         fetchEvent();
     }, []);
-    
 
     return(
         <div>

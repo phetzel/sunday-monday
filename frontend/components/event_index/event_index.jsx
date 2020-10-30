@@ -6,24 +6,39 @@ import EventIndexItem from './event_index_item';
 
 const EventIndex = () => {
     const [events, setEvents] = useState();
-    const [selected, setSelected] = useState();
 
-
-    const fetchEvents = () => {
-        eventApi.fetchEvents().then(events => {
+    const fetchEvents = (val) => {
+        const when = {data: val};
+        eventApi.fetchEvents(when).then(events => {
             const eventsArray = Object.values(events);
             setEvents(eventsArray);
         })
     }
 
+    const handleClick = val => {
+        fetchEvents(val);
+    }
+
     useEffect(() => {
-        fetchEvents();
+        fetchEvents('future');
     }, []);
+
 
 
     return (
         <div className="event-index-container">
             <BottomNav />
+
+            <div className="event-index-controller-container">
+                <div className="event-index-controller">
+                    <button 
+                        className="button"
+                        onClick={() => handleClick('future')}>Future Shows</button>
+                    <button 
+                        className="button"
+                        onClick={() => handleClick('past')}>Past Shows</button>
+                </div>
+            </div>
 
             <ul>
                 {events &&

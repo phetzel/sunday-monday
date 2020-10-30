@@ -1,6 +1,7 @@
 import React, { useContext, useState }  from 'react';
 import { withRouter } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
+import AnimateHeight from 'react-animate-height';
 
 import AdminDropDown from './admin_drop_down';
 import LoginDropDown from './login_drop_down';
@@ -13,6 +14,8 @@ const NavBar = ({ history }) => {
     const [tab, setTab] = useState(0);
     const [musicVisible, setMusicVisible] = useState(false);
     const [loginVisible, setLoginVisible] = useState(false);
+
+
     
     const handleClick = (loc, num) => {
         history.push(loc);
@@ -37,9 +40,9 @@ const NavBar = ({ history }) => {
             onMouseLeave={() => setLoginVisible(false)}
         >
             <p>Login</p>
-            <div>
-                {loginVisible && <LoginDropDown />}  
-            </div>
+                <div>
+                    {loginVisible && <LoginDropDown />}  
+                </div>
         </li>
     );
     

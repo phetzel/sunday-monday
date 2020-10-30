@@ -594,8 +594,8 @@ var EventForm = function EventForm(_ref) {
       return response.json();
     }).then(function (data) {
       var res = data.results[0].geometry.location;
-      console.log(res);
       var formData = new FormData();
+      console.log(date);
       formData.append('event[title]', event.title);
       formData.append('event[description]', event.description);
       formData.append('event[address]', "".concat(event.address, " ").concat(event.city, " ").concat(event.stateInit));
@@ -2121,7 +2121,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _artist_show_detail__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./artist_show_detail */ "./frontend/components/artist_show/artist_show_detail.jsx");
 /* harmony import */ var _artist_show_event__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./artist_show_event */ "./frontend/components/artist_show/artist_show_event.jsx");
 /* harmony import */ var _artist_show_music__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./artist_show_music */ "./frontend/components/artist_show/artist_show_music.jsx");
-/* harmony import */ var _artist_show_video__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./artist_show_video */ "./frontend/components/artist_show/artist_show_video.jsx");
+/* harmony import */ var _artist_show_video__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./artist_show_video */ "./frontend/components/artist_show/artist_show_video.jsx");
 /* harmony import */ var _navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../navBar/bottom_nav */ "./frontend/components/navBar/bottom_nav.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -2165,7 +2165,7 @@ var ArtistShow = function ArtistShow(_ref) {
     className: "artist-show content"
   }, artist && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_artist_show_detail__WEBPACK_IMPORTED_MODULE_2__["default"], {
     artist: artist
-  }), artist && artist.videos.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_artist_show_video__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }), artist && artist.videos.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_artist_show_video__WEBPACK_IMPORTED_MODULE_5__["default"], {
     videos: artist.videos
   }), artist && artist.releases.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_artist_show_music__WEBPACK_IMPORTED_MODULE_4__["default"], {
     releases: artist.releases
@@ -2390,24 +2390,40 @@ var EventIndex = function EventIndex() {
       events = _useState2[0],
       setEvents = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
-      _useState4 = _slicedToArray(_useState3, 2),
-      selected = _useState4[0],
-      setSelected = _useState4[1];
-
-  var fetchEvents = function fetchEvents() {
-    _util_event_api_util__WEBPACK_IMPORTED_MODULE_2__["default"].fetchEvents().then(function (events) {
+  var fetchEvents = function fetchEvents(val) {
+    var when = {
+      data: val
+    };
+    _util_event_api_util__WEBPACK_IMPORTED_MODULE_2__["default"].fetchEvents(when).then(function (events) {
       var eventsArray = Object.values(events);
       setEvents(eventsArray);
     });
   };
 
+  var handleClick = function handleClick(val) {
+    fetchEvents(val);
+  };
+
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    fetchEvents();
+    fetchEvents('future');
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "event-index-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, events && events.map(function (event) {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "event-index-controller-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "event-index-controller"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "button",
+    onClick: function onClick() {
+      return handleClick('future');
+    }
+  }, "Future Shows"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "button",
+    onClick: function onClick() {
+      return handleClick('past');
+    }
+  }, "Past Shows"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, events && events.map(function (event) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_event_index_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
       key: event.id,
       event: event
@@ -2542,17 +2558,22 @@ var EventShow = function EventShow(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util_time_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/time_util */ "./frontend/util/time_util.js");
+
 
 
 var EventShowDetail = function EventShowDetail(_ref) {
   var event = _ref.event;
   var description = event.description.split('***');
+  var displayTime = _util_time_util__WEBPACK_IMPORTED_MODULE_1__["default"].displayTime(event.datetime);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "event-show-details"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
     className: "p-color"
-  }, event.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, event.datetime), description.map(function (desc) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, desc), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
+  }, event.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, displayTime), description.map(function (desc, idx) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      key: idx
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, desc), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
   }));
 };
 
@@ -2902,10 +2923,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-transition-group */ "./node_modules/react-transition-group/esm/index.js");
-/* harmony import */ var _admin_drop_down__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./admin_drop_down */ "./frontend/components/navBar/admin_drop_down.jsx");
-/* harmony import */ var _login_drop_down__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./login_drop_down */ "./frontend/components/navBar/login_drop_down.jsx");
-/* harmony import */ var _music_drop_down__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./music_drop_down */ "./frontend/components/navBar/music_drop_down.jsx");
-/* harmony import */ var _context_user_context__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../context/user_context */ "./frontend/context/user_context.js");
+/* harmony import */ var react_animate_height__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-animate-height */ "./node_modules/react-animate-height/lib/AnimateHeight.js");
+/* harmony import */ var react_animate_height__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_animate_height__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _admin_drop_down__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./admin_drop_down */ "./frontend/components/navBar/admin_drop_down.jsx");
+/* harmony import */ var _login_drop_down__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./login_drop_down */ "./frontend/components/navBar/login_drop_down.jsx");
+/* harmony import */ var _music_drop_down__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./music_drop_down */ "./frontend/components/navBar/music_drop_down.jsx");
+/* harmony import */ var _context_user_context__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../context/user_context */ "./frontend/context/user_context.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2926,10 +2949,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var NavBar = function NavBar(_ref) {
   var history = _ref.history;
 
-  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_context_user_context__WEBPACK_IMPORTED_MODULE_6__["default"]),
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_context_user_context__WEBPACK_IMPORTED_MODULE_7__["default"]),
       user = _useContext.user,
       setUser = _useContext.setUser;
 
@@ -2964,14 +2988,14 @@ var NavBar = function NavBar(_ref) {
     onMouseLeave: function onMouseLeave() {
       return setLoginVisible(false);
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Admin"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, loginVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_drop_down__WEBPACK_IMPORTED_MODULE_3__["default"], null))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Admin"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, loginVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_drop_down__WEBPACK_IMPORTED_MODULE_4__["default"], null))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     onMouseEnter: function onMouseEnter() {
       return setLoginVisible(true);
     },
     onMouseLeave: function onMouseLeave() {
       return setLoginVisible(false);
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, loginVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_login_drop_down__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, loginVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_login_drop_down__WEBPACK_IMPORTED_MODULE_5__["default"], null)));
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-bar background-main"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3003,7 +3027,7 @@ var NavBar = function NavBar(_ref) {
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: isActiveTab(3)
-  }, "Music"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, musicVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_music_drop_down__WEBPACK_IMPORTED_MODULE_5__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }, "Music"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, musicVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_music_drop_down__WEBPACK_IMPORTED_MODULE_6__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     onClick: function onClick() {
       return handleClick('/videos', 4);
     }
@@ -4083,10 +4107,11 @@ var fetchEvent = function fetchEvent(id) {
   });
 };
 
-var fetchEvents = function fetchEvents() {
+var fetchEvents = function fetchEvents(data) {
   return $.ajax({
     method: 'GET',
-    url: 'api/events'
+    url: 'api/events',
+    data: data
   });
 };
 
@@ -4321,11 +4346,22 @@ var logout = function logout() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var displayTime = function displayTime(datetime) {
-  console.log(datetime);
   var dateTime = datetime.split('T');
   var date = dateTime[0].split('-');
   var time = dateTime[1].split(':');
-  var display = "".concat(date[1], "/").concat(date[2], "/").concat(date[0], " ").concat(time[0], ":").concat(time[1]);
+  var ap = "AM";
+  var hours = time[0];
+
+  if (hours = 12) {
+    ap = "PM";
+  } else if (time[0] > 12) {
+    hours = hours - 12;
+    ap = "PM";
+  } else if (time[0] = '00') {
+    hours = 12;
+  }
+
+  var display = "".concat(date[1], "/").concat(date[2], "/").concat(date[0], " ").concat(hours, ":").concat(time[1], " ").concat(ap);
   return display;
 };
 
@@ -25154,6 +25190,462 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
+
+/***/ }),
+
+/***/ "./node_modules/react-animate-height/lib/AnimateHeight.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-animate-height/lib/AnimateHeight.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ANIMATION_STATE_CLASSES = {
+  animating: 'rah-animating',
+  animatingUp: 'rah-animating--up',
+  animatingDown: 'rah-animating--down',
+  animatingToHeightZero: 'rah-animating--to-height-zero',
+  animatingToHeightAuto: 'rah-animating--to-height-auto',
+  animatingToHeightSpecific: 'rah-animating--to-height-specific',
+  static: 'rah-static',
+  staticHeightZero: 'rah-static--height-zero',
+  staticHeightAuto: 'rah-static--height-auto',
+  staticHeightSpecific: 'rah-static--height-specific'
+};
+
+var PROPS_TO_OMIT = ['animateOpacity', 'animationStateClasses', 'applyInlineTransitions', 'children', 'contentClassName', 'delay', 'duration', 'easing', 'height', 'onAnimationEnd', 'onAnimationStart'];
+
+function omit(obj) {
+  for (var _len = arguments.length, keys = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    keys[_key - 1] = arguments[_key];
+  }
+
+  if (!keys.length) {
+    return obj;
+  }
+
+  var res = {};
+  var objectKeys = Object.keys(obj);
+
+  for (var i = 0; i < objectKeys.length; i++) {
+    var key = objectKeys[i];
+
+    if (keys.indexOf(key) === -1) {
+      res[key] = obj[key];
+    }
+  }
+
+  return res;
+}
+
+// Start animation helper using nested requestAnimationFrames
+function startAnimationHelper(callback) {
+  var requestAnimationFrameIDs = [];
+
+  requestAnimationFrameIDs[0] = requestAnimationFrame(function () {
+    requestAnimationFrameIDs[1] = requestAnimationFrame(function () {
+      callback();
+    });
+  });
+
+  return requestAnimationFrameIDs;
+}
+
+function cancelAnimationFrames(requestAnimationFrameIDs) {
+  requestAnimationFrameIDs.forEach(function (id) {
+    return cancelAnimationFrame(id);
+  });
+}
+
+function isNumber(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function isPercentage(height) {
+  // Percentage height
+  return typeof height === 'string' && height.search('%') === height.length - 1 && isNumber(height.substr(0, height.length - 1));
+}
+
+function runCallback(callback, params) {
+  if (callback && typeof callback === 'function') {
+    callback(params);
+  }
+}
+
+var AnimateHeight = function (_React$Component) {
+  _inherits(AnimateHeight, _React$Component);
+
+  function AnimateHeight(props) {
+    _classCallCheck(this, AnimateHeight);
+
+    var _this = _possibleConstructorReturn(this, (AnimateHeight.__proto__ || Object.getPrototypeOf(AnimateHeight)).call(this, props));
+
+    _this.animationFrameIDs = [];
+
+    var height = 'auto';
+    var overflow = 'visible';
+
+    if (isNumber(props.height)) {
+      // If value is string "0" make sure we convert it to number 0
+      height = props.height < 0 || props.height === '0' ? 0 : props.height;
+      overflow = 'hidden';
+    } else if (isPercentage(props.height)) {
+      // If value is string "0%" make sure we convert it to number 0
+      height = props.height === '0%' ? 0 : props.height;
+      overflow = 'hidden';
+    }
+
+    _this.animationStateClasses = _extends({}, ANIMATION_STATE_CLASSES, props.animationStateClasses);
+
+    var animationStateClasses = _this.getStaticStateClasses(height);
+
+    _this.state = {
+      animationStateClasses: animationStateClasses,
+      height: height,
+      overflow: overflow,
+      shouldUseTransitions: false
+    };
+    return _this;
+  }
+
+  _createClass(AnimateHeight, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var height = this.state.height;
+
+      // Hide content if height is 0 (to prevent tabbing into it)
+      // Check for contentElement is added cause this would fail in tests (react-test-renderer)
+      // Read more here: https://github.com/Stanko/react-animate-height/issues/17
+
+      if (this.contentElement && this.contentElement.style) {
+        this.hideContent(height);
+      }
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate(prevProps, prevState) {
+      var _this2 = this;
+
+      var _props = this.props,
+          delay = _props.delay,
+          duration = _props.duration,
+          height = _props.height,
+          onAnimationEnd = _props.onAnimationEnd,
+          onAnimationStart = _props.onAnimationStart;
+
+      // Check if 'height' prop has changed
+
+      if (this.contentElement && height !== prevProps.height) {
+        var _cx;
+
+        // Remove display: none from the content div
+        // if it was hidden to prevent tabbing into it
+        this.showContent(prevState.height);
+
+        // Cache content height
+        this.contentElement.style.overflow = 'hidden';
+        var contentHeight = this.contentElement.offsetHeight;
+        this.contentElement.style.overflow = '';
+
+        // set total animation time
+        var totalDuration = duration + delay;
+
+        var newHeight = null;
+        var timeoutState = {
+          height: null, // it will be always set to either 'auto' or specific number
+          overflow: 'hidden'
+        };
+        var isCurrentHeightAuto = prevState.height === 'auto';
+
+        if (isNumber(height)) {
+          // If value is string "0" make sure we convert it to number 0
+          newHeight = height < 0 || height === '0' ? 0 : height;
+          timeoutState.height = newHeight;
+        } else if (isPercentage(height)) {
+          // If value is string "0%" make sure we convert it to number 0
+          newHeight = height === '0%' ? 0 : height;
+          timeoutState.height = newHeight;
+        } else {
+          // If not, animate to content height
+          // and then reset to auto
+          newHeight = contentHeight; // TODO solve contentHeight = 0
+          timeoutState.height = 'auto';
+          timeoutState.overflow = null;
+        }
+
+        if (isCurrentHeightAuto) {
+          // This is the height to be animated to
+          timeoutState.height = newHeight;
+
+          // If previous height was 'auto'
+          // set starting height explicitly to be able to use transition
+          newHeight = contentHeight;
+        }
+
+        // Animation classes
+        var animationStateClasses = (0, _classnames2.default)((_cx = {}, _defineProperty(_cx, this.animationStateClasses.animating, true), _defineProperty(_cx, this.animationStateClasses.animatingUp, prevProps.height === 'auto' || height < prevProps.height), _defineProperty(_cx, this.animationStateClasses.animatingDown, height === 'auto' || height > prevProps.height), _defineProperty(_cx, this.animationStateClasses.animatingToHeightZero, timeoutState.height === 0), _defineProperty(_cx, this.animationStateClasses.animatingToHeightAuto, timeoutState.height === 'auto'), _defineProperty(_cx, this.animationStateClasses.animatingToHeightSpecific, timeoutState.height > 0), _cx));
+
+        // Animation classes to be put after animation is complete
+        var timeoutAnimationStateClasses = this.getStaticStateClasses(timeoutState.height);
+
+        // Set starting height and animating classes
+        // We are safe to call set state as it will not trigger infinite loop
+        // because of the "height !== prevProps.height" check
+        this.setState({ // eslint-disable-line react/no-did-update-set-state
+          animationStateClasses: animationStateClasses,
+          height: newHeight,
+          overflow: 'hidden',
+          // When animating from 'auto' we first need to set fixed height
+          // that change should be animated
+          shouldUseTransitions: !isCurrentHeightAuto
+        });
+
+        // Clear timeouts
+        clearTimeout(this.timeoutID);
+        clearTimeout(this.animationClassesTimeoutID);
+
+        if (isCurrentHeightAuto) {
+          // When animating from 'auto' we use a short timeout to start animation
+          // after setting fixed height above
+          timeoutState.shouldUseTransitions = true;
+
+          cancelAnimationFrames(this.animationFrameIDs);
+          this.animationFrameIDs = startAnimationHelper(function () {
+            _this2.setState(timeoutState);
+
+            // ANIMATION STARTS, run a callback if it exists
+            runCallback(onAnimationStart, { newHeight: timeoutState.height });
+          });
+
+          // Set static classes and remove transitions when animation ends
+          this.animationClassesTimeoutID = setTimeout(function () {
+            _this2.setState({
+              animationStateClasses: timeoutAnimationStateClasses,
+              shouldUseTransitions: false
+            });
+
+            // ANIMATION ENDS
+            // Hide content if height is 0 (to prevent tabbing into it)
+            _this2.hideContent(timeoutState.height);
+            // Run a callback if it exists
+            runCallback(onAnimationEnd, { newHeight: timeoutState.height });
+          }, totalDuration);
+        } else {
+          // ANIMATION STARTS, run a callback if it exists
+          runCallback(onAnimationStart, { newHeight: newHeight });
+
+          // Set end height, classes and remove transitions when animation is complete
+          this.timeoutID = setTimeout(function () {
+            timeoutState.animationStateClasses = timeoutAnimationStateClasses;
+            timeoutState.shouldUseTransitions = false;
+
+            _this2.setState(timeoutState);
+
+            // ANIMATION ENDS
+            // If height is auto, don't hide the content
+            // (case when element is empty, therefore height is 0)
+            if (height !== 'auto') {
+              // Hide content if height is 0 (to prevent tabbing into it)
+              _this2.hideContent(newHeight); // TODO solve newHeight = 0
+            }
+            // Run a callback if it exists
+            runCallback(onAnimationEnd, { newHeight: newHeight });
+          }, totalDuration);
+        }
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      cancelAnimationFrames(this.animationFrameIDs);
+
+      clearTimeout(this.timeoutID);
+      clearTimeout(this.animationClassesTimeoutID);
+
+      this.timeoutID = null;
+      this.animationClassesTimeoutID = null;
+      this.animationStateClasses = null;
+    }
+  }, {
+    key: 'showContent',
+    value: function showContent(height) {
+      if (height === 0) {
+        this.contentElement.style.display = '';
+      }
+    }
+  }, {
+    key: 'hideContent',
+    value: function hideContent(newHeight) {
+      if (newHeight === 0) {
+        this.contentElement.style.display = 'none';
+      }
+    }
+  }, {
+    key: 'getStaticStateClasses',
+    value: function getStaticStateClasses(height) {
+      var _cx2;
+
+      return (0, _classnames2.default)((_cx2 = {}, _defineProperty(_cx2, this.animationStateClasses.static, true), _defineProperty(_cx2, this.animationStateClasses.staticHeightZero, height === 0), _defineProperty(_cx2, this.animationStateClasses.staticHeightSpecific, height > 0), _defineProperty(_cx2, this.animationStateClasses.staticHeightAuto, height === 'auto'), _cx2));
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _cx3,
+          _this3 = this;
+
+      var _props2 = this.props,
+          animateOpacity = _props2.animateOpacity,
+          applyInlineTransitions = _props2.applyInlineTransitions,
+          children = _props2.children,
+          className = _props2.className,
+          contentClassName = _props2.contentClassName,
+          delay = _props2.delay,
+          duration = _props2.duration,
+          easing = _props2.easing,
+          id = _props2.id,
+          style = _props2.style;
+      var _state = this.state,
+          height = _state.height,
+          overflow = _state.overflow,
+          animationStateClasses = _state.animationStateClasses,
+          shouldUseTransitions = _state.shouldUseTransitions;
+
+
+      var componentStyle = _extends({}, style, {
+        height: height,
+        overflow: overflow || style.overflow
+      });
+
+      if (shouldUseTransitions && applyInlineTransitions) {
+        componentStyle.transition = 'height ' + duration + 'ms ' + easing + ' ' + delay + 'ms';
+
+        // Include transition passed through styles
+        if (style.transition) {
+          componentStyle.transition = style.transition + ', ' + componentStyle.transition;
+        }
+
+        // Add webkit vendor prefix still used by opera, blackberry...
+        componentStyle.WebkitTransition = componentStyle.transition;
+      }
+
+      var contentStyle = {};
+
+      if (animateOpacity) {
+        contentStyle.transition = 'opacity ' + duration + 'ms ' + easing + ' ' + delay + 'ms';
+        // Add webkit vendor prefix still used by opera, blackberry...
+        contentStyle.WebkitTransition = contentStyle.transition;
+
+        if (height === 0) {
+          contentStyle.opacity = 0;
+        }
+      }
+
+      var componentClasses = (0, _classnames2.default)((_cx3 = {}, _defineProperty(_cx3, animationStateClasses, true), _defineProperty(_cx3, className, className), _cx3));
+
+      // Check if user passed aria-hidden prop
+      var hasAriaHiddenProp = typeof this.props['aria-hidden'] !== 'undefined';
+      var ariaHidden = hasAriaHiddenProp ? this.props['aria-hidden'] : height === 0;
+
+      return _react2.default.createElement(
+        'div',
+        _extends({}, omit.apply(undefined, [this.props].concat(PROPS_TO_OMIT)), {
+          'aria-hidden': ariaHidden,
+          className: componentClasses,
+          id: id,
+          style: componentStyle
+        }),
+        _react2.default.createElement(
+          'div',
+          {
+            className: contentClassName,
+            style: contentStyle,
+            ref: function ref(el) {
+              return _this3.contentElement = el;
+            }
+          },
+          children
+        )
+      );
+    }
+  }]);
+
+  return AnimateHeight;
+}(_react2.default.Component);
+
+var heightPropType = function heightPropType(props, propName, componentName) {
+  var value = props[propName];
+
+  if (typeof value === 'number' && value >= 0 || isPercentage(value) || value === 'auto') {
+    return null;
+  }
+
+  return new TypeError('value "' + value + '" of type "' + (typeof value === 'undefined' ? 'undefined' : _typeof(value)) + '" is invalid type for ' + propName + ' in ' + componentName + '. ' + 'It needs to be a positive number, string "auto" or percentage string (e.g. "15%").');
+};
+
+AnimateHeight.propTypes = {
+  'aria-hidden': _propTypes2.default.bool,
+  animateOpacity: _propTypes2.default.bool,
+  animationStateClasses: _propTypes2.default.object,
+  applyInlineTransitions: _propTypes2.default.bool,
+  children: _propTypes2.default.any.isRequired,
+  className: _propTypes2.default.string,
+  contentClassName: _propTypes2.default.string,
+  delay: _propTypes2.default.number,
+  duration: _propTypes2.default.number,
+  easing: _propTypes2.default.string,
+  height: heightPropType,
+  id: _propTypes2.default.string,
+  onAnimationEnd: _propTypes2.default.func,
+  onAnimationStart: _propTypes2.default.func,
+  style: _propTypes2.default.object
+};
+
+AnimateHeight.defaultProps = {
+  animateOpacity: false,
+  animationStateClasses: ANIMATION_STATE_CLASSES,
+  applyInlineTransitions: true,
+  duration: 250,
+  delay: 0,
+  easing: 'ease',
+  style: {}
+};
+
+exports.default = AnimateHeight;
 
 /***/ }),
 

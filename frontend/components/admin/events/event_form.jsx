@@ -36,8 +36,8 @@ const EventForm = ({history}) => {
             .then(response => response.json())
             .then(data =>  {
                 const res = data.results[0].geometry.location;
-                console.log(res);
                 const formData = new FormData();
+                console.log(date);
 
                 formData.append('event[title]', event.title);
                 formData.append('event[description]', event.description);

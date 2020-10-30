@@ -1,6 +1,13 @@
 class Api::EventsController < ApplicationController
     def index
         @events = Event.order(:datetime)
+
+        if data == 'past'
+            @events = @events.select{ |event| event.datetime.past? }
+        elsif data == 'future'
+            @events = @events.select{ |event| event.datetime.future? }
+        end
+
         render :index 
     end 
 
@@ -42,7 +49,12 @@ class Api::EventsController < ApplicationController
             :lat,
             :lng, 
             :address,
-            :photo
+            :photo,
+            :data
         )
+    end
+
+    def data
+        params[:data]
     end
 end
