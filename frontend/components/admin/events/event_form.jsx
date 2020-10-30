@@ -53,7 +53,7 @@ const EventForm = ({history}) => {
                         performApi.createPerform(newPerform);
                     });
 
-                    history.push(`/events`);
+                    history.push(`/events/${res.id}`);
                 });
             })
     }

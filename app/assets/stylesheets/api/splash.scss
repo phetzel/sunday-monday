@@ -1,30 +1,36 @@
 .splash {
 }
 
-.splash-placeholder {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-}
-
 .splash-subcontainer {
+  align-items: center;
   display: flex;
   justify-content: center;
+  margin-top: 50px;
   width: 100%;
 }
 
 .splash-content {
+  align-items: center;
   background-color: #f6eee4;
   border-radius: 10px;
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   margin-bottom: 50px;
   padding: 25px;
-  width: 40%;
+  min-width: 40%;
+  max-width: 50%;
+  overflow: hidden;
+}
+
+.splash-content-header {
+  display: flex;
+  overflow: hidden;
 }
 
 .splash-content h1 {
   font-size: 30px;
+  margin-bottom: 20px;
 }
 
 .splash-content-details {
@@ -33,12 +39,13 @@
   justify-content: space-between;
 }
 
-.splash-content-details h5 {
+.splash-content h5 {
   font-size: 25px;
   margin: 0 0 20px 20px;
 }
 
-.splash-content-details img {
-  height: 200px;
-  width: 200px;
+.splash-content img {
+  cursor: pointer;
+  height: 350px;
+  width: 350px;
 }

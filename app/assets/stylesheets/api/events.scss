@@ -62,6 +62,11 @@
 .event-index-item-text h3 {
   font-size: 30px;
   margin-bottom: 30px;
+  margin-left: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .event-index-item-text p {
@@ -78,18 +83,36 @@
 }
 
 .event-show {
-  align-items: center;
+  justify-content: space-around;
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .event-show-details {
   align-items: center;
   background-color: #f6eee4;
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
-  height: 300px;
+  min-height: 400px;
+  max-width: 600px;
+  min-width: 300px;
   justify-content: space-around;
-  width: 30vw;
+  padding: 10px;
+}
+
+.event-show-details-header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 80%;
+}
+
+.event-show-details-header h6 {
+  margin-top: 20px;
 }
 
 .event-show-details h4 {
@@ -99,6 +122,38 @@
 
 .event-show-details p {
   padding: 3px 10px;
+}
+
+.event-show-artist {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.event-show-artist h5 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.event-show-artist ul {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.event-show-artist li {
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px;
+  text-align: center;
+  width: 80%;
+}
+
+.event-show-artist li:hover {
+  background-color: #f4dfdd;
 }
 
 .event-show img {

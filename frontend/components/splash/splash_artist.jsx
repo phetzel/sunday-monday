@@ -23,12 +23,12 @@ const SplashArtist = ({history}) => {
     return (
         <div className="splash-subcontainer">
             {artist && 
-                <div className="splash-content"  onClick={handleClick}>          
-                    <h1 className="p-color">Featured Artist</h1>
-                    <div className="splash-content-details">
+                <div className="splash-content" > 
+                    <div className="splash-content-header">
+                        <h1 className="p-color">Featured Artist</h1>
                         <h5>{artist.name}</h5>
-                        <img src={artist.photoUrl} />
-                    </div>
+                    </div>         
+                    <img src={artist.photoUrl} onClick={handleClick}/>
                 </div>
             }
         </div>

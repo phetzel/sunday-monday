@@ -9,7 +9,7 @@ import SplashRelease from './splash_release';
 const Splash = () => {
     const settings = {
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 4000,
         dots: true,
         infinite: true,
         speed: 500,
@@ -20,15 +20,15 @@ const Splash = () => {
     return (
         <div className="splash">
             <BottomNav />
-            <div className="splash-placeholder semi-serif">
-                Live Laugh Love
+
+            <div className="slider">
+                <Slider {...settings}>
+                    <SplashArtist />
+                    <SplashRelease />
+                    <SplashEvent />
+                </Slider>
             </div>
-            
-            <Slider {...settings}>
-                <SplashEvent />
-                <SplashArtist />
-                <SplashRelease />
-            </Slider>
+
         </div>
     )
 }
