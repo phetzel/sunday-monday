@@ -26,9 +26,8 @@ const VideoShow = ({ match}) => {
             <div className="video-show content">
                 {video && 
                     <div className="video-show-details">
-                       <ReactPlayer 
-                            className="video-show-details-player" 
-                            url={`https://www.youtube.com/watch?v=${video.url}`} />
+                            <ReactPlayer 
+                                url={`https://www.youtube.com/watch?v=${video.url}`} />
                        <h2 className="p-color">{video.title}</h2>
                     </div>
                 }
