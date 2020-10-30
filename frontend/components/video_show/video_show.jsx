@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player/lazy';
 
 import BottomNav from '../navBar/bottom_nav';
 import videoApi from '../../util/video_api_util';
-// import ReleaseShowArtists from './release_show_artists';
+import VideoShowArtists from './video_show_artists';
 
 const VideoShow = ({ match}) => {
     const [video, setVideo] = useState();
@@ -30,6 +30,11 @@ const VideoShow = ({ match}) => {
                             className="video-show-details-player" 
                             url={`https://www.youtube.com/watch?v=${video.url}`} />
                        <h2 className="p-color">{video.title}</h2>
+                    </div>
+                }
+                {video && video.artists.length > 0 &&
+                    <div className="artist-association-container">
+                        <VideoShowArtists artists={video.artists} />
                     </div>
                 }
             </div>

@@ -3907,6 +3907,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_player_lazy__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_player_lazy__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../navBar/bottom_nav */ "./frontend/components/navBar/bottom_nav.jsx");
 /* harmony import */ var _util_video_api_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../util/video_api_util */ "./frontend/util/video_api_util.js");
+/* harmony import */ var _video_show_artists__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./video_show_artists */ "./frontend/components/video_show/video_show_artists.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -3922,7 +3923,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
- // import ReleaseShowArtists from './release_show_artists';
+
+
 
 var VideoShow = function VideoShow(_ref) {
   var match = _ref.match;
@@ -3951,10 +3953,58 @@ var VideoShow = function VideoShow(_ref) {
     url: "https://www.youtube.com/watch?v=".concat(video.url)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "p-color"
-  }, video.title))));
+  }, video.title)), video && video.artists.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "artist-association-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_video_show_artists__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    artists: video.artists
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (VideoShow);
+
+/***/ }),
+
+/***/ "./frontend/components/video_show/video_show_artists.jsx":
+/*!***************************************************************!*\
+  !*** ./frontend/components/video_show/video_show_artists.jsx ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+var VideoShowArtists = function VideoShowArtists(_ref) {
+  var artists = _ref.artists,
+      history = _ref.history;
+
+  var handleClick = function handleClick(id) {
+    history.push("/artists/".concat(id));
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "artist-association"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    className: "p-color"
+  }, "Artists"), artists.map(function (artist) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      className: "p-class",
+      key: artist.id,
+      onClick: function onClick() {
+        return handleClick(artist.id);
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: artist.photoUrl
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, artist.name));
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(VideoShowArtists));
 
 /***/ }),
 
