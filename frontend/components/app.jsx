@@ -3,8 +3,8 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 
 import AdminRouter from './admin/admin_router';
 import AlbumIndex from './release_index/album_index';
-import ArtistIndex from './artist_index/artist_index';
 import ArtistShow from './artist_show/artist_show';
+import AudioIndex from './artist_index/audio_index';
 import EventIndex from './event_index/event_index';
 import EventShow from './event_show/event_show';
 import ItemIndex from './item_index/item_index'
@@ -16,6 +16,7 @@ import Splash from './splash/splash';
 import UserContext from '../context/user_context';
 import VideoIndex from './video_index/video_index';
 import VideoShow from './video_show/video_show';
+import VisualIndex from './artist_index/visual_index';
 
 const App = () => {
     let currentUser;
@@ -34,7 +35,8 @@ const App = () => {
                 <Route exact path="/store" component={ItemIndex} />
                 <Route exact path="/store/:id" component={ItemShow} />
 
-                <Route exact path="/artists" component={ArtistIndex} />
+                <Route exact path="/artists/audio" component={AudioIndex} />
+                <Route exact path="/artists/visual" component={VisualIndex} />
                 <Route exact path="/artists/:id" component={ArtistShow} />
 
                 <Route exact path="/music/releases" component={AlbumIndex} />

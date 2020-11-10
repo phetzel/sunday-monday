@@ -5,15 +5,27 @@
 // Index
 //------------------------------------------------------------------------------
 .artist-index-container {
+  align-items: center;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  // justify-content: center;
   width: 100%;
+}
+
+.artist-index-header {
+  width: 90%;
+}
+
+.artist-index-header h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  margin-left: 20px;
 }
 
 .artist-index {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   width: 90%;
 }
 
@@ -172,6 +184,7 @@
 }
 
 .admin-artist-form input,
+.admin-artist-form select,
 .admin-artist-form textarea {
   border: 1px solid #ccc;
   margin: 0 0 5px;
@@ -180,6 +193,7 @@
 }
 
 .admin-artist-form input:focus,
+.admin-artist-form select:focus,
 .admin-artist-form textarea:focus {
   outline: none;
 }

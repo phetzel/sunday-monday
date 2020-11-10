@@ -15,10 +15,11 @@ const fetchArtist = id => (
     })
 )
 
-const fetchArtists = () => (
+const fetchArtists = data => (
     $.ajax({
         method: 'GET',
-        url: 'api/artists'
+        url: 'api/artists',
+        data
     })
 );
 

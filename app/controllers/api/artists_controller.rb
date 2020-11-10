@@ -1,6 +1,12 @@
 class Api::ArtistsController < ApplicationController
     def index
         @artists = Artist.order(:name)
+
+        puts style
+        if style
+            @artists = @artists.select{ |artist| artist.style == style }
+        end
+
         render :index
     end 
 
@@ -36,8 +42,14 @@ class Api::ArtistsController < ApplicationController
             :id,
             :name,
             :description,
-            :photo
+            :photo,
+            :style
         )
     end 
+
+
+    def style
+        params[:style]
+    end
     
 end

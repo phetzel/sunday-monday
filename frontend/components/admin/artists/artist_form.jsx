@@ -5,13 +5,16 @@ import { withRouter } from 'react-router-dom';
 import artistApi from '../../../util/artist_api_util';
 
 
+const styles = ["audio", "visual"];
+
 const ArtistForm = ({history}) => {
     const [photo, setPhoto] = useState();
 
     const initialValues = {
         name: "",
         description: "",
-        photo: ''
+        photo: '',
+        style: 'audio'
     }
 
     const handleFile = (e) => {
@@ -23,6 +26,7 @@ const ArtistForm = ({history}) => {
         
         formData.append('artist[name]', artist.name);
         formData.append('artist[description]', artist.description);
+        formData.append('artist[style]', artist.style);
         formData.append('artist[photo]', photo);
         artistApi.createArtist(formData)
             .then(res => history.push(`/artists/${res.id}`));
@@ -46,6 +50,15 @@ const ArtistForm = ({history}) => {
                         <textarea 
                             onChange={handleChange("description")} 
                             placeholder="Biography" />
+
+                        <select onChange={handleChange("style")}>
+                            <option value='audio'>Style</option>
+                            {
+                                styles.map((style, idx) => (
+                                    <option key={idx} value={style}>{style}</option>
+                                ))
+                            }
+                        </select>
 
                         <input 
                             onChange={handleFile}
