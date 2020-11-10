@@ -1,3 +1,57 @@
 // Place all the styles related to the api/visuals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//index
+.visual-index-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.visual-index-header {
+  width: 80%;
+}
+
+.visual-index-header h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.visual-index {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+.visual-index-item {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  height: 300px;
+  width: 300px;
+}
+
+.visual-index-item img {
+  max-height: 300px;
+  max-width: 300px;
+}
+
+//Visual Show
+//------------------------------------------------------------------------------
+
+.visual-show {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.visual-show-details img {
+  max-height: 500px;
+  max-width: 500px;
+}

@@ -32,6 +32,7 @@ class Api::VisualsController < ApplicationController
             :id,
             :title,
             :description,
+            :photo
         )
     end
 end

@@ -25,7 +25,7 @@ const VisualForm = ({history}) => {
 
         formData.append('visual[title]', visual.title);
         formData.append('visual[description]', visual.description);
-        formData.append('release[photo]', photo);
+        formData.append('visual[photo]', photo);
 
         visualApi.createVisual(formData).then(res => {
             // appearances.forEach(appearance => {

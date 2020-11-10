@@ -1950,7 +1950,7 @@ var VisualForm = function VisualForm(_ref) {
     var formData = new FormData();
     formData.append('visual[title]', visual.title);
     formData.append('visual[description]', visual.description);
-    formData.append('release[photo]', photo);
+    formData.append('visual[photo]', photo);
     _util_visual_api_util__WEBPACK_IMPORTED_MODULE_3__["default"].createVisual(formData).then(function (res) {
       // appearances.forEach(appearance => {
       //     const newAppearance = { video_id: res.id, artist_id: appearance };
@@ -2123,6 +2123,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _video_index_video_index__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./video_index/video_index */ "./frontend/components/video_index/video_index.jsx");
 /* harmony import */ var _video_show_video_show__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./video_show/video_show */ "./frontend/components/video_show/video_show.jsx");
 /* harmony import */ var _artist_index_visual_index__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./artist_index/visual_index */ "./frontend/components/artist_index/visual_index.jsx");
+/* harmony import */ var _visual_index_visual_index__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./visual_index/visual_index */ "./frontend/components/visual_index/visual_index.jsx");
+/* harmony import */ var _visual_show_visual_show__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./visual_show/visual_show */ "./frontend/components/visual_show/visual_show.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2134,6 +2136,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -2223,6 +2227,14 @@ var App = function App() {
     exact: true,
     path: "/videos/:id",
     component: _video_show_video_show__WEBPACK_IMPORTED_MODULE_16__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/visuals",
+    component: _visual_index_visual_index__WEBPACK_IMPORTED_MODULE_18__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/visuals/:id",
+    component: _visual_show_visual_show__WEBPACK_IMPORTED_MODULE_19__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/admin",
     render: function render() {
@@ -3264,8 +3276,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_drop_down__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin_drop_down */ "./frontend/components/navBar/admin_drop_down.jsx");
 /* harmony import */ var _artist_drop_down__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./artist_drop_down */ "./frontend/components/navBar/artist_drop_down.jsx");
 /* harmony import */ var _login_drop_down__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./login_drop_down */ "./frontend/components/navBar/login_drop_down.jsx");
-/* harmony import */ var _music_drop_down__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./music_drop_down */ "./frontend/components/navBar/music_drop_down.jsx");
-/* harmony import */ var _context_user_context__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../context/user_context */ "./frontend/context/user_context.js");
+/* harmony import */ var _media_drop_down__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./media_drop_down */ "./frontend/components/navBar/media_drop_down.jsx");
+/* harmony import */ var _music_drop_down__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./music_drop_down */ "./frontend/components/navBar/music_drop_down.jsx");
+/* harmony import */ var _context_user_context__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../context/user_context */ "./frontend/context/user_context.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -3286,10 +3299,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var NavBar = function NavBar(_ref) {
   var history = _ref.history;
 
-  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_context_user_context__WEBPACK_IMPORTED_MODULE_6__["default"]),
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_context_user_context__WEBPACK_IMPORTED_MODULE_7__["default"]),
       user = _useContext.user,
       setUser = _useContext.setUser;
 
@@ -3310,8 +3324,13 @@ var NavBar = function NavBar(_ref) {
 
   var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState8 = _slicedToArray(_useState7, 2),
-      loginVisible = _useState8[0],
-      setLoginVisible = _useState8[1];
+      mediaVisible = _useState8[0],
+      setMediaVisible = _useState8[1];
+
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState10 = _slicedToArray(_useState9, 2),
+      loginVisible = _useState10[0],
+      setLoginVisible = _useState10[1];
 
   var handleClick = function handleClick(loc, num) {
     history.push(loc);
@@ -3371,13 +3390,16 @@ var NavBar = function NavBar(_ref) {
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: isActiveTab(3)
-  }, "Music"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, musicVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_music_drop_down__WEBPACK_IMPORTED_MODULE_5__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    onClick: function onClick() {
-      return handleClick('/videos', 4);
+  }, "Music"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, musicVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_music_drop_down__WEBPACK_IMPORTED_MODULE_6__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    onMouseEnter: function onMouseEnter() {
+      return setMediaVisible(true);
+    },
+    onMouseLeave: function onMouseLeave() {
+      return setMediaVisible(false);
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: isActiveTab(4)
-  }, "Videos")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }, "Media"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, mediaVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_media_drop_down__WEBPACK_IMPORTED_MODULE_8__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     onClick: function onClick() {
       return handleClick('/events', 5);
     }
@@ -3571,6 +3593,45 @@ var LoginDropDown = function LoginDropDown(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (LoginDropDown);
+
+/***/ }),
+
+/***/ "./frontend/components/navBar/media_drop_down.jsx":
+/*!********************************************************!*\
+  !*** ./frontend/components/navBar/media_drop_down.jsx ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+var MediaDropDown = function MediaDropDown(_ref) {
+  var history = _ref.history;
+
+  var handleClick = function handleClick(loc) {
+    history.push(loc);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "nav-drop-down"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    onClick: function onClick() {
+      return handleClick('/videos');
+    }
+  }, "Videos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    onClick: function onClick() {
+      return handleClick('/visuals');
+    }
+  }, "Visual Art"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(MediaDropDown));
 
 /***/ }),
 
@@ -4415,6 +4476,171 @@ var VideoShowArtists = function VideoShowArtists(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(VideoShowArtists));
+
+/***/ }),
+
+/***/ "./frontend/components/visual_index/visual_index.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/visual_index/visual_index.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navBar/bottom_nav */ "./frontend/components/navBar/bottom_nav.jsx");
+/* harmony import */ var _util_visual_api_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/visual_api_util */ "./frontend/util/visual_api_util.js");
+/* harmony import */ var _visual_index_item__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./visual_index_item */ "./frontend/components/visual_index/visual_index_item.jsx");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var VisualIndex = function VisualIndex(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState2 = _slicedToArray(_useState, 2),
+      visuals = _useState2[0],
+      setVisuals = _useState2[1];
+
+  var fetchVisuals = function fetchVisuals() {
+    _util_visual_api_util__WEBPACK_IMPORTED_MODULE_2__["default"].fetchVisuals().then(function (visuals) {
+      var visualsArray = Object.values(visuals);
+      setVisuals(visualsArray);
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    fetchVisuals();
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "visual-index-container content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "visual-index-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "p-color"
+  }, "Visual Art")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "visual-index"
+  }, visuals && visuals.map(function (visual) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_visual_index_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      visual: visual,
+      key: visual.id
+    });
+  }))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (VisualIndex);
+
+/***/ }),
+
+/***/ "./frontend/components/visual_index/visual_index_item.jsx":
+/*!****************************************************************!*\
+  !*** ./frontend/components/visual_index/visual_index_item.jsx ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+var VisualListItem = function VisualListItem(_ref) {
+  var visual = _ref.visual,
+      history = _ref.history;
+
+  var handleClick = function handleClick() {
+    history.push("/visuals/".concat(visual.id));
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "visual-index-item",
+    onClick: handleClick
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    alt: visual.title,
+    src: visual.photoUrl,
+    title: visual.title
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(VisualListItem));
+
+/***/ }),
+
+/***/ "./frontend/components/visual_show/visual_show.jsx":
+/*!*********************************************************!*\
+  !*** ./frontend/components/visual_show/visual_show.jsx ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navBar/bottom_nav */ "./frontend/components/navBar/bottom_nav.jsx");
+/* harmony import */ var _util_visual_api_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/visual_api_util */ "./frontend/util/visual_api_util.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+var VisualShow = function VisualShow(_ref) {
+  var match = _ref.match;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState2 = _slicedToArray(_useState, 2),
+      visual = _useState2[0],
+      setVisual = _useState2[1];
+
+  var fetchVisual = function fetchVisual() {
+    var id = match.params.id;
+    _util_visual_api_util__WEBPACK_IMPORTED_MODULE_2__["default"].fetchVisual(id).then(function (visual) {
+      setVisual(visual);
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    fetchVisual();
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "visual-show content"
+  }, visual && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "visual-show-details"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: visual.photoUrl,
+    alt: visual.title
+  }))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (VisualShow);
 
 /***/ }),
 

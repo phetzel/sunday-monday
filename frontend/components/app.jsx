@@ -16,7 +16,9 @@ import Splash from './splash/splash';
 import UserContext from '../context/user_context';
 import VideoIndex from './video_index/video_index';
 import VideoShow from './video_show/video_show';
-import VisualIndex from './artist_index/visual_index';
+import VisualArtistIndex from './artist_index/visual_index';
+import VisualIndex from './visual_index/visual_index';
+import VisualShow from './visual_show/visual_show';
 
 const App = () => {
     let currentUser;
@@ -36,7 +38,7 @@ const App = () => {
                 <Route exact path="/store/:id" component={ItemShow} />
 
                 <Route exact path="/artists/audio" component={AudioIndex} />
-                <Route exact path="/artists/visual" component={VisualIndex} />
+                <Route exact path="/artists/visual" component={VisualArtistIndex} />
                 <Route exact path="/artists/:id" component={ArtistShow} />
 
                 <Route exact path="/music/releases" component={AlbumIndex} />
@@ -48,6 +50,9 @@ const App = () => {
 
                  <Route exact path="/videos" component={VideoIndex} />
                  <Route exact path="/videos/:id" component={VideoShow} />
+
+                 <Route exact path="/visuals" component={VisualIndex} />
+                 <Route exact path="/visuals/:id" component={VisualShow} />
 
                 <Route path="/admin" render={() => (
                     user ? (

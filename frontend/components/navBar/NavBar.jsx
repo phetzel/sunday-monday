@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import AdminDropDown from './admin_drop_down';
 import ArtistDropDown from './artist_drop_down';
 import LoginDropDown from './login_drop_down';
+import MediaDropDown from './media_drop_down';
 import MusicDropDown from './music_drop_down';
 import UserContext from '../../context/user_context';
 
@@ -13,6 +14,7 @@ const NavBar = ({ history }) => {
     const [tab, setTab] = useState(0);
     const [artistVisible, setArtistVisible] = useState(false);
     const [musicVisible, setMusicVisible] = useState(false);
+    const [mediaVisible, setMediaVisible] = useState(false);
     const [loginVisible, setLoginVisible] = useState(false);
 
 
@@ -77,8 +79,14 @@ const NavBar = ({ history }) => {
                     </div>
                 </li>
 
-                <li onClick={() => handleClick('/videos', 4)}>
-                    <p className={isActiveTab(4)} >Videos</p>
+                <li 
+                    onMouseEnter={() => setMediaVisible(true)}
+                    onMouseLeave={() => setMediaVisible(false)}
+                >
+                    <p className={isActiveTab(4)}>Media</p>
+                    <div>
+                        {mediaVisible && <MediaDropDown />}                  
+                    </div>
                 </li>
 
                 <li onClick={() => handleClick('/events', 5)}>
