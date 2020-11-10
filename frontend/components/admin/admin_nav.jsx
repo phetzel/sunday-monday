@@ -14,6 +14,7 @@ const AdminNav = ({ history }) => {
                 <li onClick={() => handleClick('/admin/items')}>Items</li>
                 <li onClick={() => handleClick('/admin/music')}>Music</li>
                 <li onClick={() => handleClick('/admin/videos')}>Videos</li>
+                <li onClick={() => handleClick('/admin/visuals')}>Visual Art</li>
             </ul>
         </div>
     )

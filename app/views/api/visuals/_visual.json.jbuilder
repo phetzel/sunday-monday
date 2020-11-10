@@ -1,0 +1,1 @@
+json.extract! visual, :id, :title, :description

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_004440) do
+ActiveRecord::Schema.define(version: 2020_11_10_060407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_10_29_004440) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "style"
     t.index ["name"], name: "index_artists_on_name", unique: true
   end
 
@@ -111,6 +112,13 @@ ActiveRecord::Schema.define(version: 2020_10_29_004440) do
     t.string "title", null: false
     t.text "description"
     t.string "url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "visuals", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

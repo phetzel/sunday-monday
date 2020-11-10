@@ -245,7 +245,11 @@ var AdminNav = function AdminNav(_ref) {
     onClick: function onClick() {
       return handleClick('/admin/videos');
     }
-  }, "Videos")));
+  }, "Videos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    onClick: function onClick() {
+      return handleClick('/admin/visuals');
+    }
+  }, "Visual Art")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(AdminNav));
@@ -270,6 +274,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _items_items__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./items/items */ "./frontend/components/admin/items/items.jsx");
 /* harmony import */ var _releases_releases__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./releases/releases */ "./frontend/components/admin/releases/releases.jsx");
 /* harmony import */ var _videos_videos__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./videos/videos */ "./frontend/components/admin/videos/videos.jsx");
+/* harmony import */ var _visuals_visuals__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./visuals/visuals */ "./frontend/components/admin/visuals/visuals.jsx");
+
 
 
 
@@ -300,6 +306,10 @@ var AdminRouter = function AdminRouter() {
     exact: true,
     path: "/admin/videos",
     component: _videos_videos__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/admin/visuals",
+    component: _visuals_visuals__WEBPACK_IMPORTED_MODULE_8__["default"]
   })));
 };
 
@@ -1881,6 +1891,207 @@ var Videos = function Videos() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Videos);
+
+/***/ }),
+
+/***/ "./frontend/components/admin/visuals/visual_form.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/admin/visuals/visual_form.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_visual_api_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../util/visual_api_util */ "./frontend/util/visual_api_util.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+ // import appearanceApi from '../../../util/appearance_api_util';
+// import Modal from './modal';
+
+
+
+var VisualForm = function VisualForm(_ref) {
+  var history = _ref.history;
+
+  // const [appearances, setAppearances] = useState([]);
+  // const [visible, setVisible] = useState(false);
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState2 = _slicedToArray(_useState, 2),
+      photo = _useState2[0],
+      setPhoto = _useState2[1];
+
+  var initialValues = {
+    title: "",
+    description: ""
+  };
+
+  var handleFile = function handleFile(e) {
+    setPhoto(e.currentTarget.files[0]);
+  };
+
+  var handleSubmit = function handleSubmit(visual) {
+    var formData = new FormData();
+    formData.append('visual[title]', visual.title);
+    formData.append('visual[description]', visual.description);
+    formData.append('release[photo]', photo);
+    _util_visual_api_util__WEBPACK_IMPORTED_MODULE_3__["default"].createVisual(formData).then(function (res) {
+      // appearances.forEach(appearance => {
+      //     const newAppearance = { video_id: res.id, artist_id: appearance };
+      //     appearanceApi.createAppearance(newAppearance);
+      // });
+      console.log(res);
+      history.push("/visuals/".concat(res.id));
+    });
+  }; // const handleModal = (val) => setVisible(val);
+
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "admin-video-form-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "p-color"
+  }, "Add New Visual Art"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_1__["Formik"], {
+    initialValues: initialValues,
+    onSubmit: handleSubmit
+  }, function (_ref2) {
+    var handleChange = _ref2.handleChange,
+        handleSubmit = _ref2.handleSubmit;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "admin-video-form"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      onChange: handleChange("title"),
+      placeholder: "Title",
+      type: "text"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      onChange: handleChange("description"),
+      placeholder: "Description"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      onChange: handleFile,
+      type: "file"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "admin-release-buttons"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "button",
+      onClick: handleSubmit,
+      title: "Add Video",
+      type: "submit"
+    }, "Add Visual")));
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(VisualForm));
+
+/***/ }),
+
+/***/ "./frontend/components/admin/visuals/visual_list.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/admin/visuals/visual_list.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util_visual_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../util/visual_api_util */ "./frontend/util/visual_api_util.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+var VisualList = function VisualList() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState2 = _slicedToArray(_useState, 2),
+      visuals = _useState2[0],
+      setVisuals = _useState2[1];
+
+  var fetchVisuals = function fetchVisuals() {
+    _util_visual_api_util__WEBPACK_IMPORTED_MODULE_1__["default"].fetchVisuals().then(function (visuals) {
+      var visualsArray = Object.values(visuals);
+      setVisuals(Array.from(visualsArray));
+    });
+  };
+
+  var deleteVisual = function deleteVisual(id) {
+    _util_visual_api_util__WEBPACK_IMPORTED_MODULE_1__["default"].deleteVisual(id).then(function (visuals) {
+      var visualsArray = Object.values(visuals);
+      setVisuals(Array.from(visualsArray));
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    fetchVisuals();
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "admin-list"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "p-color"
+  }, "Edit Visuals"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, visuals && visuals.map(function (visual) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      key: visual.id
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, visual.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      onClick: function onClick() {
+        return deleteVisual(visual.id);
+      }
+    }, "\uD83D\uDDD1"));
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (VisualList);
+
+/***/ }),
+
+/***/ "./frontend/components/admin/visuals/visuals.jsx":
+/*!*******************************************************!*\
+  !*** ./frontend/components/admin/visuals/visuals.jsx ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _visual_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./visual_form */ "./frontend/components/admin/visuals/visual_form.jsx");
+/* harmony import */ var _visual_list__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./visual_list */ "./frontend/components/admin/visuals/visual_list.jsx");
+
+
+
+
+var Visuals = function Visuals() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "admin-release"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_visual_form__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_visual_list__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Visuals);
 
 /***/ }),
 
@@ -4666,6 +4877,55 @@ var deleteVideo = function deleteVideo(id) {
   fetchVideo: fetchVideo,
   fetchVideos: fetchVideos,
   deleteVideo: deleteVideo
+});
+
+/***/ }),
+
+/***/ "./frontend/util/visual_api_util.js":
+/*!******************************************!*\
+  !*** ./frontend/util/visual_api_util.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var createVisual = function createVisual(visual) {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/visuals',
+    data: visual,
+    processData: false,
+    contentType: false
+  });
+};
+
+var fetchVisual = function fetchVisual(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "api/visuals/".concat(id)
+  });
+};
+
+var fetchVisuals = function fetchVisuals() {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/visuals'
+  });
+};
+
+var deleteVisual = function deleteVisual(id) {
+  return $.ajax({
+    url: "/api/visuals/".concat(id),
+    method: 'DELETE'
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  createVisual: createVisual,
+  fetchVisual: fetchVisual,
+  fetchVisuals: fetchVisuals,
+  deleteVisual: deleteVisual
 });
 
 /***/ }),
