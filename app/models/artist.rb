@@ -11,4 +11,7 @@ class Artist < ApplicationRecord
 
     has_many :appearances
     has_many :videos, through: :appearances, source: :video
+
+    has_many :painters
+    has_many :visuals, through: :painters, source: :visual
 end

@@ -17,3 +17,9 @@ json.videos do
         json.partial! 'api/videos/video', video: video
     end 
 end
+
+json.visuals do 
+    json.array! @artist.visuals do |visual|
+        json.partial! 'api/visuals/visual', visual: visual
+    end 
+end

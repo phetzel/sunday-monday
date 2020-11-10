@@ -5,6 +5,7 @@ import ArtistShowDetail from './artist_show_detail';
 import ArtistShowEvent from './artist_show_event';
 import ArtistShowMusic from './artist_show_music';
 import ArtistShowVideo from './artist_show_video';
+import ArtistShowVisual from './artist_show_visual';
 import BottomNav from '../navBar/bottom_nav';
 
 const ArtistShow = ({ match}) => {
@@ -31,6 +32,8 @@ const ArtistShow = ({ match}) => {
                     <ArtistShowVideo videos={artist.videos} />}
                 {artist && artist.releases.length > 0 &&
                     <ArtistShowMusic releases={artist.releases} />}
+                {artist && artist.visuals.length > 0 &&
+                    <ArtistShowVisual visuals={artist.visuals} />}                
                 {artist && artist.events.length > 0 &&
                     <ArtistShowEvent events={artist.events} />}
             </div>

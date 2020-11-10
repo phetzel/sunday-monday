@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import BottomNav from '../navBar/bottom_nav';
 import visualApi from '../../util/visual_api_util';
+import VisualShowArtists from './visual_show_artists';
 
 const VisualShow = ({ match}) => {
     const [visual, setVisual] = useState();
@@ -16,8 +17,9 @@ const VisualShow = ({ match}) => {
     useEffect(() => {
         fetchVisual();
     }, []);
-    
 
+    console.log(visual);
+    
     return(
         <div>
             <BottomNav />
@@ -25,6 +27,11 @@ const VisualShow = ({ match}) => {
                 {visual && 
                     <div className="visual-show-details">
                         <img src={visual.photoUrl} alt={visual.title}/>
+                    </div>
+                }
+                {visual && visual.artists.length > 0 &&
+                    <div className="artist-association-container">
+                        <VisualShowArtists artists={visual.artists} />
                     </div>
                 }
             </div>

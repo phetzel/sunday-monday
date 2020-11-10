@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Formik } from 'formik'
 import { withRouter } from 'react-router-dom';
 
-// import appearanceApi from '../../../util/appearance_api_util';
-// import Modal from './modal';
+import painterApi from '../../../util/painter_api_util';
+import Modal from './modal';
 import visualApi from '../../../util/visual_api_util';
 
 const VisualForm = ({history}) => {
-    // const [appearances, setAppearances] = useState([]);
-    // const [visible, setVisible] = useState(false);
+    const [painters, setPainters] = useState([]);
+    const [visible, setVisible] = useState(false);
     const [photo, setPhoto] = useState();
 
     const initialValues = {
@@ -28,25 +28,24 @@ const VisualForm = ({history}) => {
         formData.append('visual[photo]', photo);
 
         visualApi.createVisual(formData).then(res => {
-            // appearances.forEach(appearance => {
-            //     const newAppearance = { video_id: res.id, artist_id: appearance };
-            //     appearanceApi.createAppearance(newAppearance);
-            // });
-            console.log(res);
+            painters.forEach(painter => {
+                const newPainter = { visual_id: res.id, artist_id: painter };
+                painterApi.createPainter(newPainter);
+            });
 
             history.push(`/visuals/${res.id}`)
         });
     }
 
-    // const handleModal = (val) => setVisible(val);
+    const handleModal = (val) => setVisible(val);
 
     return (
         <div className="admin-video-form-container">
-            {/* <Modal
-                appearances={appearances}
-                setAppearances={setAppearances}
+            <Modal
+                painters={painters}
+                setPainters={setPainters}
                 setVisible={setVisible}
-                visible={visible}/> */}
+                visible={visible}/>
 
             <h2 className="p-color">Add New Visual Art</h2>
             
@@ -78,12 +77,12 @@ const VisualForm = ({history}) => {
                                 Add Visual
                             </button>
 
-                            {/* <button 
+                            <button 
                                 className="button"
                                 onClick={() => handleModal('true')} 
                                 title="Add Artists" >
                                 Add Artists
-                            </button> */}
+                            </button>
                         </div>
                     </ div>
                 )}

@@ -1894,10 +1894,10 @@ var Videos = function Videos() {
 
 /***/ }),
 
-/***/ "./frontend/components/admin/visuals/visual_form.jsx":
-/*!***********************************************************!*\
-  !*** ./frontend/components/admin/visuals/visual_form.jsx ***!
-  \***********************************************************/
+/***/ "./frontend/components/admin/visuals/modal.jsx":
+/*!*****************************************************!*\
+  !*** ./frontend/components/admin/visuals/modal.jsx ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1905,9 +1905,16 @@ var Videos = function Videos() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _util_visual_api_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../util/visual_api_util */ "./frontend/util/visual_api_util.js");
+/* harmony import */ var _util_artist_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../util/artist_api_util */ "./frontend/util/artist_api_util.js");
+/* harmony import */ var _modal_list_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modal_list_item */ "./frontend/components/admin/visuals/modal_list_item.jsx");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1922,20 +1929,150 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
- // import appearanceApi from '../../../util/appearance_api_util';
-// import Modal from './modal';
+
+
+var Modal = function Modal(_ref) {
+  var painters = _ref.painters,
+      setPainters = _ref.setPainters,
+      setVisible = _ref.setVisible,
+      visible = _ref.visible;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState2 = _slicedToArray(_useState, 2),
+      artists = _useState2[0],
+      setArtists = _useState2[1];
+
+  var fetchArtists = function fetchArtists() {
+    _util_artist_api_util__WEBPACK_IMPORTED_MODULE_1__["default"].fetchArtists().then(function (artists) {
+      var artistsArray = Object.values(artists);
+      setArtists(Array.from(artistsArray));
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    fetchArtists();
+  }, []);
+
+  var handleClick = function handleClick(id) {
+    if (painters.includes(id)) {
+      var filtered = painters.filter(function (p) {
+        return p !== id;
+      });
+      setPainters(_toConsumableArray(filtered));
+    } else {
+      setPainters([].concat(_toConsumableArray(painters), [id]));
+    }
+  };
+
+  if (!visible) return null;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "admin-feature-modal-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "admin-feature-modal"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    className: "p-color"
+  }, "Add Artists"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, artists && artists.map(function (artist) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_list_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      artist: artist,
+      painters: painters,
+      key: artist.id,
+      handleClick: handleClick
+    });
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "button",
+    onClick: function onClick() {
+      return setVisible(false);
+    }
+  }, "Close")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Modal);
+
+/***/ }),
+
+/***/ "./frontend/components/admin/visuals/modal_list_item.jsx":
+/*!***************************************************************!*\
+  !*** ./frontend/components/admin/visuals/modal_list_item.jsx ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var ModalListItem = function ModalListItem(_ref) {
+  var artist = _ref.artist,
+      painters = _ref.painters,
+      handleClick = _ref.handleClick;
+  var style = painters.includes(artist.id) ? "admin-feature-modal-active" : "admin-feature-modal-inactive";
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: style,
+    key: artist.id,
+    onClick: function onClick() {
+      return handleClick(artist.id);
+    }
+  }, artist.name);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ModalListItem);
+
+/***/ }),
+
+/***/ "./frontend/components/admin/visuals/visual_form.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/admin/visuals/visual_form.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_painter_api_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../util/painter_api_util */ "./frontend/util/painter_api_util.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modal */ "./frontend/components/admin/visuals/modal.jsx");
+/* harmony import */ var _util_visual_api_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../util/visual_api_util */ "./frontend/util/visual_api_util.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
 
 
 
 var VisualForm = function VisualForm(_ref) {
   var history = _ref.history;
 
-  // const [appearances, setAppearances] = useState([]);
-  // const [visible, setVisible] = useState(false);
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
-      photo = _useState2[0],
-      setPhoto = _useState2[1];
+      painters = _useState2[0],
+      setPainters = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      visible = _useState4[0],
+      setVisible = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState6 = _slicedToArray(_useState5, 2),
+      photo = _useState6[0],
+      setPhoto = _useState6[1];
 
   var initialValues = {
     title: "",
@@ -1951,20 +2088,30 @@ var VisualForm = function VisualForm(_ref) {
     formData.append('visual[title]', visual.title);
     formData.append('visual[description]', visual.description);
     formData.append('visual[photo]', photo);
-    _util_visual_api_util__WEBPACK_IMPORTED_MODULE_3__["default"].createVisual(formData).then(function (res) {
-      // appearances.forEach(appearance => {
-      //     const newAppearance = { video_id: res.id, artist_id: appearance };
-      //     appearanceApi.createAppearance(newAppearance);
-      // });
-      console.log(res);
+    _util_visual_api_util__WEBPACK_IMPORTED_MODULE_5__["default"].createVisual(formData).then(function (res) {
+      painters.forEach(function (painter) {
+        var newPainter = {
+          visual_id: res.id,
+          artist_id: painter
+        };
+        _util_painter_api_util__WEBPACK_IMPORTED_MODULE_3__["default"].createPainter(newPainter);
+      });
       history.push("/visuals/".concat(res.id));
     });
-  }; // const handleModal = (val) => setVisible(val);
+  };
 
+  var handleModal = function handleModal(val) {
+    return setVisible(val);
+  };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "admin-video-form-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    painters: painters,
+    setPainters: setPainters,
+    setVisible: setVisible,
+    visible: visible
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "p-color"
   }, "Add New Visual Art"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_1__["Formik"], {
     initialValues: initialValues,
@@ -1991,7 +2138,13 @@ var VisualForm = function VisualForm(_ref) {
       onClick: handleSubmit,
       title: "Add Video",
       type: "submit"
-    }, "Add Visual")));
+    }, "Add Visual"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "button",
+      onClick: function onClick() {
+        return handleModal('true');
+      },
+      title: "Add Artists"
+    }, "Add Artists")));
   }));
 };
 
@@ -2425,7 +2578,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _artist_show_event__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./artist_show_event */ "./frontend/components/artist_show/artist_show_event.jsx");
 /* harmony import */ var _artist_show_music__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./artist_show_music */ "./frontend/components/artist_show/artist_show_music.jsx");
 /* harmony import */ var _artist_show_video__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./artist_show_video */ "./frontend/components/artist_show/artist_show_video.jsx");
-/* harmony import */ var _navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../navBar/bottom_nav */ "./frontend/components/navBar/bottom_nav.jsx");
+/* harmony import */ var _artist_show_visual__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./artist_show_visual */ "./frontend/components/artist_show/artist_show_visual.jsx");
+/* harmony import */ var _navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../navBar/bottom_nav */ "./frontend/components/navBar/bottom_nav.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2437,6 +2591,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -2464,7 +2619,7 @@ var ArtistShow = function ArtistShow(_ref) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     fetchArtist();
   }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_7__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "artist-show content"
   }, artist && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_artist_show_detail__WEBPACK_IMPORTED_MODULE_2__["default"], {
     artist: artist
@@ -2472,6 +2627,8 @@ var ArtistShow = function ArtistShow(_ref) {
     videos: artist.videos
   }), artist && artist.releases.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_artist_show_music__WEBPACK_IMPORTED_MODULE_4__["default"], {
     releases: artist.releases
+  }), artist && artist.visuals.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_artist_show_visual__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    visuals: artist.visuals
   }), artist && artist.events.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_artist_show_event__WEBPACK_IMPORTED_MODULE_3__["default"], {
     events: artist.events
   })));
@@ -2653,6 +2810,51 @@ var ArtistShowVideo = function ArtistShowVideo(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(ArtistShowVideo));
+
+/***/ }),
+
+/***/ "./frontend/components/artist_show/artist_show_visual.jsx":
+/*!****************************************************************!*\
+  !*** ./frontend/components/artist_show/artist_show_visual.jsx ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+var ArtistShowVisual = function ArtistShowVisual(_ref) {
+  var history = _ref.history,
+      visuals = _ref.visuals;
+
+  var handleClick = function handleClick(id) {
+    history.push("/visuals/".concat(id));
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "artist-show-music"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "p-color"
+  }, "Visual Art"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, visuals.map(function (visual) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      key: visual.id,
+      onClick: function onClick() {
+        return handleClick(visual.id);
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      alt: visual.title,
+      src: visual.photoUrl,
+      title: visual.title
+    }));
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(ArtistShowVisual));
 
 /***/ }),
 
@@ -3276,7 +3478,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_drop_down__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin_drop_down */ "./frontend/components/navBar/admin_drop_down.jsx");
 /* harmony import */ var _artist_drop_down__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./artist_drop_down */ "./frontend/components/navBar/artist_drop_down.jsx");
 /* harmony import */ var _login_drop_down__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./login_drop_down */ "./frontend/components/navBar/login_drop_down.jsx");
-/* harmony import */ var _media_drop_down__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./media_drop_down */ "./frontend/components/navBar/media_drop_down.jsx");
+/* harmony import */ var _media_drop_down__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./media_drop_down */ "./frontend/components/navBar/media_drop_down.jsx");
 /* harmony import */ var _music_drop_down__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./music_drop_down */ "./frontend/components/navBar/music_drop_down.jsx");
 /* harmony import */ var _context_user_context__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../context/user_context */ "./frontend/context/user_context.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -3399,7 +3601,7 @@ var NavBar = function NavBar(_ref) {
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: isActiveTab(4)
-  }, "Media"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, mediaVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_media_drop_down__WEBPACK_IMPORTED_MODULE_8__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }, "Media"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, mediaVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_media_drop_down__WEBPACK_IMPORTED_MODULE_5__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     onClick: function onClick() {
       return handleClick('/events', 5);
     }
@@ -4596,6 +4798,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navBar/bottom_nav */ "./frontend/components/navBar/bottom_nav.jsx");
 /* harmony import */ var _util_visual_api_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/visual_api_util */ "./frontend/util/visual_api_util.js");
+/* harmony import */ var _visual_show_artists__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./visual_show_artists */ "./frontend/components/visual_show/visual_show_artists.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -4607,6 +4810,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -4630,6 +4834,7 @@ var VisualShow = function VisualShow(_ref) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     fetchVisual();
   }, []);
+  console.log(visual);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "visual-show content"
   }, visual && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4637,10 +4842,58 @@ var VisualShow = function VisualShow(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: visual.photoUrl,
     alt: visual.title
+  })), visual && visual.artists.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "artist-association-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_visual_show_artists__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    artists: visual.artists
   }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (VisualShow);
+
+/***/ }),
+
+/***/ "./frontend/components/visual_show/visual_show_artists.jsx":
+/*!*****************************************************************!*\
+  !*** ./frontend/components/visual_show/visual_show_artists.jsx ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+var VisualShowArtists = function VisualShowArtists(_ref) {
+  var artists = _ref.artists,
+      history = _ref.history;
+
+  var handleClick = function handleClick(id) {
+    history.push("/artists/".concat(id));
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "artist-association"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    className: "p-color"
+  }, "Artists"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, artists.map(function (artist) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      className: "p-class",
+      key: artist.id,
+      onClick: function onClick() {
+        return handleClick(artist.id);
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: artist.photoUrl
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, artist.name));
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(VisualShowArtists));
 
 /***/ }),
 
@@ -4897,6 +5150,39 @@ var deleteItem = function deleteItem(id) {
   fetchItem: fetchItem,
   fetchItems: fetchItems,
   deleteItem: deleteItem
+});
+
+/***/ }),
+
+/***/ "./frontend/util/painter_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/util/painter_api_util.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var createPainter = function createPainter(painter) {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/painters',
+    data: {
+      painter: painter
+    }
+  });
+};
+
+var deletePainter = function deletePainter(id) {
+  return $.ajax({
+    url: "/api/painters/".concat(id),
+    method: 'DELETE'
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  createPainter: createPainter,
+  deletePainter: deletePainter
 });
 
 /***/ }),
