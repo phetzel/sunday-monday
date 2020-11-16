@@ -617,7 +617,6 @@ var EventForm = function EventForm(_ref) {
     }).then(function (data) {
       var res = data.results[0].geometry.location;
       var formData = new FormData();
-      console.log(date);
       formData.append('event[title]', event.title);
       formData.append('event[description]', event.description);
       formData.append('event[address]', "".concat(event.address, " ").concat(event.city, " ").concat(event.stateInit));
@@ -4798,7 +4797,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navBar/bottom_nav */ "./frontend/components/navBar/bottom_nav.jsx");
 /* harmony import */ var _util_visual_api_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/visual_api_util */ "./frontend/util/visual_api_util.js");
-/* harmony import */ var _visual_show_artists__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./visual_show_artists */ "./frontend/components/visual_show/visual_show_artists.jsx");
+/* harmony import */ var _visual_show_artists__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./visual_show_artists */ "./frontend/components/visual_show/visual_show_artists.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -4844,7 +4843,7 @@ var VisualShow = function VisualShow(_ref) {
     alt: visual.title
   })), visual && visual.artists.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "artist-association-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_visual_show_artists__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_visual_show_artists__WEBPACK_IMPORTED_MODULE_3__["default"], {
     artists: visual.artists
   }))));
 };
