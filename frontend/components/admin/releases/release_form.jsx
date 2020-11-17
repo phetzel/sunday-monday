@@ -16,7 +16,7 @@ const ReleaseForm = ({history}) => {
     const initialValues = {
         title: "",
         description: "",
-        spotify: "",
+        audio: "",
         medium: "album"
     }
 
@@ -29,7 +29,7 @@ const ReleaseForm = ({history}) => {
 
         formData.append('release[title]', release.title);
         formData.append('release[description]', release.description);
-        formData.append('release[spotify]', release.spotify);
+        formData.append('release[audio]', release.audio);
         formData.append('release[medium]', release.medium);
         formData.append('release[photo]', photo);
 
@@ -72,8 +72,8 @@ const ReleaseForm = ({history}) => {
                             placeholder="Description" />
 
                         <input 
-                            onChange={handleChange("spotify")} 
-                            placeholder="Spotify"
+                            onChange={handleChange("audio")} 
+                            placeholder="Audio"
                             type="text"/>
 
                         <select onChange={handleChange("medium")}>

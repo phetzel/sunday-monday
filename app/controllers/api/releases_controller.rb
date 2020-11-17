@@ -42,7 +42,7 @@ class Api::ReleasesController < ApplicationController
             :id,
             :title,
             :description,
-            :spotify,
+            :audio,
             :photo,
             :medium
         )

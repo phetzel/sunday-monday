@@ -1,5 +1,5 @@
 class Release < ApplicationRecord
-    validates :title, :spotify, presence: true
+    validates :title, :audio, presence: true
 
     has_one_attached :photo
 
