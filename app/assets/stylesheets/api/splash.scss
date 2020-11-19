@@ -1,51 +1,54 @@
 .splash {
+  width: 70%;
+  height: 70%;
+
+  background: asset-url("splash.jpg");
+  background-size: cover;
 }
 
-.splash-subcontainer {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-  width: 100%;
+.splash-logo {
+  position: relative;
+  width: 278.81px;
+  height: 278.81px;
+  left: 33%;
+  bottom: 33%;
 }
 
-.splash-content {
-  align-items: center;
-  background-color: #f6eee4;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin-bottom: 50px;
-  padding: 25px;
-  min-width: 40%;
-  max-width: 50%;
+.splash-text {
+  //   font-family: Hiragino Kaku Gothic Std;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 100px;
+  line-height: 150px;
+  /* identical to box height */
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  /* 352D39 */
+
+  color: #352d39;
+}
+
+.she {
+  position: relative;
+  right: 80px;
+  width: 50%;
+  z-index: 100;
+}
+
+.she-white {
+  position: relative;
+  right: 80px;
+  bottom: 150px;
+  height: 50%;
+  width: 50%;
+  color: #fbf2ea;
   overflow: hidden;
 }
 
-.splash-content-header {
-  display: flex;
-  overflow: hidden;
-}
-
-.splash-content h1 {
-  font-size: 30px;
-  margin-bottom: 20px;
-}
-
-.splash-content-details {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-}
-
-.splash-content h5 {
-  font-size: 25px;
-  margin: 0 0 20px 20px;
-}
-
-.splash-content img {
-  cursor: pointer;
-  height: 350px;
-  width: 350px;
+.descends {
+  position: relative;
+  bottom: 20px;
+  left: 100px;
 }

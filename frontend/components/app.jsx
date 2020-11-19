@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMusic } from '@fortawesome/free-solid-svg-icons';
 
 import AdminRouter from './admin/admin_router';
 import AlbumIndex from './release_index/album_index';
 import ArtistShow from './artist_show/artist_show';
 import AudioIndex from './artist_index/audio_index';
+import Background from './background/background';
 import EventIndex from './event_index/event_index';
 import EventShow from './event_show/event_show';
-import ItemIndex from './item_index/item_index'
-import ItemShow from './item_show/item_show';
 import MusicContext from '../context/music_context';
 import MusicPlayer from './music_player/music_player';
 import NavBar from './navBar/NavBar';
@@ -33,17 +30,12 @@ const App = () => {
     const [user, setUser] = useState(currentUser);
     const [music, setMusic] = useState([]);
 
-    const [musicVisible, setMusicVisible] = useState(false);
-
     return (
         <UserContext.Provider value={{ user, setUser }}>
             <MusicContext.Provider value={{ music, setMusic }}>
                 <NavBar />
                 <Switch>
-                    <Route exact path="/" component={Splash} />
-
-                    <Route exact path="/store" component={ItemIndex} />
-                    <Route exact path="/store/:id" component={ItemShow} />
+                    <Route exact path="/" component={Background} />
 
                     <Route exact path="/artists/audio" component={AudioIndex} />
                     <Route exact path="/artists/visual" component={VisualArtistIndex} />
@@ -70,9 +62,7 @@ const App = () => {
                         )
                     )} />
                 </Switch>
-                <MusicPlayer 
-                    setVisible={setMusicVisible}
-                    visible={true}/>
+                <MusicPlayer />
             </ MusicContext.Provider>
         </ UserContext.Provider>
     )

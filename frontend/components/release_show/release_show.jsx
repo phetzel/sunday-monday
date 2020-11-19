@@ -4,6 +4,7 @@ import { faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import BottomNav from '../navBar/bottom_nav';
 import MusicContext from '../../context/music_context';
+import MusicPlayer from '../music_player/music_player';
 import resleaseApi from '../../util/release_api_util';
 import ReleaseShowArtists from './release_show_artists';
 
@@ -56,6 +57,7 @@ const ReleaseShow = ({ match}) => {
                     </div>
                 }
             </div>
+            {/* <MusicPlayer /> */}
         </div>
     )
 }
