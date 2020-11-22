@@ -1,9 +1,7 @@
-const key = 'AIzaSyDxlLeVp2UcirRls5A-Xp_7MS68J35nrNo';
-
 
 const fetchVideoFromYoutube = id => {
     const url = `https://www.googleapis.com/youtube/v3/videos?`
-        + `key=${key}`
+        + `key=${window.googleAPIKey}`
         + `&part=snippet`
         + `&playlistId=${id}`;
 
@@ -14,14 +12,18 @@ const fetchVideoFromYoutube = id => {
 
 const fetchPlaylistFromYoutube = (id, func) => {
     const url = `https://www.googleapis.com/youtube/v3/playlistItems?`
-        + `key=${key}`
+        + `key=${window.googleAPIKey}`
         + `&maxResults=50`
         + `&part=snippet`
         + `&playlistId=${id}`;
 
     fetch(url)
         .then(res => res.json())
-        .then(res => func(res));
+        .then(res => {
+            const songsArr = [];
+            res.items.forEach(i => songsArr.push(i.snippet));
+            func(songsArr);
+        });
 }
 
 

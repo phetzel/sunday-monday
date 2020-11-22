@@ -1,5 +1,28 @@
-.music-player {
+.music-player-container {
+  display: flex;
   position: absolute;
   left: 0px;
   bottom: 0px;
+  align-items: flex-end;
+}
+
+.music-player-queue {
+  background-color: white;
+  max-height: 400px;
+  overflow: scroll;
+}
+
+.music-player-queue li {
+  display: flex;
+  padding: 5px;
+}
+
+.music-player-queue img {
+  height: 50px;
+  width: 50px;
+}
+
+.music-player-queue h6 {
+  max-width: 300px;
+  padding: 5px;
 }

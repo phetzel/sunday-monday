@@ -28,11 +28,11 @@ const App = () => {
     }
 
     const [user, setUser] = useState(currentUser);
-    const [music, setMusic] = useState([]);
+    const [music, setMusic] = useState();
 
     return (
         <UserContext.Provider value={{ user, setUser }}>
-            <MusicContext.Provider value={{ music, setMusic }}>
+            {/* <MusicContext.Provider value={{ music, setMusic }}> */}
                 <NavBar />
                 <Switch>
                     <Route exact path="/" component={Background} />
@@ -62,8 +62,8 @@ const App = () => {
                         )
                     )} />
                 </Switch>
-                {/* <MusicPlayer /> */}
-            </ MusicContext.Provider>
+                <MusicPlayer music={music} setMusic={setMusic} />
+            {/* </ MusicContext.Provider> */}
         </ UserContext.Provider>
     )
 };
