@@ -1,49 +1,31 @@
+const key = 'AIzaSyDxlLeVp2UcirRls5A-Xp_7MS68J35nrNo';
 
-// const authenticate = () => (
-//     gapi.auth2.getAuthInstance()
-//         .signIn({scope: "https://www.googleapis.com/auth/youtube.readonly"})
-//         .then(() => {
-//             console.log("Sign-in successful")
-//         }, err => {
-//             console.log("Error, signing in", err)
-//         })
-// )
 
-// const loadClient = () => {
-//     gapi.client.setApiKey(window.googleAPIKey);
-//     return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
-//         .then(() => {
-//             console.log("GAPI client loaded for API")
-//         }, err => {
-//             console.log("Error loading GAPI for API", err)
-//         })
-// }
+const fetchVideoFromYoutube = id => {
+    const url = `https://www.googleapis.com/youtube/v3/videos?`
+        + `key=${key}`
+        + `&part=snippet`
+        + `&playlistId=${id}`;
 
-// const youtubeFetchById = async (id) => {
-//     const params = {
-//         "part": [
-//             "contentDetails"
-//         ],
-//         "id": [
-//             id
-//         ]
-//     }
-//     const url = `https://www.googleapis.com/youtube/v3/search?`
-//         + `key=${window.googleAPIKey}&`
-//         + `&part=contentDetails`
-//         + `&id=${id}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(res => console.log(res))
+}
 
-//     console.log(url);
-//     // return gapi.client.youtube.videos.list(params)
-//     //     .then(res => {
-//     //         console.log("Response", res)
-//     //     }, err => {
-//     //         console.log(('Executive Error', err))
-//     //     })
-// };
+const fetchPlaylistFromYoutube = (id, func) => {
+    const url = `https://www.googleapis.com/youtube/v3/playlistItems?`
+        + `key=${key}`
+        + `&maxResults=50`
+        + `&part=snippet`
+        + `&playlistId=${id}`;
 
-// export default {
-//     authenticate,
-//     loadClient,
-//     youtubeFetchById
-// }
+    fetch(url)
+        .then(res => res.json())
+        .then(res => func(res));
+}
+
+
+export default {
+    fetchPlaylistFromYoutube,
+    fetchVideoFromYoutube
+}

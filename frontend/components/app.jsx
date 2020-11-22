@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
 import AdminRouter from './admin/admin_router';
@@ -62,10 +62,41 @@ const App = () => {
                         )
                     )} />
                 </Switch>
-                <MusicPlayer />
+                {/* <MusicPlayer /> */}
             </ MusicContext.Provider>
         </ UserContext.Provider>
     )
 };
+
+// const App = () => {
+//     const [results, useResults] = useState();
+
+//     const key = 'AIzaSyDxlLeVp2UcirRls5A-Xp_7MS68J35nrNo';
+//     const channelID = 'UCoIyS9hbe-yyxoDNwT4nvfw';
+//     const finalURL = `https://www.googleapis.com/youtube/v3/search?`
+//         + `key=${key}`
+//         + `&part=snippet`
+//         + `&type=video`
+//         + `&relatedToVideoId=975NMwYer_A`;
+        
+//     useEffect(() => {
+//         fetch(finalURL)
+//             .then(res => res.json())
+//             .then(res => console.log(res))
+//     })
+
+//     return (
+//         <div>
+//             <h1>Youtube</h1>
+//             <iframe 
+//                 width="560" 
+//                 height="315" 
+//                 src="https://www.youtube.com/embed/975NMwYer_A" 
+//                 frameBorder="0" 
+//                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+//                 allowFullScreen />
+//         </div>
+//     )
+// }
 
 export default App;

@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 ActiveRecord::Base.transaction do
-    # Artist.destroy_all
-    # Event.destroy_all
+    Artist.destroy_all
+    Event.destroy_all
     Feature.destroy_all
-    # Item.destroy_all
-    # Painter.destroy_all
-    # Perform.destroy_all
+    Item.destroy_all
+    Painter.destroy_all
+    Perform.destroy_all
     Release.destroy_all
     # User.destroy_all
 
@@ -22,9 +22,9 @@ ActiveRecord::Base.transaction do
     #     password: 'admin123',
     # )
 
-    # Video.destroy_all
-    # Visual.destroy_all
-
+    Video.destroy_all
+    Visual.destroy_all
+# 
 
 
 
