@@ -9,14 +9,14 @@ import ReleaseShowArtists from './release_show_artists';
 import ReleaseShowList from './release_show_list';
 import youtubeApi from '../../util/youtube_util';
 
-const ReleaseShow = ({ match, music, setMusic }) => {
+const ReleaseShow = ({ match, music, setMusic, setPlaying }) => {
     const [release, setRelease] = useState();
     const [songs, setSongs] = useState();
 
 
     const fetchRelease = () => {
         const id = match.params.id;
-        console.log(id);
+
         resleaseApi.fetchRelease(id).then(release => {
             setRelease(release);
             youtubeApi.fetchPlaylistFromYoutube(release.audio, setSongs);
@@ -26,16 +26,22 @@ const ReleaseShow = ({ match, music, setMusic }) => {
     useEffect(() => {
         fetchRelease();
     }, []);
+
+    const handlePlay = () => {
+        const newMusic = songs.concat(music);
+        setMusic(newMusic);
+        setPlaying(true);
+    }
     
     const handleAdd = () => {
         const newMusic = music;
+
         songs.forEach(song => {
             newMusic.push(song);
         })
         setMusic(newMusic);
     }
 
-    console.log(music);
     
     return(
         <div>
@@ -53,7 +59,8 @@ const ReleaseShow = ({ match, music, setMusic }) => {
                                 <h4 className="p-color">{release.title}</h4>
                                 
                                 <button 
-                                    className="release-show-item">
+                                    className="release-show-item"
+                                    onClick={handlePlay}>
                                     <FontAwesomeIcon icon={faPlay} />
                                 </button>
                                 <button 
@@ -62,7 +69,14 @@ const ReleaseShow = ({ match, music, setMusic }) => {
                                     <FontAwesomeIcon icon={faPlus} />
                                 </button>
                             </div>
-                            {songs && <ReleaseShowList songs={songs}/> }
+
+                            {songs && 
+                                <ReleaseShowList 
+                                    songs={songs}
+                                    music={music}
+                                    setMusic={setMusic}
+                                    setPlaying={setPlaying}/> 
+                            }
                         </div>
 
 

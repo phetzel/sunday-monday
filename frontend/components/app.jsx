@@ -33,77 +33,49 @@ const App = () => {
 
     return (
         <UserContext.Provider value={{ user, setUser }}>
-            {/* <MusicContext.Provider value={{ music, setMusic }}> */}
-                <NavBar />
-                <Switch>
-                    <Route exact path="/" component={Background} />
+            <NavBar />
+            <Switch>
+                <Route exact path="/" component={Background} />
 
-                    <Route exact path="/artists/audio" component={AudioIndex} />
-                    <Route exact path="/artists/visual" component={VisualArtistIndex} />
-                    <Route exact path="/artists/:id" component={ArtistShow} />
+                <Route exact path="/artists/audio" component={AudioIndex} />
+                <Route exact path="/artists/visual" component={VisualArtistIndex} />
+                <Route exact path="/artists/:id" component={ArtistShow} />
 
-                    <Route exact path="/music/releases" component={AlbumIndex} />
-                    <Route exact path="/music/playlists" component={PlaylistIndex} />
-                    <Route exact path="/music/:id"  render={(props) => (
-                        <ReleaseShow music={music} setMusic={setMusic} {...props} />
-                    )} />                   
+                <Route exact path="/music/releases" component={AlbumIndex} />
+                <Route exact path="/music/playlists" component={PlaylistIndex} />
+                <Route exact path="/music/:id"  render={(props) => (
+                    <ReleaseShow 
+                        music={music} 
+                        setMusic={setMusic}
+                        setPlaying={setPlaying}
+                        {...props} />
+                )} />                   
 
-                    <Route exact path="/events" component={EventIndex} />
-                    <Route exact path="/events/:id" component={EventShow} />
+                <Route exact path="/events" component={EventIndex} />
+                <Route exact path="/events/:id" component={EventShow} />
 
-                    <Route exact path="/videos" component={VideoIndex} />
-                    <Route exact path="/videos/:id" component={VideoShow} />
+                <Route exact path="/videos" component={VideoIndex} />
+                <Route exact path="/videos/:id" component={VideoShow} />
 
-                    <Route exact path="/visuals" component={VisualIndex} />
-                    <Route exact path="/visuals/:id" component={VisualShow} />
+                <Route exact path="/visuals" component={VisualIndex} />
+                <Route exact path="/visuals/:id" component={VisualShow} />
 
-                    <Route path="/admin" render={() => (
-                        user ? (
-                            <AdminRouter />
-                        ) : (
-                            <Redirect to="/" />
-                        )
-                    )} />
-                </Switch>
-                <MusicPlayer 
-                    music={music} 
-                    setMusic={setMusic} 
-                    playing={playing}
-                    setPlaying={setPlaying}/>
-            {/* </ MusicContext.Provider> */}
+                <Route path="/admin" render={() => (
+                    user ? (
+                        <AdminRouter />
+                    ) : (
+                        <Redirect to="/" />
+                    )
+                )} />
+            </Switch>
+            <MusicPlayer 
+                music={music} 
+                setMusic={setMusic} 
+                playing={playing}
+                setPlaying={setPlaying}/>
         </ UserContext.Provider>
     )
 };
 
-// const App = () => {
-//     const [results, useResults] = useState();
-
-//     const key = 'AIzaSyDxlLeVp2UcirRls5A-Xp_7MS68J35nrNo';
-//     const channelID = 'UCoIyS9hbe-yyxoDNwT4nvfw';
-//     const finalURL = `https://www.googleapis.com/youtube/v3/search?`
-//         + `key=${key}`
-//         + `&part=snippet`
-//         + `&type=video`
-//         + `&relatedToVideoId=975NMwYer_A`;
-        
-//     useEffect(() => {
-//         fetch(finalURL)
-//             .then(res => res.json())
-//             .then(res => console.log(res))
-//     })
-
-//     return (
-//         <div>
-//             <h1>Youtube</h1>
-//             <iframe 
-//                 width="560" 
-//                 height="315" 
-//                 src="https://www.youtube.com/embed/975NMwYer_A" 
-//                 frameBorder="0" 
-//                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-//                 allowFullScreen />
-//         </div>
-//     )
-// }
 
 export default App;
