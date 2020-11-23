@@ -6,9 +6,14 @@
   align-items: flex-end;
 }
 
+.music-player img {
+  height: 200px;
+  width: 200px;
+}
+
 .music-player-queue {
   background-color: white;
-  max-height: 400px;
+  height: 400px;
   overflow: scroll;
 }
 

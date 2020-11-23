@@ -9,13 +9,14 @@ import ReleaseShowArtists from './release_show_artists';
 import ReleaseShowList from './release_show_list';
 import youtubeApi from '../../util/youtube_util';
 
-const ReleaseShow = ({ match}) => {
-    // const { music, setMusic } = useContext(MusicContext);
+const ReleaseShow = ({ match, music, setMusic }) => {
     const [release, setRelease] = useState();
     const [songs, setSongs] = useState();
 
+
     const fetchRelease = () => {
         const id = match.params.id;
+        console.log(id);
         resleaseApi.fetchRelease(id).then(release => {
             setRelease(release);
             youtubeApi.fetchPlaylistFromYoutube(release.audio, setSongs);
@@ -26,19 +27,16 @@ const ReleaseShow = ({ match}) => {
         fetchRelease();
     }, []);
     
-    // const handlePlay = () => {
-    //     const newMusic = music;
-    //     newMusic.unshift(release);
-    //     setMusic(newMusic);
-    // }
+    const handleAdd = () => {
+        const newMusic = music;
+        songs.forEach(song => {
+            newMusic.push(song);
+        })
+        setMusic(newMusic);
+    }
+
+    console.log(music);
     
-    // const handleAdd = () => {
-    //     const newMusic = music;
-    //     newMusic.push(release);
-    //     setMusic(newMusic);
-    // }
-
-
     return(
         <div>
             <BottomNav />
@@ -54,8 +52,15 @@ const ReleaseShow = ({ match}) => {
                             <div className="release-show-song-top">
                                 <h4 className="p-color">{release.title}</h4>
                                 
-                                <button className="release-show-item"><FontAwesomeIcon icon={faPlay} /></button>
-                                <button className="release-show-item"><FontAwesomeIcon icon={faPlus} /></button>
+                                <button 
+                                    className="release-show-item">
+                                    <FontAwesomeIcon icon={faPlay} />
+                                </button>
+                                <button 
+                                    className="release-show-item"
+                                    onClick={handleAdd}>
+                                    <FontAwesomeIcon icon={faPlus} />
+                                </button>
                             </div>
                             {songs && <ReleaseShowList songs={songs}/> }
                         </div>

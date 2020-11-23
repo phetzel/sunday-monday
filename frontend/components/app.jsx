@@ -29,6 +29,7 @@ const App = () => {
 
     const [user, setUser] = useState(currentUser);
     const [music, setMusic] = useState();
+    const [playing, setPlaying] = useState(false);
 
     return (
         <UserContext.Provider value={{ user, setUser }}>
@@ -43,7 +44,9 @@ const App = () => {
 
                     <Route exact path="/music/releases" component={AlbumIndex} />
                     <Route exact path="/music/playlists" component={PlaylistIndex} />
-                    <Route exact path="/music/:id" component={ReleaseShow} />
+                    <Route exact path="/music/:id"  render={(props) => (
+                        <ReleaseShow music={music} setMusic={setMusic} {...props} />
+                    )} />                   
 
                     <Route exact path="/events" component={EventIndex} />
                     <Route exact path="/events/:id" component={EventShow} />
@@ -62,7 +65,11 @@ const App = () => {
                         )
                     )} />
                 </Switch>
-                <MusicPlayer music={music} setMusic={setMusic} />
+                <MusicPlayer 
+                    music={music} 
+                    setMusic={setMusic} 
+                    playing={playing}
+                    setPlaying={setPlaying}/>
             {/* </ MusicContext.Provider> */}
         </ UserContext.Provider>
     )

@@ -2042,6 +2042,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _artist_index_visual_index__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./artist_index/visual_index */ "./frontend/components/artist_index/visual_index.jsx");
 /* harmony import */ var _visual_index_visual_index__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./visual_index/visual_index */ "./frontend/components/visual_index/visual_index.jsx");
 /* harmony import */ var _visual_show_visual_show__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./visual_show/visual_show */ "./frontend/components/visual_show/visual_show.jsx");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2093,6 +2095,11 @@ var App = function App() {
       music = _useState4[0],
       setMusic = _useState4[1];
 
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      playing = _useState6[0],
+      setPlaying = _useState6[1];
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_context_user_context__WEBPACK_IMPORTED_MODULE_15__["default"].Provider, {
     value: {
       user: user,
@@ -2125,7 +2132,12 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/music/:id",
-    component: _release_show_release_show__WEBPACK_IMPORTED_MODULE_13__["default"]
+    render: function render(props) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_release_show_release_show__WEBPACK_IMPORTED_MODULE_13__["default"], _extends({
+        music: music,
+        setMusic: setMusic
+      }, props));
+    }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/events",
@@ -2159,7 +2171,9 @@ var App = function App() {
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_music_player_music_player__WEBPACK_IMPORTED_MODULE_10__["default"], {
     music: music,
-    setMusic: setMusic
+    setMusic: setMusic,
+    playing: playing,
+    setPlaying: setPlaying
   }));
 }; // const App = () => {
 //     const [results, useResults] = useState();
@@ -3170,6 +3184,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _music_player_queue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./music_player_queue */ "./frontend/components/music_player/music_player_queue.jsx");
 /* harmony import */ var _util_release_api_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../util/release_api_util */ "./frontend/util/release_api_util.js");
 /* harmony import */ var _util_youtube_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../util/youtube_util */ "./frontend/util/youtube_util.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
 
@@ -3177,32 +3212,202 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var MusicPlayer = function MusicPlayer(_ref) {
-  var music = _ref.music,
-      setMusic = _ref.setMusic;
 
-  var fetchRelease = function fetchRelease() {
-    _util_release_api_util__WEBPACK_IMPORTED_MODULE_4__["default"].fetchRelease().then(function (release) {
-      _util_youtube_util__WEBPACK_IMPORTED_MODULE_5__["default"].fetchPlaylistFromYoutube(release.audio, setMusic);
-    });
-  };
+var MusicPlayer = /*#__PURE__*/function (_React$Component) {
+  _inherits(MusicPlayer, _React$Component);
 
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    fetchRelease();
-  }, []);
-  if (music) console.log(music[0]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "music-player-container"
-  }, music && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_player_lazy__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    controls: true,
-    width: '200px',
-    height: '200px',
-    url: "https://www.youtube.com/watch?v=".concat(music[0].resourceId.videoId)
-  }), music && music.length > 1 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_music_player_queue__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    music: music,
-    setMusic: setMusic
-  }));
-};
+  var _super = _createSuper(MusicPlayer);
+
+  function MusicPlayer(props) {
+    var _this;
+
+    _classCallCheck(this, MusicPlayer);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      previous: [],
+      queueDisplay: false
+    };
+    _this.next = _this.next.bind(_assertThisInitialized(_this));
+    _this.last = _this.last.bind(_assertThisInitialized(_this));
+    _this.togglePlaying = _this.togglePlaying.bind(_assertThisInitialized(_this));
+    _this.toggleQueue = _this.toggleQueue.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(MusicPlayer, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var setMusic = this.props.setMusic;
+      _util_release_api_util__WEBPACK_IMPORTED_MODULE_4__["default"].fetchRelease().then(function (release) {
+        _util_youtube_util__WEBPACK_IMPORTED_MODULE_5__["default"].fetchPlaylistFromYoutube(release.audio, setMusic);
+      });
+    }
+  }, {
+    key: "next",
+    value: function next() {
+      var _this$props = this.props,
+          music = _this$props.music,
+          setMusic = _this$props.setMusic,
+          setPlaying = _this$props.setPlaying;
+      var previous = this.state.previous;
+
+      if (music.length > 1) {
+        var newPrevious = previous;
+        newPrevious.push(music[0]);
+        var newMusic = music.splice(1);
+        setMusic(newMusic);
+        setPlaying(true);
+        this.setState({
+          previous: newPrevious
+        });
+      }
+    }
+  }, {
+    key: "last",
+    value: function last() {
+      var _this$props2 = this.props,
+          music = _this$props2.music,
+          setMusic = _this$props2.setMusic;
+      var previous = this.state.previous;
+
+      if (previous.length > 0) {
+        var newMusic = music;
+        newMusic.unshift(previous[previous.length - 1]);
+        setMusic(newMusic);
+        var newPrevious = previous.slice(0, -1);
+        this.setState({
+          previous: newPrevious
+        });
+      }
+    }
+  }, {
+    key: "togglePlaying",
+    value: function togglePlaying() {
+      var _this$props3 = this.props,
+          playing = _this$props3.playing,
+          setPlaying = _this$props3.setPlaying;
+      var newPlaying = playing ? false : true;
+      setPlaying(newPlaying);
+    }
+  }, {
+    key: "toggleQueue",
+    value: function toggleQueue() {
+      var queueDisplay = this.state.queueDisplay;
+      var newQueueDisplay = queueDisplay ? false : true;
+      this.setState({
+        queueDisplay: newQueueDisplay
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props4 = this.props,
+          music = _this$props4.music,
+          setMusic = _this$props4.setMusic,
+          playing = _this$props4.playing,
+          setPlaying = _this$props4.setPlaying;
+      var queueDisplay = this.state.queueDisplay;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "music-player-container"
+      }, music && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "music-player"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_player_lazy__WEBPACK_IMPORTED_MODULE_1___default.a, {
+        controls: true,
+        width: '200px',
+        height: '200px',
+        onEnded: this.next,
+        playing: playing,
+        url: "https://www.youtube.com/watch?v=".concat(music[0].resourceId.videoId)
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "music-player-controls"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.last
+      }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.togglePlaying
+      }, "Play/Pause"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.next
+      }, "Next"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.toggleQueue
+      }, "Queue"))), music && queueDisplay && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_music_player_queue__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        music: music,
+        setMusic: setMusic,
+        setPlaying: setPlaying
+      }));
+    }
+  }]);
+
+  return MusicPlayer;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // const MusicPlayer = ({ music, setMusic }) => {
+//     const [playing, setPlaying] = useState(false);
+//     const [previous, setPrevious] = useState([]);
+//     const [queueDisplay, setQueueDisplay] = useState(false);
+//     const fetchRelease = () => {
+//         releaseApi.fetchRelease().then(release => {
+//             youtubeApi.fetchPlaylistFromYoutube(release.audio, setMusic);
+//         })
+//     }
+//     useEffect(() => {
+//         fetchRelease();
+//     }, []);
+//     const next = () => {
+//         if (music.length > 1) {
+//             const newPrevious = previous;
+//             newPrevious.push(music[0]);
+//             setPrevious(newPrevious);
+//             const newMusic = music.splice(1);
+//             setPlaying(true);
+//             setMusic(newMusic);
+//         }
+//     }
+//     const last = () => {
+//         const newMusic = music;
+//         const lastSong = previous.pop();
+//         // console.log(previous);
+//         // console.log(newMusic);
+//         // console.log(lastSong);
+//         newMusic.unshift(lastSong);
+//         // console.log(newMusic)
+//         setMusic(newMusic);
+//     }
+//     const togglePlaying = () => {
+//         const newPlaying = playing ? false : true;
+//         setPlaying(newPlaying);
+//     } 
+//     const toggleQueue = () => {
+//         const newQueueDisplay = queueDisplay ? false : true;
+//         setQueueDisplay(newQueueDisplay);
+//     } 
+//     console.log(music);
+//     return (
+//         <div className="music-player-container">
+//             {music &&
+//                 <div className="music-player">
+//                     <ReactPlayer 
+//                         controls={true}
+//                         width={'200px'}
+//                         height={'200px'}
+//                         onEnded={next}
+//                         playing={playing}
+//                         url={`https://www.youtube.com/watch?v=${music[0].resourceId.videoId}`} />
+//                     <div className="music-player-controls">
+//                         <button onClick={last}>Back</button>
+//                         <button onClick={togglePlaying}>Play/Pause</button>
+//                         <button onClick={next}>Next</button>
+//                         <button onClick={toggleQueue}>Queue</button>
+//                     </div>
+//                 </div>
+//             }
+//             {music && queueDisplay &&
+//                 <MusicPlayerQueue 
+//                     music={music} 
+//                     setMusic={setMusic}
+//                 />
+//             }
+//         </div>
+//     )
+// }
+
 
 /* harmony default export */ __webpack_exports__["default"] = (MusicPlayer);
 
@@ -3227,9 +3432,18 @@ __webpack_require__.r(__webpack_exports__);
 
 var MusicPlayerQueue = function MusicPlayerQueue(_ref) {
   var music = _ref.music,
-      setMusic = _ref.setMusic;
+      setMusic = _ref.setMusic,
+      setPlaying = _ref.setPlaying;
   var queue = music.slice(1);
-  console.log(music);
+
+  var play = function play(song) {
+    var newMusic = music.filter(function (m) {
+      return m.resourceId.videoId != song.resourceId.videoId;
+    });
+    newMusic.unshift(song);
+    setMusic(newMusic);
+    setPlaying(true);
+  };
 
   var remove = function remove(song) {
     var newMusic = music.filter(function (m) {
@@ -3240,13 +3454,17 @@ var MusicPlayerQueue = function MusicPlayerQueue(_ref) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "music-player-queue"
-  }, queue.map(function (song, idx) {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Queue"), queue.map(function (song, idx) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       key: idx
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: song.thumbnails["default"].url,
       alt: ""
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, song.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, song.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      onClick: function onClick() {
+        return play(song);
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
       icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPlay"]
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       onClick: function onClick() {
@@ -3879,9 +4097,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var ReleaseShow = function ReleaseShow(_ref) {
-  var match = _ref.match;
+  var match = _ref.match,
+      music = _ref.music,
+      setMusic = _ref.setMusic;
 
-  // const { music, setMusic } = useContext(MusicContext);
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
       _useState2 = _slicedToArray(_useState, 2),
       release = _useState2[0],
@@ -3894,6 +4113,7 @@ var ReleaseShow = function ReleaseShow(_ref) {
 
   var fetchRelease = function fetchRelease() {
     var id = match.params.id;
+    console.log(id);
     _util_release_api_util__WEBPACK_IMPORTED_MODULE_5__["default"].fetchRelease(id).then(function (release) {
       setRelease(release);
       _util_youtube_util__WEBPACK_IMPORTED_MODULE_8__["default"].fetchPlaylistFromYoutube(release.audio, setSongs);
@@ -3902,17 +4122,17 @@ var ReleaseShow = function ReleaseShow(_ref) {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     fetchRelease();
-  }, []); // const handlePlay = () => {
-  //     const newMusic = music;
-  //     newMusic.unshift(release);
-  //     setMusic(newMusic);
-  // }
-  // const handleAdd = () => {
-  //     const newMusic = music;
-  //     newMusic.push(release);
-  //     setMusic(newMusic);
-  // }
+  }, []);
 
+  var handleAdd = function handleAdd() {
+    var newMusic = music;
+    songs.forEach(function (song) {
+      newMusic.push(song);
+    });
+    setMusic(newMusic);
+  };
+
+  console.log(music);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navBar_bottom_nav__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "release-show content"
   }, release && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3931,7 +4151,8 @@ var ReleaseShow = function ReleaseShow(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
     icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPlay"]
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "release-show-item"
+    className: "release-show-item",
+    onClick: handleAdd
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
     icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPlus"]
   }))), songs && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_release_show_list__WEBPACK_IMPORTED_MODULE_7__["default"], {
