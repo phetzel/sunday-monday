@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Formik } from 'formik'
 import { withRouter } from 'react-router-dom';
 
+import ActivityIndicator from '../activity_indicator';
 import Modal from './modal';
 import featureApi from '../../../util/feature_api_util';
 import releasesApi from '../../../util/release_api_util';
@@ -12,6 +13,7 @@ const ReleaseForm = ({history}) => {
     const [photo, setPhoto] = useState();
     const [features, setFeatures] = useState([]);
     const [visible, setVisible] = useState(false);
+    const [lottieVis, setLottieVis] = useState(false);
 
     const initialValues = {
         title: "",
@@ -25,6 +27,7 @@ const ReleaseForm = ({history}) => {
     };
 
     const handleSubmit = (release) => {
+        setLottieVis(true);
         const formData = new FormData();
 
         formData.append('release[title]', release.title);
@@ -40,12 +43,15 @@ const ReleaseForm = ({history}) => {
             });
 
             history.push(`/music/${res.id}`)
+        }, err => {
+            setLottieVis(false);
         });
     }
 
     const handleModal = (val) => setVisible(val);
-    
 
+    if (lottieVis) return <ActivityIndicator />;
+    
     return (
         <div className="admin-release-form-container">
             <Modal

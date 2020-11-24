@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import ReactPlayer from 'react-player/lazy';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBackward, faForward, faList, faPlay, faPause } from '@fortawesome/free-solid-svg-icons';     
 
 import MusicContext from '../../context/music_context';
 import MusicPlayerQueue from './music_player_queue';
@@ -76,23 +78,34 @@ class MusicPlayer extends React.Component {
         const { music, setMusic, playing, setPlaying } = this.props;
         const { queueDisplay } = this.state;
 
+        const playPause = playing ? faPause : faPlay;
+        console.log(music);
+
         return (
             <div className="music-player-container">
-                {music &&
+                {music && music.length > 0 &&
                     <div className="music-player">
                         <ReactPlayer 
                             controls={true}
-                            width={'200px'}
                             height={'200px'}
+                            width={'200px'}
                             onEnded={this.next}
                             playing={playing}
                             url={`https://www.youtube.com/watch?v=${music[0].resourceId.videoId}`} />
                     
                         <div className="music-player-controls">
-                            <button onClick={this.last}>Back</button>
-                            <button onClick={this.togglePlaying}>Play/Pause</button>
-                            <button onClick={this.next}>Next</button>
-                            <button onClick={this.toggleQueue}>Queue</button>
+                            <button onClick={this.last}>
+                                <FontAwesomeIcon icon={faBackward} />
+                            </button>
+                            <button onClick={this.togglePlaying}>
+                                <FontAwesomeIcon icon={playPause} />
+                            </button>
+                            <button onClick={this.next}>
+                                <FontAwesomeIcon icon={faForward} />
+                            </button>
+                            <button onClick={this.toggleQueue}>
+                                <FontAwesomeIcon icon={faList} />
+                            </button>
                         </div>
                     </div>
                 }
@@ -108,90 +121,6 @@ class MusicPlayer extends React.Component {
         </div>
         )
     }
-
 }
-// const MusicPlayer = ({ music, setMusic }) => {
-//     const [playing, setPlaying] = useState(false);
-//     const [previous, setPrevious] = useState([]);
-//     const [queueDisplay, setQueueDisplay] = useState(false);
-
-//     const fetchRelease = () => {
-//         releaseApi.fetchRelease().then(release => {
-//             youtubeApi.fetchPlaylistFromYoutube(release.audio, setMusic);
-//         })
-//     }
-
-//     useEffect(() => {
-//         fetchRelease();
-//     }, []);
-
-//     const next = () => {
-//         if (music.length > 1) {
-//             const newPrevious = previous;
-//             newPrevious.push(music[0]);
-//             setPrevious(newPrevious);
-
-//             const newMusic = music.splice(1);
-//             setPlaying(true);
-//             setMusic(newMusic);
-//         }
-//     }
-
-//     const last = () => {
-//         const newMusic = music;
-//         const lastSong = previous.pop();
-//         // console.log(previous);
-//         // console.log(newMusic);
-//         // console.log(lastSong);
-
-//         newMusic.unshift(lastSong);
-//         // console.log(newMusic)
-//         setMusic(newMusic);
-//     }
-
-//     const togglePlaying = () => {
-//         const newPlaying = playing ? false : true;
-//         setPlaying(newPlaying);
-//     } 
-
-//     const toggleQueue = () => {
-//         const newQueueDisplay = queueDisplay ? false : true;
-//         setQueueDisplay(newQueueDisplay);
-//     } 
-
-//     console.log(music);
-
-//     return (
-//         <div className="music-player-container">
-//             {music &&
-//                 <div className="music-player">
-//                     <ReactPlayer 
-//                         controls={true}
-//                         width={'200px'}
-//                         height={'200px'}
-//                         onEnded={next}
-//                         playing={playing}
-//                         url={`https://www.youtube.com/watch?v=${music[0].resourceId.videoId}`} />
-                
-//                     <div className="music-player-controls">
-//                         <button onClick={last}>Back</button>
-//                         <button onClick={togglePlaying}>Play/Pause</button>
-//                         <button onClick={next}>Next</button>
-//                         <button onClick={toggleQueue}>Queue</button>
-//                     </div>
-//                 </div>
-//             }
-
-//             {music && queueDisplay &&
-//                 <MusicPlayerQueue 
-//                     music={music} 
-//                     setMusic={setMusic}
-//                 />
-//             }
-
-//         </div>
-//     )
-
-// }
 
 export default MusicPlayer;

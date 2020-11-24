@@ -3,8 +3,9 @@ import { Formik } from 'formik';
 import { withRouter } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 
-import Modal from './modal';
 import eventApi from '../../../util/event_api_util';
+import ActivityIndicator from '../activity_indicator';
+import Modal from './modal';
 import performApi from '../../../util/perform_api_util';
 
 
@@ -13,6 +14,7 @@ const EventForm = ({history}) => {
     const [performs, setPerforms] = useState([]);
     const [visible, setVisible] = useState(false);
     const [photo, setPhoto] = useState();
+    const [lottieVis, setLottieVis] = useState(false);
 
     const initialValues = {
         title: "",
@@ -27,6 +29,8 @@ const EventForm = ({history}) => {
     };
 
     const handleSubmit =  (event) => {
+        setLottieVis(true);
+
         const add = event.address.split(' ').join('+');
         const cit = event.city.split(' ').join('+');
         const string = `${add}+${cit},+${event.state}`;
@@ -35,6 +39,10 @@ const EventForm = ({history}) => {
         fetch(url)
             .then(response => response.json())
             .then(data =>  {
+                if(!data.results[0]) {
+                    setLottieVis(false);
+                }
+
                 const res = data.results[0].geometry.location;
                 const formData = new FormData();
 
@@ -47,17 +55,23 @@ const EventForm = ({history}) => {
                 formData.append('event[photo]', photo);
 
                 eventApi.createEvent(formData).then(res => {
+                    console.log('hit3');
                     performs.forEach(perform => {
+                        console.log('hit4');
                         const newPerform = { event_id: res.id, artist_id: perform };
                         performApi.createPerform(newPerform);
                     });
 
                     history.push(`/events/${res.id}`);
+                }, err => {
+                    setLottieVis(false);
                 });
             })
     }
 
     const handleModal = (val) => setVisible(val);
+
+    if (lottieVis) return <ActivityIndicator />;
 
     return (
         <div className="admin-event-form-container">

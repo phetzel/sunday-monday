@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Formik } from 'formik'
 import { withRouter } from 'react-router-dom';
 
+import ActivityIndicator from '../activity_indicator';
 import appearanceApi from '../../../util/appearance_api_util';
 import Modal from './modal';
 import videoApi from '../../../util/video_api_util';
@@ -9,6 +10,7 @@ import videoApi from '../../../util/video_api_util';
 const VideoForm = ({history}) => {
     const [appearances, setAppearances] = useState([]);
     const [visible, setVisible] = useState(false);
+    const [lottieVis, setLottieVis] = useState(false);
 
     const initialValues = {
         title: "",
@@ -17,6 +19,7 @@ const VideoForm = ({history}) => {
     }
 
     const handleSubmit = (video) => {
+        setLottieVis(true);
         const formData = new FormData();
 
         formData.append('video[title]', video.title);
@@ -30,10 +33,14 @@ const VideoForm = ({history}) => {
             });
 
             history.push(`/videos/${res.id}`)
+        }, err => {
+            setLottieVis(false);
         });
     }
 
     const handleModal = (val) => setVisible(val);
+
+    if (lottieVis) return <ActivityIndicator />;
 
     return (
         <div className="admin-video-form-container">

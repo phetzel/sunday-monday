@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Formik } from "formik";
 import { withRouter } from 'react-router-dom';
 
+import ActivityIndicator from '../activity_indicator';
 import artistApi from '../../../util/artist_api_util';
 
 
@@ -9,6 +10,7 @@ const styles = ["audio", "visual"];
 
 const ArtistForm = ({history}) => {
     const [photo, setPhoto] = useState();
+    const [lottieVis, setLottieVis] = useState(false);
 
     const initialValues = {
         name: "",
@@ -22,6 +24,7 @@ const ArtistForm = ({history}) => {
     };
 
     const handleSubmit = (artist) => {
+        setLottieVis(true);
         const formData = new FormData();
         
         formData.append('artist[name]', artist.name);
@@ -29,8 +32,15 @@ const ArtistForm = ({history}) => {
         formData.append('artist[style]', artist.style);
         formData.append('artist[photo]', photo);
         artistApi.createArtist(formData)
-            .then(res => history.push(`/artists/${res.id}`));
+            .then(res => {
+                history.push(`/artists/${res.id}`)
+            }, err => {
+                setLottieVis(false);
+            });
     };
+
+    
+    if (lottieVis) return <ActivityIndicator />;
 
     return (
         <div className="admin-artist-form-container">
