@@ -85,9 +85,21 @@ class MusicPlayer extends React.Component {
             <div className="music-player-container">
                 {music && music.length > 0 &&
                     <div className="music-player">
+                        <div style={{
+                            backgroundImage: `url(${music[0].thumbnails.high.url})`,
+                            backgroundPosition: 'center',
+                            backgroundSize: 'cover',
+                            height: '200px',
+                            width: '200px'
+                        }}/>
+
+
+                        <marquee scrollamount="2"><h1>{music[0].title}</h1></marquee>
+                        
+
                         <ReactPlayer 
-                            controls={true}
-                            height={'200px'}
+                            controls={false}
+                            height={'0px'}
                             width={'200px'}
                             onEnded={this.next}
                             playing={playing}

@@ -6,9 +6,25 @@
   align-items: flex-end;
 }
 
-.music-player img {
-  height: 150px;
-  // width: 200px;
+.music-player {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.music-player h1 {
+  padding: 10px 0;
+  max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.music-player-controls {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5px;
+  width: 100%;
 }
 
 .music-player-queue {

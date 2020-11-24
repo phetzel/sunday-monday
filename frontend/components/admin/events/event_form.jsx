@@ -55,9 +55,7 @@ const EventForm = ({history}) => {
                 formData.append('event[photo]', photo);
 
                 eventApi.createEvent(formData).then(res => {
-                    console.log('hit3');
                     performs.forEach(perform => {
-                        console.log('hit4');
                         const newPerform = { event_id: res.id, artist_id: perform };
                         performApi.createPerform(newPerform);
                     });

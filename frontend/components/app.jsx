@@ -68,11 +68,11 @@ const App = () => {
                     )
                 )} />
             </Switch>
-            {/* <MusicPlayer 
+            <MusicPlayer 
                 music={music} 
                 setMusic={setMusic} 
                 playing={playing}
-                setPlaying={setPlaying}/> */}
+                setPlaying={setPlaying}/>
         </ UserContext.Provider>
     )
 };
