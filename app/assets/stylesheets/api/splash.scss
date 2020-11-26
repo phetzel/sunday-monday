@@ -1,54 +1,144 @@
 .splash {
-  width: 70%;
-  height: 70%;
+  background-color: #e0dcdc;
+  height: 100%;
+  width: 100vw;
+}
 
-  background: asset-url("splash.jpg");
+.splash-upper {
+  position: absolute;
+  width: 1189px;
+  height: 650px;
+  top: 170px;
+  left: 253px;
+
+  background-image: image_url("splash.jpg");
   background-size: cover;
 }
 
 .splash-logo {
   position: relative;
-  width: 278.81px;
-  height: 278.81px;
-  left: 33%;
-  bottom: 33%;
+  width: 320px;
+  height: 320px;
+  left: 400px;
+  top: -180px;
 }
 
-.splash-text {
-  //   font-family: Hiragino Kaku Gothic Std;
+.splash-upper h1 {
+  font-family: Hiragino Kaku Gothic Std;
   font-style: normal;
   font-weight: 900;
   font-size: 100px;
   line-height: 150px;
-  /* identical to box height */
 
   letter-spacing: 0.1em;
   text-transform: uppercase;
-
-  /* 352D39 */
-
-  color: #352d39;
 }
 
 .she {
   position: relative;
-  right: 80px;
-  width: 50%;
-  // z-index: 100;
+  left: -103px;
+  top: 100px;
+
+  color: #fbf2ea;
 }
 
-.she-white {
+.she-primary-container {
   position: relative;
-  right: 80px;
-  bottom: 150px;
-  height: 50%;
-  width: 50%;
-  color: #fbf2ea;
+  top: -50px;
+  left: -103px;
   overflow: hidden;
+  width: 8.63%;
+}
+
+.she-primary {
+  width: 257px;
+  color: #352d39;
+}
+
+.descends-white-container {
+  position: relative;
+  top: -47px;
+  left: 100px;
+
+  color: #fbf2ea;
+  height: 11.4%;
+  overflow: hidden;
+
+  z-index: 5;
 }
 
 .descends {
   position: relative;
-  bottom: 20px;
   left: 100px;
+  top: -121px;
+}
+
+.splash-lower {
+  margin-top: 300px;
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-around;
+  width: 1022px;
+}
+
+.splash-content {
+  width: 289px;
+  height: 578px;
+  background: #352d39;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.splash-short {
+  height: 453px;
+  width: 289px;
+  background: #352d39;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.splash-content h5,
+.splash-short h5 {
+  color: #f0f0f0;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  padding: 25px;
+}
+
+.splash-content img,
+.splash-short img {
+  width: 180px;
+  height: 180px;
+  border-radius: 90px;
+  cursor: pointer;
+}
+
+.splash-content h6,
+.splash-short h6 {
+  color: #f0f0f0;
+  font-family: Helvetica;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
+  padding: 25px;
+}
+
+.splash-content p,
+.splash-short p {
+  color: #f0f0f0;
+  font-family: Helvetica;
+  font-size: 16px;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 10px;
 }

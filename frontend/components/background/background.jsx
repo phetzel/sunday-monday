@@ -1,19 +1,16 @@
 import React from 'react';
+import { withRouter} from 'react-router-dom';
 
 import Navbar from './navbar';
-import Splash from './splash';
 
 const Background = ({ history }) => {
     return (
         <div className="background">
             <Navbar history={history} />
             <div className="bottom-rect" />
-            <div className="background-mid">
-                <div className="left-rect" />
-                <Splash />
-            </div>
+            <div className="left-rect" />
         </div>
     )
 }
 
-export default Background;
+export default withRouter(Background);

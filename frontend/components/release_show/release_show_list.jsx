@@ -18,10 +18,12 @@ const RelseaseShowList = ({ songs, music, setMusic, setPlaying }) => {
     setMusic(newMusic);
   }
 
+  console.log(songs);
+
   return (
     <ul className="release-song-list">
 
-      {
+      { songs && songs.length > 0 &&
         songs.map((song, idx) => (
           <li className="release-song" key={idx}>
 

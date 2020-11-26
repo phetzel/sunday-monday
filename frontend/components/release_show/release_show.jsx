@@ -13,7 +13,6 @@ const ReleaseShow = ({ match, music, setMusic, setPlaying }) => {
     const [release, setRelease] = useState();
     const [songs, setSongs] = useState();
 
-
     const fetchRelease = () => {
         const id = match.params.id;
 

@@ -1,36 +1,32 @@
 import React from 'react';  
 
-import BottomNav from '../navBar/bottom_nav';
-import Slider from "react-slick";
 import SplashArtist from './splash_artist';
 import SplashEvent from './splash_event';
 import SplashRelease from './splash_release';
 
 const Splash = () => {
-    const settings = {
-        autoplay: true,
-        autoplaySpeed: 4000,
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    };
-
     return (
         <div className="splash">
-            <BottomNav />
-
-            <div className="slider">
-                <Slider {...settings}>
-                    <SplashArtist />
-                    <SplashRelease />
-                    <SplashEvent />
-                </Slider>
+            <div className="splash-upper">
+                <img className="splash-logo" src={window.logo} alt="Logo"/>
+                <h1 className="she">She</h1>
+                <div className="she-primary-container">
+                    <h1 className="she-primary">She</h1>
+                </div>
+                <div className="descends-white-container">
+                    <h1 className="descends-white">Descends</h1>
+                </div>
+                <h1 className="descends">Descends</h1>
             </div>
-
+            
+            <div className="splash-lower">
+                <SplashEvent />
+                <SplashArtist />
+                <SplashRelease />
+            </div>
         </div>
     )
 }
+
 
 export default Splash;

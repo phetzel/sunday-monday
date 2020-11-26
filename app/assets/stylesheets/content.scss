@@ -1,32 +1,8 @@
 .content {
-  margin-top: 70px;
-}
-
-//fonts
-body {
-  font-family: "Roboto";
-}
-
-.semi-serif {
-  font-family: "Flamenco";
-  font-size: 25px;
-}
-
-//colors
-.background-main {
-  background-color: #fff;
-}
-
-.p-bg-color {
-  background-color: #f6eee4;
-}
-
-.p-color {
-  color: #8a2e43;
-}
-
-.money {
-  color: #907dd4;
+  height: 100%;
+  width: 100vw;
+  background-color: #e0dcdc;
+  overflow: hidden;
 }
 
 //button

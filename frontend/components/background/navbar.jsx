@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter} from 'react-router-dom';
 
 const Navbar = ({ history }) => {
     const handleClick = (loc) => {
@@ -6,8 +7,8 @@ const Navbar = ({ history }) => {
     }
 
     return (
-        <div className="navbar">
-            <div className="nav-spacemother">
+        <div className="navbar" >
+            <div className="nav-spacemother" onClick={() => handleClick('/')}>
                 <h6 className="nav-s-high">S</h6>
                 <h6 className="nav-s-low">S</h6>
                 <h6 className="nav-pacemother">PACEMOTHER</h6>
@@ -15,14 +16,14 @@ const Navbar = ({ history }) => {
 
             <div className="nav-list">
                 <li className="nav-li" onClick={() => handleClick('/music')}>MUSIC</li>
-                <li className="nav-li" onClick={() => handleClick('/music')}>ARTIST</li>
-                <li className="nav-li" onClick={() => handleClick('/music')}>MEDIA</li>
-                <li className="nav-li"onClick={() => handleClick('/music')}>EVENTS</li>
-                <li className="nav-li" onClick={() => handleClick('/music')}>STORE</li>
-                <li className="nav-li" onClick={() => handleClick('/music')}>ABOUT</li>
+                <li className="nav-li" onClick={() => handleClick('/artist')}>ARTIST</li>
+                <li className="nav-li" onClick={() => handleClick('/media')}>MEDIA</li>
+                <li className="nav-li"onClick={() => handleClick('/events')}>EVENTS</li>
+                <li className="nav-li" onClick={() => handleClick('/store')}>STORE</li>
+                <li className="nav-li" onClick={() => handleClick('/about')}>ABOUT</li>
             </div>
         </div>
     )
 }
 
-export default Navbar;
+export default withRouter(Navbar);

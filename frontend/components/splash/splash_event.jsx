@@ -29,22 +29,14 @@ const SplashEvent = ({history}) => {
     }
 
     return (
-        <div className="splash-subcontainer">
+        <div>
             {event && 
-                <div className="splash-content" >   
-                    <div className="splash-content-header">
-                        <h1 className="p-color">Next Event</h1>
-                        <h5>{event.title}</h5>
-                    </div>       
-                    <div className="splash-content-details">
-                        <img src={event.photoUrl} onClick={handleClick}/>
-                        <div className="splash-content-details-text">
-                            
-                            <h5>{event.address}</h5>
-                            <h5>{display}</h5>
-                        </div>
-                        
-                    </div>
+                <div className="splash-short">
+                    <h5>Next Event</h5>    
+                    <img src={event.photoUrl} onClick={handleClick}/>
+                    <h6>{event.title}</h6>
+                    <p>{event.address}</p>
+                    <p>{display}</p>
                 </div>
             }
         </div>
