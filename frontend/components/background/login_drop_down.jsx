@@ -24,7 +24,7 @@ const LoginDropDown = (props) => {
     };
 
     return (
-        <div className="login-drop-down">
+        <div className="dropdown">
             <Formik
                 initialValues={initialValues}
                 onSubmit={handleSubmit}

@@ -1,8 +1,15 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .content {
   height: 100%;
-  width: 100vw;
+  // width: 100vw;
   background-color: #e0dcdc;
-  overflow: hidden;
+  // margin: 0px;
+  // padding: 0px;
 }
 
 //button

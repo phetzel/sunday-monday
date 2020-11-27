@@ -18,10 +18,12 @@ const AdminDropDown = ({history}) => {
     }
 
     return (
-        <ul className="nav-drop-down">
-            <li onClick={() => handleClick('/admin')}>Admin</li>
-            <li onClick={handleLogout}>Logout</li>
-        </ul>
+        <div className="dropdown">
+            <ul>
+                <li onClick={() => handleClick('/admin')}>Admin</li>
+                <li onClick={handleLogout}>Logout</li>
+            </ul>
+        </div>
     )
 }
 
