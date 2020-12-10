@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import BottomNav from '../navBar/bottom_nav';
 import visualApi from '../../util/visual_api_util';
 import VisualIndexItem from './visual_index_item';
 
@@ -21,7 +20,6 @@ const VisualIndex = props => {
 
     return (
         <div>
-            <BottomNav />
             <div className="visual-index-container content">
                 <div className="visual-index-header">
                     <h1 className="p-color">Visual Art</h1>

@@ -21,12 +21,11 @@ const SplashRelease = ({history}) => {
     }
 
     return (
-        <div className="splash-subcontainer">
+        <div>
             {release && 
-                <div className="splash-short">
-                    <h5>Featured Release</h5> 
-                    <img src={release.photoUrl} onClick={handleClick}/>
+                <div className="splash-feature-display">
                     <h6>{release.title}</h6>
+                    <img src={release.photoUrl} onClick={handleClick}/>
                     <p>{release.description}</p>
                 </div>
             }

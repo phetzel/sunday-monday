@@ -31,10 +31,9 @@ const SplashEvent = ({history}) => {
     return (
         <div>
             {event && 
-                <div className="splash-short">
-                    <h5>Next Event</h5>    
-                    <img src={event.photoUrl} onClick={handleClick}/>
+                <div className="splash-feature-dispaly">
                     <h6>{event.title}</h6>
+                    <img src={event.photoUrl} onClick={handleClick}/>
                     <p>{event.address}</p>
                     <p>{display}</p>
                 </div>

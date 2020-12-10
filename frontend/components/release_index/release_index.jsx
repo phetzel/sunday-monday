@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import BottomNav from '../navBar/bottom_nav';
 import releaseApi from '../../util/release_api_util';
 import ReleaseListItem from './release_list_item';
 
@@ -22,7 +21,6 @@ const ReleaseIndex = ({medium, title}) => {
 
     return (
         <div>
-            <BottomNav />
             <div className="release-index-container content">
                 <div className="release-index-header">
                     <h1 className="p-color">{title}</h1>

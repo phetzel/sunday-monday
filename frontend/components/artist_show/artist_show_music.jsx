@@ -9,7 +9,7 @@ const ArtistShowMusic = ({ history, releases }) => {
 
     return (
         <div className="artist-show-music">
-            <h2 className="p-color">Music</h2>
+            <h2>New Music</h2>
             <ul>
                 {releases.map(release => (
                     <li key={release.id} onClick={() => handleClick(release.id)}>
@@ -17,6 +17,13 @@ const ArtistShowMusic = ({ history, releases }) => {
                             alt={release.title}
                             src={release.photoUrl} 
                             title={release.title} />
+                        <div>
+                            <p>{release.title}</p>
+                            <div>
+                                
+                            </div>
+                        </div>
+
                     </li>
                 ))}
             </ul>

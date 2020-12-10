@@ -75,27 +75,31 @@ class MusicPlayer extends React.Component {
     } 
 
     render() {
-        const { music, setMusic, playing, setPlaying } = this.props;
+        const { music, setMusic, playing, setPlaying, visible } = this.props;
         const { queueDisplay } = this.state;
 
+        const display = visible ? "music-player-container" : "music-player-hidden";
+
         const playPause = playing ? faPause : faPlay;
-        console.log(music);
 
         return (
-            <div className="music-player-container">
+            <div className={display}>
                 {music && music.length > 0 &&
                     <div className="music-player">
                         <div style={{
                             backgroundImage: `url(${music[0].thumbnails.high.url})`,
                             backgroundPosition: 'center',
                             backgroundSize: 'cover',
-                            height: '200px',
-                            width: '200px'
+                            height: '140px',
+                            marginBottom: '20px',
+                            marginTop: '26px',
+                            width: '140px'
                         }}/>
 
 
-                        <marquee scrollamount="2"><h1>{music[0].title}</h1></marquee>
-                        
+                        {/* <marquee scrollamount="2"> */}
+                            <h1>{music[0].title}</h1>
+                        {/* </marquee> */}
 
                         <ReactPlayer 
                             controls={false}
@@ -106,18 +110,18 @@ class MusicPlayer extends React.Component {
                             url={`https://www.youtube.com/watch?v=${music[0].resourceId.videoId}`} />
                     
                         <div className="music-player-controls">
-                            <button onClick={this.last}>
-                                <FontAwesomeIcon icon={faBackward} />
+                            <button className="music-player-button-sm" onClick={this.last}>
+                                <FontAwesomeIcon className="music-player-icon" icon={faBackward} />
                             </button>
-                            <button onClick={this.togglePlaying}>
-                                <FontAwesomeIcon icon={playPause} />
+                            <button className="music-player-button-lg" onClick={this.togglePlaying}>
+                                <FontAwesomeIcon className="music-player-icon" icon={playPause} />
                             </button>
-                            <button onClick={this.next}>
-                                <FontAwesomeIcon icon={faForward} />
+                            <button className="music-player-button-sm" onClick={this.next}>
+                                <FontAwesomeIcon className="music-player-icon" icon={faForward} />
                             </button>
-                            <button onClick={this.toggleQueue}>
-                                <FontAwesomeIcon icon={faList} />
-                            </button>
+                            {/* <button onClick={this.toggleQueue}> */}
+                                {/* <FontAwesomeIcon icon={faList} /> */}
+                            {/* </button> */}
                         </div>
                     </div>
                 }

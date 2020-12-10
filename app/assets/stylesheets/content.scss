@@ -6,10 +6,8 @@ body {
 
 .content {
   height: 100%;
-  // width: 100vw;
-  background-color: #e0dcdc;
-  // margin: 0px;
-  // padding: 0px;
+  min-height: 100vh;
+  background-color: rgba(251, 242, 234, 1);
 }
 
 //button

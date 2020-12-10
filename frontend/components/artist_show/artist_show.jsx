@@ -6,7 +6,6 @@ import ArtistShowEvent from './artist_show_event';
 import ArtistShowMusic from './artist_show_music';
 import ArtistShowVideo from './artist_show_video';
 import ArtistShowVisual from './artist_show_visual';
-import BottomNav from '../navBar/bottom_nav';
 
 const ArtistShow = ({ match}) => {
     const [artist, setArtist] = useState();
@@ -25,7 +24,6 @@ const ArtistShow = ({ match}) => {
 
     return(
         <div>
-            <BottomNav />
             <div className="artist-show content">
                 {artist && <ArtistShowDetail artist={artist}/>}
                 {artist && artist.videos.length > 0 &&

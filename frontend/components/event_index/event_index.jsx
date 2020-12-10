@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import BottomNav from '../navBar/bottom_nav';
 import eventApi from '../../util/event_api_util';
 import EventIndexItem from './event_index_item';
 
@@ -27,7 +26,6 @@ const EventIndex = () => {
 
     return (
         <div className="event-index-container">
-            <BottomNav />
 
             <div className="event-index-controller-container">
                 <div className="event-index-controller">

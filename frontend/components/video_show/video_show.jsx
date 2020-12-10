@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player/lazy';
 
-import BottomNav from '../navBar/bottom_nav';
 import videoApi from '../../util/video_api_util';
 import VideoShowArtists from './video_show_artists';
 
@@ -21,8 +20,7 @@ const VideoShow = ({ match}) => {
     
 
     return(
-        <div>
-            <BottomNav />
+        <div> 
             <div className="video-show content">
                 {video && 
                     <div className="video-show-details">

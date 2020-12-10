@@ -50,117 +50,99 @@
 //Show
 //------------------------------------------------------------------------------
 .artist-show {
-  align-items: center;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .artist-show-details {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+  margin-top: 156px;
+  border: 30px solid #352d39;
+  box-sizing: border-box;
 
-.artist-show-details img {
-  height: 400px;
-  margin: 20px;
-  width: 400px;
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  height: 718px;
+  justify-content: center;
+  width: 1189px;
 }
 
 .artist-show-details-text {
-  margin: 20px;
-  height: 400px;
-  width: 400px;
+  height: 535px;
+  width: 425px;
+
+  background: #352d39;
+
+  margin-right: 48px;
   overflow: scroll;
 }
 
-.artist-show-details-text h4 {
-  font-size: 30px;
-  font-weight: 700;
-}
+.artist-show-details-text h2 {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 55px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
 
-.artist-show-details-text p {
+  margin-left: 56px;
   margin-top: 20px;
+  margin-right: 69px;
 }
 
-.artist-show-music {
-  width: 840px;
+.artist-show-details-content {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  margin-left: 56px;
+  margin-top: 30px;
+  margin-right: 69px;
+  margin-bottom: 70px;
 }
+
+.artist-show-details img {
+  height: 535px;
+  width: 535px;
+}
+
+//Artist Music
+.artist-show-music {
+  margin-top: 144px;
+  align-self: center;
+}
+
 .artist-show-music h2 {
-  font-size: 30px;
-  font-weight: 700;
-  margin: 30px 0;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 41px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #352d39;
+  margin-bottom: 164px;
 }
 
 .artist-show-music ul {
+  width: 1163px;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-
-.artist-show-music li {
-  cursor: pointer;
-  margin: 5px;
 }
 
 .artist-show-music img {
-  height: 150px;
-  width: 150px;
+  height: 366.6px;
+  width: 366.6px;
 }
-
-.artist-show-event {
-  width: 840px;
-}
-.artist-show-event h2 {
-  font-size: 30px;
-  font-weight: 700;
-  margin: 30px 0;
-}
-
-.artist-show-event ul {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-
-.artist-show-event li {
-  cursor: pointer;
-  margin: 5px;
-}
-
-.artist-show-video {
-  display: flex;
-  flex-direction: column;
-  width: 840px;
-}
-
-.artist-show-video h2 {
-  font-size: 30px;
-  font-weight: 700;
-  margin: 30px 0;
-}
-
-.artist-video-featured h4 {
-  font-size: 20px;
-  font-weight: 400;
-  margin: 10px 0;
-}
-
-.artist-show-video ul {
-  display: flex;
-}
-
-.artist-show-video li {
-  cursor: pointer;
-  overflow: hidden;
-  margin: 10px;
-  width: 150px;
-}
-
-.artist-show-video img {
-  width: 150px;
-}
-
 // Artist Admin
 //------------------------------------------------------------------------------
 

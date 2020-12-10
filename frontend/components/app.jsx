@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';  
 
 import AdminRouter from './admin/admin_router';
 import AlbumIndex from './release_index/album_index';
 import ArtistShow from './artist_show/artist_show';
 import AudioIndex from './artist_index/audio_index';
-import Background from './background/background';
 import EventIndex from './event_index/event_index';
 import EventShow from './event_show/event_show';
 import MusicPlayer from './music_player/music_player';
-import Navbar from './background/navbar';
+import Navbar from './navbar/navbar';
 import PlaylistIndex from './release_index/playlist_index';
 import ReleaseShow from './release_show/release_show';
 import Splash from './splash/splash';
@@ -29,15 +30,24 @@ const App = () => {
     const [user, setUser] = useState(currentUser);
     const [music, setMusic] = useState();
     const [playing, setPlaying] = useState(false);
+    const [musicVis, setMusicVis] = useState(false);
+
+    const toggleMusicVis = () => {
+        const newVis = musicVis ? false : true;
+        setMusicVis(newVis);
+    }
+
+    const plusMinus = musicVis ? faMinus : faPlus;
 
     return (
         <UserContext.Provider value={{ user, setUser }}>
             <div className="content">
-                <Background />
+                <Navbar />
+
                 <Switch>
                     <Route exact path="/" component={Splash} />
 
-                    <Route exact path="/artists/audio" component={AudioIndex} />
+                    {/* <Route exact path="/artists/audio" component={AudioIndex} />
                     <Route exact path="/artists/visual" component={VisualArtistIndex} />
                     <Route exact path="/artists/:id" component={ArtistShow} />
 
@@ -66,13 +76,20 @@ const App = () => {
                         ) : (
                             <Redirect to="/" />
                         )
-                    )} />
+                    )} /> */}
                 </Switch>
-                {/* <MusicPlayer 
-                    music={music} 
-                    setMusic={setMusic} 
-                    playing={playing}
-                    setPlaying={setPlaying}/> */}
+
+                {/* <div className="bottom-rect">
+                    <MusicPlayer 
+                        music={music} 
+                        setMusic={setMusic} 
+                        playing={playing}
+                        setPlaying={setPlaying}
+                        visible={musicVis}/>          
+                </div> */}
+                {/* <div className="music-toggle">
+                    <FontAwesomeIcon icon={plusMinus}  onClick={toggleMusicVis} />
+                </div> */}
                 
             </div>
         </ UserContext.Provider>

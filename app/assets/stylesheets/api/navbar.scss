@@ -1,0 +1,279 @@
+@font-face {
+  font-family: "Helvetica-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.animaapp.com/Helvetica-Regular") format("truetype");
+}
+
+@font-face {
+  font-family: "Helvetica-Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://fonts.animaapp.com/Helvetica-Bold") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.top-nav {
+  align-items: center;
+  background-color: var(--linen);
+  display: inline-flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  height: 80px;
+  justify-content: flex-end;
+  min-width: 1440px;
+  padding: 16px 20px;
+  width: auto;
+}
+
+.top-nav-left {
+  align-items: center;
+  background-color: transparent;
+  display: inline-flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  height: 45px;
+  justify-content: flex-start;
+  margin-top: 1px;
+  min-width: 595px;
+  width: auto;
+}
+
+.top-nav-left {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 45px;
+  position: relative;
+  width: 202px;
+}
+
+.nav-spacemother {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 45px;
+  position: relative;
+  width: 202px;
+}
+
+.nav-pacemother {
+  background-color: transparent;
+  height: auto;
+  left: 19px;
+  letter-spacing: 0px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+
+  color: var(--orchid-pearl);
+  font-family: "Hind Colombo-Regular", Helvetica, Arial, serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.nav-s-high {
+  background-color: transparent;
+  height: auto;
+  left: 0px;
+  letter-spacing: 0px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  width: auto;
+
+  color: var(--orchid-pearl);
+  font-family: "Handlee-Regular", Helvetica, Arial, serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.nav-s-low {
+  background-color: transparent;
+  height: auto;
+  left: 0px;
+  letter-spacing: 0px;
+  position: absolute;
+  text-align: left;
+  top: 2px;
+  transform: rotate(180deg);
+  width: auto;
+
+  color: var(--orchid-pearl);
+  font-family: "Handlee-Regular", Helvetica, Arial, serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.nav-list {
+  align-items: flex-start;
+  background-color: var(--blackcurrant);
+  display: inline-flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  height: 16px;
+  justify-content: flex-start;
+  margin-bottom: 3px;
+  margin-left: 13px;
+  min-width: 391px;
+  width: auto;
+}
+
+.nav-music {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: auto;
+  letter-spacing: 0.7px;
+  min-height: 16px;
+  min-width: 60px;
+  text-align: left;
+  width: auto;
+
+  color: var(--soapstone);
+  font-family: "Helvetica-Regular", Helvetica, Arial, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.nav-artist {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: auto;
+  letter-spacing: 0.7px;
+  margin-left: 13px;
+  min-height: 16px;
+  min-width: 66px;
+  text-align: left;
+  width: auto;
+
+  color: var(--soapstone);
+  font-family: "Helvetica-Regular", Helvetica, Arial, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.nav-media {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: auto;
+  letter-spacing: 0.7px;
+  margin-left: 13px;
+  min-height: 16px;
+  min-width: 60px;
+  text-align: left;
+  width: auto;
+
+  color: var(--soapstone);
+  font-family: "Helvetica-Regular", Helvetica, Arial, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.nav-events {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: auto;
+  letter-spacing: 0.7px;
+  margin-left: 13px;
+  min-height: 16px;
+  min-width: 72px;
+  text-align: left;
+  width: auto;
+
+  color: var(--soapstone);
+  font-family: "Helvetica-Regular", Helvetica, Arial, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.nav-store {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: auto;
+  letter-spacing: 0.7px;
+  margin-left: 13px;
+  min-height: 16px;
+  min-width: 63px;
+  text-align: left;
+  width: auto;
+
+  color: var(--soapstone);
+  font-family: "Helvetica-Regular", Helvetica, Arial, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.nav-about {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: auto;
+  letter-spacing: 0.7px;
+  margin-left: 13px;
+  min-height: 16px;
+  min-width: 64px;
+  text-align: left;
+  width: auto;
+
+  color: var(--soapstone);
+  font-family: "Helvetica-Regular", Helvetica, Arial, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.top-nav-right {
+  align-self: flex-end;
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 47px;
+  margin-left: 727px;
+  position: relative;
+  width: 69px;
+}
+
+.search-icon {
+  align-items: flex-end;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  justify-content: flex-start;
+  left: 0px;
+  min-height: 37px;
+  padding: 7px 7.1px;
+  position: absolute;
+  top: 2px;
+  width: 33px;
+}
+
+.search-ellipse {
+  align-self: center;
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 16px;
+  width: 17px;
+}
+
+.search-line {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 0px;
+  margin-top: 1px;
+  width: 7px;
+}
+
+:root {
+  --blackcurrant: rgba(53, 45, 57, 1);
+  --linen: rgba(251, 242, 234, 1);
+  --orchid-pearl: rgba(109, 67, 90, 1);
+  --soapstone: rgba(255, 252, 249, 1);
+}

@@ -1,103 +1,70 @@
-import React, { useContext, useState }  from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { withRouter} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserAlt } from '@fortawesome/free-solid-svg-icons';  
 
 import AdminDropDown from './admin_drop_down';
-import ArtistDropDown from './artist_drop_down';
 import LoginDropDown from './login_drop_down';
-import MediaDropDown from './media_drop_down';
-import MusicDropDown from './music_drop_down';
 import UserContext from '../../context/user_context';
 
-const NavBar = ({ history }) => {
+const Navbar = ({ history }) => {
+    const [loginVisible, setLoginVisible] = useState(false);
     const { user, setUser } = useContext(UserContext);
 
-    const [tab, setTab] = useState(0);
-    const [artistVisible, setArtistVisible] = useState(false);
-    const [musicVisible, setMusicVisible] = useState(false);
-    const [mediaVisible, setMediaVisible] = useState(false);
-    const [loginVisible, setLoginVisible] = useState(false);
-
-
-    
-    const handleClick = (loc, num) => {
+    const handleClick = (loc) => {
         history.push(loc);
-        setTab(num);
     }
-    
-    const isActiveTab = (num) => tab === num ? "p-color" : "nav-not-active";
 
-    const tabType = user ? (
-        <li
-            onMouseEnter={() => setLoginVisible(true)}
-            onMouseLeave={() => setLoginVisible(false)}
-        >
-            <p>Admin</p>
-            <div>
-                {loginVisible && <AdminDropDown />}
-            </div>
-        </li>
-    ) : (
-        <li
-            onMouseEnter={() => setLoginVisible(true)}
-            onMouseLeave={() => setLoginVisible(false)}
-        >
-            <p>Login</p>
-                <div>
-                    {loginVisible && <LoginDropDown />}  
-                </div>
-        </li>
-    );
-    
+    const toggleLoginVis = () => {
+        const newVis = loginVisible ? false : true;
+        setLoginVisible(newVis);
+    }
+
+    const dropdown = user ? <AdminDropDown /> : <LoginDropDown />;
+
     return (
-        <div className='nav-bar background-main'>
-            <div className="nav-bar-left" onClick={() => handleClick('/')}>
-                <h5>Sunday Monday</h5>
-                <img src={window.logo} alt="Logo"/>
+        <div className="top-nav">
+            <div className="top-nav-left" >
+                <div className="nav-spacemother" onClick={() => handleClick('/')}>
+                    <h6 className="nav-pacemother">PACEMOTHER</h6>
+                    <div className="nav-s-high">S</div>
+                    <div className="nav-s-low">S</div>
+                </div>
+
+                <div className="nav-list">
+                    <div className="nav-music" onClick={() => handleClick('/music')}>MUSIC</div>
+                    <div className="nav-artist" onClick={() => handleClick('/artist')}>ARTIST</div>
+                    <div className="nav-media" onClick={() => handleClick('/media')}>MEDIA</div>
+                    <div className="nav-events"onClick={() => handleClick('/events')}>EVENTS</div>
+                    <div className="nav-store" onClick={() => handleClick('/store')}>STORE</div>
+                    <div className="nav-about" onClick={() => handleClick('/about')}>ABOUT</div>
+                </div>
             </div>
-            <ul>
-                <li onClick={() => handleClick('/store', 1)}>
-                    <p className={isActiveTab(1)} >Store</p>
-                </li>
 
-                <li 
-                    onMouseEnter={() => setArtistVisible(true)}
-                    onMouseLeave={() => setArtistVisible(false)}
-                >
-                    <p className={isActiveTab(2)} >Artists</p>
-                    <div>
-                        {artistVisible && <ArtistDropDown />}                  
-                    </div>
-                </li>
+            <div className="top-nav-right">
+                {/* <button className="nav-icon">
+                    <FontAwesomeIcon icon={faUserAlt} onClick={toggleLoginVis}/>
+                </button> */}
 
-                <li 
-                    onMouseEnter={() => setMusicVisible(true)}
-                    onMouseLeave={() => setMusicVisible(false)}
-                >
-                    <p className={isActiveTab(3)} >Music</p>
-                    <div>
-                        {musicVisible && <MusicDropDown />}                  
-                    </div>
-                </li>
+                <div className="search-icon">
+                    <img
+                        className="search-ellipse"
+                        src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fc9bb491f8a87f7078fe376/img/ellipse-24@2x.svg"
+                    />
+                    <img
+                        className="search-line"
+                        src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fc9bb491f8a87f7078fe376/img/line-9@2x.svg"
+                    />
+                </div>
+                {loginVisible && dropdown}
+            </div>
 
-                <li 
-                    onMouseEnter={() => setMediaVisible(true)}
-                    onMouseLeave={() => setMediaVisible(false)}
-                >
-                    <p className={isActiveTab(4)}>Media</p>
-                    <div>
-                        {mediaVisible && <MediaDropDown />}                  
-                    </div>
-                </li>
 
-                <li onClick={() => handleClick('/events', 5)}>
-                   <p className={isActiveTab(5)} >Events</p>
-                </li>
-
-                {tabType}
-
-            </ul>
         </div>
     )
 }
 
-export default withRouter (NavBar);
+export default withRouter(Navbar);
+
+
+

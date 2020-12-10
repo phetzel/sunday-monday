@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import BottomNav from '../navBar/bottom_nav';
 import visualApi from '../../util/visual_api_util';
 import VisualShowArtists from './visual_show_artists';
 
@@ -22,7 +21,6 @@ const VisualShow = ({ match}) => {
     
     return(
         <div>
-            <BottomNav />
             <div className="visual-show content">
                 {visual && 
                     <div className="visual-show-details">
