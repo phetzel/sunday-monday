@@ -47,28 +47,28 @@ const App = () => {
                 <Switch>
                     <Route exact path="/" component={Splash} />
 
-                    {/* <Route exact path="/artists/audio" component={AudioIndex} />
-                    <Route exact path="/artists/visual" component={VisualArtistIndex} />
+                    {/* <Route exact path="/artists/audio" component={AudioIndex} /> */}
+                    {/* <Route exact path="/artists/visual" component={VisualArtistIndex} /> */}
                     <Route exact path="/artists/:id" component={ArtistShow} />
 
-                    <Route exact path="/music/releases" component={AlbumIndex} />
-                    <Route exact path="/music/playlists" component={PlaylistIndex} />
-                    <Route exact path="/music/:id"  render={(props) => (
+                    {/* <Route exact path="/music/releases" component={AlbumIndex} /> */}
+                    {/* <Route exact path="/music/playlists" component={PlaylistIndex} /> */}
+                    {/* <Route exact path="/music/:id"  render={(props) => (
                         <ReleaseShow 
                             music={music} 
                             setMusic={setMusic}
                             setPlaying={setPlaying}
                             {...props} />
-                    )} />                   
+                    )} />                     */}
 
-                    <Route exact path="/events" component={EventIndex} />
-                    <Route exact path="/events/:id" component={EventShow} />
+                    {/* <Route exact path="/events" component={EventIndex} /> */}
+                    {/* <Route exact path="/events/:id" component={EventShow} /> */}
 
-                    <Route exact path="/videos" component={VideoIndex} />
-                    <Route exact path="/videos/:id" component={VideoShow} />
+                    {/* <Route exact path="/videos" component={VideoIndex} /> */}
+                    {/* <Route exact path="/videos/:id" component={VideoShow} /> */}
 
-                    <Route exact path="/visuals" component={VisualIndex} />
-                    <Route exact path="/visuals/:id" component={VisualShow} />
+                    {/* <Route exact path="/visuals" component={VisualIndex} /> */}
+                    {/* <Route exact path="/visuals/:id" component={VisualShow} /> */}
 
                     <Route path="/admin" render={() => (
                         user ? (
@@ -76,7 +76,7 @@ const App = () => {
                         ) : (
                             <Redirect to="/" />
                         )
-                    )} /> */}
+                    )} />
                 </Switch>
 
                 {/* <div className="bottom-rect">

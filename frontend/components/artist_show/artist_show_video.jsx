@@ -12,22 +12,22 @@ const ArtistShowVideo = ({ history, videos }) => {
     const feature = revVideos.shift();
 
     return (
-        <div className="artist-show-video">
-            <h2 className="p-color">Videos</h2>
-
-            <div className="artist-video-featured">
-                <ReactPlayer url={`https://www.youtube.com/watch?v=${feature.url}`} />
-                <h4>{feature.title}</h4>
+        <div className="artist-show-video-container">
+            <h1>Videos</h1>
+            <div className="artist-show-video">
+                <div className="artist-show-video-player">
+                    <ReactPlayer 
+                        height="480px"
+                        width="854px"
+                        url={`https://www.youtube.com/watch?v=${feature.url}`} />
+                </div>
             </div>
 
-            <ul>
-                {revVideos.map(video => (
-                    <li key={video.id} onClick={() => handleClick(video.id)}>
-                        <img src={`https://img.youtube.com/vi/${video.url}/hqdefault.jpg`} alt=""/>
-                        <p>{video.title}</p>
-                    </li>
-                ))}
-            </ul>
+            <div class="artist-show-videos-button-container">
+                <div class="artist-show-videos-button">
+                    <div class="artist-show-videos-button-content">View All Videos</div>
+                </div>
+            </div>
         </div>
     )
 }

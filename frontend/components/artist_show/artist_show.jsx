@@ -21,19 +21,18 @@ const ArtistShow = ({ match}) => {
         fetchArtist();
     }, []);
     
-
     return(
         <div>
-            <div className="artist-show content">
+            <div className="artist-show">
                 {artist && <ArtistShowDetail artist={artist}/>}
-                {artist && artist.videos.length > 0 &&
-                    <ArtistShowVideo videos={artist.videos} />}
                 {artist && artist.releases.length > 0 &&
                     <ArtistShowMusic releases={artist.releases} />}
-                {artist && artist.visuals.length > 0 &&
-                    <ArtistShowVisual visuals={artist.visuals} />}                
-                {artist && artist.events.length > 0 &&
-                    <ArtistShowEvent events={artist.events} />}
+                {artist && artist.videos.length > 0 &&
+                    <ArtistShowVideo videos={artist.videos} />}
+                {/* {artist && artist.visuals.length > 0 &&
+                    <ArtistShowVisual visuals={artist.visuals} />}                 */}
+                {/* {artist && artist.events.length > 0 &&
+                    <ArtistShowEvent events={artist.events} />} */}
             </div>
         </div>
     )

@@ -26,7 +26,7 @@ const Splash = () => {
                     <div className="splash-lower-content">
                         <SplashArtist />
                         <SplashRelease />
-                        {/* <SplashEvent /> */}
+                        <SplashEvent />
                     </div>
                 </div>
             </div>
