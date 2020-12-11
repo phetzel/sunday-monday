@@ -4,7 +4,7 @@ import ReleaseIndex from './release_index';
 
 const PlaylistIndex = () => {
     return (
-        <ReleaseIndex medium={'playlist'} title={"Playlists"} />
+        <ReleaseIndex medium={'playlist'} title={"All Playlists"} />
     )
 }
 

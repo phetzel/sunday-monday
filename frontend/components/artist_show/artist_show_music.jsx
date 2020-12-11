@@ -3,13 +3,17 @@ import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-const ArtistShowMusic = ({ history, releases }) => {
+const ArtistShowMusic = ({ artist_id, history, releases }) => {
 
     const handleClick = (id) => {
         history.push(`/music/${id}`);
     }
 
-    const newMusic = releases.slice(0,8);
+    const handleAllClick = () => {
+        history.push(`/artists/${artist_id}/music`)
+    }
+
+    const newMusic = releases.slice(0,6);
 
     return (
         <div className="artist-show-music-container">
@@ -37,7 +41,9 @@ const ArtistShowMusic = ({ history, releases }) => {
                 ))}
             </ul>
 
-            <div className="artist-show-music-all-container">
+            <div 
+                className="artist-show-music-all-container"
+                onClick={handleAllClick}>
                 <div className="artist-show-music-all">
                     <div className="artist-show-music-all-content">
                         View All Music

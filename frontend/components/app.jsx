@@ -13,9 +13,11 @@ import MusicPlayer from './music_player/music_player';
 import Navbar from './navbar/navbar';
 import PlaylistIndex from './release_index/playlist_index';
 import ReleaseShow from './release_show/release_show';
+import ReleaseArtistIndex from './release_index/release_artist_index';
 import Splash from './splash/splash';
 import UserContext from '../context/user_context';
-import VideoIndex from './video_index/video_index';
+import AllVideosIndex from './video_index/all_videos_index';
+import VideoArtistIndex from './video_index/video_artist_index';
 import VideoShow from './video_show/video_show';
 import VisualArtistIndex from './artist_index/visual_index';
 import VisualIndex from './visual_index/visual_index';
@@ -50,9 +52,11 @@ const App = () => {
                     {/* <Route exact path="/artists/audio" component={AudioIndex} /> */}
                     {/* <Route exact path="/artists/visual" component={VisualArtistIndex} /> */}
                     <Route exact path="/artists/:id" component={ArtistShow} />
+                    <Route exact path="/artists/:id/music" component={ReleaseArtistIndex} />
+                    <Route exact path="/artists/:id/videos" component={VideoArtistIndex} />
 
-                    {/* <Route exact path="/music/releases" component={AlbumIndex} /> */}
-                    {/* <Route exact path="/music/playlists" component={PlaylistIndex} /> */}
+                    <Route exact path="/music/releases" component={AlbumIndex} />
+                    <Route exact path="/music/playlists" component={PlaylistIndex} />
                     {/* <Route exact path="/music/:id"  render={(props) => (
                         <ReleaseShow 
                             music={music} 
@@ -64,8 +68,8 @@ const App = () => {
                     {/* <Route exact path="/events" component={EventIndex} /> */}
                     {/* <Route exact path="/events/:id" component={EventShow} /> */}
 
-                    {/* <Route exact path="/videos" component={VideoIndex} /> */}
-                    {/* <Route exact path="/videos/:id" component={VideoShow} /> */}
+                    <Route exact path="/videos" component={AllVideosIndex} />
+                    <Route exact path="/videos/:id" component={VideoShow} />
 
                     {/* <Route exact path="/visuals" component={VisualIndex} /> */}
                     {/* <Route exact path="/visuals/:id" component={VisualShow} /> */}

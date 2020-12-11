@@ -9,7 +9,7 @@ const VideoListItem = ({video, history}) => {
     return (
         <div className="video-index-item" onClick={handleClick}>
             <img src={`https://img.youtube.com/vi/${video.url}/hqdefault.jpg`} alt=""/>
-            <h4>{video.title}</h4>
+            <h6>{video.title}</h6>
         </div>
     )
 }

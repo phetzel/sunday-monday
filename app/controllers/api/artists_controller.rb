@@ -2,7 +2,6 @@ class Api::ArtistsController < ApplicationController
     def index
         @artists = Artist.order(:name)
 
-        puts style
         if style
             @artists = @artists.select{ |artist| artist.style == style }
         end

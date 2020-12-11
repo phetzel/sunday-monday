@@ -9,9 +9,9 @@ import ArtistShowVisual from './artist_show_visual';
 
 const ArtistShow = ({ match}) => {
     const [artist, setArtist] = useState();
+    const id = match.params.id;
 
     const fetchArtist = () => {
-        const id = match.params.id;
         artistApi.fetchArtist(id).then(artist => {
             setArtist(artist);
         })
@@ -26,9 +26,9 @@ const ArtistShow = ({ match}) => {
             <div className="artist-show">
                 {artist && <ArtistShowDetail artist={artist}/>}
                 {artist && artist.releases.length > 0 &&
-                    <ArtistShowMusic releases={artist.releases} />}
+                    <ArtistShowMusic artist_id={id} releases={artist.releases} />}
                 {artist && artist.videos.length > 0 &&
-                    <ArtistShowVideo videos={artist.videos} />}
+                    <ArtistShowVideo artist_id={id} videos={artist.videos} />}
                 {/* {artist && artist.visuals.length > 0 &&
                     <ArtistShowVisual visuals={artist.visuals} />}                 */}
                 {/* {artist && artist.events.length > 0 &&

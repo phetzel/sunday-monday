@@ -2,10 +2,10 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ReactPlayer from 'react-player/lazy';
 
-const ArtistShowVideo = ({ history, videos }) => {
+const ArtistShowVideo = ({ artist_id, history, videos }) => {
 
-    const handleClick = (id) => {
-        history.push(`/videos/${id}`);
+    const handleClick = () => {
+        history.push(`/artists/${artist_id}/videos`);
     }
 
     const revVideos = videos.reverse();
@@ -13,9 +13,9 @@ const ArtistShowVideo = ({ history, videos }) => {
 
     return (
         <div className="artist-show-video-container">
-            <h1>Videos</h1>
-            <div className="artist-show-video">
-                <div className="artist-show-video-player">
+            <h1>Newest Video</h1>
+            <div className="show-video">
+                <div className="show-video-player">
                     <ReactPlayer 
                         height="480px"
                         width="854px"
@@ -23,9 +23,11 @@ const ArtistShowVideo = ({ history, videos }) => {
                 </div>
             </div>
 
-            <div class="artist-show-videos-button-container">
-                <div class="artist-show-videos-button">
-                    <div class="artist-show-videos-button-content">View All Videos</div>
+            <div 
+                className="artist-show-videos-button-container"
+                onClick={handleClick}>
+                <div className="artist-show-videos-button">
+                    <div className="artist-show-videos-button-content">View All Videos</div>
                 </div>
             </div>
         </div>

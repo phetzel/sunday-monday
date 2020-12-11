@@ -1,37 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player/lazy';
 
-import videoApi from '../../util/video_api_util';
 import VideoIndexItem from './video_index_item';
 
-const VideoIndex = props => {
-    const [feature, setFeature] = useState();
-    const [videos, setVideos] = useState();
-
-
-    const fetchVideos = () => {
-        videoApi.fetchVideos().then(videos => {
-            const videosArray = Object.values(videos);
-            const first = videosArray.shift();
-            setFeature(first);
-            setVideos(videosArray);
-        })
-    }
-
-    useEffect(() => {
-        fetchVideos();
-    }, []);
+const VideoIndex = ({ feature, title, videos}) => {
 
     return (
-        <div>
-            <div className="video-index-container content">
+        <div className="video-index-container">
+            <div className="video-index">
+
+                <h1>{title}</h1>
                 { feature &&
-                    <div className="video-index-featured">
-                        <ReactPlayer url={`https://www.youtube.com/watch?v=${feature.url}`} />
-                        <h4>{feature.title}</h4>
+                    <div className="show-video-container">
+                        <div className="show-video">
+                            <ReactPlayer 
+                                height="480px"
+                                width="854px"
+                                url={`https://www.youtube.com/watch?v=${feature.url}`} />
+                        </div>
                     </div>
                 }
-                <ul className="video-index">
+                <ul className="video-index-list">
                     {videos && videos.map(video => 
                         <VideoIndexItem video={video} key={video.id} />)}
                 </ul>

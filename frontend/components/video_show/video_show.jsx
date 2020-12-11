@@ -20,20 +20,21 @@ const VideoShow = ({ match}) => {
     
 
     return(
-        <div> 
-            <div className="video-show content">
+        <div className="video-show"> 
+            <div className="show-video-container">
                 {video && 
-                    <div className="video-show-details">
+                    <div className="show-video">
                             <ReactPlayer 
+                                height="480px"
+                                width="854px"
                                 url={`https://www.youtube.com/watch?v=${video.url}`} />
-                       <h2 className="p-color">{video.title}</h2>
                     </div>
                 }
-                {video && video.artists.length > 0 &&
+                {/* {video && video.artists.length > 0 &&
                     <div className="artist-association-container">
                         <VideoShowArtists artists={video.artists} />
                     </div>
-                }
+                } */}
             </div>
         </div>
     )
