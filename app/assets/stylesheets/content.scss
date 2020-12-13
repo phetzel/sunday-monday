@@ -8,32 +8,20 @@ body {
   height: 100%;
   min-height: 100vh;
   background-color: rgba(251, 242, 234, 1);
+
+  // align-items: center;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
 }
 
-//button
-.button {
-  box-shadow: inset 0px 1px 0px 0px #91b8b3;
-  background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
-  background-color: #768d87;
-  border: 1px solid #566963;
-  display: inline-block;
-  cursor: pointer;
-  color: #000;
-  font-family: Arial;
-  font-size: 13px;
-  font-weight: bold;
-  outline: none;
-  padding: 6px 12px;
-  text-decoration: none;
-  width: 150px;
-}
+.center-logo {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 279px;
+  width: 279px;
 
-.button:hover {
-  background: linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
-  background-color: #6c7c7c;
-}
-
-.button:active {
-  position: relative;
-  top: 1px;
+  position: absolute;
+  top: 80px;
+  z-index: 10;
 }

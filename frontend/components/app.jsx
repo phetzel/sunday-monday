@@ -45,6 +45,10 @@ const App = () => {
         <UserContext.Provider value={{ user, setUser }}>
             <div className="content">
                 <Navbar />
+                {/* <img 
+                    className="center-logo" 
+                    src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fc9bb491f8a87f7078fe376/img/image-10@2x.svg"
+                    alt="Logo" /> */}
 
                 <Switch>
                     <Route exact path="/" component={Splash} />

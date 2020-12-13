@@ -8,8 +8,9 @@ import LoginDropDown from './login_drop_down';
 import UserContext from '../../context/user_context';
 
 const Navbar = ({ history }) => {
-    const [loginVisible, setLoginVisible] = useState(false);
     const { user, setUser } = useContext(UserContext);
+    const [hovering, setHovering] = useState();
+    const [loginVisible, setLoginVisible] = useState(false);
 
     const handleClick = (loc) => {
         history.push(loc);
@@ -20,24 +21,68 @@ const Navbar = ({ history }) => {
         setLoginVisible(newVis);
     }
 
+    const handleHover = (num) => {
+        setHovering(num);
+    }
+
+    const handleUnhover = () => {
+        setHovering(null);
+    }
+
+    const checkHovering = (num) => {
+        return hovering === num ? "nav-hover" : null;
+    }
+
     const dropdown = user ? <AdminDropDown /> : <LoginDropDown />;
 
     return (
         <div className="top-nav">
             <div className="top-nav-left" >
                 <div className="nav-spacemother" onClick={() => handleClick('/')}>
-                    <h6 className="nav-pacemother">PACEMOTHER</h6>
                     <div className="nav-s-high">S</div>
                     <div className="nav-s-low">S</div>
+                    <h6 className="nav-pacemother">PACEMOTHER</h6>
                 </div>
 
-                <div className="nav-list">
-                    <div className="nav-music" onClick={() => handleClick('/music')}>MUSIC</div>
-                    <div className="nav-artist" onClick={() => handleClick('/artist')}>ARTIST</div>
-                    <div className="nav-media" onClick={() => handleClick('/media')}>MEDIA</div>
-                    <div className="nav-events"onClick={() => handleClick('/events')}>EVENTS</div>
-                    <div className="nav-store" onClick={() => handleClick('/store')}>STORE</div>
-                    <div className="nav-about" onClick={() => handleClick('/about')}>ABOUT</div>
+                <div 
+                    className="nav-list"
+                    onMouseLeave={handleUnhover}>
+                    <div 
+                        className={`nav-music ${checkHovering(1)}`}
+                        onClick={() => handleClick('/music')}
+                        onMouseEnter={() => handleHover(1)}>
+                        MUSIC
+                    </div>
+                    <div 
+                        className={`nav-artist ${checkHovering(2)}`}
+                        onClick={() => handleClick('/artist')}
+                        onMouseEnter={() => handleHover(2)}>
+                        ARTIST
+                    </div>
+                    <div 
+                        className={`nav-media ${checkHovering(3)}`}
+                        onClick={() => handleClick('/media')}
+                        onMouseEnter={() => handleHover(3)}>
+                        MEDIA
+                    </div>
+                    <div 
+                        className={`nav-events ${checkHovering(4)}`}
+                        onClick={() => handleClick('/events')}
+                        onMouseEnter={() => handleHover(4)}>
+                        EVENTS
+                    </div>
+                    <div 
+                        className={`nav-store ${checkHovering(5)}`}
+                        onClick={() => handleClick('/store')}
+                        onMouseEnter={() => handleHover(5)}>
+                        STORE
+                    </div>
+                    <div 
+                        className={`nav-about ${checkHovering(6)}`}
+                        onClick={() => handleClick('/about')}
+                        onMouseEnter={() => handleHover(6)}>
+                        ABOUT
+                    </div>
                 </div>
             </div>
 
