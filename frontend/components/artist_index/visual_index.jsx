@@ -4,7 +4,7 @@ import ArtistIndex from './artist_index';
 
 const VisualIndex = () => {
     return (
-        <ArtistIndex style={'visual'} title={"Visual Artist"} />
+        <ArtistIndex style={'visual'} title={"VISUAL ARTISTS"} />
     )
 }
 

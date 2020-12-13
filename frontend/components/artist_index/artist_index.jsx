@@ -19,14 +19,14 @@ const ArtistIndex = ({style, title}) => {
 
     return (
         <div>
-            <div className="artist-index-container content">
-                <div className="artist-index-header">
-                    <h1 className="p-color">{title}</h1>
+            <div className="artist-index-outter-container">
+                <div className="artist-index-container">
+                    <h1>{title}</h1>
+                    <ul className="artist-index">
+                        {artists && artists.map(artist => 
+                            <ArtistListItem artist={artist} key={artist.id} />)}
+                    </ul>
                 </div>
-                <ul className="artist-index">
-                    {artists && artists.map(artist => 
-                        <ArtistListItem artist={artist} key={artist.id} />)}
-                </ul>
             </div>
         </div>
     )

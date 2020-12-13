@@ -4,7 +4,7 @@ import ArtistIndex from './artist_index';
 
 const AudioIndex = () => {
     return (
-        <ArtistIndex style={'audio'} title={"Musical Artist"} />
+        <ArtistIndex style={'audio'} title={"MUSICAL ARTISTS"} />
     )
 }
 

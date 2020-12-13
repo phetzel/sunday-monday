@@ -53,8 +53,8 @@ const App = () => {
                 <Switch>
                     <Route exact path="/" component={Splash} />
 
-                    {/* <Route exact path="/artists/audio" component={AudioIndex} /> */}
-                    {/* <Route exact path="/artists/visual" component={VisualArtistIndex} /> */}
+                    <Route exact path="/artists/audio" component={AudioIndex} />
+                    <Route exact path="/artists/visual" component={VisualArtistIndex} />
                     <Route exact path="/artists/:id" component={ArtistShow} />
                     <Route exact path="/artists/:id/music" component={ReleaseArtistIndex} />
                     <Route exact path="/artists/:id/videos" component={VideoArtistIndex} />
@@ -75,7 +75,7 @@ const App = () => {
                     <Route exact path="/videos" component={AllVideosIndex} />
                     <Route exact path="/videos/:id" component={VideoShow} />
 
-                    {/* <Route exact path="/visuals" component={VisualIndex} /> */}
+                    <Route exact path="/visuals" component={VisualIndex} />
                     {/* <Route exact path="/visuals/:id" component={VisualShow} /> */}
 
                     <Route path="/admin" render={() => (

@@ -4,47 +4,87 @@
 
 // Index
 //------------------------------------------------------------------------------
-.artist-index-container {
-  align-items: center;
+.artist-index-outter-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   width: 100%;
 }
 
-.artist-index-header {
-  width: 90%;
+.artist-index-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 141px;
+  width: 1163px;
 }
 
-.artist-index-header h1 {
-  font-size: 30px;
+.artist-index-container h1 {
+  color: var(--blackcurrant);
+  font-family: "Helvetica-Bold", Helvetica, Arial, serif;
+  font-size: 36px;
+  font-style: normal;
   font-weight: 700;
-  margin-bottom: 30px;
-  margin-left: 20px;
+
+  background-color: transparent;
+  flex-shrink: 0;
+  height: auto;
+  letter-spacing: 3.6px;
+  min-height: 41px;
+  min-width: 251px;
+  text-align: left;
+  width: auto;
+
+  margin-bottom: 100px;
 }
 
 .artist-index {
-  display: flex;
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  flex-direction: row;
+  flex-shrink: 0;
   flex-wrap: wrap;
-  width: 90%;
+  justify-content: space-around;
+  min-width: 1163px;
+  width: auto;
 }
 
 .artist-list-item {
-  align-items: center;
-  cursor: pointer;
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 402px;
+  position: relative;
+  width: 369px;
+
+  float: left;
+  margin-bottom: 99.25px;
   display: flex;
   flex-direction: column;
-  margin: 20px;
-  overflow: hidden;
-  width: 300px;
+
+  cursor: pointer;
 }
 
 .artist-list-item img {
-  height: 300px;
-  width: 300px;
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 367px;
+  width: 367px;
 }
-.artist-list-item h4 {
-  font-size: 20px;
-  margin-top: 15px;
+
+.artist-list-item h6 {
+  color: var(--blackcurrant);
+  font-family: "Helvetica-Regular", Helvetica, Arial, serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 21px;
+  letter-spacing: 1.8px;
+  min-height: 21px;
+  text-align: left;
+  width: 308px;
 }
 
 //Show
@@ -111,12 +151,31 @@
   flex-shrink: 0;
   height: auto;
   letter-spacing: 1.6px;
-  min-height: 360px;
+  // min-height: 360px;
   text-align: left;
   width: 364px;
 
   margin-top: 30px;
   margin-left: 67px;
+
+  overflow: scroll;
+  height: 353px;
+}
+
+.artist-show-details-content p {
+  color: var(--blackcurrant);
+  font-family: "Helvetica-Regular", Helvetica, Arial, serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+
+  background-color: transparent;
+  flex-shrink: 0;
+  height: auto;
+  letter-spacing: 1.6px;
+  min-height: 360px;
+  text-align: left;
+  width: 364px;
 }
 
 .artist-show-details-container img {

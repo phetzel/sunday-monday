@@ -51,6 +51,8 @@
 
   display: flex;
   align-items: center;
+
+  cursor: pointer;
 }
 
 .nav-pacemother {
@@ -140,6 +142,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+
+  cursor: default;
 }
 
 .nav-artist {
@@ -159,6 +163,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+
+  cursor: default;
 }
 
 .nav-media {
@@ -178,6 +184,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+
+  cursor: default;
 }
 
 .nav-events {
@@ -197,6 +205,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+
+  cursor: pointer;
 }
 
 .nav-store {
@@ -216,6 +226,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+
+  cursor: pointer;
 }
 
 .nav-about {
@@ -235,11 +247,37 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+
+  cursor: pointer;
 }
 
 .nav-hover {
   background-color: var(--soapstone);
   color: var(--blackcurrant);
+}
+
+.nav-dropdown {
+  position: absolute;
+  background-color: #fffcf9;
+  top: 47px;
+}
+
+.nav-dropdown li {
+  color: var(--blackcurrant);
+  padding: 7px 6px 7px 9px;
+  border-left: 1px solid var(--blackcurrant);
+  border-right: 1px solid var(--blackcurrant);
+  border-bottom: 1px solid var(--blackcurrant);
+
+  font-family: "Helvetica", "Arial", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+
+  line-height: 16px;
+  letter-spacing: 0.05em;
+
+  cursor: pointer;
 }
 
 .top-nav-right {
