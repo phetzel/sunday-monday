@@ -98,6 +98,7 @@
   flex-direction: column;
   padding-left: 139px;
   padding-right: 139px;
+  // align-items: center;
   width: 100%;
 }
 
@@ -109,9 +110,10 @@
 
   border: 20px solid var(--blackcurrant);
 
+  align-items: center;
   display: flex;
   justify-content: center;
-  padding-top: 71px;
+  margin-top: 141px;
 }
 
 .artist-show-details {
@@ -305,6 +307,8 @@
   min-width: 211px;
   padding: 0 38px;
   width: auto;
+
+  cursor: pointer;
 }
 
 .artist-show-music-all-content {
@@ -326,6 +330,7 @@
 
 .artist-show-video-container {
   margin-top: 150px;
+  width: 1163px;
 }
 
 .artist-show-video-container h1 {
@@ -383,6 +388,8 @@
   min-width: 220px;
   padding: 0 38px;
   width: auto;
+
+  cursor: pointer;
 }
 
 .artist-show-videos-button-content {

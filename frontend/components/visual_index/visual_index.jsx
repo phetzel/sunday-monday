@@ -272,8 +272,4 @@ export default VisualIndex;
       </div>
     </div>
   </div>
-  <img
-    class="lbfcirclesticker-2"
-    src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fcad9c8b9bd4b79e26c628a/img/lbfcirclesticker-2@2x.png"
-  />
 </div> */}

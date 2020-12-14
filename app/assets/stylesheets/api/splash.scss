@@ -167,19 +167,22 @@
   font-weight: 700;
 
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .splash-feature-display img {
   border-radius: 155px;
   height: 310px;
   width: 310px;
+
+  cursor: pointer;
 }
 
 .splash-feature-display p {
   align-self: center;
   background-color: transparent;
   flex-shrink: 0;
-  height: 168px;
+  height: 208px;
   letter-spacing: 0px;
   line-height: 21px;
   margin-top: 38px;

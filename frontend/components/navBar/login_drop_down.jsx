@@ -15,6 +15,7 @@ const LoginDropDown = (props) => {
 
     const handleSubmit = (user) => {
         const formData = new FormData();
+        alert('hit');
         
         formData.append('user[email]', user.email);
         formData.append('user[password]', user.password);
@@ -24,7 +25,7 @@ const LoginDropDown = (props) => {
     };
 
     return (
-        <div className="dropdown">
+        <div className="nav-dropdown-right">
             <Formik
                 initialValues={initialValues}
                 onSubmit={handleSubmit}

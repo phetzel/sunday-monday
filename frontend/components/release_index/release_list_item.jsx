@@ -13,12 +13,12 @@ const ReleaseListItem = ({release, history}) => {
             <img alt={release.title} src={release.photoUrl} title={release.title}/>
             <div className="release-list-item-bottom">
                 <h6>{release.title}</h6>
-                <div className="release-list-item-bottom-icon-container">
+                <div className="artist-show-music-bottom-icon-container">
                     <FontAwesomeIcon 
-                        className="release-list-item-bottom-icon"
+                        className="artist-show-music-bottom-icon"
                         icon={faPlay} />
                     <FontAwesomeIcon 
-                        className="release-list-item-bottom-icon"
+                        className="artist-show-music-bottom-icon"
                         icon={faPlus} />
                 </div>
             </div>

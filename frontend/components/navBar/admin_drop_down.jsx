@@ -18,7 +18,7 @@ const AdminDropDown = ({history}) => {
     }
 
     return (
-        <div className="dropdown">
+        <div className="nav-dropdown-right">
             <ul>
                 <li onClick={() => handleClick('/admin')}>Admin</li>
                 <li onClick={handleLogout}>Logout</li>

@@ -55,16 +55,16 @@ const ReleaseShow = ({ match, music, setMusic, setPlaying }) => {
                             <div className="release-show-song-top">
                                 <h4 className="p-color">{release.title}</h4>
                                 
-                                <button 
-                                    className="release-show-item"
-                                    onClick={handlePlay}>
-                                    <FontAwesomeIcon icon={faPlay} />
-                                </button>
-                                <button 
-                                    className="release-show-item"
-                                    onClick={handleAdd}>
-                                    <FontAwesomeIcon icon={faPlus} />
-                                </button>
+                                <div className="artist-show-music-bottom-icon-container">
+                                    <FontAwesomeIcon 
+                                        className="artist-show-music-bottom-icon"
+                                        icon={faPlay} 
+                                        onClick={handlePlay} />
+                                    <FontAwesomeIcon 
+                                        className="artist-show-music-bottom-icon"
+                                        icon={faPlus} 
+                                        onClick={handlePlay} />
+                                </div>
                             </div>
 
                             {songs && 

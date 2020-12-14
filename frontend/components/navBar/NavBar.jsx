@@ -50,8 +50,6 @@ const Navbar = ({ history }) => {
         return hovering === num ? "nav-hover" : null;
     }
 
-
-
     const dropdown = user ? <AdminDropDown /> : <LoginDropDown />;
 
     return (
@@ -65,41 +63,47 @@ const Navbar = ({ history }) => {
 
                 <div 
                     className="nav-list"
-                    onMouseLeave={handleUnhover}>
+                >
                     <div 
                         className={`nav-music ${checkHovering(1)}`}
-                        onMouseEnter={() => handleVisibility(setMusicVisible, 1)}>
+                        onMouseEnter={() => handleVisibility(setMusicVisible, 1)}
+                        onMouseLeave={handleUnhover}>
                         MUSIC
                         {musicVisible && <MusicDropDown /> }
                     </div>
                     <div 
                         className={`nav-artist ${checkHovering(2)}`}
-                        onMouseEnter={() => handleVisibility(setArtistVisible, 2)}>
+                        onMouseEnter={() => handleVisibility(setArtistVisible, 2)}
+                        onMouseLeave={handleUnhover}>
                         ARTIST
                         {artistVisible && <ArtistDropDown /> }
                     </div>
                     <div 
                         className={`nav-media ${checkHovering(3)}`}
-                        onMouseEnter={() => handleVisibility(setMediaVisible, 3)}>
+                        onMouseEnter={() => handleVisibility(setMediaVisible, 3)}
+                        onMouseLeave={handleUnhover}>
                         MEDIA
                         {mediaVisible && <MediaDropDown /> }
                     </div>
                     <div 
                         className={`nav-events ${checkHovering(4)}`}
                         onClick={() => handleClick('/events')}
-                        onMouseEnter={() => handleHover(4)}>
+                        onMouseEnter={() => handleHover(4)}
+                        onMouseLeave={handleUnhover}>
                         EVENTS
                     </div>
                     <div 
                         className={`nav-store ${checkHovering(5)}`}
                         onClick={() => handleClick('/store')}
-                        onMouseEnter={() => handleHover(5)}>
+                        onMouseEnter={() => handleHover(5)}
+                        onMouseLeave={handleUnhover}>
                         STORE
                     </div>
                     <div 
                         className={`nav-about ${checkHovering(6)}`}
                         onClick={() => handleClick('/about')}
-                        onMouseEnter={() => handleHover(6)}>
+                        onMouseEnter={() => handleHover(6)}
+                        onMouseLeave={handleUnhover}>
                         ABOUT
                     </div>
                 </div>

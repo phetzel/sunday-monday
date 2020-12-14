@@ -27,6 +27,8 @@
   min-width: 1440px;
   padding: 16px 20px;
   width: auto;
+
+  z-index: 100;
 }
 
 .top-nav-left {
@@ -79,7 +81,7 @@
   letter-spacing: 0px;
   position: absolute;
   text-align: left;
-  // top: -1.1px;
+  top: 4.5px;
   width: auto;
 
   color: var(--orchid-pearl);
@@ -95,9 +97,10 @@
   height: auto;
   left: 0px;
   letter-spacing: 0px;
-  // position: absolute;
+  position: relative;
   text-align: left;
-  top: 1.1px;
+  // top: 1.1px;
+  top: -2px;
   transform: rotate(180deg);
   width: auto;
 
@@ -262,7 +265,8 @@
   top: 47px;
 }
 
-.nav-dropdown li {
+.nav-dropdown li,
+.nav-dropdown-right li {
   color: var(--blackcurrant);
   padding: 7px 6px 7px 9px;
   border-left: 1px solid var(--blackcurrant);
@@ -280,14 +284,51 @@
   cursor: pointer;
 }
 
+.nav-dropdown-right {
+  position: absolute;
+  background-color: #fffcf9;
+  border-top: 1px solid var(--blackcurrant);
+  top: 47px;
+  right: 30px;
+}
+
 .top-nav-right {
   align-self: flex-end;
   background-color: transparent;
   flex-shrink: 0;
-  height: 47px;
+  // height: 47px;
   margin-left: 727px;
   position: relative;
   width: 69px;
+
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.login-form {
+  border: 1px solid var(--blackcurrant);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 7px 6px 7px 9px;
+}
+
+.login-form input {
+  width: 100px;
+}
+
+.nav-icon {
+  background-color: transparent;
+  border: none;
+  color: var(--blackcurrant);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.nav-icon:focus {
+  outline: none;
 }
 
 .search-icon {
