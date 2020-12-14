@@ -10,7 +10,7 @@ import AudioIndex from './artist_index/audio_index';
 import EventIndex from './event_index/event_index';
 import EventShow from './event_show/event_show';
 import MusicPlayer from './music_player/music_player';
-import Navbar from './navbar/navbar';
+import Navbar from './navBar/NavBar';
 import PlaylistIndex from './release_index/playlist_index';
 import ReleaseShow from './release_show/release_show';
 import ReleaseArtistIndex from './release_index/release_artist_index';

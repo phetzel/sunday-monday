@@ -113,17 +113,7 @@ const Navbar = ({ history }) => {
                 <button className="nav-icon">
                     <FontAwesomeIcon icon={faUserAlt} onClick={toggleLoginVis}/>
                 </button>
-
-                {/* <div className="search-icon">
-                    <img
-                        className="search-ellipse"
-                        src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fc9bb491f8a87f7078fe376/img/ellipse-24@2x.svg"
-                    />
-                    <img
-                        className="search-line"
-                        src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fc9bb491f8a87f7078fe376/img/line-9@2x.svg"
-                    />
-                </div> */}
+                
                 {loginVisible && dropdown}
             </div>
 

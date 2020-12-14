@@ -27,19 +27,3 @@ const ReleaseListItem = ({release, history}) => {
 }
 
 export default withRouter(ReleaseListItem);
-
-{/* <img 
-    alt={release.title}
-    src={release.photoUrl} 
-    title={release.title} />
-<div className="artist-show-music-bottom">
-    <h6>{release.title}</h6>
-    <div className="artist-show-music-bottom-icon-container">
-        <FontAwesomeIcon 
-            className="artist-show-music-bottom-icon"
-            icon={faPlay} />
-        <FontAwesomeIcon 
-            className="artist-show-music-bottom-icon"
-            icon={faPlus} />
-    </div>
-</div> */}
