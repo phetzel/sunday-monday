@@ -29,9 +29,9 @@ const App = () => {
     }
 
     const [user, setUser] = useState(currentUser);
-    const [music, setMusic] = useState();
+    const [music, setMusic] = useState([]);
     const [playing, setPlaying] = useState(false);
-    const [musicVis, setMusicVis] = useState(false);
+    const [musicVis, setMusicVis] = useState(true);
 
     const toggleMusicVis = () => {
         const newVis = musicVis ? false : true;
@@ -47,7 +47,7 @@ const App = () => {
 
                 <div className="center-logo-container">
                     <img
-                        class="center-logo"
+                        className="center-logo"
                         // src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fcada2fb9bd4b79e26c628c/img/mask-group@2x.svg"
                         src={window.logoSquare}
                     />
@@ -89,17 +89,17 @@ const App = () => {
                     )} />
                 </Switch>
 
-                {/* <div className="bottom-rect">
+                <div className="bottom-rect">
                     <MusicPlayer 
                         music={music} 
                         setMusic={setMusic} 
                         playing={playing}
                         setPlaying={setPlaying}
                         visible={musicVis}/>          
-                </div> */}
-                {/* <div className="music-toggle">
+                </div>
+                <div className="music-toggle">
                     <FontAwesomeIcon icon={plusMinus}  onClick={toggleMusicVis} />
-                </div> */}
+                </div>
                 
             </div>
         </ UserContext.Provider>

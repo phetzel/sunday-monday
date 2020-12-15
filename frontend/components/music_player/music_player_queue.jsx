@@ -65,8 +65,10 @@ class MusicPlayerQueue extends React.Component {
                     <li key={idx}>
                         <img src={song.thumbnails.default.url} alt=""/>
                         <h6>{song.title}</h6>
-                        <button onClick={() => this.play(song)}><FontAwesomeIcon icon={faPlay} /></button>
-                        <button onClick={() => this.remove(song)}><FontAwesomeIcon icon={faMinusCircle} /></button>
+                        <div>
+                            <button onClick={() => this.play(song)}><FontAwesomeIcon icon={faPlay} /></button>
+                            <button onClick={() => this.remove(song)}><FontAwesomeIcon icon={faMinusCircle} /></button>
+                        </div>
                     </li>
                 ))}
             </ul>
