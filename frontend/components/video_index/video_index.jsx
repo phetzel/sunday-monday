@@ -11,13 +11,11 @@ const VideoIndex = ({ feature, title, videos}) => {
 
                 <h1>{title}</h1>
                 { feature &&
-                    <div className="show-video-container">
-                        <div className="show-video">
-                            <ReactPlayer 
-                                height="480px"
-                                width="854px"
-                                url={`https://www.youtube.com/watch?v=${feature.url}`} />
-                        </div>
+                    <div className="show-video">
+                        <ReactPlayer 
+                            height="480px"
+                            width="854px"
+                            url={`https://www.youtube.com/watch?v=${feature.url}`} />
                     </div>
                 }
                 <ul className="video-index-list">

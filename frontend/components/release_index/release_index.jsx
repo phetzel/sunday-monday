@@ -32,9 +32,15 @@ const ReleaseIndex = ({ artist, medium, title}) => {
     return (
         <div className="release-index-outter-container">
             <div className="release-index-container">
-                <div className="release-index-header">
+
+                <div className="header-container">
+                    <div className="header">
                     <h1>{title}</h1>
+
+                    </div>
                 </div>
+                <div className="header-rect" />
+
                 <ul className="release-index">
                     {releases && releases.map(release => 
                         <ReleaseListItem release={release} key={release.id} />)}

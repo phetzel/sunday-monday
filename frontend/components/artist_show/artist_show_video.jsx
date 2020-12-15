@@ -14,8 +14,8 @@ const ArtistShowVideo = ({ artist_id, history, videos }) => {
     return (
         <div className="artist-show-video-container">
             <h1>Newest Video</h1>
-            <div className="show-video">
-                <div className="show-video-player">
+            <div className="artist-show-video">
+                <div className="artist-show-video-player">
                     <ReactPlayer 
                         height="480px"
                         width="854px"

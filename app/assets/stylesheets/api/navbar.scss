@@ -116,6 +116,8 @@
   // align-items: flex-start;
   align-items: center;
   background-color: var(--blackcurrant);
+  border-left: solid 0.5px var(--blackcurrant);
+  border-right: solid 0.5px var(--blackcurrant);
   display: inline-flex;
   flex-direction: row;
   flex-shrink: 0;

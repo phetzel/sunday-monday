@@ -45,10 +45,13 @@ const App = () => {
             <div className="content">
                 <Navbar />
 
-                {/* <img
-                    class="center-logo"
-                    src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fcada2fb9bd4b79e26c628c/img/mask-group@2x.svg"
-                /> */}
+                <div className="center-logo-container">
+                    <img
+                        class="center-logo"
+                        // src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fcada2fb9bd4b79e26c628c/img/mask-group@2x.svg"
+                        src={window.logoSquare}
+                    />
+                </div>
 
                 <Switch>
                     <Route exact path="/" component={Splash} />
