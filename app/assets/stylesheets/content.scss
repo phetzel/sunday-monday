@@ -50,15 +50,16 @@ body {
   // background-color: blue;
   display: inline;
   margin-bottom: 100px;
+  z-index: 100;
 }
 
-.header {
-  // background-color: turquoise;
+.header-container span {
+  background-color: rgba(251, 242, 234, 1);
+  padding-right: 35px;
 }
 
 .header-container h1 {
   color: var(--blackcurrant);
-  background-color: red;
   font-family: "Helvetica-Bold", Helvetica, Arial, serif;
   font-size: 36px;
   font-style: normal;

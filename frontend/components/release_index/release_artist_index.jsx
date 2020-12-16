@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import artistApi from '../../util/artist_api_util';
 import ReleaseIndex from './release_index';
 
-const ReleaseArtistIndex = ({ match }) => {
+const ReleaseArtistIndex = ({ match, music, setMusic }) => {
     const { id } = match.params;
 
     const [artist, setArtist] = useState();
@@ -17,7 +17,11 @@ const ReleaseArtistIndex = ({ match }) => {
     return (
         <div>
             { artist && 
-                <ReleaseIndex artist={artist} title={`${artist.name}'s New Music`} />
+                <ReleaseIndex 
+                    artist={artist} 
+                    music={music}
+                    setMusic={setMusic}
+                    title={`${artist.name}`} />
             }
         </div>
     )

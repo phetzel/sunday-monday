@@ -2,9 +2,13 @@ import React from 'react';
 
 import ReleaseIndex from './release_index';
 
-const AlbumIndex = () => {
+const AlbumIndex = ({ music, setMusic }) => {
     return (
-        <ReleaseIndex medium={'album'} title={"All Releases"} />
+        <ReleaseIndex 
+            medium={'album'}
+            music={music}
+            setMusic={setMusic}
+            title={"All Releases"} />
     )
 }
 

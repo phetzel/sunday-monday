@@ -6,7 +6,7 @@
 //------------------------------------------------------------------------------
 .release-index-outter-container {
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   width: 100%;
 }
 
@@ -15,7 +15,8 @@
   flex-direction: column;
   justify-content: center;
   margin-top: 70px;
-  width: 1163px;
+  margin-left: 140px;
+  width: 1303px;
 }
 
 // .release-index-container h1 {
@@ -44,9 +45,9 @@
   flex-direction: row;
   flex-shrink: 0;
   flex-wrap: wrap;
-  justify-content: space-around;
-  min-width: 1163px;
-  width: auto;
+  justify-content: flex-start;
+  width: 1253px;
+  // width: auto;
 }
 
 .release-list-item {
@@ -58,6 +59,7 @@
 
   float: left;
   margin-bottom: 99.25px;
+  margin-right: 31px;
   display: flex;
   flex-direction: column;
 }
@@ -67,6 +69,8 @@
   flex-shrink: 0;
   height: 367px;
   width: 367px;
+
+  cursor: pointer;
 }
 
 .release-list-item-bottom {
@@ -106,6 +110,8 @@
   font-size: 21px;
   margin-left: 2.97px;
   margin-right: 8px;
+
+  cursor: pointer;
 }
 
 //Show

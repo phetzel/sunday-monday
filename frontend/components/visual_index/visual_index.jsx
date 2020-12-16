@@ -39,7 +39,15 @@ const VisualIndex = props => {
 
             <div className="visual-index-outter-container">
                 <div className="visual-index-container">
-                    <h1>Visual Art</h1>
+
+                    <div className="header-container">
+                      <div className="header">
+                        <h1><span>VISUAL ART</span></h1>
+                      </div>
+                    </div>
+                    
+                    <div className="header-rect" />
+
                     <ul className="visual-index">
                         {visuals && visuals.map(visual => 
                             <VisualIndexItem

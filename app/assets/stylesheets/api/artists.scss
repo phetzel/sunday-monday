@@ -6,7 +6,7 @@
 //------------------------------------------------------------------------------
 .artist-index-outter-container {
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   width: 100%;
 }
 
@@ -14,8 +14,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 141px;
-  width: 1163px;
+  margin-top: 70px;
+  margin-left: 140px;
+  width: 1303px;
+  // width: 1163px;
 }
 
 .artist-index-container h1 {
@@ -44,9 +46,9 @@
   flex-direction: row;
   flex-shrink: 0;
   flex-wrap: wrap;
-  justify-content: space-around;
-  min-width: 1163px;
-  width: auto;
+  justify-content: flex-start;
+  width: 1253px;
+  // width: auto;
 }
 
 .artist-list-item {
@@ -58,6 +60,7 @@
 
   float: left;
   margin-bottom: 99.25px;
+  margin-right: 31px;
   display: flex;
   flex-direction: column;
 
@@ -219,9 +222,9 @@
   flex-direction: row;
   flex-shrink: 0;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   min-width: 1163px;
-  width: auto;
+  width: 1253px;
 }
 
 .artist-show-music-container li {
@@ -233,6 +236,7 @@
 
   float: left;
   margin-bottom: 99.25px;
+  margin-right: 31px;
   display: flex;
   flex-direction: column;
 }
@@ -408,6 +412,45 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
+}
+
+.artist-show-visuals-container {
+  margin-top: 141px;
+  min-width: 1163px;
+}
+
+.artist-show-visuals-container h1 {
+  color: var(--blackcurrant);
+  font-family: "Helvetica-Bold", Helvetica, Arial, serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+
+  background-color: transparent;
+  flex-shrink: 0;
+  height: auto;
+  letter-spacing: 3.6px;
+  min-height: 41px;
+  min-width: 328px;
+  text-align: left;
+  width: auto;
+
+  margin-bottom: 107px;
+}
+
+.artist-show-visuals-all-container {
+  margin-top: 110px;
+  margin-bottom: 50px;
+
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  height: 42px;
+  justify-content: flex-start;
+  min-width: 211px;
+  width: auto;
 }
 
 // Artist Admin

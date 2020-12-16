@@ -58,12 +58,40 @@ const App = () => {
 
                     <Route exact path="/artists/audio" component={AudioIndex} />
                     <Route exact path="/artists/visual" component={VisualArtistIndex} />
-                    <Route exact path="/artists/:id" component={ArtistShow} />
-                    <Route exact path="/artists/:id/music" component={ReleaseArtistIndex} />
                     <Route exact path="/artists/:id/videos" component={VideoArtistIndex} />
+                    <Route exact path="/artists/:id" render={(props) => (
+                        <ArtistShow 
+                            music={music}
+                            setMusic={setMusic}
+                            {...props}
+                        />
+                    )} />  
+                    <Route exact path="/artists/:id/music" render={(props) => (
+                        <ReleaseArtistIndex 
+                            music={music}
+                            setMusic={setMusic}
+                            {...props}
+                        />
+                        )} />
 
-                    <Route exact path="/music/releases" component={AlbumIndex} />
-                    <Route exact path="/music/playlists" component={PlaylistIndex} />
+                    {/* <Route exact path="/music/releases" component={AlbumIndex} /> */}
+                    
+                    <Route exact path="/music/releases" render={(props) => (
+                        <AlbumIndex 
+                            music={music}
+                            setMusic={setMusic}
+                            {...props}
+                        />
+                    )} />
+
+                    <Route exact path="/music/playlists" component={(props) => (
+                        <PlaylistIndex
+                            music={music}
+                            setMusic={setMusic}
+                            {...props}
+                        />
+                    )} />
+
                     {/* <Route exact path="/music/:id"  render={(props) => (
                         <ReleaseShow 
                             music={music} 

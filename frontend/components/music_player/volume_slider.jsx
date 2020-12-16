@@ -10,7 +10,7 @@ const VolumeSlider = ({ volume, setVolume }) => {
                 y={volume}
                 ymax={1}
                 ymin={0}
-                ystep={.01}
+                ystep={.05}
                 yreverse={true}
             />
         </div>

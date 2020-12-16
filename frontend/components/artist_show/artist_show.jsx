@@ -7,7 +7,7 @@ import ArtistShowMusic from './artist_show_music';
 import ArtistShowVideo from './artist_show_video';
 import ArtistShowVisual from './artist_show_visual';
 
-const ArtistShow = ({ match}) => {
+const ArtistShow = ({ match, music, setMusic}) => {
     const [artist, setArtist] = useState();
     const id = match.params.id;
 
@@ -26,11 +26,15 @@ const ArtistShow = ({ match}) => {
             <div className="artist-show">
                 {artist && <ArtistShowDetail artist={artist}/>}
                 {artist && artist.releases.length > 0 &&
-                    <ArtistShowMusic artist_id={id} releases={artist.releases} />}
+                    <ArtistShowMusic 
+                        artist_id={id}
+                        music={music}
+                        setMusic={setMusic} 
+                        releases={artist.releases} />}
                 {artist && artist.videos.length > 0 &&
                     <ArtistShowVideo artist_id={id} videos={artist.videos} />}
-                {/* {artist && artist.visuals.length > 0 &&
-                    <ArtistShowVisual visuals={artist.visuals} />}                 */}
+                {artist && artist.visuals.length > 0 &&
+                    <ArtistShowVisual artist_id={id} visuals={artist.visuals} />}                
                 {/* {artist && artist.events.length > 0 &&
                     <ArtistShowEvent events={artist.events} />} */}
             </div>

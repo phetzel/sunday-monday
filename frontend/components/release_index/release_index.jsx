@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import releaseApi from '../../util/release_api_util';
 import ReleaseListItem from './release_list_item';
 
-const ReleaseIndex = ({ artist, medium, title}) => {
+const ReleaseIndex = ({ artist, medium, title, music, setMusic }) => {
     const [releases, setReleases] = useState();
 
     const fetchReleases = () => {
@@ -29,21 +29,26 @@ const ReleaseIndex = ({ artist, medium, title}) => {
     }, []);
 
 
+
     return (
         <div className="release-index-outter-container">
             <div className="release-index-container">
 
                 <div className="header-container">
                     <div className="header">
-                    <h1>{title}</h1>
-
+                        <h1><span>{title}</span></h1>
                     </div>
                 </div>
+
                 <div className="header-rect" />
 
                 <ul className="release-index">
                     {releases && releases.map(release => 
-                        <ReleaseListItem release={release} key={release.id} />)}
+                        <ReleaseListItem 
+                            release={release} 
+                            key={release.id} 
+                            music={music}
+                            setMusic={setMusic} />)}
                 </ul>
             </div>
         </div>

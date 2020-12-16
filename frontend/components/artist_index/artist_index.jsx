@@ -21,7 +21,15 @@ const ArtistIndex = ({style, title}) => {
         <div>
             <div className="artist-index-outter-container">
                 <div className="artist-index-container">
-                    <h1>{title}</h1>
+
+                    <div className="header-container">
+                        <div className="header">
+                            <h1><span>{title}</span></h1>
+                        </div>
+                    </div>
+
+                    <div className="header-rect" />
+
                     <ul className="artist-index">
                         {artists && artists.map(artist => 
                             <ArtistListItem artist={artist} key={artist.id} />)}

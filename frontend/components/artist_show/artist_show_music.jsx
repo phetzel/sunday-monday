@@ -3,7 +3,9 @@ import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-const ArtistShowMusic = ({ artist_id, history, releases }) => {
+import ReleaseListItem from '../release_index/release_list_item';
+
+const ArtistShowMusic = ({ artist_id, history, music, setMusic, releases }) => {
 
     const handleClick = (id) => {
         history.push(`/music/${id}`);
@@ -20,24 +22,11 @@ const ArtistShowMusic = ({ artist_id, history, releases }) => {
             <h1>New Music</h1>
             <ul>
                 {newMusic.map(release => (
-                    <li key={release.id} onClick={() => handleClick(release.id)}>
-                        <img 
-                            alt={release.title}
-                            src={release.photoUrl} 
-                            title={release.title} />
-                        <div className="artist-show-music-bottom">
-                            <h6>{release.title}</h6>
-                            <div className="artist-show-music-bottom-icon-container">
-                                <FontAwesomeIcon 
-                                    className="artist-show-music-bottom-icon"
-                                    icon={faPlay} />
-                                <FontAwesomeIcon 
-                                    className="artist-show-music-bottom-icon"
-                                    icon={faPlus} />
-                            </div>
-                        </div>
-
-                    </li>
+                    <ReleaseListItem 
+                        release={release}
+                        music={music}
+                        setMusic={setMusic}
+                    />
                 ))}
             </ul>
 

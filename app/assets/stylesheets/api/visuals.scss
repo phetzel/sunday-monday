@@ -5,7 +5,7 @@
 //index
 .visual-index-outter-container {
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   width: 100%;
 }
 
@@ -14,8 +14,9 @@
   flex-direction: column;
   justify-content: center;
   // margin-top: 141px;
-  margin-top: 68px;
-  width: 1163px;
+  margin-top: 70px;
+  margin-left: 140px;
+  width: 1303px;
 }
 
 .visual-index-container h1 {
@@ -38,15 +39,18 @@
 }
 
 .visual-index {
-  align-items: flex-start;
-  background-color: transparent;
+  //   // align-items: flex-start;
+  //   background-color: transparent;
   display: inline-flex;
-  flex-direction: row;
-  flex-shrink: 0;
+  // flex-direction: row;
+  // flex-shrink: 0;
   flex-wrap: wrap;
-  justify-content: space-around;
-  min-width: 1163px;
-  width: auto;
+  justify-content: flex-start;
+  width: 1253px;
+  // width: auto;
+
+  // display: inline-block;
+  vertical-align: top;
 }
 
 .visual-list-item {
@@ -56,8 +60,9 @@
   position: relative;
   width: 369px;
 
-  // float: left;
+  float: left;
   // margin-bottom: 99.25px;
+  margin-right: 31px;
   display: flex;
   flex-direction: column;
 }

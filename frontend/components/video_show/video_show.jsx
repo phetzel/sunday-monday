@@ -20,22 +20,22 @@ const VideoShow = ({ match}) => {
     
 
     return(
-        <div className="video-show"> 
-            <div className="show-video-container">
-                {video && 
-                    <div className="show-video">
-                            <ReactPlayer 
-                                height="480px"
-                                width="854px"
-                                url={`https://www.youtube.com/watch?v=${video.url}`} />
-                    </div>
-                }
-                {/* {video && video.artists.length > 0 &&
-                    <div className="artist-association-container">
-                        <VideoShowArtists artists={video.artists} />
-                    </div>
-                } */}
-            </div>
+        <div className="video-show-container"> 
+            <div className="header-rect" />
+            
+            {video && 
+                <div className="video-show">
+                        <ReactPlayer 
+                            height="480px"
+                            width="854px"
+                            url={`https://www.youtube.com/watch?v=${video.url}`} />
+                </div>
+            }
+            {/* {video && video.artists.length > 0 &&
+                <div className="artist-association-container">
+                    <VideoShowArtists artists={video.artists} />
+                </div>
+            } */}
         </div>
     )
 }

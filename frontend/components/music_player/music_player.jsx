@@ -35,19 +35,19 @@ const MusicPlayer = ({ music, setMusic, playing, setPlaying, visible }) => {
    const next = () => {
         if (music.length > 1) {
 
-                const newPrevious = previous;
-                newPrevious.push(music[0]);
-                setPrevious(newPrevious);
-            
+            const newPrevious = previous;
+            newPrevious.push(music[0]);
+            setPrevious(newPrevious);
+        
 
             const newMusic = music.splice(1);
             setMusic(newMusic);
             setPlaying(true);
         } else if (defaultPlaylist.length > 1) {
 
-                const newPrevious = previous;
-                newPrevious.push(music[0]);
-                setPrevious(newPrevious);
+            const newPrevious = previous;
+            newPrevious.push(music[0]);
+            setPrevious(newPrevious);
             
             
             const newDefault = defaultPlaylist;
@@ -59,7 +59,6 @@ const MusicPlayer = ({ music, setMusic, playing, setPlaying, visible }) => {
     }
 
     const last = () => {
-        console.log(previous);
         if (previous.length > 0) {
             const newMusic = music;
             

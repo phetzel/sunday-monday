@@ -7,7 +7,7 @@ const VideoListItem = ({video, history}) => {
     }
 
     return (
-        <div className="video-index-item" onClick={handleClick}>
+        <div className="video-list-item" onClick={handleClick}>
             <img src={`https://img.youtube.com/vi/${video.url}/hqdefault.jpg`} alt=""/>
             <h6>{video.title}</h6>
         </div>
