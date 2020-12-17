@@ -43,7 +43,7 @@ const VideoForm = ({history}) => {
     if (lottieVis) return <ActivityIndicator />;
 
     return (
-        <div className="admin-video-form-container">
+        <div className="admin-form-container">
             <Modal
                 appearances={appearances}
                 setAppearances={setAppearances}
@@ -57,7 +57,7 @@ const VideoForm = ({history}) => {
                 onSubmit={handleSubmit}
             >
                 { ({ handleChange, handleSubmit}) => (
-                    <div className="admin-video-form" >
+                    <div className="admin-form" >
                         <input 
                             onChange={handleChange("title")} 
                             placeholder="Title"

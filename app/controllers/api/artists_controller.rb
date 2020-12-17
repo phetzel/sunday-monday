@@ -29,6 +29,15 @@ class Api::ArtistsController < ApplicationController
         end
     end 
 
+    def update 
+        @artist = Artist.find(params[:id])
+        if @artist.update(artist_params)
+            render :show
+        else  
+            render json: @artist.errors.full_messages, status: 422
+        end
+    end
+
     def destroy
         artist = Artist.find(params[:id])
         artist.destroy

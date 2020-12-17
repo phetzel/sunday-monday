@@ -23,6 +23,14 @@ const fetchReleases = (data) => (
     })
 );
 
+const updateRelease = (data, id) => (
+    $.ajax({
+        method: 'PATCH',
+        url: `api/releases/${id}`,
+        data
+    })
+)
+
 const deleteRelease = id => {
     return $.ajax({
         url: `/api/releases/${id}`,
@@ -34,5 +42,6 @@ export default {
     createRelease,
     fetchRelease,
     fetchReleases,
+    updateRelease,
     deleteRelease
 }

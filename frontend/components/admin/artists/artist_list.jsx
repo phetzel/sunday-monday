@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import artistApi from '../../../util/artist_api_util';
 
-const ArtistsList = () => {
+const ArtistsList = ({ setArtist }) => {
     const [artists, setArtists] = useState();
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -26,17 +26,21 @@ const ArtistsList = () => {
         });
     }
 
+    const handleClick = (artist) => {
+        setArtist(artist);
+    }
+
     useEffect(() => {
         fetchArtists();
     }, []);
 
     return (
         <div className="admin-list">
-            <h2 className="p-color">Edit Artists</h2>
+            <h2>Edit Artists</h2>
             <ul>
                 { artists &&
                     artists.map(artist => (
-                    <li key={artist.id}>
+                    <li key={artist.id} onClick={() => handleClick(artist)}>
                         <p>{artist.name}</p>
                         <i onClick={() => deleteArtist(artist.id)}>&#128465;</i>
                     </li>

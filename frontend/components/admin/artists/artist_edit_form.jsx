@@ -1,0 +1,107 @@
+import React, { useState, useEffect } from "react";
+import { Formik } from "formik";
+import { withRouter } from 'react-router-dom';
+
+import ActivityIndicator from '../activity_indicator';
+import artistApi from '../../../util/artist_api_util';
+
+
+const styles = ["audio", "visual"];
+
+const ArtistEditForm = ({ artist, history, setArtist }) => {
+    const [name, setName] = useState();
+    const [description, setDescription] = useState();
+    const [style, setStyle] = useState();
+
+    const [lottieVis, setLottieVis] = useState(false);
+
+    useEffect(() => {
+        setName(artist.name);
+        setDescription(artist.description);
+        setStyle(artist.style);
+    }, [artist])
+
+    const update = (func) => {
+        return e => {
+            func(e.currentTarget.value)
+        }
+    }
+
+    const handleFile = (e) => {
+        setPhoto(e.currentTarget.files[0]);
+    };
+
+    const handleSubmit = () => {
+        setLottieVis(true);
+
+        // const formData = new FormData();
+        // formData.append('artist[id]', artist.id);
+        // formData.append('artist[name]', name);
+        // formData.append('artist[description]', description);
+        // formData.append('artist[style]', style);
+        // formData.append('artist[photo]', photo);
+
+        let artistObj = {};
+        artistObj['artist'] = {};
+        artistObj['artist']['name'] = name;
+        artistObj['artist']['description'] = description;
+        artistObj['artist']['style'] = style;
+
+        artistApi.updateArtist(artistObj, artist.id)
+            .then(res => {
+                history.push(`/artists/${res.id}`)
+            }, err => {
+                setLottieVis(false);
+            });
+    };
+
+    if (lottieVis) return <ActivityIndicator />;
+
+    return (
+        <div className="admin-form-container">
+            <h2>{`Edit ${artist.name}`}</h2>
+
+            <div className="admin-form" >
+                <input 
+                    onChange={update(setName)} 
+                    value={name}
+                    type="text"/>
+
+                <textarea 
+                    onChange={update(setDescription)} 
+                    value={description} />
+
+                <select onChange={update(setStyle)}>
+                    <option value={style}>Style</option>
+                    {
+                        styles.map((style, idx) => (
+                            <option key={idx} value={style}>{style}</option>
+                        ))
+                    }
+                </select>
+{/* 
+                <input 
+                    onChange={handleFile}
+                    type="file"/> */}
+
+                <button 
+                    className="button"
+                    onClick={handleSubmit} 
+                    title="Edit Artist" 
+                    type='submit'>
+                    Edit Artist
+                </button>
+                <button 
+                    className="button"
+                    onClick={() => setArtist()} 
+                    title="New Artist" 
+                    type='submit'>
+                    New Artist
+                </button>
+            </ div>
+
+        </div>
+    )
+}
+
+export default withRouter(ArtistEditForm);

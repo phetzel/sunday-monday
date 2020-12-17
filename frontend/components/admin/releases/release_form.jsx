@@ -53,7 +53,7 @@ const ReleaseForm = ({history}) => {
     if (lottieVis) return <ActivityIndicator />;
     
     return (
-        <div className="admin-release-form-container">
+        <div className="admin-form-container">
             <Modal
                 features={features}
                 setFeatures={setFeatures}
@@ -67,7 +67,7 @@ const ReleaseForm = ({history}) => {
                 onSubmit={handleSubmit}
             >
                 { ({ handleChange, handleSubmit}) => (
-                    <div className="admin-release-form" >
+                    <div className="admin-form" >
                         <input 
                             onChange={handleChange("title")} 
                             placeholder="Title"

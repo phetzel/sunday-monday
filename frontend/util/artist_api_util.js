@@ -23,6 +23,14 @@ const fetchArtists = data => (
     })
 );
 
+const updateArtist = (data, id) => (
+    $.ajax({
+        method: 'PATCH',
+        url: `api/artists/${id}`,
+        data
+    })
+)
+
 const deleteArtist = id => {
     return $.ajax({
         url: `/api/artists/${id}`,
@@ -34,5 +42,6 @@ export default {
     createArtist,
     fetchArtist,
     fetchArtists,
+    updateArtist,
     deleteArtist
 }

@@ -47,7 +47,7 @@ const VisualForm = ({history}) => {
     if (lottieVis) return <ActivityIndicator />;
 
     return (
-        <div className="admin-video-form-container">
+        <div className="admin-form-container">
             <Modal
                 painters={painters}
                 setPainters={setPainters}
@@ -61,7 +61,7 @@ const VisualForm = ({history}) => {
                 onSubmit={handleSubmit}
             >
                 { ({ handleChange, handleSubmit}) => (
-                    <div className="admin-video-form" >
+                    <div className="admin-form" >
                         <input 
                             onChange={handleChange("title")} 
                             placeholder="Title"

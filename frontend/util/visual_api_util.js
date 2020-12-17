@@ -22,6 +22,14 @@ const fetchVisuals = () => (
     })
 );
 
+const updateVisual = (data, id) => (
+    $.ajax({
+        method: 'PATCH',
+        url: `api/visuals/${id}`,
+        data
+    })
+)
+
 const deleteVisual = id => {
     return $.ajax({
         url: `/api/visuals/${id}`,
@@ -33,5 +41,6 @@ export default {
     createVisual,
     fetchVisual,
     fetchVisuals,
+    updateVisual,
     deleteVisual
 }

@@ -22,6 +22,14 @@ const fetchVideos = () => (
     })
 );
 
+const updateVideo = (data, id) => (
+    $.ajax({
+        method: 'PATCH',
+        url: `api/videos/${id}`,
+        data
+    })
+)
+
 const deleteVideo = id => {
     return $.ajax({
         url: `/api/videos/${id}`,
@@ -33,5 +41,6 @@ export default {
     createVideo,
     fetchVideo,
     fetchVideos,
+    updateVideo,
     deleteVideo
 }

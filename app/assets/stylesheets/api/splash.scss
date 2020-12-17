@@ -1,12 +1,3 @@
-@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-
-@font-face {
-  font-family: "Helvetica-Regular";
-  font-style: normal;
-  font-weight: 400;
-  src: url("https://fonts.animaapp.com/Helvetica-Regular") format("truetype");
-}
-
 .splash-upper {
   background-color: transparent;
   flex-shrink: 0;
@@ -99,8 +90,9 @@
 
 .splash-lower-outter-container {
   margin-top: 66.5px;
-  justify-content: center;
-  display: flex;
+  margin-left: 139px;
+  // justify-content: center;
+  // display: flex;
   width: 100%;
 }
 

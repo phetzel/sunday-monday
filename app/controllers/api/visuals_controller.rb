@@ -19,6 +19,15 @@ class Api::VisualsController < ApplicationController
         end 
     end 
 
+    def update 
+        @visual = Visual.find(params[:id])
+        if @visual.update(visual_params)
+            render :show
+        else  
+            render json: @visual.errors.full_messages, status: 422
+        end
+    end
+
     def destroy
         visual = Visual.find(params[:id])
         visual.destroy

@@ -72,7 +72,7 @@ const EventForm = ({history}) => {
     if (lottieVis) return <ActivityIndicator />;
 
     return (
-        <div className="admin-event-form-container">
+        <div className="admin-form-container">
             <Modal 
                 performs={performs}
                 setPerforms={setPerforms}
@@ -86,7 +86,7 @@ const EventForm = ({history}) => {
                 onSubmit={handleSubmit}
             >
                 { ({ handleChange, handleSubmit}) => (
-                    <div className="admin-event-form" >
+                    <div className="admin-form" >
                         <input 
                             onChange={handleChange("title")} 
                             placeholder="Title"

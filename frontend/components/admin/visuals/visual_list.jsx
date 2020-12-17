@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import visualApi from '../../../util/visual_api_util';
 
-const VisualList = () => {
+const VisualList = ({ setVisual }) => {
     const [visuals, setVisuals] = useState();
 
     const fetchVisuals = () => {
@@ -19,17 +19,21 @@ const VisualList = () => {
         });
     }
 
+    const handleClick = (visual) => {
+        setVisual(visual);
+    }
+
     useEffect(() => {
         fetchVisuals();
     }, []);
 
     return (
         <div className="admin-list">
-            <h2 className="p-color">Edit Visuals</h2>
+            <h2>Edit Visuals</h2>
             <ul>
                 { visuals &&
                     visuals.map(visual => (
-                    <li key={visual.id}>
+                    <li key={visual.id} onClick={() => handleClick(visual)}>
                         <p>{visual.title}</p>
                         <i onClick={() => deleteVisual(visual.id)}>&#128465;</i>
                     </li>

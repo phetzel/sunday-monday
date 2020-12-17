@@ -19,7 +19,9 @@ const MusicPlayer = ({ music, setMusic, playing, setPlaying, visible }) => {
 
     useEffect(() => {
         releaseApi.fetchRelease().then(release => {
-            youtubeApi.fetchPlaylistFromYoutube(release.audio, setDefaultPlaylist);
+            // youtubeApi.fetchPlaylistFromYoutube(release.audio, setDefaultPlaylist);
+            youtubeApi.fetchYoutubePlaylist(release.audio)
+                .then(res => setDefaultPlaylist(res));
         });
     }, [])
 

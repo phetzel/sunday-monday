@@ -20,19 +20,22 @@ const EventList = () => {
         });
     }
 
+    const handleClick = (event) => {
+        setEvent(event);
+    }
+
     useEffect(() => {
         fetchEvents();
     }, []);
 
-    console.log(events);
 
     return (
         <div className="admin-list">
-            <h2 className="p-color">Edit Events</h2>
+            <h2>Edit Events</h2>
             <ul>
                 { events &&
                     events.map(event => (
-                    <li key={event.id}>
+                    <li key={event.id} onClick={() => console.log(event)}>
                         <p>{event.title}</p>
                         <i onClick={() => deleteEvent(event.id)}>&#128465;</i>
                     </li>

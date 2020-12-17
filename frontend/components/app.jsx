@@ -31,7 +31,7 @@ const App = () => {
     const [user, setUser] = useState(currentUser);
     const [music, setMusic] = useState([]);
     const [playing, setPlaying] = useState(false);
-    const [musicVis, setMusicVis] = useState(true);
+    const [musicVis, setMusicVis] = useState(false);
 
     const toggleMusicVis = () => {
         const newVis = musicVis ? false : true;
