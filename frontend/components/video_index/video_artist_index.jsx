@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ReactPlayer from 'react-player/lazy';
 
 import artistApi from '../../util/artist_api_util';
 import VideoIndex from './video_index';

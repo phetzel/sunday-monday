@@ -13,7 +13,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // margin-top: 141px;
   margin-top: 70px;
   margin-left: 140px;
   width: 1303px;
@@ -39,18 +38,19 @@
 }
 
 .visual-index {
-  align-items: flex-start;
-  background-color: transparent;
+  // align-items: flex-start;
+  // background-color: transparent;
   display: inline-flex;
   flex-direction: row;
-  flex-shrink: 0;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  // flex-shrink: 0;
+  // flex-wrap: wrap;
+  // justify-content: flex-start;
   width: 1253px;
   // width: auto;
 
-  // display: inline-block;
-  vertical-align: top;
+  // vertical-align: top;
+
+  // column-count: 3;
 }
 
 .visual-list-item {
@@ -60,8 +60,8 @@
   position: relative;
   width: 369px;
 
-  float: left;
-  // margin-bottom: 99.25px;
+  // float: left;
+  margin-bottom: 50px;
   margin-right: 31px;
   display: flex;
   flex-direction: column;
@@ -107,10 +107,3 @@
 
   cursor: pointer;
 }
-
-// .visual-list-arrow-icon {
-//   position: absolute;
-//   // top: 20px;
-//   top: 200px;
-//   left: 352px;
-// }

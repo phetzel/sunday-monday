@@ -6,6 +6,7 @@ import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import AdminRouter from './admin/admin_router';
 import AlbumIndex from './release_index/album_index';
 import ArtistShow from './artist_show/artist_show';
+import ArtistVisualIndex from './artist_index/visual_index';
 import AudioIndex from './artist_index/audio_index';
 import EventIndex from './event_index/event_index';
 import EventShow from './event_show/event_show';
@@ -19,8 +20,8 @@ import UserContext from '../context/user_context';
 import AllVideosIndex from './video_index/all_videos_index';
 import VideoArtistIndex from './video_index/video_artist_index';
 import VideoShow from './video_show/video_show';
-import VisualArtistIndex from './artist_index/visual_index';
-import VisualIndex from './visual_index/visual_index';
+import VisualAllIndex from './visual_index/visual_all_index';
+import VisualArtistIndex from './visual_index/visual_artist_index';
 
 const App = () => {
     let currentUser;
@@ -57,8 +58,9 @@ const App = () => {
                     <Route exact path="/" component={Splash} />
 
                     <Route exact path="/artists/audio" component={AudioIndex} />
-                    <Route exact path="/artists/visual" component={VisualArtistIndex} />
+                    <Route exact path="/artists/visual" component={ArtistVisualIndex} />
                     <Route exact path="/artists/:id/videos" component={VideoArtistIndex} />
+                    <Route exact path="/artists/:id/visuals" component={VisualArtistIndex} />
                     <Route exact path="/artists/:id" render={(props) => (
                         <ArtistShow 
                             music={music}
@@ -106,7 +108,7 @@ const App = () => {
                     <Route exact path="/videos" component={AllVideosIndex} />
                     <Route exact path="/videos/:id" component={VideoShow} />
 
-                    <Route exact path="/visuals" component={VisualIndex} />
+                    <Route exact path="/visuals" component={VisualAllIndex} />
 
                     <Route path="/admin" render={() => (
                         user ? (

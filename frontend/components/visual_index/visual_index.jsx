@@ -4,16 +4,36 @@ import Modal from '../modal/modal';
 import visualApi from '../../util/visual_api_util';
 import VisualIndexItem from './visual_index_item';
 
-const VisualIndex = props => {
-    const [visuals, setVisuals] = useState();
+const VisualIndex = ({ visuals }) => {
     const [modalVis, setModalVis] = useState(false);
     const [modalCom, setModalCom] = useState(null);
 
-    const fetchVisuals = () => {
-        visualApi.fetchVisuals().then(visuals => {
-            const visualsArray = Object.values(visuals);
-            setVisuals(visualsArray);
-        })
+    const [list1, setList1] = useState();
+    const [list2, setList2] = useState();
+    const [list3, setList3] = useState();
+
+    const seperateLists = arr => {
+      let arr1 = [];
+      let arr2 = [];
+      let arr3 = [];
+
+      let i = 1;
+      arr.forEach(ele => {
+        if (i === 1) {
+          arr1.push(ele);
+          i++;
+        } else if (i === 2) {
+          arr2.push(ele);
+          i++;
+        } else {
+          arr3.push(ele);
+          i = 1;
+        }
+      });
+
+      setList1(arr1);
+      setList2(arr2);
+      setList3(arr3);
     }
 
     const openModal = (item) => {
@@ -24,9 +44,8 @@ const VisualIndex = props => {
     }
 
     useEffect(() => {
-        fetchVisuals();
+        seperateLists(visuals);
     }, []);
-
 
     return (
         <div>
@@ -37,247 +56,35 @@ const VisualIndex = props => {
                 func={setModalVis}
             />
 
-            <div className="visual-index-outter-container">
-                <div className="visual-index-container">
-
-                    <div className="header-container">
-                      <div className="header">
-                        <h1><span>VISUAL ART</span></h1>
-                      </div>
-                    </div>
-                    
-                    <div className="header-rect" />
-
-                    <ul className="visual-index">
-                        {visuals && visuals.map(visual => 
-                            <VisualIndexItem
-                                onClick={() => openModal(visual)}
-                                key={visual.id} 
-                                visual={visual} 
-                            />)}
-                    </ul>
-                </div>
+            <div className="visual-index">
+                <ul className="visual-index-col">
+                  {list1 && list1.map(visual => 
+                      <VisualIndexItem
+                          onClick={() => openModal(visual)}
+                          key={visual.id} 
+                          visual={visual} 
+                      />)}
+                </ul>
+                <ul className="visual-index-col">
+                  {list2 && list2.map(visual => 
+                      <VisualIndexItem
+                          onClick={() => openModal(visual)}
+                          key={visual.id} 
+                          visual={visual} 
+                      />)}
+                </ul>
+                <ul className="visual-index-col">
+                  {list3 && list3.map(visual => 
+                      <VisualIndexItem
+                          onClick={() => openModal(visual)}
+                          key={visual.id} 
+                          visual={visual} 
+                      />)}
+                </ul>
             </div>
         </div>
+
     )
 }
 
 export default VisualIndex;
-
-
-{/* <div class="spacemotherdesktopvisual-arts-archive">
-  <div class="auto-flex-C61RwL">
-    <div class="overlap-group-fhuxN3">
-      <div class="rectangle-181"></div>
-      <div class="frame-317">
-        <div class="frame-314">
-          <img
-            class="image-5-aSkyyt"
-            src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/image-5@2x.svg"
-          />
-          <div class="overlap-group">
-            <div class="frame-310-xOFkN6"></div>
-            <div class="expand-1-biXVzO">
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-9@2x.svg"
-              />
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-10@2x.svg"
-              />
-            </div>
-            <div
-              class="song-name--3637151 valign-text-middle helvetica-regular-normal-blackcurrant-18px border-class-1"
-            >
-              PHOTO.01
-            </div>
-          </div>
-          <img
-            class="image-3"
-            src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/image-3@2x.svg"
-          />
-          <div class="overlap-group-0a6pZS">
-            <div class="frame-310"></div>
-            <div class="expand-1">
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-11@2x.svg"
-              />
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-12@2x.svg"
-              />
-            </div>
-            <div
-              class="song-name--3637151-8nRxV4 valign-text-middle helvetica-regular-normal-blackcurrant-18px border-class-1"
-            >
-              PHOTO.02
-            </div>
-          </div>
-          <img
-            class="image-1-fXRPda"
-            src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/image-1@2x.svg"
-          />
-          <div class="overlap-group-0a6pZS">
-            <div class="frame-310"></div>
-            <div class="expand-1">
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-11@2x.svg"
-              />
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-14@2x.svg"
-              />
-            </div>
-            <div
-              class="song-name--3637151-8nRxV4 valign-text-middle helvetica-regular-normal-blackcurrant-18px border-class-1"
-            >
-              PHOTO.03
-            </div>
-          </div>
-        </div>
-        <div class="frame-316">
-          <img
-            class="image-1"
-            src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/image-1@2x.svg"
-          />
-          <div class="overlap-group-0a6pZS">
-            <div class="frame-310"></div>
-            <div class="expand-1">
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-11@2x.svg"
-              />
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-14@2x.svg"
-              />
-            </div>
-            <div
-              class="song-name--3637151-8nRxV4 valign-text-middle helvetica-regular-normal-blackcurrant-18px border-class-1"
-            >
-              PHOTO.03
-            </div>
-          </div>
-          <img
-            class="image-1-fXRPda"
-            src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/image-1@2x.svg"
-          />
-          <div class="overlap-group-0a6pZS">
-            <div class="frame-310"></div>
-            <div class="expand-1">
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-11@2x.svg"
-              />
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-14@2x.svg"
-              />
-            </div>
-            <div
-              class="song-name--3637151-8nRxV4 valign-text-middle helvetica-regular-normal-blackcurrant-18px border-class-1"
-            >
-              PHOTO.03
-            </div>
-          </div>
-          <img
-            class="image-3"
-            src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/image-3@2x.svg"
-          />
-          <div class="overlap-group-0a6pZS">
-            <div class="frame-310"></div>
-            <div class="expand-1">
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-11@2x.svg"
-              />
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-12@2x.svg"
-              />
-            </div>
-            <div
-              class="song-name--3637151-8nRxV4 valign-text-middle helvetica-regular-normal-blackcurrant-18px border-class-1"
-            >
-              PHOTO.02
-            </div>
-          </div>
-        </div>
-        <div class="frame-315">
-          <img
-            class="image-5-aSkyyt"
-            src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/image-5@2x.svg"
-          />
-          <div class="overlap-group">
-            <div class="frame-310-xOFkN6"></div>
-            <div class="expand-1-biXVzO">
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-9@2x.svg"
-              />
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-10@2x.svg"
-              />
-            </div>
-            <div
-              class="song-name--3637151 valign-text-middle helvetica-regular-normal-blackcurrant-18px border-class-1"
-            >
-              PHOTO.01
-            </div>
-          </div>
-          <img
-            class="image-3"
-            src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/image-3@2x.svg"
-          />
-          <div class="overlap-group-0a6pZS">
-            <div class="frame-310"></div>
-            <div class="expand-1">
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-11@2x.svg"
-              />
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-12@2x.svg"
-              />
-            </div>
-            <div
-              class="song-name--3637151-8nRxV4 valign-text-middle helvetica-regular-normal-blackcurrant-18px border-class-1"
-            >
-              PHOTO.02
-            </div>
-          </div>
-          <img
-            class="image-5"
-            src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/image-5@2x.svg"
-          />
-          <div class="overlap-group">
-            <div class="frame-310-xOFkN6"></div>
-            <div class="expand-1-biXVzO">
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-9@2x.svg"
-              />
-              <img
-                class="vector-ualyZY"
-                src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-10@2x.svg"
-              />
-            </div>
-            <div
-              class="song-name--3637151 valign-text-middle helvetica-regular-normal-blackcurrant-18px border-class-1"
-            >
-              PHOTO.01
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="media-player-closed">
-        <div class="x-710788 valign-text-middle helvetica-regular-normal-soapstone-36px border-class-1">+</div>
-      </div>
-    </div>
-  </div>
-</div> */}
