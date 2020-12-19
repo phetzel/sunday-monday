@@ -251,6 +251,16 @@
   position: absolute;
   background-color: #fffcf9;
   top: 47px;
+  z-index: 100;
+}
+
+.nav-dropdown-right {
+  position: absolute;
+  background-color: #fffcf9;
+  border-top: 1px solid var(--blackcurrant);
+  top: 47px;
+  right: 30px;
+  z-index: 100;
 }
 
 .nav-dropdown li,
@@ -271,14 +281,6 @@
 
   cursor: pointer;
   z-index: 100;
-}
-
-.nav-dropdown-right {
-  position: absolute;
-  background-color: #fffcf9;
-  border-top: 1px solid var(--blackcurrant);
-  top: 47px;
-  right: 30px;
 }
 
 .top-nav-right {

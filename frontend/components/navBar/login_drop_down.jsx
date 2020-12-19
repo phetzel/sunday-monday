@@ -15,7 +15,6 @@ const LoginDropDown = (props) => {
 
     const handleSubmit = (user) => {
         const formData = new FormData();
-        alert('hit');
         
         formData.append('user[email]', user.email);
         formData.append('user[password]', user.password);
