@@ -1,9 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import ReactPlayer from 'react-player/lazy';
 
+import MusicContext from '../../context/music_context';
 import VideoIndexItem from './video_index_item';
 
 const VideoIndex = ({ feature, title, videos}) => {
+    const { setPlaying } = useContext(MusicContext);
+
+    const pauseMusic = () => {
+        setPlaying(false);
+    }
 
     return (
         <div className="video-index-outter-container">
@@ -20,6 +26,7 @@ const VideoIndex = ({ feature, title, videos}) => {
                 { feature &&
                     <div className="video-index-featured">
                         <ReactPlayer 
+                            onPlay={pauseMusic}
                             height="480px"
                             width="854px"
                             url={`https://www.youtube.com/watch?v=${feature.url}`} />

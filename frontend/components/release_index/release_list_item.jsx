@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
 
+import MusicContext from '../../context/music_context';
 import youtubeApi from '../../util/youtube_util';
 
 const ReleaseListItem = ({release, history, music, setMusic}) => {
+    const { playing, setPlaying } = useContext(MusicContext);
+
     const handleClick = () => {
         history.push(`/music/${release.id}`);
     }
@@ -15,6 +18,7 @@ const ReleaseListItem = ({release, history, music, setMusic}) => {
             .then(res => {
                 const newMusic =  res.concat(music);
                 setMusic(newMusic);
+                setPlaying(true);
             });
     } 
 

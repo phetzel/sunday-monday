@@ -10,7 +10,9 @@ import VolumeSlider from './volume_slider';
 import youtubeApi from '../../util/youtube_util';
 
  
-const MusicPlayer = ({ music, setMusic, playing, setPlaying, visible }) => {   
+const MusicPlayer = ({ music, setMusic, visible }) => {   
+    const { playing, setPlaying } = useContext(MusicContext);
+
     const [defaultPlaylist, setDefaultPlaylist] = useState([]);
     const [previous, setPrevious] = useState([]);
     const [queueDisplay, setQueueDisplay] = useState(false);

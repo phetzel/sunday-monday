@@ -13,8 +13,6 @@ const VideoArtistIndex = ({ match }) => {
         });
     }, []);
 
-    console.log(artist);
-
     return (
         <div className="visual-index-outter-container">
             {artist && 

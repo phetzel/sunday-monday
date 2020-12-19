@@ -10,6 +10,7 @@ import ArtistVisualIndex from './artist_index/visual_index';
 import AudioIndex from './artist_index/audio_index';
 import EventIndex from './event_index/event_index';
 import EventShow from './event_show/event_show';
+import MusicContext from '../context/music_context';
 import MusicPlayer from './music_player/music_player';
 import Navbar from './navBar/NavBar';
 import PlaylistIndex from './release_index/playlist_index';
@@ -43,96 +44,98 @@ const App = () => {
 
     return (
         <UserContext.Provider value={{ user, setUser }}>
-            <div className="content">
-                <Navbar />
+            <MusicContext.Provider value={{ playing, setPlaying }}>
+                <div className="content">
+                    <Navbar />
 
-                <div className="center-logo-container">
-                    <img
-                        className="center-logo"
-                        // src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fcada2fb9bd4b79e26c628c/img/mask-group@2x.svg"
-                        src={window.logoSquare}
-                    />
-                </div>
-
-                <Switch>
-                    <Route exact path="/" component={Splash} />
-
-                    <Route exact path="/artists/audio" component={AudioIndex} />
-                    <Route exact path="/artists/visual" component={ArtistVisualIndex} />
-                    <Route exact path="/artists/:id/videos" component={VideoArtistIndex} />
-                    <Route exact path="/artists/:id/visuals" component={VisualArtistIndex} />
-                    <Route exact path="/artists/:id" render={(props) => (
-                        <ArtistShow 
-                            music={music}
-                            setMusic={setMusic}
-                            {...props}
+                    <div className="center-logo-container">
+                        <img
+                            className="center-logo"
+                            // src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fcada2fb9bd4b79e26c628c/img/mask-group@2x.svg"
+                            src={window.logoSquare}
                         />
-                    )} />  
-                    <Route exact path="/artists/:id/music" render={(props) => (
-                        <ReleaseArtistIndex 
-                            music={music}
-                            setMusic={setMusic}
-                            {...props}
-                        />
+                    </div>
+
+                    <Switch>
+                        <Route exact path="/" component={Splash} />
+
+                        <Route exact path="/artists/audio" component={AudioIndex} />
+                        <Route exact path="/artists/visual" component={ArtistVisualIndex} />
+                        <Route exact path="/artists/:id/videos" component={VideoArtistIndex} />
+                        <Route exact path="/artists/:id/visuals" component={VisualArtistIndex} />
+                        <Route exact path="/artists/:id" render={(props) => (
+                            <ArtistShow 
+                                music={music}
+                                setMusic={setMusic}
+                                {...props}
+                            />
+                        )} />  
+                        <Route exact path="/artists/:id/music" render={(props) => (
+                            <ReleaseArtistIndex 
+                                music={music}
+                                setMusic={setMusic}
+                                {...props}
+                            />
+                            )} />
+
+                        {/* <Route exact path="/music/releases" component={AlbumIndex} /> */}
+                        
+                        <Route exact path="/music/releases" render={(props) => (
+                            <AlbumIndex 
+                                music={music}
+                                setMusic={setMusic}
+                                {...props}
+                            />
                         )} />
 
-                    {/* <Route exact path="/music/releases" component={AlbumIndex} /> */}
-                    
-                    <Route exact path="/music/releases" render={(props) => (
-                        <AlbumIndex 
-                            music={music}
-                            setMusic={setMusic}
-                            {...props}
-                        />
-                    )} />
+                        <Route exact path="/music/playlists" component={(props) => (
+                            <PlaylistIndex
+                                music={music}
+                                setMusic={setMusic}
+                                {...props}
+                            />
+                        )} />
 
-                    <Route exact path="/music/playlists" component={(props) => (
-                        <PlaylistIndex
-                            music={music}
-                            setMusic={setMusic}
-                            {...props}
-                        />
-                    )} />
+                        {/* <Route exact path="/music/:id"  render={(props) => (
+                            <ReleaseShow 
+                                music={music} 
+                                setMusic={setMusic}
+                                setPlaying={setPlaying}
+                                {...props} />
+                        )} />                     */}
 
-                    {/* <Route exact path="/music/:id"  render={(props) => (
-                        <ReleaseShow 
+                        {/* <Route exact path="/events" component={EventIndex} /> */}
+                        {/* <Route exact path="/events/:id" component={EventShow} /> */}
+
+                        <Route exact path="/videos" component={AllVideosIndex} />
+                        <Route exact path="/videos/:id" component={VideoShow} />
+
+                        <Route exact path="/visuals" component={VisualAllIndex} />
+
+                        <Route path="/admin" render={() => (
+                            user ? (
+                                <AdminRouter />
+                            ) : (
+                                <Redirect to="/" />
+                            )
+                        )} />
+                    </Switch>
+
+                    <div className="bottom-rect">
+                        <MusicPlayer 
                             music={music} 
-                            setMusic={setMusic}
-                            setPlaying={setPlaying}
-                            {...props} />
-                    )} />                     */}
-
-                    {/* <Route exact path="/events" component={EventIndex} /> */}
-                    {/* <Route exact path="/events/:id" component={EventShow} /> */}
-
-                    <Route exact path="/videos" component={AllVideosIndex} />
-                    <Route exact path="/videos/:id" component={VideoShow} />
-
-                    <Route exact path="/visuals" component={VisualAllIndex} />
-
-                    <Route path="/admin" render={() => (
-                        user ? (
-                            <AdminRouter />
-                        ) : (
-                            <Redirect to="/" />
-                        )
-                    )} />
-                </Switch>
-
-                <div className="bottom-rect">
-                    <MusicPlayer 
-                        music={music} 
-                        setMusic={setMusic} 
-                        playing={playing}
-                        setPlaying={setPlaying}
-                        visible={musicVis}/>          
+                            setMusic={setMusic} 
+                            // playing={playing}
+                            // setPlaying={setPlaying}
+                            visible={musicVis}/>          
+                    </div>
+                    <div className="music-toggle">
+                        <FontAwesomeIcon icon={plusMinus}  onClick={toggleMusicVis} />
+                    </div>
+                    
                 </div>
-                <div className="music-toggle">
-                    <FontAwesomeIcon icon={plusMinus}  onClick={toggleMusicVis} />
-                </div>
-                
-            </div>
-        </ UserContext.Provider>
+            </MusicContext.Provider>
+        </UserContext.Provider>
     )
 };
 
