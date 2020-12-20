@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import releaseApi from '../../util/release_api_util';
 import ReleaseListItem from './release_list_item';
 
-const ReleaseIndex = ({ artist, medium, title, music, setMusic }) => {
+const ReleaseIndex = ({ artist, medium, title }) => {
     const [releases, setReleases] = useState();
 
     const fetchReleases = () => {
@@ -46,9 +46,8 @@ const ReleaseIndex = ({ artist, medium, title, music, setMusic }) => {
                     {releases && releases.map(release => 
                         <ReleaseListItem 
                             release={release} 
-                            key={release.id} 
-                            music={music}
-                            setMusic={setMusic} />)}
+                            key={release.id}  />
+                    )}
                 </ul>
             </div>
         </div>

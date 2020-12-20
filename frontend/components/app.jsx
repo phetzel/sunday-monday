@@ -44,7 +44,7 @@ const App = () => {
 
     return (
         <UserContext.Provider value={{ user, setUser }}>
-            <MusicContext.Provider value={{ playing, setPlaying }}>
+            <MusicContext.Provider value={{ music, setMusic, playing, setPlaying }}>
                 <div className="content">
                     <Navbar />
 
@@ -63,38 +63,12 @@ const App = () => {
                         <Route exact path="/artists/visual" component={ArtistVisualIndex} />
                         <Route exact path="/artists/:id/videos" component={VideoArtistIndex} />
                         <Route exact path="/artists/:id/visuals" component={VisualArtistIndex} />
-                        <Route exact path="/artists/:id" render={(props) => (
-                            <ArtistShow 
-                                music={music}
-                                setMusic={setMusic}
-                                {...props}
-                            />
-                        )} />  
-                        <Route exact path="/artists/:id/music" render={(props) => (
-                            <ReleaseArtistIndex 
-                                music={music}
-                                setMusic={setMusic}
-                                {...props}
-                            />
-                            )} />
+                        <Route exact path="/artists/:id" component={ArtistShow} />
 
-                        {/* <Route exact path="/music/releases" component={AlbumIndex} /> */}
+                        <Route exact path="/artists/:id/music" component={ReleaseArtistIndex} />
+                        <Route exact path="/music/releases" component={AlbumIndex} />
+                        <Route exact path="/music/playlists" component={PlaylistIndex} />
                         
-                        <Route exact path="/music/releases" render={(props) => (
-                            <AlbumIndex 
-                                music={music}
-                                setMusic={setMusic}
-                                {...props}
-                            />
-                        )} />
-
-                        <Route exact path="/music/playlists" component={(props) => (
-                            <PlaylistIndex
-                                music={music}
-                                setMusic={setMusic}
-                                {...props}
-                            />
-                        )} />
 
                         {/* <Route exact path="/music/:id"  render={(props) => (
                             <ReleaseShow 
@@ -123,10 +97,6 @@ const App = () => {
 
                     <div className="bottom-rect">
                         <MusicPlayer 
-                            music={music} 
-                            setMusic={setMusic} 
-                            // playing={playing}
-                            // setPlaying={setPlaying}
                             visible={musicVis}/>          
                     </div>
                     <div className="music-toggle">

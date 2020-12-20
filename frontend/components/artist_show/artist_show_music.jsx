@@ -5,7 +5,7 @@ import { faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import ReleaseListItem from '../release_index/release_list_item';
 
-const ArtistShowMusic = ({ artist_id, history, music, setMusic, releases }) => {
+const ArtistShowMusic = ({ artist_id, history, releases }) => {
 
     const handleClick = (id) => {
         history.push(`/music/${id}`);
@@ -24,8 +24,6 @@ const ArtistShowMusic = ({ artist_id, history, music, setMusic, releases }) => {
                 {newMusic.map(release => (
                     <ReleaseListItem 
                         release={release}
-                        music={music}
-                        setMusic={setMusic}
                     />
                 ))}
             </ul>
