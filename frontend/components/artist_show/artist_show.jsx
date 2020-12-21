@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import artistApi from '../../util/artist_api_util';
+import ArtistInstagram from './artist_instagram';
 import ArtistShowDetail from './artist_show_detail';
 import ArtistShowEvent from './artist_show_event';
 import ArtistShowMusic from './artist_show_music';
@@ -32,7 +33,11 @@ const ArtistShow = ({ match }) => {
                 {artist && artist.videos.length > 0 &&
                     <ArtistShowVideo artist_id={id} videos={artist.videos} />}
                 {artist && artist.visuals.length > 0 &&
-                    <ArtistShowVisual artist_id={id} visuals={artist.visuals} />}                
+                    <ArtistShowVisual artist_id={id} visuals={artist.visuals} />} 
+
+                <ArtistInstagram />
+
+
                 {/* {artist && artist.events.length > 0 &&
                     <ArtistShowEvent events={artist.events} />} */}
             </div>
