@@ -31,7 +31,7 @@ const SplashEvent = ({history}) => {
     return (
         <div>
             {event && 
-                <div className="splash-feature-display">
+                <div className="splash-feature-display left86">
                     <h6>{event.title}</h6>
                     <img src={event.photoUrl} onClick={handleClick}/>
                     <p>{event.description}</p>
