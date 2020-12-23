@@ -33,7 +33,7 @@ const ArtistShowVisual = ({ artist_id, history, visuals }) => {
             <h1>Visual Art</h1>
             <ul className="visual-index">
                 {visuals && visualsSlice.map(visual => (
-                    <div className="visual-list-item">
+                    <li className="visual-list-item" key={visual.id}>
                         <img alt={visual.title} src={visual.photoUrl} title={visual.title}/>
                         <div className="visual-list-item-bottom">
                             <h6>{visual.title}</h6>
@@ -44,7 +44,7 @@ const ArtistShowVisual = ({ artist_id, history, visuals }) => {
                             />
 
                         </div>
-                    </div>
+                    </li>
                 ))}
             </ul>
 

@@ -1,17 +1,49 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Feed from "react-instagram-authless-feed";
 
+
 const ArtistInstagram = () => {
+    const [first, setFirst] = useState();
+    const [pictures1, setPictures1] = useState();
+
     useEffect(() => {
-        const url = `https://ig.instant-tokens.com/users/061bc119-a4a7-4653-85d6-8bdc414f9fa6/instagram/17841401610972952/token?userSecret=madbvntmaon5hhbh1w0cdr`;
-        fetch(url).then(res => console.log(res));
+        // const url= `https://graph.instagram.com/7448666217/media?`
+        // + `fields=id,media_url,media_type`
+        // + `&access_token=${InstagramToken}`;
+
+        const url = 'https://www.instagram.com/ridlmusic/?__a=1';
+        console.log(url);
+
+        fetch(url)
+            .then(res => console.log(res));
+
+        // const images = data.filter(img => img.media_type === "IMAGE");
+        // setFirst(images[0]);
+        // setPictures1(images.slice(1,9));
     }, [])
 
     return (
-        <div className="artist-instagram-container">
-            <div className="artist-instagram">
-                {/* <Feed userName="ridlmusic" className="Feed" classNameLoading="Loading" limit="18"/> */}
-            </div>
+        <div>
+        <div className="artist-instagram-container"> 
+             {/* <div className="artist-instagram">
+                { pictures1 &&
+                    <div className="artist-instagram-row">
+                        <img className="insta-pic-large" src={first.media_url} />
+                        <ul className="artist-instagram-list">
+                            { pictures1.map(pic => (
+                                <li>
+                                    <img 
+                                        className="insta-pic-small"
+                                        src={pic.media_url} alt=""/>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                }
+            </div> */}
+            {/* <Feed userName="ask_me_about_frank" className="Feed" limit={9} /> */}
+        </div>
+
         </div>
     )
 }

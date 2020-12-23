@@ -455,12 +455,46 @@
 
 .artist-instagram-container {
   margin-top: 141px;
-  min-width: 1163px;
-
-  background-color: violet;
+  // min-width: 1163px;
+  min-width: 1180px;
 }
 
-.artist-instagram img {
+.artist-instagram-row {
+  display: flex;
+}
+
+.artist-instagram-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.insta-pic-small {
   width: 186.05px;
   height: 182.24px;
+
+  margin-right: 9.54px;
+  margin-bottom: 7px;
+}
+
+.insta-pic-large {
+  height: 373.83px;
+  width: 381.64px;
+
+  margin-right: 9.54px;
+  margin-bottom: 7px;
+}
+
+.Feed {
+  margin: auto;
+  padding: 1% 1%;
+}
+
+.Feed a img {
+  width: 186.05px;
+  height: 182.24px;
+}
+
+.Feed > a > img:first-of-type {
+  height: 373.83px;
+  width: 381.64px;
 }
