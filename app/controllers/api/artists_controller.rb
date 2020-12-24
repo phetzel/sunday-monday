@@ -51,7 +51,8 @@ class Api::ArtistsController < ApplicationController
             :name,
             :description,
             :photo,
-            :style
+            :style,
+            :instagram
         )
     end 
 

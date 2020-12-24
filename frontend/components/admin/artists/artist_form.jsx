@@ -16,7 +16,8 @@ const ArtistForm = ({history}) => {
         name: "",
         description: "",
         photo: '',
-        style: 'audio'
+        style: 'audio',
+        instagram: ''
     }
 
     const handleFile = (e) => {
@@ -30,6 +31,7 @@ const ArtistForm = ({history}) => {
         formData.append('artist[name]', artist.name);
         formData.append('artist[description]', artist.description);
         formData.append('artist[style]', artist.style);
+        formData.append('artist[instagram]', artist.instagram);
         formData.append('artist[photo]', photo);
 
         artistApi.createArtist(formData)
@@ -71,6 +73,11 @@ const ArtistForm = ({history}) => {
                                 ))
                             }
                         </select>
+
+                        <input 
+                            onChange={handleChange("instagram")} 
+                            placeholder="Instagram"
+                            type="text"/>
 
                         <input 
                             onChange={handleFile}

@@ -12,6 +12,7 @@ const ArtistEditForm = ({ artist, history, setArtist }) => {
     const [name, setName] = useState();
     const [description, setDescription] = useState();
     const [style, setStyle] = useState();
+    const [instagram, setInstagram] = useState();
 
     const [lottieVis, setLottieVis] = useState(false);
 
@@ -19,6 +20,7 @@ const ArtistEditForm = ({ artist, history, setArtist }) => {
         setName(artist.name);
         setDescription(artist.description);
         setStyle(artist.style);
+        setInstagram(artist.instagram)
     }, [artist])
 
     const update = (func) => {
@@ -46,6 +48,7 @@ const ArtistEditForm = ({ artist, history, setArtist }) => {
         artistObj['artist']['name'] = name;
         artistObj['artist']['description'] = description;
         artistObj['artist']['style'] = style;
+        artistObj['artist']['instagram'] = instagram;
 
         artistApi.updateArtist(artistObj, artist.id)
             .then(res => {
@@ -79,6 +82,11 @@ const ArtistEditForm = ({ artist, history, setArtist }) => {
                         ))
                     }
                 </select>
+
+                <input 
+                    onChange={update(setInstagram)} 
+                    value={instagram}
+                    type="text"/>
 {/* 
                 <input 
                     onChange={handleFile}
