@@ -5,10 +5,11 @@ import { faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
 import MusicContext from '../../context/music_context';
 import resleaseApi from '../../util/release_api_util';
 import ReleaseShowArtists from './release_show_artists';
+import ReleaseShowDetails from './release_show_details';
 import ReleaseShowList from './release_show_list';
 import youtubeApi from '../../util/youtube_util';
 
-const ReleaseShow = ({ match, music, setMusic, setPlaying }) => {
+const ReleaseShow = ({ match }) => {
     const [release, setRelease] = useState();
     const [songs, setSongs] = useState();
 
@@ -42,49 +43,21 @@ const ReleaseShow = ({ match, music, setMusic, setPlaying }) => {
 
     
     return(
-        <div>
-            <div className="release-show content">
-                {release && 
-                    <div className="release-show-details">
-                        <div>
-                            <img src={release.photoUrl} alt="dj pic"/>
-                            <p>{release.description}</p>
-                        </div>
-                        
-                        <div className="release-show-songs">
-                            <div className="release-show-song-top">
-                                <h4 className="p-color">{release.title}</h4>
-                                
-                                <div className="artist-show-music-bottom-icon-container">
-                                    <FontAwesomeIcon 
-                                        className="artist-show-music-bottom-icon"
-                                        icon={faPlay} 
-                                        onClick={handlePlay} />
-                                    <FontAwesomeIcon 
-                                        className="artist-show-music-bottom-icon"
-                                        icon={faPlus} 
-                                        onClick={handlePlay} />
-                                </div>
-                            </div>
+        <div className="artist-show">
+            {release && 
+                <div>
+                    <ReleaseShowDetails release={release} />
+                    {songs && 
+                        <ReleaseShowList songs={songs} /> 
+                    }
+                </div>
 
-                            {songs && 
-                                <ReleaseShowList 
-                                    songs={songs}
-                                    music={music}
-                                    setMusic={setMusic}
-                                    setPlaying={setPlaying}/> 
-                            }
-                        </div>
-
-
-                        <div>
-                            {release.artists && release.artists.length > 0 &&
-                                <ReleaseShowArtists artists={release.artists} />
-                            }
-                        </div>
-                    </div>
-                }
-            </div>
+                /* <div>
+                    {release.artists && release.artists.length > 0 &&
+                        <ReleaseShowArtists artists={release.artists} />
+                    }
+                </div> */
+            }
         </div>
     )
 }

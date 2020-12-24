@@ -66,7 +66,7 @@ const App = () => {
                         <Route exact path="/artists/:id/music" component={ReleaseArtistIndex} />
                         <Route exact path="/music/releases" component={AlbumIndex} />
                         <Route exact path="/music/playlists" component={PlaylistIndex} />
-                        {/* <Route exact path="/music/:id" component={ReleaseShow} /> */}
+                        <Route exact path="/music/:id" component={ReleaseShow} />
                         {/* <Route exact path="/events" component={EventIndex} /> */}
                         {/* <Route exact path="/events/:id" component={EventShow} /> */}
                         <Route exact path="/videos" component={AllVideosIndex} />
