@@ -34,6 +34,13 @@ const EventIndex = () => {
 
     return (
         <div className="event-index-container">
+            <div className="header-container">
+                <div className="header">
+                    <h1><span>COMING SOON</span></h1>
+                </div>
+            </div>
+
+            <div className="header-rect" />
 
             {/* <div className="event-index-controller-container">
                 <div className="event-index-controller">

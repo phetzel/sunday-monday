@@ -1,77 +1,12 @@
 //Event Index
 //------------------------------------------------------------------------------
 .event-index-container {
-  width: 100%;
-}
-
-.event-index-controller-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.event-index-controller {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 50px;
-  width: 60%;
-}
-
-.event-index-container ul {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  z-index: -100;
-}
-
-.event-index-item {
-  background-color: #f6eee4;
-  border-radius: 18.75px;
-  -webkit-box-shadow: 0px 0px 5px 0px #000000;
-  box-shadow: 0px 0px 5px 0px #000000;
-  overflow: hidden;
-  display: flex;
-  margin: 50px 0;
-  width: 50%;
-}
-
-.event-index-item:hover {
-  -webkit-box-shadow: 0px 0px 5px 0px #000000;
-  box-shadow: 0px 0px 5px 2px #000000;
-}
-
-.event-index-item img {
-  border-radius: 18.75px;
-  cursor: pointer;
-  height: 300px;
-  width: 225px;
-}
-
-.event-index-item-text {
-  align-items: center;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 200px;
-  width: 100%;
-}
-
-.event-index-item-text h3 {
-  font-size: 30px;
-  margin-bottom: 30px;
-  margin-left: 20px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-}
-
-.event-index-item-text p {
-  font-size: 20px;
-  margin: 10px 0;
+  margin-top: 70px;
+  margin-left: 140px;
+  width: 1303px;
 }
 
 //Event Show

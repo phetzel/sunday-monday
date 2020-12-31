@@ -10,7 +10,9 @@ const ArtistListItem = ({artist, history}) => {
     return (
         <div className="artist-list-item" onClick={handleClick}>
             <img src={artist.photoUrl} alt="dj pic"/>
-            <h6>{artist.name}</h6>
+            <div className="visual-list-item-bottom">
+                <h6>{artist.name}</h6>
+            </div>
         </div>
     )
 }

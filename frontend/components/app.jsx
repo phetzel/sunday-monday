@@ -3,6 +3,7 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';  
 
+import About from './about/about';
 import AdminRouter from './admin/admin_router';
 import AlbumIndex from './release_index/album_index';
 import ArtistShow from './artist_show/artist_show';
@@ -58,6 +59,7 @@ const App = () => {
 
                     <Switch>
                         <Route exact path="/" component={Splash} />
+                        <Route exact path="/about" component={About} />
                         <Route exact path="/artists/audio" component={AudioIndex} />
                         <Route exact path="/artists/visual" component={ArtistVisualIndex} />
                         <Route exact path="/artists/:id/videos" component={VideoArtistIndex} />
