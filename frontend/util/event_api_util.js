@@ -15,11 +15,10 @@ const fetchEvent = id => (
     })
 )
 
-const fetchEvents = (data) => (
+const fetchEvents = () => (
     $.ajax({
         method: 'GET',
         url: 'api/events',
-        data
     })
 );
 

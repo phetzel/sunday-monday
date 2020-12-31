@@ -2,11 +2,11 @@ class Api::EventsController < ApplicationController
     def index
         @events = Event.order(:datetime)
 
-        if data == 'past'
-            @events = @events.select{ |event| event.datetime.past? }
-        elsif data == 'future'
-            @events = @events.select{ |event| event.datetime.future? }
-        end
+        #if data == 'past'
+        #    @events = @events.select{ |event| event.datetime.past? }
+        #elsif data == 'future'
+        #    @events = @events.select{ |event| event.datetime.future? }
+        #end
 
         render :index 
     end 

@@ -40,7 +40,7 @@ const VisualEditForm = ({ history, visual, setVisual }) => {
         visualObj['visual']['description'] = description;
 
         visualApi.updateVisual(visualObj, visual.id).then(res => {
-            history.push(`/visuals/${res.id}`)
+            history.push(`/visuals`)
         }, err => {
             setLottieVis(false);
         });

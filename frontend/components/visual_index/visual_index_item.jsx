@@ -14,14 +14,6 @@ const VisualListItem = ({visual, onClick}) => {
                     className="visual-list-item-icon" 
                     icon={faExternalLinkAlt} 
                     onClick={onClick}/>
-                {/* <img
-                    src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-9@2x.svg"
-                />
-
-                <img
-                    class="visual-list-arrow-icon"
-                    src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd61c05553a65eb4e757fdd/img/vector-10@2x.svg"
-                /> */}
             </div>
         </div>
     )

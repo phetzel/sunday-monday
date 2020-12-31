@@ -67,11 +67,12 @@ const App = () => {
                         <Route exact path="/music/releases" component={AlbumIndex} />
                         <Route exact path="/music/playlists" component={PlaylistIndex} />
                         <Route exact path="/music/:id" component={ReleaseShow} />
-                        {/* <Route exact path="/events" component={EventIndex} /> */}
+                        <Route exact path="/events" component={EventIndex} />
                         {/* <Route exact path="/events/:id" component={EventShow} /> */}
                         <Route exact path="/videos" component={AllVideosIndex} />
                         <Route exact path="/videos/:id" component={VideoShow} />
                         <Route exact path="/visuals" component={VisualAllIndex} />
+
 
                         <Route path="/admin" render={() => (
                             user ? (

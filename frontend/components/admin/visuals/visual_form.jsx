@@ -36,7 +36,7 @@ const VisualForm = ({history}) => {
                 painterApi.createPainter(newPainter);
             });
 
-            history.push(`/visuals/${res.id}`)
+            history.push(`/visuals`)
         }, err => {
             setLottieVis(false);
         });

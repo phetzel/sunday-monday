@@ -22,6 +22,11 @@ const Navbar = ({ history }) => {
         history.push(loc);
     }
 
+    const handleStore = () => {
+        setHovering(null);
+        window.open('https://www.etsy.com/shop/SpaceMotherSupplies', '_blank');
+    }
+
     const toggleLoginVis = () => {
         const newVis = loginVisible ? false : true;
         setLoginVisible(newVis);
@@ -94,7 +99,7 @@ const Navbar = ({ history }) => {
                     </div>
                     <div 
                         className={`nav-store ${checkHovering(5)}`}
-                        onClick={() => handleClick('/store')}
+                        onClick={handleStore}
                         onMouseEnter={() => handleHover(5)}
                         onMouseLeave={handleUnhover}>
                         STORE

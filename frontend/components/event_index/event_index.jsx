@@ -5,12 +5,21 @@ import EventIndexItem from './event_index_item';
 
 const EventIndex = () => {
     const [events, setEvents] = useState();
+    const [eventIdx, setEventIdx] = useState();
 
-    const fetchEvents = (val) => {
-        const when = {data: val};
-        eventApi.fetchEvents(when).then(events => {
+    const fetchEvents = () => {
+        const now = new Date();
+
+        eventApi.fetchEvents().then(events => {
             const eventsArray = Object.values(events);
             setEvents(eventsArray);
+            events.forEach(event => {
+                const eventDate = event.datetime.split('T');
+                const eventDateObj = new Date()
+                console.log(now);
+                console.log(eventDate[0]);
+                // console.log(now < event);
+            })
         })
     }
 
@@ -19,15 +28,14 @@ const EventIndex = () => {
     }
 
     useEffect(() => {
-        fetchEvents('future');
+        fetchEvents();
     }, []);
-
 
 
     return (
         <div className="event-index-container">
 
-            <div className="event-index-controller-container">
+            {/* <div className="event-index-controller-container">
                 <div className="event-index-controller">
                     <button 
                         className="button"
@@ -36,13 +44,13 @@ const EventIndex = () => {
                         className="button"
                         onClick={() => handleClick('past')}>Past Shows</button>
                 </div>
-            </div>
+            </div> */}
 
-            <ul>
+            {/* <ul>
                 {events &&
                     events.map(event => <EventIndexItem key={event.id} event={event}/>)
                 }
-            </ul>
+            </ul> */}
         </div>
     )
 }
