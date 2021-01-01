@@ -9,6 +9,9 @@ Spacemother is a website made for the artistist collective of the same name. Thi
 ### Live Link
 https://sunday-monday.herokuapp.com/
 
+<img src="./app/assets/images/screenshot1.png" width=300>
+<img src="./app/assets/images/screenshot2.png" width=300>
+
 
 ### Technologies
 - PostgreSQL
