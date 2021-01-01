@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<img src="./app/assets/images/logo.png" width=300>
 
-Things you may want to cover:
+# SpaceMother
+Spacemother is a website made for the artistist collective of the same name. This app allows the input and management of artists, music, videos, and visual art, as well as connecting with youtube and instagram to create a hub of information and media about the collectives atists and art.
 
-* Ruby version
 
-* System dependencies
+### Live Link
+https://sunday-monday.herokuapp.com/
 
-* Configuration
 
-* Database creation
+### Technologies
+- PostgreSQL
+- Ruby
+- Ruby on Rails
+- JavaScript
+- React
+- CSS
 
-* Database initialization
+### Features
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Future Features
