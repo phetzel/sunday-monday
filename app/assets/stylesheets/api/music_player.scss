@@ -124,6 +124,7 @@
 }
 
 .music-player-queue li {
+  align-items: center;
   display: flex;
   justify-content: space-around;
   padding: 5px;
@@ -140,7 +141,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  max-width: 100px;
+  width: 100px;
   overflow: hidden;
   white-space: nowrap;
 }

@@ -107,10 +107,7 @@ const MusicPlayer = ({ visible }) => {
                         width: '140px'
                     }}/>
 
-
-                    {/* <marquee scrollamount="2"> */}
-                        <h1>{music[0].title}</h1>
-                    {/* </marquee> */}
+                    <h1>{music[0].title}</h1>
 
                     <ReactPlayer 
                         controls={false}

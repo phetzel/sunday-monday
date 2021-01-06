@@ -8,15 +8,15 @@ const RelseaseShowList = ({ songs }) => {
   const { music, setMusic, setPlaying } = useContext(MusicContext);
 
   const handlePlay = song => {
-    const newMusic = music;
+    const newMusic = [...music];
     newMusic.unshift(song);
     setMusic(newMusic);
     setPlaying(true);
   }
 
   const handleAdd = song => {
-    const newMusic = music.concat[song];
-    // newMusic.push(song);
+    const newMusic = [...music];
+    newMusic.push(song);
     setMusic(newMusic);
   }
 
