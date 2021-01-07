@@ -12,8 +12,8 @@ const VideoIndex = ({ feature, title, videos}) => {
     }
 
     return (
-        <div className="video-index-outter-container">
-            <div className="video-index-container">
+        <div className="content-container">
+            <div className="content">
 
                 <div className="header-container">
                     <div className="header">

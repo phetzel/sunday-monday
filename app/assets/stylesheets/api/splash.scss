@@ -4,7 +4,8 @@
   height: 948px;
   margin-right: -2px;
   position: relative;
-  width: 1444px;
+  // width: 1444px;
+  width: 100vw;
   // z-index: -100;
 }
 
@@ -16,16 +17,19 @@
   // top: 155px;
   top: 85px;
   width: 35px;
+  z-index: 100;
 }
 
 .splash-image {
   background-color: transparent;
   height: 718px;
-  left: 174px;
+  // left: 174px;
+  right: 0;
   position: absolute;
   top: 85px;
   // top: 156px;
   width: 1270px;
+  // width: 80%;
 }
 
 .splash-upper h1 {
@@ -43,15 +47,18 @@
 }
 
 .splash-secondary {
-  color: var(--soapstone);
+  // color: var(--soapstone);
+  color: rgba(251, 242, 234, 1);
 }
 
 .she {
-  color: var(--soapstone);
+  // color: var(--soapstone);
+  color: rgba(251, 242, 234, 1);
   position: absolute;
   width: 257px;
   height: 150px;
-  left: 67px;
+  // left: 67px;
+  right: 1120px;
   top: 633.5px;
   // top: 704.5px;
 }
@@ -59,12 +66,14 @@
 .she-partial {
   position: absolute;
   height: 150px;
-  left: 67px;
+  // left: 67px;
+  right: 1270px;
   top: 633.5px;
   // top: 704.5px;
 
   overflow: hidden;
-  width: 7.4%;
+  // width: 7.4%;
+  width: 108px;
 }
 
 .descends {
@@ -72,7 +81,8 @@
   position: absolute;
   width: 755px;
   height: 150px;
-  left: 262px;
+  // left: 262px;
+  right: 423px;
   // top: 798.5px;
   top: 727.5px;
 }
@@ -80,7 +90,8 @@
 .descends-partial {
   position: absolute;
   width: 755px;
-  left: 262px;
+  // left: 262px;
+  right: 423px;
   top: 727.5px;
   // top: 798.5px;
 
@@ -88,15 +99,17 @@
   overflow: hidden;
 }
 
+//Lower
 .splash-lower-outter-container {
+  align-items: center;
   margin-top: 66.5px;
-  margin-left: 139px;
+  // margin-left: 139px;
   // justify-content: center;
   // display: flex;
-  width: 100%;
+  width: 1173px;
 }
 
-.splash-lower-outter-container h1 {
+.splash-lower-h1 {
   color: var(--blackcurrant);
   font-family: "Helvetica-Bold", Helvetica, Arial, serif;
   font-size: 36px;
@@ -114,7 +127,7 @@
 }
 
 .splash-lower-container {
-  margin-left: 11px;
+  // margin-left: 11px;
   margin-top: 129px;
   position: relative;
   width: 1173px;

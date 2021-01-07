@@ -26,23 +26,25 @@ const VideoShow = ({ match}) => {
     
 
     return(
-        <div className="video-show-container"> 
-            <div className="header-rect" />
-            
-            {video && 
-                <div className="video-show">
-                        <ReactPlayer 
-                            onPlay={pauseMusic}
-                            height="480px"
-                            width="854px"
-                            url={`https://www.youtube.com/watch?v=${video.url}`} />
-                </div>
-            }
-            {/* {video && video.artists.length > 0 &&
-                <div className="artist-association-container">
-                    <VideoShowArtists artists={video.artists} />
-                </div>
-            } */}
+        <div className="content-container"> 
+            <div className="content">
+                <div className="header-rect" />
+                
+                {video && 
+                    <div className="video-show">
+                            <ReactPlayer 
+                                onPlay={pauseMusic}
+                                height="480px"
+                                width="854px"
+                                url={`https://www.youtube.com/watch?v=${video.url}`} />
+                    </div>
+                }
+                {/* {video && video.artists.length > 0 &&
+                    <div className="artist-association-container">
+                        <VideoShowArtists artists={video.artists} />
+                    </div>
+                } */}
+            </div>
         </div>
     )
 }

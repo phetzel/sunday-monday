@@ -1,21 +1,14 @@
-.about-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 70px;
-  margin-left: 140px;
-  width: 1303px;
-}
-
 .about {
+  align-self: center;
   width: 600px;
 }
 
 .about p {
   color: var(--blackcurrant);
   font-family: "Helvetica-Regular", Helvetica, Arial, serif;
-  font-size: 16px;
+  font-size: 25px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 30px;
+  text-align: center;
 }

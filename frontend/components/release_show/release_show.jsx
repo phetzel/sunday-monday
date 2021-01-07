@@ -43,21 +43,23 @@ const ReleaseShow = ({ match }) => {
 
     
     return(
-        <div className="artist-show">
-            {release && 
-                <div>
-                    <ReleaseShowDetails release={release} />
-                    {songs && 
-                        <ReleaseShowList songs={songs} /> 
-                    }
-                </div>
+        <div className="content-container">
+            <div className="content">
+                {release && 
+                    <div>
+                        <ReleaseShowDetails release={release} />
+                        {songs && 
+                            <ReleaseShowList songs={songs} /> 
+                        }
+                    </div>
 
-                /* <div>
-                    {release.artists && release.artists.length > 0 &&
-                        <ReleaseShowArtists artists={release.artists} />
-                    }
-                </div> */
-            }
+                    /* <div>
+                        {release.artists && release.artists.length > 0 &&
+                            <ReleaseShowArtists artists={release.artists} />
+                        }
+                    </div> */
+                }
+            </div>
         </div>
     )
 }

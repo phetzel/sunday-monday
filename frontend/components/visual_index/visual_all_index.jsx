@@ -20,8 +20,8 @@ const VisualAllIndex = props => {
 
     return (
         <div>
-            <div className="visual-index-outter-container">
-                <div className="visual-index-container">
+            <div className="content-container">
+                <div className="content">
 
                     <div className="header-container">
                       <div className="header">

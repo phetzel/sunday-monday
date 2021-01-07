@@ -19,8 +19,8 @@ const ArtistIndex = ({style, title}) => {
 
     return (
         <div>
-            <div className="artist-index-outter-container">
-                <div className="artist-index-container">
+            <div className="content-container">
+                <div className="content">
 
                     <div className="header-container">
                         <div className="header">

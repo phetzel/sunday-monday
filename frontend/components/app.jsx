@@ -46,7 +46,7 @@ const App = () => {
     return (
         <UserContext.Provider value={{ user, setUser }}>
             <MusicContext.Provider value={{ music, setMusic, playing, setPlaying }}>
-                <div className="content">
+                <div className="background">
                     <Navbar />
 
                     <div className="center-logo-container">

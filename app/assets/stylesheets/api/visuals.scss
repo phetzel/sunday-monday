@@ -3,20 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //index
-.visual-index-outter-container {
-  display: flex;
-  // justify-content: center;
-  width: 100%;
-}
-
-.visual-index-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 70px;
-  margin-left: 140px;
-  width: 1303px;
-}
 
 .visual-index-container h1 {
   color: var(--blackcurrant);
@@ -38,19 +24,9 @@
 }
 
 .visual-index {
-  // align-items: flex-start;
-  // background-color: transparent;
   display: inline-flex;
   flex-direction: row;
-  // flex-shrink: 0;
-  // flex-wrap: wrap;
-  // justify-content: flex-start;
   width: 1253px;
-  // width: auto;
-
-  // vertical-align: top;
-
-  // column-count: 3;
 }
 
 .visual-list-item {
@@ -62,7 +38,7 @@
 
   // float: left;
   margin-bottom: 50px;
-  margin-right: 31px;
+  margin-right: 29px;
   display: flex;
   flex-direction: column;
 }
@@ -72,6 +48,16 @@
   flex-shrink: 0;
   // max-height: 367px;
   max-width: 367px;
+
+  cursor: pointer;
+
+  // background-color: transparent;
+  // // // flex-shrink: 0;
+  // max-height: 400px;
+  // width: 367px;
+  // object-fit: contain;
+  // // // height: auto;
+  // // // width: auto;
 }
 
 .visual-list-item-bottom {

@@ -23,8 +23,8 @@ const ArtistShow = ({ match }) => {
     }, []);
     
     return(
-        <div>
-            <div className="artist-show">
+        <div className="content-container">
+            <div className="content">
                 {artist && <ArtistShowDetail artist={artist}/>}
                 {artist && artist.releases.length > 0 &&
                     <ArtistShowMusic 

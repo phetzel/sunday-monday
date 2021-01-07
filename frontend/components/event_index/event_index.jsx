@@ -33,31 +33,34 @@ const EventIndex = () => {
 
 
     return (
-        <div className="event-index-container">
-            <div className="header-container">
-                <div className="header">
-                    <h1><span>COMING SOON</span></h1>
+        <div className="content-container">
+            <div className="content">
+                <div className="header-container">
+                    <div className="header">
+                        <h1><span>COMING SOON</span></h1>
+                    </div>
                 </div>
+
+                <div className="header-rect" />
+
+                {/* <div className="event-index-controller-container">
+                    <div className="event-index-controller">
+                        <button 
+                            className="button"
+                            onClick={() => handleClick('future')}>Future Shows</button>
+                        <button 
+                            className="button"
+                            onClick={() => handleClick('past')}>Past Shows</button>
+                    </div>
+                </div> */}
+
+                {/* <ul>
+                    {events &&
+                        events.map(event => <EventIndexItem key={event.id} event={event}/>)
+                    }
+                </ul> */}
+
             </div>
-
-            <div className="header-rect" />
-
-            {/* <div className="event-index-controller-container">
-                <div className="event-index-controller">
-                    <button 
-                        className="button"
-                        onClick={() => handleClick('future')}>Future Shows</button>
-                    <button 
-                        className="button"
-                        onClick={() => handleClick('past')}>Past Shows</button>
-                </div>
-            </div> */}
-
-            {/* <ul>
-                {events &&
-                    events.map(event => <EventIndexItem key={event.id} event={event}/>)
-                }
-            </ul> */}
         </div>
     )
 }

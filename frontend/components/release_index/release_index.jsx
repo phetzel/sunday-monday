@@ -31,8 +31,8 @@ const ReleaseIndex = ({ artist, medium, title }) => {
 
 
     return (
-        <div className="release-index-outter-container">
-            <div className="release-index-container">
+        <div className="content-container">
+            <div className="content">
 
                 <div className="header-container">
                     <div className="header">
