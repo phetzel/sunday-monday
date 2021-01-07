@@ -9,6 +9,7 @@ import AlbumIndex from './release_index/album_index';
 import ArtistShow from './artist_show/artist_show';
 import ArtistVisualIndex from './artist_index/visual_index';
 import AudioIndex from './artist_index/audio_index';
+import Footer from './footer/footer';
 import EventIndex from './event_index/event_index';
 import EventShow from './event_show/event_show';
 import MusicContext from '../context/music_context';
@@ -92,7 +93,8 @@ const App = () => {
                     <div className="music-toggle">
                         <FontAwesomeIcon icon={plusMinus}  onClick={toggleMusicVis} />
                     </div>
-                    
+
+                    <Footer />
                 </div>
             </MusicContext.Provider>
         </UserContext.Provider>
