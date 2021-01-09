@@ -2,7 +2,7 @@ const createEmail = email => (
     $.ajax({
         method: 'POST',
         url: 'api/emails',
-        data: { email }
+        data: email
     })
 )
 

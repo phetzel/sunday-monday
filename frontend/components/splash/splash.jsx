@@ -22,6 +22,7 @@ const Splash = () => {
                     <div className="descends-partial"> 
                         <h1 className="splash-secondary">DESCENDS</h1>
                     </div>
+                    <div className="splash-rect-2" />
                 </div>
             
                 <div className="content-container">

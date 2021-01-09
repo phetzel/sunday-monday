@@ -20,6 +20,17 @@
   z-index: 100;
 }
 
+.splash-rect-2 {
+  background-color: var(--blackcurrant);
+  flex-shrink: 0;
+  height: 20px;
+  width: 375px;
+
+  position: absolute;
+  right: 39px;
+  top: 1027px;
+}
+
 .splash-image {
   background-color: transparent;
   height: 718px;

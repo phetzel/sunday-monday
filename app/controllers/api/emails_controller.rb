@@ -1,7 +1,13 @@
 class Api::EmailsController < ApplicationController
     def create 
-        email = Email.new(email_params)
-        email.save
+        @email = Email.new(email_params)
+        if @email.save
+            new_email = EmailMailer.welcome_email(@email.email)
+            new_email.deliver
+            render json: { message: "Success" }
+        else 
+            render json: @email.errors.full_messages, status: 422 
+        end 
     end
     
     def destroy
