@@ -98,7 +98,7 @@ const App = () => {
                     </div>
 
                 </div>
-                <Footer />
+                {/* <Footer /> */}
             </MusicContext.Provider>
         </UserContext.Provider>
     )

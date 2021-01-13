@@ -2,7 +2,7 @@ class Api::EmailsController < ApplicationController
     def create 
         @email = Email.new(email_params)
         if @email.save
-            new_email = EmailMailer.welcome_email(@email.email)
+            new_email = EmailMailer.welcome_email(@email)
             new_email.deliver
             render json: { message: "Success" }
         else 
@@ -11,7 +11,7 @@ class Api::EmailsController < ApplicationController
     end
     
     def destroy
-        @email = Email.find(params[:id]);
+        @email = Email.find_by_unsubscribe_hash(params[:unsubscribe_hash]);
         @email.destroy 
     end
 
