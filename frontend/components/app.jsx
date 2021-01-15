@@ -86,12 +86,9 @@ const App = () => {
                         )} />
                     </Switch>
 
-                    { musicVis && 
-                        <div className="bottom-rect">
-                            <MusicPlayer 
-                                visible={musicVis}/>          
-                        </div>
-                    }
+
+                    <MusicPlayer 
+                        visible={musicVis}/>          
                     
                     <div className="music-toggle">
                         <FontAwesomeIcon icon={plusMinus}  onClick={toggleMusicVis} />

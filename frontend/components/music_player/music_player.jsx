@@ -89,13 +89,12 @@ const MusicPlayer = ({ visible }) => {
        setVolumeDisplay(newVolDisplay);
     } 
 
-    // const display = visible ? "music-player-container" : "music-player-hidden";
+    const display = visible ? "music-player-container" : "music-player-hidden";
     const playPause = playing ? faPause : faPlay;
 
-
+    console.log(display);
     return (
-        // <div className={display}>
-        <div className="music-player-container" >
+        <div className={display}>
             {music && music.length > 0 &&
                 <div className="music-player">
                     <div style={{

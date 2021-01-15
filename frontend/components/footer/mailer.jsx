@@ -4,7 +4,8 @@ import emailApi from '../../util/email_api_util';
 
 const Mailer = (props) => {
     const [email, setEmail] = useState();
-    const [message, setMessage] = useState();
+    const [className, setClassName] = useState("mailer-input");
+    const [success, setSuccess] = useState();
 
     const update = () => {
         return e => {
@@ -13,17 +14,26 @@ const Mailer = (props) => {
     }
 
     const handleSubmit = () => {
-        if (email.length < 1) {
-            setMessage('Please Enter An Email Address');
-        } else {
-            let emailObj = {};
-            emailObj['email'] = {};
-            emailObj['email']['email'] = email;
-            console.log(emailObj);
-            emailApi.createEmail(emailObj)
-                .then(res => console.log(res));
-        }
+        // if (email.length < 1) {
+        //     setMessage('Please Enter An Email Address');
+        // } else {
+        //     let emailObj = {};
+        //     emailObj['email'] = {};
+        //     emailObj['email']['email'] = email;
+        //     emailApi.createEmail(emailObj)
+        //         .then(res => console.log(res));
+        // }
+
+        setSuccess(false);
+        let emailObj = {};
+        emailObj['email'] = {};
+        emailObj['email']['email'] = email;
+        emailApi.createEmail(emailObj)
+            .then(res =>  console.log(res))
+            .catch(err => console.log(err))
     }
+
+
 
     return (
         <div className="mailer">
