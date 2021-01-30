@@ -10,34 +10,38 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 const Social = (props) => {
+    const handleSocial = site => {
+        window.open(site, '_blank'); 
+    }
+
     return (
         <div className="social">
             <h1>SOCIAL</h1>
             <ul>
-                <FontAwesomeIcon 
+                {/* <FontAwesomeIcon 
                     className="social-icon"
                     icon={faFacebook} 
-                    onClick={() => console.log('hit')}/>
+                    onClick={() => console.log('hit')}/> */}
                 <FontAwesomeIcon 
                     className="social-icon"
                     icon={faInstagram} 
-                    onClick={() => console.log('hit')}/>
-                <FontAwesomeIcon 
+                    onClick={() => handleSocial('https://www.instagram.com/_spacemother_/')}/>
+                {/* <FontAwesomeIcon 
                     className="social-icon"
                     icon={faSpotify} 
-                    onClick={() => console.log('hit')}/>
+                    onClick={() => console.log('hit')}/> */}
                 <FontAwesomeIcon 
                     className="social-icon"
                     icon={faTwitter} 
-                    onClick={() => console.log('hit')}/>
+                    onClick={() => handleSocial('https://twitter.com/SPACEMOTHER1')}/>
                 <FontAwesomeIcon 
                     className="social-icon"
                     icon={faSoundcloud} 
-                    onClick={() => console.log('hit')}/>
+                    onClick={() => handleSocial('https://soundcloud.com/space-mother')}/>
                 <FontAwesomeIcon 
                     className="social-icon"
                     icon={faYoutube} 
-                    onClick={() => console.log('hit')}/>
+                    onClick={() => handleSocial('https://www.youtube.com/channel/UCsq4-NfMXyDhdHP07-QfUTw')}/>
 
             </ul>
         </div>

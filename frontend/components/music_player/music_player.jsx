@@ -92,7 +92,6 @@ const MusicPlayer = ({ visible }) => {
     const display = visible ? "music-player-container" : "music-player-hidden";
     const playPause = playing ? faPause : faPlay;
 
-    console.log(display);
     return (
         <div className={display}>
             {music && music.length > 0 &&

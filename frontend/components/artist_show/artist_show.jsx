@@ -35,9 +35,9 @@ const ArtistShow = ({ match }) => {
                 {artist && artist.visuals.length > 0 &&
                     <ArtistShowVisual artist_id={id} visuals={artist.visuals} />} 
 
-                {artist && artist.instagram && 
+                {/* {artist && artist.instagram && 
                     <ArtistInstagram instagram={artist.instagram} />
-                }
+                } */}
 
                 {/* {artist && artist.events.length > 0 &&
                     <ArtistShowEvent events={artist.events} />} */}

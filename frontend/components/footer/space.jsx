@@ -1,14 +1,23 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-const Space = () => {
+const Space = ({ history }) => {
+    const handleStore = () => {
+        window.open('https://www.etsy.com/shop/SpaceMotherSupplies', '_blank');
+    }
+
+    const handleClick = (loc) => {
+        history.push(loc);
+    }
+
     return (
         <div className="footer-space">
             <h1>SPACE MOTHER</h1>
-            <h4>ABOUT US</h4>
-            <h4>STORE</h4>
-            <h4>CONTACT</h4>
+            <h4 onClick={() => handleClick('about')}>ABOUT US</h4>
+            <h4 onClick={handleStore}>STORE</h4>
+            {/* <h4>CONTACT</h4> */}
         </div>
     )
 }
 
-export default Space;
+export default withRouter(Space);

@@ -17,7 +17,8 @@ const ArtistForm = ({history}) => {
         description: "",
         photo: '',
         style: 'audio',
-        instagram: ''
+        instagram: '',
+        mailer: false
     }
 
     const handleFile = (e) => {
@@ -32,6 +33,7 @@ const ArtistForm = ({history}) => {
         formData.append('artist[description]', artist.description);
         formData.append('artist[style]', artist.style);
         formData.append('artist[instagram]', artist.instagram);
+        formData.append('artist[mailer]', artist.mailer);
         formData.append('artist[photo]', photo);
 
         artistApi.createArtist(formData)
@@ -82,6 +84,15 @@ const ArtistForm = ({history}) => {
                         <input 
                             onChange={handleFile}
                             type="file"/>
+                        
+                        <div className="admin-form-mailer">
+                            <label>Mail:</label>
+                            <input
+                                className="admin-form-switch"
+                                onChange={handleChange("mailer")}
+                                type="checkbox"/>
+
+                        </div>
 
                         <button 
                             className="button"

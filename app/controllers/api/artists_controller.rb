@@ -21,8 +21,18 @@ class Api::ArtistsController < ApplicationController
 
     def create
         @artist = Artist.new(artist_params)
+        puts params
 
         if @artist.save
+
+            if @artist.mailer
+                emails = Email.all
+                emails.each do |email|
+                    new_email = EmailMailer.new_artist(email, @artist)
+                    new_email.deliver
+                end
+            end
+
             render :show
         else 
             render json: @artist.errors.full_messages, status: 422
@@ -45,6 +55,8 @@ class Api::ArtistsController < ApplicationController
         render :index
     end
 
+    private
+
     def artist_params 
         params.require(:artist).permit(
             :id,
@@ -52,7 +64,8 @@ class Api::ArtistsController < ApplicationController
             :description,
             :photo,
             :style,
-            :instagram
+            :instagram,
+            :mailer
         )
     end 
 
