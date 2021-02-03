@@ -4,9 +4,20 @@
         <title></title>
     </head>
     <body>
-        <h1>Welcome to the Goodmother. 
-        Home of the Goodmother. Can I take your order.</h1>
+        <h1>Welcome to the Goodmother</h1>
+
+        <p>Founded on the philosophy that there is a inherent connection between 
+        music and visual art, Spacemother is a label designed to be a home for all 
+        kinds of creative beings. Our artists represent the diversity in our creative 
+        world, drawing from a multiverse of backgrounds and talents, and spawning 
+        all manner of expression. Brought together in the embrace of the Spacemother, 
+        they created new and collaborative works, with the singular goal of celebrating 
+        the whole of creation.</p>
 
         <p>Thanks for your support</p>
+        <p style="font-size: 14px; margin-top: 16px; Margin-top: 16px">
+            <%= link_to "Unsubscribe", api_unsubscribe_url(@email.unsubscribe_hash, subscription:
+            "welcome"), style: "color: #bbb;", target: :_blank %>
+        </p>
     </body>
 </html>

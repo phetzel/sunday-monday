@@ -10,9 +10,10 @@ class Api::EmailsController < ApplicationController
         end 
     end
     
-    def destroy
-        @email = Email.find_by_unsubscribe_hash(params[:unsubscribe_hash]);
-        @email.destroy 
+    def unsubscribe
+        @email = Email.find_by(unsubscribe_hash: params[:unsubscribe_hash])
+        @email.destroy
+        render html: "Sucessfully Unsubscribed"
     end
 
     private 

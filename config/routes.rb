@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :appearances, only: [:create, :destroy]
       resources :artists, only: [:index, :show, :create, :update, :destroy]
       resources :emails, only: [:create, :destroy]
+      match "emails/unsubscribe/:unsubscribe_hash" => "emails#unsubscribe", as: "unsubscribe", via: :all
       resources :events, only: [:index, :show, :create, :update, :destroy]
       resources :releases, only: [:index, :show, :create, :update, :destroy]
       resources :features, only: [:create, :destroy]
