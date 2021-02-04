@@ -93,16 +93,17 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
 
-  config.action_mailer.default_url_options = { :host => 'spacemother.com' }
+  config.action_mailer.default_url_options = { :host => 'thespacemother.com' }
 
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
     :authentication => :plain,
-    :user_name      => 'api',
+    :user_name      => 'apikey',
     :password       => Rails.application.credentials.sendgrid[:api_key],
-    :domain         => 'spacemother.com',
+    :domain         => 'thespacemother.com',
     :enable_starttls_auto => true
   }
+
   ActionMailer::Base.delivery_method ||= :smtp
 end
