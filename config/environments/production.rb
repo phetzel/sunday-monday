@@ -99,8 +99,8 @@ Rails.application.configure do
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
     :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
+    :user_name      => 'api',
+    :password       => Rails.application.credentials.sendgrid[:api_key],
     :domain         => 'spacemother.com',
     :enable_starttls_auto => true
   }
