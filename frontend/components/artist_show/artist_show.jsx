@@ -25,22 +25,24 @@ const ArtistShow = ({ match }) => {
     return(
         <div className="content-container">
             <div className="content">
-                {artist && <ArtistShowDetail artist={artist}/>}
-                {artist && artist.releases.length > 0 &&
-                    <ArtistShowMusic 
-                        artist_id={id}
-                        releases={artist.releases} />}
-                {artist && artist.videos.length > 0 &&
-                    <ArtistShowVideo artist_id={id} videos={artist.videos} />}
-                {artist && artist.visuals.length > 0 &&
-                    <ArtistShowVisual artist_id={id} visuals={artist.visuals} />} 
+                <div className="artist-show">
+                    {artist && <ArtistShowDetail artist={artist}/>}
+                    {artist && artist.releases.length > 0 &&
+                        <ArtistShowMusic 
+                            artist_id={id}
+                            releases={artist.releases} />}
+                    {artist && artist.videos.length > 0 &&
+                        <ArtistShowVideo artist_id={id} videos={artist.videos} />}
+                    {artist && artist.visuals.length > 0 &&
+                        <ArtistShowVisual artist_id={id} visuals={artist.visuals} />} 
 
-                {/* {artist && artist.instagram && 
-                    <ArtistInstagram instagram={artist.instagram} />
-                } */}
+                    {/* {artist && artist.instagram && 
+                        <ArtistInstagram instagram={artist.instagram} />
+                    } */}
 
-                {/* {artist && artist.events.length > 0 &&
-                    <ArtistShowEvent events={artist.events} />} */}
+                    {/* {artist && artist.events.length > 0 &&
+                        <ArtistShowEvent events={artist.events} />} */}
+                </div>
             </div>
         </div>
     )

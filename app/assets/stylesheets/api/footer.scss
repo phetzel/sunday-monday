@@ -47,10 +47,11 @@
 
 //Mailer
 .mailer-input {
+  display: flex;
   width: 376px;
 }
 
-.mailer-input input {
+.mailer-input-input {
   background-color: var(--soapstone);
   border: none;
   height: 46px;
@@ -59,15 +60,23 @@
 }
 
 .mailer-input button {
+  align-items: center;
   color: var(--soapstone);
   background-color: transparent;
-  border: none;
   cursor: pointer;
   font-family: "Helvetica-Regular", Helvetica, Arial, serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   margin-left: 36px;
+
+  border: 1px solid var(--soapstone);
+  width: 50px;
+}
+
+.mailer-input button:hover {
+  color: var(--blackcurrant);
+  background-color: var(--soapstone);
 }
 
 .mailer-input input:focus,
@@ -75,8 +84,16 @@
   outline: none;
 }
 
-.mailer-input-success {
+.mailer-success {
   border: 2px solid green;
+  height: 46px;
+  width: 310px;
+}
+
+.mailer-fail {
+  border: 2px solid red;
+  height: 46px;
+  width: 310px;
 }
 
 .mailer h5 {

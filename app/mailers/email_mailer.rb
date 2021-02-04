@@ -1,5 +1,5 @@
 class EmailMailer < ApplicationMailer
-    default from: "phetzel89@gmail.com" 
+    default from: "spacemother.recs@gmail.com" 
 
     def welcome_email(email)
         @email = email
