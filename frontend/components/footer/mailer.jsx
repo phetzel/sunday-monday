@@ -26,6 +26,7 @@ const Mailer = (props) => {
                 setClassName("mailer-success");
             }, err => {
                 // setEmail();
+                console.log(err);
                 setClassName("mailer-fail");
             });
     }
