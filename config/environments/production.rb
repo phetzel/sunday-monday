@@ -93,6 +93,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
 
+  config.action_mailer.default_url_options = { :host => 'spacemother.com' }
+
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
