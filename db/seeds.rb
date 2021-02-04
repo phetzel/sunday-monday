@@ -22,6 +22,8 @@ ActiveRecord::Base.transaction do
         password: 'admin123',
     )
 
+    Email.destroy_all
+
     # Video.destroy_all
     # Visual.destroy_all
 # 
