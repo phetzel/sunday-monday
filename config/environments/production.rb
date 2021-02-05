@@ -95,7 +95,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => 'thespacemother.com' }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.prfom_deliveries = true
+  config.action_mailer.perfom_deliveries = true
   .action_mailer.smtp_settings = {
     :user_name      => 'apikey',
     :password       => Rails.application.credentials.sendgrid.api_key,
