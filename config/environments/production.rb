@@ -94,16 +94,16 @@ Rails.application.configure do
   
 
   config.action_mailer.default_url_options = { :host => 'thespacemother.com' }
-
-  ActionMailer::Base.smtp_settings = {
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.prfom_deliveries = true
+  .action_mailer.smtp_settings = {
+    :user_name      => 'apikey',
+    :password       => Rails.application.credentials.sendgrid.api_key,
+    :domain         => 'thespacemother.com',
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
     :authentication => :plain,
-    :user_name      => 'apikey',
-    :password       => Rails.application.credentials.sendgrid[:api_key],
-    :domain         => 'thespacemother.com',
     :enable_starttls_auto => true
   }
 
-  ActionMailer::Base.delivery_method ||= :smtp
 end
