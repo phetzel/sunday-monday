@@ -90,10 +90,34 @@
   width: 310px;
 }
 
+.mailer-success::placeholder {
+  color: green;
+}
+
+.mailer-success-icon {
+  color: green;
+  font-size: 25px;
+  left: 325px;
+  position: absolute;
+  margin-top: 10px;
+}
+
 .mailer-fail {
   border: 2px solid red;
   height: 46px;
   width: 310px;
+}
+
+.mailer-fail::placeholder {
+  color: red;
+}
+
+.mailer-fail-icon {
+  color: red;
+  font-size: 25px;
+  left: 325px;
+  position: absolute;
+  margin-top: 10px;
 }
 
 .mailer h5 {
