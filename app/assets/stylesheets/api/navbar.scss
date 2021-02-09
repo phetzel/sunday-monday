@@ -259,7 +259,7 @@
   background-color: #fffcf9;
   border-top: 1px solid var(--blackcurrant);
   top: 47px;
-  right: 30px;
+  right: 10px;
   z-index: 100;
 }
 
@@ -318,37 +318,6 @@
 
 .nav-icon:focus {
   outline: none;
-}
-
-.search-icon {
-  align-items: flex-end;
-  background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  justify-content: flex-start;
-  left: 0px;
-  min-height: 37px;
-  padding: 7px 7.1px;
-  position: absolute;
-  top: 2px;
-  width: 33px;
-}
-
-.search-ellipse {
-  align-self: center;
-  background-color: transparent;
-  flex-shrink: 0;
-  height: 16px;
-  width: 17px;
-}
-
-.search-line {
-  background-color: transparent;
-  flex-shrink: 0;
-  height: 0px;
-  margin-top: 1px;
-  width: 7px;
 }
 
 :root {

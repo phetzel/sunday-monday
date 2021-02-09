@@ -8,7 +8,9 @@
             <%= image_tag('logo-square.png') %>
         </div>
 
-        <h1>Welcome to the Goodmother</h1>
+        <h1>Welcome to the 
+            <%= link_to "Goodmother", root_url, target: :_blank %>
+        </h1>
 
         <p>Founded on the philosophy that there is a inherent connection between 
         music and visual art, Spacemother is a label designed to be a home for all 
@@ -19,6 +21,7 @@
         the whole of creation.</p>
 
         <p>Thanks for your support</p>
+        
         <p class="unsubscribe">
             <%= link_to "Unsubscribe", api_unsubscribe_url(@email.unsubscribe_hash, subscription:
             "welcome"), style: "color: #bbb;", target: :_blank %>

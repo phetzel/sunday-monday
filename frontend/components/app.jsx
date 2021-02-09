@@ -9,6 +9,7 @@ import AlbumIndex from './release_index/album_index';
 import ArtistShow from './artist_show/artist_show';
 import ArtistVisualIndex from './artist_index/visual_index';
 import AudioIndex from './artist_index/audio_index';
+import Contact from './contact/contact';
 import Footer from './footer/footer';
 import EventIndex from './event_index/event_index';
 import EventShow from './event_show/event_show';
@@ -67,6 +68,7 @@ const App = () => {
                         <Route exact path="/artists/:id/visuals" component={VisualArtistIndex} />
                         <Route exact path="/artists/:id" component={ArtistShow} />=
                         <Route exact path="/artists/:id/music" component={ReleaseArtistIndex} />
+                        <Route exact path="/contact" component={Contact} />
                         <Route exact path="/music/releases" component={AlbumIndex} />
                         <Route exact path="/music/playlists" component={PlaylistIndex} />
                         <Route exact path="/music/:id" component={ReleaseShow} />
