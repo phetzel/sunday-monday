@@ -61,9 +61,7 @@ const Navbar = ({ history }) => {
         <div className="top-nav">
             <div className="top-nav-left" >
                 <div className="nav-spacemother" onClick={() => handleClick('/')}>
-                    <div className="nav-s-high">S</div>
-                    <div className="nav-s-low">S</div>
-                    <h6 className="nav-pacemother">PACEMOTHER</h6>
+                    <h6>SPACEMOTHER</h6>
                 </div>
 
                 <div 

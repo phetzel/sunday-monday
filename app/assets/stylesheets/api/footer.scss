@@ -1,9 +1,9 @@
 .footer {
-  background-color: var(--blackcurrant);
+  background-color: var(--second);
   display: flex;
-  height: 300px;
+  height: 200px;
   justify-content: space-between;
-  padding: 72px 70px;
+  padding: 20px 16px;
   width: 100%;
 }
 
@@ -17,17 +17,15 @@
   text-align: left;
   width: auto;
 
-  color: var(--soapstone);
+  color: var(--first);
   font-family: "Helvetica-Regular", Helvetica, Arial, serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-
-  margin-bottom: 20px;
 }
 
 .footer h4 {
-  color: var(--soapstone);
+  color: var(--first);
   font-family: "Helvetica-Regular", Helvetica, Arial, serif;
   font-size: 12px;
   font-style: normal;
@@ -41,34 +39,37 @@
   min-width: 198px;
   text-align: left;
   width: auto;
-
-  margin-bottom: 11px;
 }
 
 //Mailer
+.mailer h1,
+.mailer h4 {
+  margin-bottom: 15px;
+}
+
 .mailer-input {
   display: flex;
-  width: 376px;
+  width: 310px;
 }
 
 .mailer-input-input {
-  background-color: var(--soapstone);
+  background-color: var(--first);
   border: none;
   height: 46px;
-  padding-left: 12px;
-  width: 310px;
+  padding: 0 12px;
+  width: 240px;
 }
 
 .mailer-input button {
   align-items: center;
-  color: var(--soapstone);
+  color: var(--first);
   background-color: transparent;
   cursor: pointer;
   font-family: "Helvetica-Regular", Helvetica, Arial, serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  margin-left: 36px;
+  margin-left: 20px;
 
   border: 1px solid var(--soapstone);
   width: 50px;
@@ -84,11 +85,11 @@
   outline: none;
 }
 
-.mailer-success {
-  border: 2px solid green;
-  height: 46px;
-  width: 310px;
-}
+// .mailer-success {
+//   border: 2px solid green;
+//   height: 46px;
+//   width: 310px;
+// }
 
 .mailer-success::placeholder {
   color: green;
@@ -97,16 +98,16 @@
 .mailer-success-icon {
   color: green;
   font-size: 25px;
-  left: 325px;
+  left: 225px;
   position: absolute;
   margin-top: 10px;
 }
 
-.mailer-fail {
-  border: 2px solid red;
-  height: 46px;
-  width: 310px;
-}
+// .mailer-fail {
+//   border: 2px solid red;
+//   height: 46px;
+//   width: 310px;
+// }
 
 .mailer-fail::placeholder {
   color: red;
@@ -115,13 +116,13 @@
 .mailer-fail-icon {
   color: red;
   font-size: 25px;
-  left: 325px;
+  left: 225px;
   position: absolute;
   margin-top: 10px;
 }
 
 .mailer h5 {
-  color: var(--soapstone);
+  color: var(--first);
   font-family: "Helvetica-Regular", Helvetica, Arial, serif;
   font-size: 12px;
   font-style: normal;
@@ -136,7 +137,7 @@
   text-align: left;
   width: auto;
 
-  margin-top: 9px;
+  margin-top: 15px;
 }
 
 //Social
@@ -144,6 +145,11 @@
   margin-left: 20px;
   margin-right: 20px;
 }
+
+.social h1 {
+  margin-bottom: 50px;
+}
+
 .social ul {
   display: flex;
   justify-content: space-between;
@@ -152,12 +158,20 @@
 }
 
 .social-icon {
-  color: var(--soapstone);
+  color: var(--first);
   cursor: pointer;
-  font-size: 46px;
+  font-size: 37px;
 }
 
 //Space
+
+.footer-space {
+  width: 147px;
+}
+.footer-space h1 {
+  margin-bottom: 35px;
+}
 .footer-space h4 {
   cursor: pointer;
+  margin-bottom: 13px;
 }
