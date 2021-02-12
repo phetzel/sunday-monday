@@ -15,7 +15,6 @@ const EventIndexItem = ({event, history}) => {
     // console.log(year);
 
     const displayTime = timeUtil.displayEventIndex(event.datetime);
-    console.log(event);
 
     return (
         <li className="event-index-item" onClick={handleClick}>
