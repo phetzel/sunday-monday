@@ -5,184 +5,53 @@
 //Index
 //------------------------------------------------------------------------------
 
-.release-index {
-  align-items: flex-start;
-  background-color: transparent;
-  display: inline-flex;
-  flex-direction: row;
-  flex-shrink: 0;
-  flex-wrap: wrap;
-  // margin-bottom: 70px;
-  // justify-content: space-between;
-  width: 1253px;
-  // width: 100%;
-}
-
-.release-list-item {
-  background-color: transparent;
-  flex-shrink: 0;
-  height: 402px;
-  position: relative;
-  width: 369px;
-
-  float: left;
-  margin-bottom: 99.25px;
-  margin-right: 29px;
-  display: flex;
-  flex-direction: column;
-}
-
-.release-list-item img {
-  background-color: transparent;
-  flex-shrink: 0;
-  height: 367px;
-  width: 367px;
-
-  cursor: pointer;
-}
-
-.release-list-item-bottom {
-  background-color: var(--soapstone);
-  flex-shrink: 0;
-  height: 35px;
-  opacity: 0.75;
-  width: 367px;
-
-  display: flex;
-  align-items: center;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-.release-list-item-bottom h6 {
-  color: var(--blackcurrant);
-  font-family: "Helvetica-Regular", Helvetica, Arial, serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-
-  background-color: transparent;
-  flex-shrink: 0;
-  height: 21px;
-  letter-spacing: 1.8px;
-  min-height: 21px;
-  text-align: left;
-  width: 308px;
-}
-
-.release-list-item-bottom-icon-container {
-  display: flex;
-}
-
-.artist-show-music-bottom-icon {
-  font-size: 21px;
-  margin-left: 2.97px;
-  margin-right: 8px;
-
-  cursor: pointer;
-}
-
 //Show
 //------------------------------------------------------------------------------
 .release-show {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.release-show-details {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  width: 80%;
-}
-
-.release-show-details img {
-  height: 400px;
-  width: 400px;
-}
-
-.release-show-item {
-  margin-left: 10px;
-}
-
-.release-show-song-top h4 {
-  font-size: 30px;
-  font-weight: 700;
-}
-
-.release-show-artist li {
-  cursor: pointer;
-  font-size: 20px;
-  padding: 5px 0;
-}
-
-.release-show-artist li:hover {
-  background-color: #fcf8f7;
-}
-
-.release-song-list-container {
-  margin-top: 150px;
-  margin-bottom: 89px;
-  width: 1163px;
-}
-
-.release-song-list-container h1 {
-  color: var(--blackcurrant);
-  font-family: "Helvetica-Bold", Helvetica, Arial, serif;
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 700;
-
-  background-color: transparent;
-  flex-shrink: 0;
-  height: auto;
-  letter-spacing: 3.6px;
-  min-height: 41px;
-  min-width: 328px;
-  text-align: left;
-  width: auto;
-
-  margin-bottom: 107px;
-}
-
-.release-song-list {
+  align-self: center;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  height: 395px;
+  width: 800px;
+}
+
+.release-show-shadow {
+  box-shadow: 0px 2.7066495418548584px 20.29987144470215px rgba(0, 0, 0, 0.25);
+}
+
+.release-show img {
+  height: 395px;
+  width: 395px;
+}
+
+.release-show-list {
+  box-shadow: 0px 2.7066495418548584px 20.29987144470215px rgba(0, 0, 0, 0.25);
+  height: 395px;
+  overflow: scroll;
+  width: 395px;
 }
 
 .release-song {
-  align-items: center;
-  background-color: var(--soapstone);
+  box-shadow: 0px 2.7066495418548584px 20.29987144470215px rgba(0, 0, 0, 0.25);
   display: flex;
-  // justify-content: space-around;
+  height: 80px;
   margin-bottom: 10px;
-  width: 500px;
+  width: 395px;
 }
 
-.release-song-image {
-  min-width: 150px;
-  margin-right: 30px;
+.release-song img {
+  height: 80px;
+  width: 80px;
 }
 
 .release-song-details {
-  display: flex;
-}
-
-.release-song-details h6 {
-  color: var(--blackcurrant);
-  font-family: "Helvetica-Regular", Helvetica, Arial, serif;
-  font-size: 22px;
+  margin: 10px;
+  font-family: Helvetica;
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: 0.1em;
 
-  width: 200px;
-}
-
-.release-song-icon {
-  color: var(--blackcurrant);
-  font-size: 25px;
-  margin-left: 20px;
-  cursor: pointer;
+  color: var(--second);
 }

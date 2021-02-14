@@ -1,24 +1,13 @@
 import React from 'react';
 
 const ArtistShowDetail = ({ artist }) => {
-    const description = artist.description.split('***');
-
     return (
-        <div className="artist-show-details-container">
-            <div className="artist-show-details">
-                <h1>{artist.name}</h1>
-                <div className="artist-show-details-content">
-                    {
-                        description.map((desc, idx) => (
-                            <span key={idx}>
-                                <p>{desc}</p>
-                                <br />
-                            </span>
-                        ))
-                    }
-                </div>
-            </div>
+        <div className="artist-show-details">
             <img src={artist.photoUrl}/>
+            <h1>{artist.name}</h1>
+            <div className="artist-show-bio">
+                <p>{artist.description}</p>
+            </div>
         </div>
     )
 }

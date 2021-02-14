@@ -20,20 +20,18 @@ const RelseaseShowList = ({ songs }) => {
     setMusic(newMusic);
   }
 
-
   return (
-    <div className="release-song-list-container">
-      <h1>Tracks</h1>
-      <ul className="release-song-list">
-        { songs && songs.length > 0 &&
-          songs.map((song, idx) => (
-            <li className="release-song" key={idx}>
+    <ul className="release-show-list">
+      { songs && songs.length > 0 &&
+        songs.map((song, idx) => (
+          <li className="release-song" key={idx}>
+              
+            <img className="release-song-image" src={song.thumbnails.default.url} />
 
-              <img className="release-song-image" src={song.thumbnails.default.url} />
+            <div className="release-song-details">
+              <h6>{song.title}</h6>
 
-              <div className="release-song-details">
-                <h6>{song.title}</h6>
-                
+              <div className="release-song-details-bottom">
                 <FontAwesomeIcon 
                   className="release-song-icon"
                   onClick={() => handlePlay(song)} 
@@ -42,14 +40,12 @@ const RelseaseShowList = ({ songs }) => {
                   className="release-song-icon"
                   onClick={() => handleAdd(song)} 
                   icon={faPlus} />
-
               </div>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-
+            </div>
+          </li>
+        ))
+      }
+    </ul>
   )
 }
 

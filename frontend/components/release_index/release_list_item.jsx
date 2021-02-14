@@ -31,15 +31,15 @@ const ReleaseListItem = ({release, history }) => {
     } 
 
     return (
-        <div className="release-list-item">
+        <div className="list-item">
             <img 
                 alt={release.title}
-                onClick={handleClick}
                 src={release.photoUrl} 
                 title={release.title}/>
-            <div className="release-list-item-bottom">
-                <h6>{release.title}</h6>
-                <div className="artist-show-music-bottom-icon-container">
+            <div className="list-item-bottom">
+                <h4>{release.title}</h4>
+                <a onClick={handleClick}>VIEW RELEASE</a>
+                {/* <div className="artist-show-music-bottom-icon-container">
                     <FontAwesomeIcon 
                         className="artist-show-music-bottom-icon"
                         icon={faPlay} 
@@ -48,7 +48,7 @@ const ReleaseListItem = ({release, history }) => {
                         className="artist-show-music-bottom-icon"
                         icon={faPlus}
                         onClick={queueRelease}/>
-                </div>
+                </div> */}
             </div>
         </div>
     )

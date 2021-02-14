@@ -15,11 +15,11 @@ const ArtistShowMusic = ({ artist_id, history, releases }) => {
         history.push(`/artists/${artist_id}/music`)
     }
 
-    const newMusic = releases.slice(0,6);
+    const newMusic = releases.slice(0,3);
 
     return (
-        <div className="artist-show-music-container">
-            <h1>New Music</h1>
+        <div>
+            <h2>New Music</h2>
             <ul>
                 {newMusic.map(release => (
                     <ReleaseListItem 

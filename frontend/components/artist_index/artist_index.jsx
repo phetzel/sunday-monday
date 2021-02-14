@@ -30,7 +30,7 @@ const ArtistIndex = ({style, title}) => {
 
                     <div className="header-rect" />
 
-                    <ul className="artist-index">
+                    <ul className="list">
                         {artists && artists.map(artist => 
                             <ArtistListItem artist={artist} key={artist.id} />)}
                     </ul>

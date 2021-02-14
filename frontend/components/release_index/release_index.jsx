@@ -42,7 +42,7 @@ const ReleaseIndex = ({ artist, medium, title }) => {
 
                 <div className="header-rect" />
 
-                <ul className="release-index">
+                <ul className="list">
                     {releases && releases.map(release => 
                         <ReleaseListItem 
                             release={release} 

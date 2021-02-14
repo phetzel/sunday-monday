@@ -33,7 +33,7 @@ const VideoIndex = ({ feature, title, videos}) => {
                     </div>
                 }
 
-                <ul className="video-index">
+                <ul className="list">
                     {videos && videos.map(video => 
                         <VideoIndexItem video={video} key={video.id} />)}
                 </ul>
