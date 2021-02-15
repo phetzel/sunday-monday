@@ -4,13 +4,14 @@ import { withRouter } from 'react-router-dom';
 import eventApi from '../../util/event_api_util';
 import timeUtil from '../../util/time_util';
 
+
 const SplashEvent = ({history}) => {
     const [event, setEvent] = useState();
     const [display, setDisplay] = useState();
 
     const fetchEvent = () => {
         eventApi.fetchEvent().then(event => {
-            displayTime(event);
+            // displayTime(event);
             setEvent(event);
         })
     }
@@ -23,18 +24,23 @@ const SplashEvent = ({history}) => {
         history.push(`/events/${event.id}`)
     }
 
-    const displayTime = event => {
-        const eventTime = timeUtil.displayTime(event.datetime);
-        setDisplay(eventTime);
-    }
+    // const displayTime = event => {
+    //     const eventTime = timeUtil.displayTime(event.datetime);
+    //     setDisplay(eventTime);
+    // }
 
     return (
         <div>
             {event && 
-                <div className="splash-feature-display left86">
-                    <h6>{event.title}</h6>
-                    <img src={event.photoUrl} onClick={handleClick}/>
-                    <p>{event.description}</p>
+                <div className="list-item">
+                    <img 
+                        alt={event.title}
+                        src={event.photoUrl} 
+                        title={event.title}/>
+                    <div className="list-item-bottom">
+                        <h4>{event.title}</h4>
+                        <a onClick={handleClick}>VIEW EVENT</a>
+                    </div>
                 </div>
             }
         </div>
