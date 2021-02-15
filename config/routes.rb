@@ -4,6 +4,7 @@ Rails.application.routes.draw do
    namespace :api, defaults: { format: :json } do 
       resources :appearances, only: [:create, :destroy]
       resources :artists, only: [:index, :show, :create, :update, :destroy]
+      resources :contacts, only: [:create]
       resources :emails, only: [:create, :destroy]
       match "emails/unsubscribe/:unsubscribe_hash" => "emails#unsubscribe", as: "unsubscribe", via: :all
       resources :events, only: [:index, :show, :create, :update, :destroy]

@@ -15,6 +15,7 @@ const Space = ({ history }) => {
             <h1>SPACE MOTHER</h1>
             <h4 onClick={() => handleClick('about')}>ABOUT US</h4>
             <h4 onClick={handleStore}>STORE</h4>
+            <h4 onClick={() => handleClick('contact')}>CONTACT</h4>
             {/* <h4>CONTACT</h4> */}
         </div>
     )

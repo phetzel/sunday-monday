@@ -1,0 +1,2 @@
+module Api::ContactHelper
+end
