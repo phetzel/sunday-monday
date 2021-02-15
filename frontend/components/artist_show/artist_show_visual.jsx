@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 import Modal from '../modal/modal';
+import VisualIndexItem from '../visual_index/visual_index_item';
 
 const ArtistShowVisual = ({ artist_id, history, visuals }) => {
     const [modalVis, setModalVis] = useState(false);
@@ -23,7 +24,7 @@ const ArtistShowVisual = ({ artist_id, history, visuals }) => {
     const visualsSlice = visuals.slice(0,3);
 
     return (
-        <div className="artist-show-visuals-container">
+        <div>
             <Modal 
                 component={modalCom}
                 modalVis={modalVis}
@@ -31,31 +32,16 @@ const ArtistShowVisual = ({ artist_id, history, visuals }) => {
             />
 
             <h1>Visual Art</h1>
-            <ul className="visual-index">
+            <ul>
                 {visuals && visualsSlice.map(visual => (
-                    <li className="visual-list-item" key={visual.id}>
-                        <img alt={visual.title} src={visual.photoUrl} title={visual.title}/>
-                        <div className="visual-list-item-bottom">
-                            <h6>{visual.title}</h6>
-                            <FontAwesomeIcon 
-                                className="visual-list-item-icon" 
-                                icon={faExternalLinkAlt} 
-                                onClick={() => openModal(visual)}
-                            />
-
-                        </div>
-                    </li>
+                    <VisualIndexItem 
+                        visual={visual} 
+                        onClick={() => openModal(visual)} />
                 ))}
             </ul>
 
-            <div 
-                className="artist-show-visuals-all-container"
-                onClick={handleAllClick}>
-                <div className="artist-show-music-all">
-                    <div className="artist-show-music-all-content">
-                        View All Visuals
-                    </div>
-                </div>
+            <div className="artist-show-button" onClick={handleAllClick}>
+                <h6>VIEW ALL VISUALS</h6>               
             </div>
         </div>
     )

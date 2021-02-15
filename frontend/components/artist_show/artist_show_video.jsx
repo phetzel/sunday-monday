@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import ReactPlayer from 'react-player/lazy';
+
+import VideoIndexItemn from '../video_index/video_index_item';
 
 const ArtistShowVideo = ({ artist_id, history, videos }) => {
 
@@ -8,27 +9,24 @@ const ArtistShowVideo = ({ artist_id, history, videos }) => {
         history.push(`/artists/${artist_id}/videos`);
     }
 
-    const revVideos = videos.reverse();
-    const feature = revVideos.shift();
+    // const revVideos = videos.reverse();
+    const newVideos = videos.slice(0,3);
 
     return (
-        <div className="artist-show-video-container">
-            <h1>Newest Video</h1>
-            <div className="artist-show-video">
-                <div className="artist-show-video-player">
-                    <ReactPlayer 
-                        height="480px"
-                        width="854px"
-                        url={`https://www.youtube.com/watch?v=${feature.url}`} />
-                </div>
-            </div>
+        <div>
+            <h1>VIDEOS</h1>
 
-            <div 
-                className="artist-show-videos-button-container"
-                onClick={handleClick}>
-                <div className="artist-show-videos-button">
-                    <div className="artist-show-videos-button-content">View All Videos</div>
-                </div>
+            <ul>
+                {newVideos.map((video, idx) => (
+                    <VideoIndexItemn
+                        key={idx} 
+                        video={video}
+                    />
+                ))}
+            </ul>
+            
+            <div className="artist-show-button" onClick={handleClick}>
+                <h6>VIEW ALL VIDEOS</h6>               
             </div>
         </div>
     )

@@ -61,7 +61,7 @@
 //------------------------------------------------------------------------------
 
 .artist-show {
-  padding-bottom: 100px;
+  padding-bottom: 10px;
   margin-top: 100px;
 }
 
@@ -119,66 +119,105 @@
 
 .artist-show-content {
   width: 984px;
-  background-color: yellowgreen;
 }
 
 .artist-show-content h1 {
-}
-
-.artist-instagram-container {
-  margin-top: 141px;
-  // min-width: 1163px;
-  min-width: 1180px;
-  margin-bottom: 92px;
-}
-
-.artist-instagram-container h1 {
-  color: var(--blackcurrant);
-  font-family: "Helvetica-Bold", Helvetica, Arial, serif;
-  font-size: 36px;
+  font-family: Helvetica;
   font-style: normal;
-  font-weight: 700;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
 
-  background-color: transparent;
-  flex-shrink: 0;
-  height: auto;
-  letter-spacing: 3.6px;
-  min-height: 41px;
-  min-width: 328px;
-  text-align: left;
-  width: auto;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 
-  margin-bottom: 107px;
+  color: var(--second);
+  margin-bottom: 55px;
 }
 
-.artist-instagram-row {
-  display: flex;
-}
-
-.artist-instagram-list {
+.artist-show-content ul {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  width: 984px;
 }
 
-.insta-pic-small {
-  width: 186.05px;
-  height: 182.24px;
+.artist-show-button {
+  margin-top: 35px;
+  margin-bottom: 90px;
 
-  margin-right: 9.54px;
-  margin-bottom: 7px;
+  align-items: center;
+  background-color: var(--third);
+  display: flex;
+  height: 38px;
+  justify-content: center;
+  width: 151px;
 
   cursor: pointer;
 }
 
-.insta-pic-large {
-  height: 373.83px;
-  width: 381.64px;
-
-  margin-right: 9.54px;
-  margin-bottom: 7px;
-
-  cursor: pointer;
+.artist-show-button h6 {
+  color: var(--first);
+  font-family: "Helvetica-Regular", Helvetica, Arial, serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
 }
+
+// .artist-instagram-container {
+//   margin-top: 141px;
+//   // min-width: 1163px;
+//   min-width: 1180px;
+//   margin-bottom: 92px;
+// }
+
+// .artist-instagram-container h1 {
+//   color: var(--blackcurrant);
+//   font-family: "Helvetica-Bold", Helvetica, Arial, serif;
+//   font-size: 36px;
+//   font-style: normal;
+//   font-weight: 700;
+
+//   background-color: transparent;
+//   flex-shrink: 0;
+//   height: auto;
+//   letter-spacing: 3.6px;
+//   min-height: 41px;
+//   min-width: 328px;
+//   text-align: left;
+//   width: auto;
+
+//   margin-bottom: 107px;
+// }
+
+// .artist-instagram-row {
+//   display: flex;
+// }
+
+// .artist-instagram-list {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+
+// .insta-pic-small {
+//   width: 186.05px;
+//   height: 182.24px;
+
+//   margin-right: 9.54px;
+//   margin-bottom: 7px;
+
+//   cursor: pointer;
+// }
+
+// .insta-pic-large {
+//   height: 373.83px;
+//   width: 381.64px;
+
+//   margin-right: 9.54px;
+//   margin-bottom: 7px;
+
+//   cursor: pointer;
+// }
 
 // * {
 //   box-sizing: border-box;

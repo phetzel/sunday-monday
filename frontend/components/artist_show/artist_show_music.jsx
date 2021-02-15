@@ -19,7 +19,7 @@ const ArtistShowMusic = ({ artist_id, history, releases }) => {
 
     return (
         <div>
-            <h2>New Music</h2>
+            <h1>MUSIC</h1>
             <ul>
                 {newMusic.map(release => (
                     <ReleaseListItem 
@@ -27,15 +27,9 @@ const ArtistShowMusic = ({ artist_id, history, releases }) => {
                     />
                 ))}
             </ul>
-
-            <div 
-                className="artist-show-music-all-container"
-                onClick={handleAllClick}>
-                <div className="artist-show-music-all">
-                    <div className="artist-show-music-all-content">
-                        View All Music
-                    </div>
-                </div>
+            
+            <div className="artist-show-button" onClick={handleAllClick}>
+                <h6>VIEW ALL MUSIC</h6>               
             </div>
         </div>
     )
