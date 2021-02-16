@@ -37,18 +37,20 @@ const ReleaseListItem = ({release, history }) => {
                 src={release.photoUrl} 
                 title={release.title}/>
             <div className="list-item-bottom">
-                <h4>{release.title}</h4>
+                <div className="release-item-header">
+                    <h4>{release.title}</h4>
+                    <div className="release-item-icons">
+                        <FontAwesomeIcon 
+                            className="release-item-icon"
+                            icon={faPlay} 
+                            onClick={playRelease}/>
+                        <FontAwesomeIcon 
+                            className="release-item-icon"
+                            icon={faPlus}
+                            onClick={queueRelease}/>
+                    </div>
+                </div>
                 <a onClick={handleClick}>VIEW RELEASE</a>
-                {/* <div className="artist-show-music-bottom-icon-container">
-                    <FontAwesomeIcon 
-                        className="artist-show-music-bottom-icon"
-                        icon={faPlay} 
-                        onClick={playRelease}/>
-                    <FontAwesomeIcon 
-                        className="artist-show-music-bottom-icon"
-                        icon={faPlus}
-                        onClick={queueRelease}/>
-                </div> */}
             </div>
         </div>
     )

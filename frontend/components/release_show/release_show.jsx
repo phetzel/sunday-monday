@@ -46,7 +46,6 @@ const ReleaseShow = ({ match }) => {
                         { songs && 
                             <ReleaseShowList songs={songs}/>
                         }
-
                     </div>
                 }
                 

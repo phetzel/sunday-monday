@@ -4,7 +4,17 @@
 
 //Index
 //------------------------------------------------------------------------------
+.release-item-header {
+  display: flex;
+  justify-content: space-between;
+}
 
+.release-item-icon {
+  margin-left: 10px;
+  color: var(--second);
+  cursor: pointer;
+  font-size: 14px;
+}
 //Show
 //------------------------------------------------------------------------------
 .release-show {
@@ -13,6 +23,8 @@
   justify-content: space-between;
   height: 395px;
   width: 800px;
+
+  margin-bottom: 90px;
 }
 
 .release-show-shadow {
