@@ -7,7 +7,7 @@ const Space = ({ history }) => {
     }
 
     const handleClick = (loc) => {
-        history.push(loc);
+        history.replace(loc);
     }
 
     return (
@@ -16,7 +16,6 @@ const Space = ({ history }) => {
             <h4 onClick={() => handleClick('about')}>ABOUT US</h4>
             <h4 onClick={handleStore}>STORE</h4>
             <h4 onClick={() => handleClick('contact')}>CONTACT</h4>
-            {/* <h4>CONTACT</h4> */}
         </div>
     )
 }

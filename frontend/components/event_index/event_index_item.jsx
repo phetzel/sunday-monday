@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+import EventIndexItemArtists from './event_index_item_artists';
 import timeUtil from '../../util/time_util';
 
 const EventIndexItem = ({event, history}) => {
@@ -8,13 +9,9 @@ const EventIndexItem = ({event, history}) => {
         // history.push(`/events/${event.id}`);
     }
 
-    // const { day, month, year } = timeUtil.displayEventIndex(event.dateTime);
-
-    // console.log(day);
-    // console.log(month);
-    // console.log(year);
-
     const displayTime = timeUtil.displayEventIndex(event.datetime);
+
+    console.log(event);
 
     return (
         <li className="event-index-item" onClick={handleClick}>
@@ -28,6 +25,7 @@ const EventIndexItem = ({event, history}) => {
 
             <div className="event-index-item-details">
                 <h3>{event.title}</h3>
+                <EventIndexItemArtists artists={event.artists} />
             </div>
 
             <div className="event-index-item-location">

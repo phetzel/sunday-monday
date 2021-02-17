@@ -28,7 +28,9 @@ const ArtistShow = ({ match }) => {
                 <div className="header-rect" />
                 
                 <div className="artist-show">
-                    {artist && <ArtistShowDetail artist={artist}/>}
+                    <div className="full-width">
+                        {artist && <ArtistShowDetail artist={artist}/>}
+                    </div>
 
                     <div className="artist-show-content">
                         {artist && artist.releases.length > 0 &&

@@ -67,8 +67,10 @@
 
 .artist-show-details {
   height: 166px;
-  margin-bottom: 98px;
-  position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
   width: 1024px;
 }
 
@@ -118,6 +120,7 @@
 }
 
 .artist-show-content {
+  margin-top: 260px;
   width: 984px;
 }
 

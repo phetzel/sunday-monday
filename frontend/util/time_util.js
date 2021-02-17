@@ -37,7 +37,6 @@ const months = {
 const displayEventIndex = datetime => {
     const eventDatetime = datetime.split("T");
     const eventDate = eventDatetime[0].split("-");
-    console.log(eventDate);
 
     let dateObj = {};
     dateObj['year'] = eventDate[0];

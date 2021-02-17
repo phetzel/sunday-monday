@@ -20,7 +20,8 @@ const SplashRelease = ({history}) => {
     const handleClick = () => {
         history.push(`/music/${release.id}`)
     }
-
+    console.log(release);
+    
     return (
         <div>
             {release && 

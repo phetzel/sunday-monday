@@ -53,6 +53,33 @@
   color: var(--second);
 }
 
+.event-index-item-details ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 35px;
+
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.event-index-item-details li {
+  margin-top: 5px;
+  margin-right: 10px;
+
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: var(--second);
+  cursor: pointer;
+}
+
 .event-index-item-location {
   width: 142px;
 }
@@ -72,94 +99,3 @@
 
 //Event Show
 //------------------------------------------------------------------------------
-.event-show-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.event-show {
-  justify-content: space-around;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.event-show-details {
-  align-items: center;
-  background-color: #f6eee4;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  min-height: 400px;
-  max-width: 600px;
-  min-width: 300px;
-  justify-content: space-around;
-  padding: 10px;
-}
-
-.event-show-details-header {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-  text-align: center;
-  width: 80%;
-}
-
-.event-show-details-header h6 {
-  margin-top: 20px;
-}
-
-.event-show-details h4 {
-  font-size: 30px;
-  font-weight: 700;
-}
-
-.event-show-details p {
-  padding: 3px 10px;
-}
-
-.event-show-artist {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  width: 100%;
-}
-
-.event-show-artist h5 {
-  font-size: 25px;
-  margin-bottom: 10px;
-}
-
-.event-show-artist ul {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.event-show-artist li {
-  cursor: pointer;
-  font-size: 18px;
-  padding: 5px;
-  text-align: center;
-  width: 80%;
-}
-
-.event-show-artist li:hover {
-  background-color: #f4dfdd;
-}
-
-.event-show img {
-  border-radius: 25px;
-  height: 400px;
-  width: 300px;
-}
-
-.event-map-container {
-  border-radius: 25px;
-  height: 400px;
-  width: 300px;
-}

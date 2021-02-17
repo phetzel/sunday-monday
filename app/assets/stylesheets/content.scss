@@ -29,8 +29,14 @@ body {
   flex-direction: column;
   justify-content: center;
   margin-top: 69px;
-  width: 1024px;
+  width: 984px;
 }
+
+// .full-width {
+//   width: 100vw;
+//   display: flex;
+//   justify-content: center;
+// }
 
 //Center Logo
 .center-logo-container {
@@ -95,7 +101,7 @@ body {
   background-color: var(--second);
   flex-shrink: 0;
   height: 20px;
-  width: 983px;
+  width: 984px;
 
   position: absolute;
   top: 150px;
@@ -148,6 +154,28 @@ body {
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
+}
+
+.list-item-bottom-mid {
+  display: flex;
+  margin-top: 6.77px;
+  flex-wrap: wrap;
+  width: 170px;
+}
+
+.list-item-bottom-mid li {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  // display: flex;
+  // align-items: center;
+  letter-spacing: 0.05em;
+
+  color: var(--second);
+  margin-right: 7px;
+  cursor: pointer;
 }
 
 .list-item-bottom a {

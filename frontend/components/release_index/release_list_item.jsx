@@ -5,6 +5,7 @@ import { faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import MusicContext from '../../context/music_context';
 import youtubeApi from '../../util/youtube_util';
+import ReleaseListItemArtists from './release_list_item_artists';
 
 const ReleaseListItem = ({release, history }) => {
     const { music, setMusic, setPlaying } = useContext(MusicContext);
@@ -37,18 +38,21 @@ const ReleaseListItem = ({release, history }) => {
                 src={release.photoUrl} 
                 title={release.title}/>
             <div className="list-item-bottom">
-                <div className="release-item-header">
-                    <h4>{release.title}</h4>
-                    <div className="release-item-icons">
-                        <FontAwesomeIcon 
-                            className="release-item-icon"
-                            icon={faPlay} 
-                            onClick={playRelease}/>
-                        <FontAwesomeIcon 
-                            className="release-item-icon"
-                            icon={faPlus}
-                            onClick={queueRelease}/>
+                <div>
+                    <div className="release-item-header">
+                        <h4>{release.title}</h4>
+                        <div className="release-item-icons">
+                            <FontAwesomeIcon 
+                                className="release-item-icon"
+                                icon={faPlay} 
+                                onClick={playRelease}/>
+                            <FontAwesomeIcon 
+                                className="release-item-icon"
+                                icon={faPlus}
+                                onClick={queueRelease}/>
+                        </div>
                     </div>
+                    <ReleaseListItemArtists artists={release.artists} />
                 </div>
                 <a onClick={handleClick}>VIEW RELEASE</a>
             </div>

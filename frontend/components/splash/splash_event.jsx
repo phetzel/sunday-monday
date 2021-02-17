@@ -29,6 +29,10 @@ const SplashEvent = ({history}) => {
     //     setDisplay(eventTime);
     // }
 
+    const handleArtistClick = (id) => {
+        history.push(`/artists/${id}`);
+    }
+
     return (
         <div>
             {event && 
@@ -38,7 +42,20 @@ const SplashEvent = ({history}) => {
                         src={event.photoUrl} 
                         title={event.title}/>
                     <div className="list-item-bottom">
-                        <h4>{event.title}</h4>
+                        <div>
+                            <h4>{event.title}</h4>
+                            <ul className="list-item-bottom-mid">
+                                {
+                                    event.artists.map((artist, idx) => (
+                                        <li 
+                                            onClick={() => handleArtistClick(artist.id)}
+                                            key={idx}>
+                                            {artist.name}
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
                         <a onClick={handleClick}>VIEW EVENT</a>
                     </div>
                 </div>
