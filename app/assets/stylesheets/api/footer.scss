@@ -7,6 +7,16 @@
   width: 100%;
 }
 
+@media only screen and (max-width: 480px) {
+  .footer {
+    align-items: center;
+    flex-direction: column;
+    height: 600px;
+    justify-content: space-between;
+    padding: 50px 0px 0px 0px;
+  }
+}
+
 .footer h1 {
   background-color: transparent;
   flex-shrink: 0;
@@ -42,6 +52,12 @@
 }
 
 //Mailer
+@media only screen and (max-width: 480px) {
+  .mailer {
+    width: 310px;
+  }
+}
+
 .mailer h1,
 .mailer h4 {
   margin-bottom: 15px;
@@ -146,8 +162,22 @@
   margin-right: 20px;
 }
 
+@media only screen and (max-width: 480px) {
+  .social {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 310px;
+  }
+}
+
 .social h1 {
   margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 480px) {
+  .social h1 {
+    margin-bottom: 38px;
+  }
 }
 
 .social ul {
@@ -155,6 +185,12 @@
   justify-content: space-between;
   width: 326px;
   // width: 490px;
+}
+
+@media only screen and (max-width: 480px) {
+  .social ul {
+    width: 275px;
+  }
 }
 
 .social-icon {
@@ -168,9 +204,18 @@
 .footer-space {
   width: 147px;
 }
+
+@media only screen and (max-width: 480px) {
+  .footer-space {
+    margin-bottom: 13px;
+    width: 310px;
+  }
+}
+
 .footer-space h1 {
   margin-bottom: 35px;
 }
+
 .footer-space h4 {
   cursor: pointer;
   margin-bottom: 13px;
