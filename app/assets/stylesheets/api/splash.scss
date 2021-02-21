@@ -1,3 +1,25 @@
+.splash-upper-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 59px;
+  width: 100vw;
+}
+
+.splash-upper {
+  align-self: center;
+  position: relative;
+  height: 482px;
+  margin-top: 10px;
+  width: 1024px;
+}
+
+@media only screen and (max-width: 480px) {
+  .splash-upper {
+    height: 188px;
+    width: 340px;
+  }
+}
+
 .splash-rect {
   background-color: var(--second);
   height: 336px;
@@ -5,13 +27,12 @@
 
   position: absolute;
   left: 0;
-  top: 159px;
 }
 
-.splash-upper {
-  position: relative;
-  height: 482px;
-  margin-top: 10px;
+@media only screen and (max-width: 480px) {
+  .splash-rect {
+    display: none;
+  }
 }
 
 .splash-image {
@@ -20,6 +41,15 @@
 
   margin-left: 151px;
   object-fit: cover;
+}
+
+@media only screen and (max-width: 480px) {
+  .splash-image {
+    height: 188px;
+    margin-left: 0px;
+    object-fit: cover;
+    width: 340px;
+  }
 }
 
 .splash-upper h1 {
@@ -32,11 +62,30 @@
   text-transform: uppercase;
 }
 
+@media only screen and (max-width: 480px) {
+  .splash-upper h1 {
+    font-family: Helvetica;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}
+
 .she {
   color: var(--first);
   position: absolute;
   bottom: 10px;
   left: 100px;
+}
+
+@media only screen and (max-width: 480px) {
+  .she {
+    left: 24px;
+  }
 }
 
 .she-partial {
@@ -48,11 +97,26 @@
   width: 50px;
 }
 
+@media only screen and (max-width: 480px) {
+  .she-partial {
+    display: none;
+  }
+}
+
 .descends {
   color: var(--second);
   position: absolute;
   bottom: -50px;
   left: 226px;
+}
+
+@media only screen and (max-width: 480px) {
+  .descends {
+    bottom: -14.5px;
+    color: var(--first);
+    left: 63px;
+    text-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
+  }
 }
 
 .descends-partial {
@@ -64,10 +128,22 @@
   overflow: hidden;
 }
 
+@media only screen and (max-width: 480px) {
+  .descends-partial {
+    display: none;
+  }
+}
+
 .splash-lower {
   align-self: center;
-  margin-top: 120px;
-  width: 954px;
+  margin-top: 60px;
+  width: 984px;
+}
+
+@media only screen and (max-width: 480px) {
+  .splash-lower {
+    width: 340px;
+  }
 }
 
 .splash-lower-spotlight {
@@ -75,6 +151,13 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 73px;
+}
+
+@media only screen and (max-width: 480px) {
+  .splash-lower-spotlight {
+    justify-content: flex-start;
+    width: 340px;
+  }
 }
 
 .splash-lower-spotlight h1 {
@@ -86,255 +169,24 @@
   letter-spacing: 2.4px;
 }
 
+@media only screen and (max-width: 480px) {
+  .splash-lower-spotlight h1 {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.1em;
+  }
+}
+
 .splash-lower-rect {
   background-color: var(--second);
   height: 13px;
+  margin-right: 30px;
   width: 266px;
 }
-// .splash-upper {
-//   background-color: transparent;
-//   flex-shrink: 0;
-//   height: 948px;
-//   margin-right: -2px;
-//   position: relative;
-//   // width: 1444px;
-//   width: 100vw;
-//   // z-index: -100;
-// }
 
-// .splash-rect {
-//   background-color: var(--blackcurrant);
-//   height: 501px;
-//   left: -0px;
-//   position: absolute;
-//   // top: 155px;
-//   top: 85px;
-//   width: 35px;
-//   z-index: 100;
-// }
-
-// .splash-rect-2 {
-//   background-color: var(--blackcurrant);
-//   flex-shrink: 0;
-//   height: 20px;
-//   width: 375px;
-
-//   position: absolute;
-//   right: 39px;
-//   top: 1027px;
-// }
-
-// .splash-image {
-//   background-color: transparent;
-//   height: 718px;
-//   // left: 174px;
-//   right: 0;
-//   position: absolute;
-//   top: 85px;
-//   // top: 156px;
-//   width: 1270px;
-//   // width: 80%;
-// }
-
-// .splash-upper h1 {
-//   font-family: "Montserrat", "Mplus 1p", "Hiragino Sans",
-//     "Hiragino Kaku Gothic Pro", "游ゴシック", "游ゴシック体", YuGothic,
-//     "Yu Gothic", "ＭＳ ゴシック", "MS Gothic", sans-serif;
-//   font-weight: 900;
-//   font-size: 100px;
-//   line-height: 150px;
-//   letter-spacing: 0.1em;
-// }
-
-// .splash-primary {
-//   color: var(--blackcurrant);
-// }
-
-// .splash-secondary {
-//   // color: var(--soapstone);
-//   color: rgba(251, 242, 234, 1);
-// }
-
-// .she {
-//   // color: var(--soapstone);
-//   color: rgba(251, 242, 234, 1);
-//   position: absolute;
-//   width: 257px;
-//   height: 150px;
-//   // left: 67px;
-//   right: 1120px;
-//   top: 633.5px;
-//   // top: 704.5px;
-// }
-
-// .she-partial {
-//   position: absolute;
-//   height: 150px;
-//   // left: 67px;
-//   right: 1270px;
-//   top: 633.5px;
-//   // top: 704.5px;
-
-//   overflow: hidden;
-//   // width: 7.4%;
-//   width: 108px;
-// }
-
-// .descends {
-//   color: var(--blackcurrant);
-//   position: absolute;
-//   width: 755px;
-//   height: 150px;
-//   // left: 262px;
-//   right: 423px;
-//   // top: 798.5px;
-//   top: 727.5px;
-// }
-
-// .descends-partial {
-//   position: absolute;
-//   width: 755px;
-//   // left: 262px;
-//   right: 423px;
-//   top: 727.5px;
-//   // top: 798.5px;
-
-//   height: 8%;
-//   overflow: hidden;
-// }
-
-// //Lower
-// .splash-lower-outter-container {
-//   align-items: center;
-//   margin-top: 66.5px;
-//   // margin-left: 139px;
-//   // justify-content: center;
-//   // display: flex;
-//   width: 1173px;
-// }
-
-// .splash-lower-h1 {
-//   color: var(--blackcurrant);
-//   font-family: "Helvetica-Bold", Helvetica, Arial, serif;
-//   font-size: 36px;
-//   font-style: normal;
-//   font-weight: 700;
-
-//   background-color: transparent;
-//   flex-shrink: 0;
-//   height: auto;
-//   letter-spacing: 3.6px;
-//   min-height: 41px;
-//   min-width: 247px;
-//   text-align: left;
-//   width: auto;
-// }
-
-// .splash-lower-container {
-//   // margin-left: 11px;
-//   margin-top: 129px;
-//   position: relative;
-//   width: 1173px;
-
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
-
-// .splash-lower {
-//   background-color: var(--soapstone-2);
-//   flex-shrink: 0;
-//   height: 711px;
-//   margin-bottom: 99px;
-// }
-
-// .splash-lower-content {
-//   align-items: flex-start;
-//   background-color: transparent;
-//   display: inline-flex;
-//   flex-direction: row;
-//   flex-shrink: 0;
-//   height: 577px;
-//   // justify-content: space-between;
-//   // min-width: 1102px;
-//   // width: auto;
-
-//   margin-top: 60px;
-//   margin-left: 36px;
-//   margin-right: 36px;
-// }
-
-// .splash-feature-display {
-//   display: flex;
-//   flex-direction: column;
-//   width: 310px;
-// }
-
-// .left86 {
-//   margin-left: 86px;
-// }
-
-// .splash-feature-display h6 {
-//   background-color: transparent;
-//   flex-shrink: 0;
-//   height: 18px;
-//   letter-spacing: 1.6px;
-//   min-height: 18px;
-//   min-width: 192px;
-//   text-align: center;
-//   width: auto;
-
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-
-//   color: var(--blackcurrant);
-//   font-family: "Helvetica-Bold", Helvetica, Arial, serif;
-//   font-size: 16px;
-//   font-style: normal;
-//   font-weight: 700;
-
-//   margin-bottom: 20px;
-//   cursor: pointer;
-// }
-
-// .splash-feature-display img {
-//   border-radius: 155px;
-//   height: 310px;
-//   width: 310px;
-
-//   cursor: pointer;
-// }
-
-// .splash-feature-display p {
-//   align-self: center;
-//   background-color: transparent;
-//   flex-shrink: 0;
-//   height: 208px;
-//   letter-spacing: 0px;
-//   line-height: 21px;
-//   margin-top: 38px;
-//   min-height: 168px;
-//   text-align: center;
-//   width: 242px;
-
-//   display: flex;
-//   flex-direction: column;
-//   // justify-content: center;
-
-//   color: var(--blackcurrant);
-//   font-family: "Helvetica-Regular", Helvetica, Arial, serif;
-//   font-size: 16px;
-//   font-style: normal;
-//   font-weight: 400;
-
-//   overflow: scroll;
-// }
-
-// :root {
-//   --blackcurrant: rgba(53, 45, 57, 1);
-//   --linen: rgba(251, 242, 234, 1);
-//   --orchid-pearl: rgba(109, 67, 90, 1);
-//   --soapstone: rgba(255, 252, 249, 1);
-//   --soapstone-2: rgba(255, 252, 249, 0.75);
-// }
+@media only screen and (max-width: 480px) {
+  .splash-lower-rect {
+    display: none;
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { withRouter} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUniversalAccess, faUserAlt } from '@fortawesome/free-solid-svg-icons';  
+import { faBars, faUserAlt } from '@fortawesome/free-solid-svg-icons';  
 
 import AdminDropDown from './admin_drop_down';
 import ArtistDropDown from './artist_drop_down';
@@ -17,6 +17,7 @@ const Navbar = ({ history }) => {
     const [loginVisible, setLoginVisible] = useState(false);
     const [mediaVisible, setMediaVisible] = useState(false);
     const [musicVisible, setMusicVisible] = useState(false);
+    const [dropVisable, setDropVisable] = useState(false);
 
     const handleClick = (loc) => {
         history.push(loc);
@@ -40,6 +41,11 @@ const Navbar = ({ history }) => {
         func(true);
     }
 
+    const handleDropdown = () => {
+        setDropVisable(!dropVisable);
+        console.log(dropVisable);
+    }
+
     const handleHover = (num) => {
         setHovering(num);
     }
@@ -56,17 +62,20 @@ const Navbar = ({ history }) => {
     }
 
     const dropdown = user ? <AdminDropDown /> : <LoginDropDown />;
+    const listClass = dropVisable ? "nav-verticle" : "nav-verticle-invisible";
 
     return (
         <div className="top-nav">
-            <div className="top-nav-left" >
+            <div className="top-nav-left" onClick={() => handleClick('/')}>
+                <div className="nav-hamburger" onClick={() => handleDropdown()}>
+                    <FontAwesomeIcon icon={faBars} />
+                </div>
+
                 <div className="nav-spacemother" onClick={() => handleClick('/')}>
                     <h6>SPACEMOTHER</h6>
                 </div>
 
-                <div 
-                    className="nav-list"
-                >
+                <div className={`nav-list nav-verticle-invisible`}>
                     <div 
                         className={`nav-music ${checkHovering(1)}`}
                         onMouseEnter={() => handleVisibility(setMusicVisible, 1)}
