@@ -32,11 +32,12 @@ body {
   width: 984px;
 }
 
-// .full-width {
-//   width: 100vw;
-//   display: flex;
-//   justify-content: center;
-// }
+@media only screen and (max-width: 480px) {
+  .content {
+    margin-top: 55px;
+    width: 340px;
+  }
+}
 
 //Center Logo
 .center-logo-container {
@@ -59,6 +60,15 @@ body {
   z-index: 10;
 }
 
+@media only screen and (max-width: 480px) {
+  .center-logo-container {
+    border: solid 3px var(--first);
+    border-radius: 20px;
+    height: 40px;
+    width: 40px;
+  }
+}
+
 .center-logo {
   background-color: var(--first);
   flex-shrink: 0;
@@ -69,12 +79,26 @@ body {
   border-radius: 68px;
 }
 
+@media only screen and (max-width: 480px) {
+  .center-logo {
+    border-radius: 18px;
+    height: 36px;
+    width: 36px;
+  }
+}
+
 //Header
 
 .header-container {
   display: inline;
   margin-bottom: 76px;
   z-index: 100;
+}
+
+@media only screen and (max-width: 480px) {
+  .header-container {
+    margin-bottom: 60px;
+  }
 }
 
 .header-container span {
@@ -105,6 +129,14 @@ body {
 
   position: absolute;
   top: 150px;
+}
+
+@media only screen and (max-width: 480px) {
+  .header-rect {
+    height: 10px;
+    top: 100px;
+    width: 340px;
+  }
 }
 
 // lists

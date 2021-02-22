@@ -42,6 +42,7 @@ const Navbar = ({ history }) => {
     }
 
     const handleDropdown = () => {
+        // e.stopPropagation();
         setDropVisable(!dropVisable);
         console.log(dropVisable);
     }
@@ -66,7 +67,7 @@ const Navbar = ({ history }) => {
 
     return (
         <div className="top-nav">
-            <div className="top-nav-left" onClick={() => handleClick('/')}>
+            <div className="top-nav-left">
                 <div className="nav-hamburger" onClick={() => handleDropdown()}>
                     <FontAwesomeIcon icon={faBars} />
                 </div>
@@ -75,7 +76,7 @@ const Navbar = ({ history }) => {
                     <h6>SPACEMOTHER</h6>
                 </div>
 
-                <div className={`nav-list nav-verticle-invisible`}>
+                <div className={`nav-list ${listClass}`}>
                     <div 
                         className={`nav-music ${checkHovering(1)}`}
                         onMouseEnter={() => handleVisibility(setMusicVisible, 1)}
