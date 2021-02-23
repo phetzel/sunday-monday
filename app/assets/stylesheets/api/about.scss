@@ -7,8 +7,22 @@
   width: 871px;
 }
 
+@media only screen and (max-width: 480px) {
+  .about {
+    width: 340px;
+    flex-direction: column-reverse;
+    position: relative;
+  }
+}
+
 .about-left {
   width: 362px;
+}
+
+@media only screen and (max-width: 480px) {
+  .about-left {
+    width: 340px;
+  }
 }
 
 .about h2 {
@@ -20,6 +34,21 @@
   margin-bottom: 30px;
 }
 
+@media only screen and (max-width: 480px) {
+  .about h2 {
+    color: var(--first);
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 55px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    position: absolute;
+    top: 131px;
+  }
+}
+
 .about p {
   color: var(--second);
   font-family: "Helvetica-Regular", Helvetica, Arial, serif;
@@ -28,7 +57,23 @@
   line-height: 22.4px;
 }
 
+@media only screen and (max-width: 480px) {
+  .about p {
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 140%;
+    letter-spacing: 0.1em;
+  }
+}
+
 .about-image {
   height: 470px;
   width: 430px;
+}
+
+@media only screen and (max-width: 480px) {
+  .about-image {
+    height: 371px;
+    width: 340px;
+  }
 }
