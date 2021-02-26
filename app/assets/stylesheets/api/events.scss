@@ -7,6 +7,12 @@
   width: 900px;
 }
 
+@media only screen and (max-width: 480px) {
+  .event-index {
+    width: 340px;
+  }
+}
+
 .event-index-item {
   display: flex;
   justify-content: space-between;
@@ -19,6 +25,16 @@
   margin-bottom: 10px;
 }
 
+@media only screen and (max-width: 480px) {
+  .event-index-item {
+    align-items: center;
+    flex-direction: column;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 340px;
+  }
+}
+
 .event-index-item-date {
   color: var(--second);
   font-family: Helvetica;
@@ -27,6 +43,15 @@
   font-size: 24px;
   line-height: 28px;
   letter-spacing: 0.1em;
+}
+
+@media only screen and (max-width: 480px) {
+  .event-index-item-date {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-around;
+    width: 250px;
+  }
 }
 
 #event-index-year {
@@ -38,8 +63,21 @@
   width: 200px;
 }
 
+@media only screen and (max-width: 480px) {
+  .event-index-item img {
+    margin-bottom: 20px;
+  }
+}
+
 .event-index-item-details {
   width: 169px;
+}
+
+@media only screen and (max-width: 480px) {
+  .event-index-item-details {
+    margin-bottom: 20px;
+    width: 250px;
+  }
 }
 
 .event-index-item-details h3 {
@@ -82,6 +120,13 @@
 
 .event-index-item-location {
   width: 142px;
+}
+
+@media only screen and (max-width: 480px) {
+  .event-index-item-location {
+    margin-bottom: 20px;
+    width: 250px;
+  }
 }
 
 .event-index-item-location h6 {
