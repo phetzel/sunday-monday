@@ -24,11 +24,11 @@ const VideoIndex = ({ feature, title, videos}) => {
                 <div className="header-rect" />
 
                 { feature &&
-                    <div className="video-index-featured">
+                    <div className="video-show">
                         <ReactPlayer 
                             onPlay={pauseMusic}
-                            height="480px"
-                            width="854px"
+                            height="100%"
+                            width="100%"
                             url={`https://www.youtube.com/watch?v=${feature.url}`} />
                     </div>
                 }

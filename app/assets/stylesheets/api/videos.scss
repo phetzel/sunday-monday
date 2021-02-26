@@ -1,97 +1,20 @@
 //Index
 //------------------------------------------------------------------------------
 
-.video-index-featured {
-  align-self: center;
-  margin-bottom: 150px;
-}
-
 //Show
 //------------------------------------------------------------------------------
-
-.artist-show-video-container h1 {
-  color: var(--blackcurrant);
-  font-family: "Helvetica-Bold", Helvetica, Arial, serif;
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 700;
-
-  background-color: transparent;
-  flex-shrink: 0;
-  height: auto;
-  letter-spacing: 3.6px;
-  min-height: 41px;
-  min-width: 328px;
-  text-align: left;
-  width: auto;
-
-  margin-bottom: 107px;
-}
-
-.artist-show-video {
-  background-color: transparent;
-  flex-shrink: 0;
-  height: 712px;
-  width: 1163px;
-
-  border: 20px solid var(--blackcurrant);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 110px;
-}
-
-.video-show-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 70px;
-  margin-left: 140px;
-  width: 1303px;
-}
-
 .video-show {
   align-self: center;
   margin-bottom: 150px;
-  margin-top: 150px;
+  margin-top: 76px;
+  height: 480px;
+  width: 854px;
 }
 
-//Admin
-//------------------------------------------------------------------------------
-.admin-video {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 50px;
-}
-
-.admin-video-form-container h2 {
-  font-size: 30px;
-  font-weight: 700;
-}
-
-.admin-video-form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  width: 300px;
-}
-
-.admin-video-form input,
-.admin-video-form textarea,
-.admin-video-form select {
-  border: 1px solid #ccc;
-  margin: 0 0 5px;
-  width: 100%;
-  padding: 10px;
-}
-
-.admin-video-form input:focus,
-.admin-video-form textarea:focus {
-  outline: none;
-}
-
-.admin-video-form textarea {
-  height: 150px;
-  width: 100%;
-  resize: none;
+@media only screen and (max-width: 480px) {
+  .video-show {
+    height: 191px;
+    margin-top: 100px;
+    width: 340px;
+  }
 }

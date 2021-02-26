@@ -20,11 +20,13 @@ const Navbar = ({ history }) => {
     const [dropVisable, setDropVisable] = useState(false);
 
     const handleClick = (loc) => {
+        setDropVisable(false);
         history.push(loc);
     }
 
     const handleStore = () => {
         setHovering(null);
+        setDropVisable(false);
         window.open('https://www.etsy.com/shop/SpaceMotherSupplies', '_blank');
     }
 
@@ -42,7 +44,6 @@ const Navbar = ({ history }) => {
     }
 
     const handleDropdown = () => {
-        // e.stopPropagation();
         setDropVisable(!dropVisable);
         console.log(dropVisable);
     }
@@ -78,42 +79,42 @@ const Navbar = ({ history }) => {
 
                 <div className={`nav-list ${listClass}`}>
                     <div 
-                        className={`nav-music ${checkHovering(1)}`}
+                        className={`nav-li ${checkHovering(1)}`}
                         onMouseEnter={() => handleVisibility(setMusicVisible, 1)}
                         onMouseLeave={handleUnhover}>
                         MUSIC
                         {musicVisible && <MusicDropDown /> }
                     </div>
                     <div 
-                        className={`nav-artist ${checkHovering(2)}`}
+                        className={`nav-li ${checkHovering(2)}`}
                         onMouseEnter={() => handleVisibility(setArtistVisible, 2)}
                         onMouseLeave={handleUnhover}>
                         ARTIST
                         {artistVisible && <ArtistDropDown /> }
                     </div>
                     <div 
-                        className={`nav-media ${checkHovering(3)}`}
+                        className={`nav-li ${checkHovering(3)}`}
                         onMouseEnter={() => handleVisibility(setMediaVisible, 3)}
                         onMouseLeave={handleUnhover}>
                         MEDIA
                         {mediaVisible && <MediaDropDown /> }
                     </div>
                     <div 
-                        className={`nav-events ${checkHovering(4)}`}
+                        className={`nav-li ${checkHovering(4)}`}
                         onClick={() => handleClick('/events')}
                         onMouseEnter={() => handleHover(4)}
                         onMouseLeave={handleUnhover}>
                         EVENTS
                     </div>
                     <div 
-                        className={`nav-store ${checkHovering(5)}`}
+                        className={`nav-li ${checkHovering(5)}`}
                         onClick={handleStore}
                         onMouseEnter={() => handleHover(5)}
                         onMouseLeave={handleUnhover}>
                         STORE
                     </div>
                     <div 
-                        className={`nav-about ${checkHovering(6)}`}
+                        className={`nav-li ${checkHovering(6)}`}
                         onClick={() => handleClick('/about')}
                         onMouseEnter={() => handleHover(6)}
                         onMouseLeave={handleUnhover}>

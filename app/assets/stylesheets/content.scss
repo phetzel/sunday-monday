@@ -97,7 +97,7 @@ body {
 
 @media only screen and (max-width: 480px) {
   .header-container {
-    margin-bottom: 60px;
+    margin-bottom: 100px;
   }
 }
 
@@ -119,6 +119,18 @@ body {
   text-align: left;
 
   display: inline;
+}
+
+@media only screen and (max-width: 480px) {
+  .header-container h1 {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.1em;
+
+    position: absolute;
+    top: 160px;
+  }
 }
 
 .header-rect {
@@ -170,10 +182,26 @@ body {
   margin-bottom: 20px;
 }
 
+@media only screen and (max-width: 480px) {
+  .list-item {
+    // align-items: center;
+    height: 324px;
+    margin-bottom: 30px;
+    width: 340px;
+  }
+}
+
 .list-item img {
   height: 156px;
   object-fit: cover;
   width: 315px;
+}
+
+@media only screen and (max-width: 480px) {
+  .list-item img {
+    height: 170px;
+    width: 340px;
+  }
 }
 
 .list-item-bottom {
@@ -186,6 +214,12 @@ body {
   margin-right: 9.66px;
 
   height: 100%;
+}
+
+@media only screen and (max-width: 480px) {
+  .list-item img {
+    height: 154px;
+  }
 }
 
 .list-item-bottom h4 {

@@ -34,8 +34,8 @@ const VideoShow = ({ match}) => {
                     <div className="video-show">
                             <ReactPlayer 
                                 onPlay={pauseMusic}
-                                height="480px"
-                                width="854px"
+                                height="100%"
+                                width="100%"
                                 url={`https://www.youtube.com/watch?v=${video.url}`} />
                     </div>
                 }
