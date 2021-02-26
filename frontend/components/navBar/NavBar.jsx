@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { withRouter} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faUserAlt } from '@fortawesome/free-solid-svg-icons';  
+import { faBars, faTimes, faUserAlt } from '@fortawesome/free-solid-svg-icons';  
 
 import AdminDropDown from './admin_drop_down';
 import ArtistDropDown from './artist_drop_down';
@@ -78,6 +78,11 @@ const Navbar = ({ history }) => {
                 </div>
 
                 <div className={`nav-list ${listClass}`}>
+                    <div
+                        className={`nav-li-x`}
+                        onClick={() => handleDropdown()}>
+                        <FontAwesomeIcon icon={faTimes} />
+                    </div>
                     <div 
                         className={`nav-li ${checkHovering(1)}`}
                         onMouseEnter={() => handleVisibility(setMusicVisible, 1)}
