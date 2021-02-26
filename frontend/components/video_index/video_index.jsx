@@ -24,7 +24,7 @@ const VideoIndex = ({ feature, title, videos}) => {
                 <div className="header-rect" />
 
                 { feature &&
-                    <div className="video-show">
+                    <div className="video-index-show">
                         <ReactPlayer 
                             onPlay={pauseMusic}
                             height="100%"

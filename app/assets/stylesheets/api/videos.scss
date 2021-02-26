@@ -18,3 +18,17 @@
     width: 340px;
   }
 }
+
+.video-index-show {
+  align-self: center;
+  margin-bottom: 150px;
+  height: 480px;
+  width: 854px;
+}
+
+@media only screen and (max-width: 480px) {
+  .video-index-show {
+    height: 191px;
+    width: 340px;
+  }
+}

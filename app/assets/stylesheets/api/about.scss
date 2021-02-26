@@ -9,9 +9,11 @@
 
 @media only screen and (max-width: 480px) {
   .about {
-    width: 340px;
     flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: flex-start;
     position: relative;
+    width: 340px;
   }
 }
 
@@ -21,6 +23,7 @@
 
 @media only screen and (max-width: 480px) {
   .about-left {
+    align-self: center;
     width: 340px;
   }
 }
@@ -73,6 +76,7 @@
 
 @media only screen and (max-width: 480px) {
   .about-image {
+    align-self: center;
     height: 371px;
     width: 340px;
   }
