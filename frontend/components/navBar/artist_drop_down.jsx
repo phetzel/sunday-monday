@@ -1,8 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-const ArtistDropDown = ({history}) => {
+const ArtistDropDown = ({history, handleDropdown}) => {
     const handleClick = (loc) => {
+        handleDropdown();
         history.push(loc);
     }
 

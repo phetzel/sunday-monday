@@ -88,21 +88,21 @@ const Navbar = ({ history }) => {
                         onMouseEnter={() => handleVisibility(setMusicVisible, 1)}
                         onMouseLeave={handleUnhover}>
                         MUSIC
-                        {musicVisible && <MusicDropDown /> }
+                        {musicVisible && <MusicDropDown handleDropdown={handleDropdown} /> }
                     </div>
                     <div 
                         className={`nav-li ${checkHovering(2)}`}
                         onMouseEnter={() => handleVisibility(setArtistVisible, 2)}
                         onMouseLeave={handleUnhover}>
                         ARTIST
-                        {artistVisible && <ArtistDropDown /> }
+                        {artistVisible && <ArtistDropDown handleDropdown={handleDropdown} /> }
                     </div>
                     <div 
                         className={`nav-li ${checkHovering(3)}`}
                         onMouseEnter={() => handleVisibility(setMediaVisible, 3)}
                         onMouseLeave={handleUnhover}>
                         MEDIA
-                        {mediaVisible && <MediaDropDown /> }
+                        {mediaVisible && <MediaDropDown handleDropdown={handleDropdown} /> }
                     </div>
                     <div 
                         className={`nav-li ${checkHovering(4)}`}
