@@ -16,6 +16,7 @@
 @media only screen and (max-width: 480px) {
   .splash-upper {
     height: 188px;
+    margin-top: 46px;
     width: 340px;
   }
 }
@@ -31,7 +32,9 @@
 
 @media only screen and (max-width: 480px) {
   .splash-rect {
-    display: none;
+    height: 10px;
+    top: -50px;
+    width: 340px;
   }
 }
 
@@ -142,6 +145,7 @@
 
 @media only screen and (max-width: 480px) {
   .splash-lower {
+    margin-top: 11px;
     width: 340px;
   }
 }
@@ -156,6 +160,7 @@
 @media only screen and (max-width: 480px) {
   .splash-lower-spotlight {
     justify-content: flex-start;
+    margin-bottom: 26px;
     width: 340px;
   }
 }
