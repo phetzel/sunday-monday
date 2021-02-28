@@ -20,7 +20,7 @@ const ArtistShow = ({ match }) => {
 
     useEffect(() => {
         fetchArtist();
-    }, []);
+    }, [id]);
     
     return(
         <div className="content-container">

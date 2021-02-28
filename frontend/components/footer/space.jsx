@@ -2,12 +2,13 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 const Space = ({ history }) => {
+    console.log(history);
     const handleStore = () => {
         window.open('https://www.etsy.com/shop/SpaceMotherSupplies', '_blank');
     }
 
     const handleClick = (loc) => {
-        history.replace(loc);
+        history.push(loc);
     }
 
     return (

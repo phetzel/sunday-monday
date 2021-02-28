@@ -1,7 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import ReleaseListItem from '../release_index/release_list_item';
 
@@ -20,7 +18,7 @@ const ArtistShowMusic = ({ artist_id, history, releases }) => {
     return (
         <div>
             <h1>MUSIC</h1>
-            <ul>
+            <ul className="list">
                 {newMusic.map(release => (
                     <ReleaseListItem 
                         release={release}
