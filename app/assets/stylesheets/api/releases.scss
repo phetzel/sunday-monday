@@ -88,20 +88,35 @@
 }
 
 .release-song-details {
-  margin: 10px;
   font-family: Helvetica;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 18px;
   letter-spacing: 0.1em;
+  padding: 10px;
 
   color: var(--second);
   text-overflow: ellipsis;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+  width: 100%;
 }
 
 @media only screen and (max-width: 480px) {
   .release-song-details {
     width: 260px;
   }
+}
+
+.release-song-details-bottom {
+  align-self: flex-end;
+}
+
+.release-song-icon {
+  margin-left: 10px;
 }
