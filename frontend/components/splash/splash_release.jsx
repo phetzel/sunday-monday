@@ -23,7 +23,7 @@ const SplashRelease = ({history}) => {
     console.log(release);
     
     return (
-        <div>
+        <div className="inline">
             {release && 
                 <ReleaseListItem release={release} />
             }

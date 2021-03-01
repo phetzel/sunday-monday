@@ -209,19 +209,6 @@
   }
 }
 
-.artist-show-content ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 984px;
-}
-
-@media only screen and (max-width: 480px) {
-  .artist-show-content ul {
-    width: 340px;
-  }
-}
-
 .artist-show-button {
   margin-top: 35px;
   margin-bottom: 90px;

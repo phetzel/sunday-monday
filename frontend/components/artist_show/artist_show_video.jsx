@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import VideoIndexItemn from '../video_index/video_index_item';
+import VideoIndexItem from '../video_index/video_index_item';
 
 const ArtistShowVideo = ({ artist_id, history, videos }) => {
 
@@ -16,9 +16,9 @@ const ArtistShowVideo = ({ artist_id, history, videos }) => {
         <div>
             <h1>VIDEOS</h1>
 
-            <ul>
+            <ul className="list">
                 {newVideos.map((video, idx) => (
-                    <VideoIndexItemn
+                    <VideoIndexItem
                         key={idx} 
                         video={video}
                     />

@@ -33,42 +33,34 @@ const SplashEvent = ({history}) => {
         history.push(`/artists/${id}`);
     }
 
-    let item;
-    if (event) {
-        item = (
-            <div className="list-item">
-                <img 
-                    alt={event.title}
-                    src={event.photoUrl} 
-                    title={event.title}/>
-                <div className="list-item-bottom">
-                    <div>
-                        <h4>{event.title}</h4>
-                        <ul className="list-item-bottom-mid">
-                            {
-                                event.artists.map((artist, idx) => (
-                                    <li 
-                                        onClick={() => handleArtistClick(artist.id)}
-                                        key={idx}>
-                                        {artist.name}
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    </div>
-                    <a onClick={handleClick}>VIEW EVENT</a>
-                </div>
-            </div>
-        );
-    } else {
-        item = (
-            <div className="list-item-empty" />
-        )
-    };
 
     return (
-        <div>
-            {item}   
+        <div className="inline">
+            { event && 
+                <div className="list-item">
+                    <img 
+                        alt={event.title}
+                        src={event.photoUrl} 
+                        title={event.title}/>
+                    <div className="list-item-bottom">
+                        <div>
+                            <h4>{event.title}</h4>
+                            <ul className="list-item-bottom-mid">
+                                {
+                                    event.artists.map((artist, idx) => (
+                                        <li 
+                                            onClick={() => handleArtistClick(artist.id)}
+                                            key={idx}>
+                                            {artist.name}
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+                        <a onClick={handleClick}>VIEW EVENT</a>
+                    </div>
+                </div>  
+            }
         </div>
     )
 }

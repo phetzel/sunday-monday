@@ -154,11 +154,12 @@ body {
 
 // lists
 .list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   margin-bottom: 90px;
-  width: 984px;
+  width: 1005px;
+}
+
+.inline {
+  display: inline;
 }
 
 @media only screen and (max-width: 480px) {
@@ -170,7 +171,7 @@ body {
 }
 
 .list-item {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   height: 300px;
   overflow: hidden;
@@ -181,6 +182,7 @@ body {
   border: 0.676662px solid var(--second);
 
   margin-bottom: 20px;
+  margin-right: 20px;
 }
 
 @media only screen and (max-width: 480px) {

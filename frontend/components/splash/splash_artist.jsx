@@ -21,9 +21,9 @@ const SplashArtist = ({history}) => {
     }
 
     return (
-        <div>
+        <div className="inline">
             {artist && 
-                <div className="list-item">
+                <div  className="list-item">
                     <img 
                         alt={artist.name}
                         src={artist.photoUrl} 

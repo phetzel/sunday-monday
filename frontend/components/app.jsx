@@ -54,7 +54,6 @@ const App = () => {
                     <div className="center-logo-container">
                         <img
                             className="center-logo"
-                            // src="https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fcada2fb9bd4b79e26c628c/img/mask-group@2x.svg"
                             src={window.logoSquare}
                         />
                     </div>
@@ -77,7 +76,6 @@ const App = () => {
                         <Route exact path="/videos" component={AllVideosIndex} />
                         <Route exact path="/videos/:id" component={VideoShow} />
                         <Route exact path="/visuals" component={VisualAllIndex} />
-
 
                         <Route path="/admin" render={() => (
                             user ? (

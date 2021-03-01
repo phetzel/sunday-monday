@@ -18,7 +18,7 @@ const ArtistShowMusic = ({ artist_id, history, releases }) => {
     return (
         <div>
             <h1>MUSIC</h1>
-            <ul>
+            <ul className="list">
                 {newMusic.map(release => (
                     <ReleaseListItem 
                         release={release}

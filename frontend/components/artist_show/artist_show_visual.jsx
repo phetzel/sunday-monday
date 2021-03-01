@@ -32,7 +32,7 @@ const ArtistShowVisual = ({ artist_id, history, visuals }) => {
             />
 
             <h1>Visual Art</h1>
-            <ul>
+            <ul className="list">
                 {visuals && visualsSlice.map(visual => (
                     <VisualIndexItem 
                         visual={visual} 
