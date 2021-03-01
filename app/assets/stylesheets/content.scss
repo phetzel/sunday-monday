@@ -29,12 +29,14 @@ body {
   flex-direction: column;
   justify-content: center;
   margin-top: 69px;
+  margin-bottom: 100px;
   width: 984px;
 }
 
 @media only screen and (max-width: 480px) {
   .content {
     margin-top: 55px;
+    margin-bottom: 90px;
     width: 340px;
   }
 }
@@ -154,7 +156,6 @@ body {
 
 // lists
 .list {
-  margin-bottom: 90px;
   width: 1005px;
 }
 
