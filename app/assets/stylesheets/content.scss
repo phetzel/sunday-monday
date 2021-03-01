@@ -4,6 +4,12 @@ body {
   overflow-x: hidden;
 }
 
+@media only screen and (max-width: 480px) {
+  html {
+    zoom: 0.8;
+  }
+}
+
 //colors
 :root {
   --first: #fffcf9;

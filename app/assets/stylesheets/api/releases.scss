@@ -107,6 +107,11 @@
   width: 100%;
 }
 
+.release-song-details h6 {
+  height: 40px;
+  overflow: hidden;
+}
+
 @media only screen and (max-width: 480px) {
   .release-song-details {
     width: 260px;
