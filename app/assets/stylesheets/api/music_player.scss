@@ -4,13 +4,13 @@
   height: 30px;
   right: 0px;
   bottom: 0px;
-  background-color: #352d39;
+  background-color: var(--second);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  color: #fbf2ea;
+  color: var(--first);
   cursor: pointer;
   z-index: 10;
 }
@@ -28,7 +28,7 @@
 
 .music-player {
   align-items: center;
-  background-color: #352d39;
+  background-color: var(--second);
   display: flex;
   flex-direction: column;
   padding-bottom: 30px;
@@ -50,7 +50,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 
-  color: #ffffff;
+  color: var(--first);
 }
 
 .music-player-controls {
@@ -68,9 +68,16 @@
   width: 60%;
 }
 
+@media only screen and (max-width: 480px) {
+  .music-player-controls-bottom {
+    display: none;
+  }
+}
+
 .music-player-button-lg {
   border: none;
   border-radius: 20px;
+  background-color: var(--first);
   cursor: pointer;
   height: 40px;
   outline: none;
@@ -80,6 +87,7 @@
 .music-player-button-sm {
   border: none;
   border-radius: 15px;
+  background-color: var(--first);
   cursor: pointer;
   height: 30px;
   outline: none;
@@ -87,14 +95,14 @@
 }
 
 .music-player-icon {
-  color: #352d39;
+  color: var(--second);
 }
 
 //Queue
 //------------------------------------------------------------------------------
 
 .music-player-queue {
-  background-color: white;
+  background-color: var(--first);
   position: absolute;
   right: 200px;
   height: 400px;
@@ -106,7 +114,7 @@
 }
 
 .music-player-queue h3 {
-  color: var(--blackcurrant);
+  color: var(--second);
   font-family: "Helvetica-Regular", Helvetica, Arial, serif;
   font-size: 20px;
   font-style: normal;
@@ -128,7 +136,7 @@
 }
 
 .music-player-queue h6 {
-  color: var(--blackcurrant);
+  color: var(--second);
   font-family: "Helvetica-Regular", Helvetica, Arial, serif;
   font-size: 16px;
   font-style: normal;
@@ -141,7 +149,7 @@
 .music-player-queue button {
   background-color: transparent;
   border: hidden;
-  color: var(--blackcurrant);
+  color: var(--second);
   cursor: pointer;
   outline: none;
 }
