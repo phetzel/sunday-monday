@@ -77,6 +77,7 @@ const MusicPlayer = ({ visible }) => {
     const togglePlaying = () => {
         const newPlaying = playing ? false : true;
         setPlaying(newPlaying);
+        setPlaying(newPlaying);
     } 
 
     const toggleQueue = () => {
