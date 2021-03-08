@@ -35,11 +35,15 @@ const ReleaseShow = ({ match }) => {
                 </div>
 
                 <div className="header-rect" />
+                
+                <div className="release-shadow-container">
+                    <div className="release-shadow-line" />
+                    <div className="release-shadow-line" />
+                </div>
 
                 { release && 
                     <div className="release-show">
-                        
-                        <div className="release-show-shadow">
+                        <div className="release-show-main-img">
                             <img src={release.photoUrl} alt=""/>
                         </div>
 
@@ -48,7 +52,11 @@ const ReleaseShow = ({ match }) => {
                         }
                     </div>
                 }
-                
+
+                <div className="release-shadow-container">
+                    <div className="release-shadow-line" />
+                    <div className="release-shadow-line" />
+                </div>
             </div>
         </div>
     )

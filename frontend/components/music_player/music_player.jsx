@@ -116,7 +116,7 @@ const MusicPlayer = ({ visible }) => {
                         height={'0px'}
                         width={'200px'}
                         onEnded={next}
-                        playsinline={true}
+                        playsinline
                         playing={playing}
                         url={`https://www.youtube.com/watch?v=${music[0].resourceId.videoId}`} 
                         volume={volume} />
@@ -158,13 +158,8 @@ const MusicPlayer = ({ visible }) => {
                 />
             }
 
-    </div>
-    )
-
-
-
-
-    
+        </div>
+    ) 
 }
 
 export default MusicPlayer;

@@ -183,13 +183,13 @@
 .social ul {
   display: flex;
   justify-content: space-between;
-  width: 326px;
-  // width: 490px;
+  // width: 326px;
+  width: 408px;
 }
 
 @media only screen and (max-width: 480px) {
   .social ul {
-    width: 275px;
+    width: 100%;
   }
 }
 
@@ -202,12 +202,14 @@
 //Space
 
 .footer-space {
+  // margin-left: 163px;
   width: 147px;
 }
 
 @media only screen and (max-width: 480px) {
   .footer-space {
-    margin-bottom: 13px;
+    margin-bottom: 37px;
+    margin-left: 0px;
     width: 310px;
   }
 }

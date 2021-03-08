@@ -54,6 +54,7 @@ const ReleaseListItem = ({release, history }) => {
                     </div>
                     <ReleaseListItemArtists artists={release.artists} />
                 </div>
+                
                 <a onClick={handleClick}>VIEW RELEASE</a>
             </div>
         </div>

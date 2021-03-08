@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
     faFacebook, 
+    faBandcamp,
     faInstagram, 
     faSpotify,
     faTwitter,
@@ -18,18 +19,10 @@ const Social = (props) => {
         <div className="social">
             <h1>SOCIAL</h1>
             <ul>
-                {/* <FontAwesomeIcon 
-                    className="social-icon"
-                    icon={faFacebook} 
-                    onClick={() => console.log('hit')}/> */}
                 <FontAwesomeIcon 
                     className="social-icon"
                     icon={faInstagram} 
                     onClick={() => handleSocial('https://www.instagram.com/_spacemother_/')}/>
-                {/* <FontAwesomeIcon 
-                    className="social-icon"
-                    icon={faSpotify} 
-                    onClick={() => console.log('hit')}/> */}
                 <FontAwesomeIcon 
                     className="social-icon"
                     icon={faTwitter} 
@@ -38,6 +31,10 @@ const Social = (props) => {
                     className="social-icon"
                     icon={faSoundcloud} 
                     onClick={() => handleSocial('https://soundcloud.com/space-mother')}/>
+                <FontAwesomeIcon 
+                    className="social-icon"
+                    icon={faBandcamp} 
+                    onClick={() => handleSocial('https://thespacemother.bandcamp.com')}/>
                 <FontAwesomeIcon 
                     className="social-icon"
                     icon={faYoutube} 
