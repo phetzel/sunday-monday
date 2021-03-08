@@ -9,8 +9,7 @@ const EventIndex = () => {
     const fetchEvents = () => {
         eventApi.fetchEvents().then(events => {
             const eventsArray = Object.values(events);
-            setEvents(eventsArray);
-            console.log(events);
+            setEvents(eventsArray);    
         })
     }
 

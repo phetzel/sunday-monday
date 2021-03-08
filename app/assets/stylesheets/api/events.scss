@@ -25,10 +25,8 @@
 
 @media only screen and (max-width: 480px) {
   .event-index-item {
-    align-items: center;
-    flex-direction: column;
-    padding-right: 10px;
-    padding-left: 10px;
+    position: relative;
+    height: 135px;
     width: 340px;
   }
 }
@@ -46,9 +44,16 @@
 @media only screen and (max-width: 480px) {
   .event-index-item-date {
     display: flex;
-    margin-bottom: 20px;
-    justify-content: space-around;
-    width: 250px;
+    font-weight: normal;
+    font-size: 12px;
+
+    position: absolute;
+    left: 8px;
+    top: 5px;
+  }
+
+  .event-index-item-date h3 {
+    margin-right: 3px;
   }
 }
 
@@ -63,19 +68,17 @@
 
 @media only screen and (max-width: 480px) {
   .event-index-item img {
-    margin-bottom: 20px;
+    position: absolute;
+    left: 8px;
+    top: 30px;
+
+    height: 100px;
+    width: 100px;
   }
 }
 
 .event-index-item-details {
   width: 169px;
-}
-
-@media only screen and (max-width: 480px) {
-  .event-index-item-details {
-    margin-bottom: 20px;
-    width: 250px;
-  }
 }
 
 .event-index-item-details h3 {
@@ -87,6 +90,20 @@
 
   letter-spacing: 0.1em;
   color: var(--second);
+}
+
+@media only screen and (max-width: 480px) {
+  .event-index-item-details h3 {
+    position: absolute;
+    top: 8px;
+    left: 138px;
+
+    font-size: 16px;
+    line-height: 18.4px;
+    height: 33px;
+    overflow: ellipsis;
+    width: 200px;
+  }
 }
 
 .event-index-item-details ul {
@@ -116,14 +133,26 @@
   cursor: pointer;
 }
 
+@media only screen and (max-width: 480px) {
+  .event-index-item-details ul {
+    position: absolute;
+    left: 138px;
+    top: 30px;
+
+    max-height: 70px;
+    overflow: ellipsis;
+  }
+}
+
 .event-index-item-location {
   width: 142px;
 }
 
 @media only screen and (max-width: 480px) {
   .event-index-item-location {
-    margin-bottom: 20px;
-    width: 250px;
+    position: absolute;
+    left: 138px;
+    top: 33px;
   }
 }
 
@@ -138,6 +167,13 @@
   letter-spacing: 0.1em;
 
   color: var(--second);
+}
+
+@media only screen and (max-width: 480px) {
+  .event-index-item-location h6 {
+    font-size: 12px;
+    line-height: 14px;
+  }
 }
 
 //Event Show
