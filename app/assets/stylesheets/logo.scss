@@ -1,0 +1,48 @@
+//Center Logo
+.center-logo-container {
+  align-items: center;
+  align-self: center;
+  background-color: var(--first);
+  border-radius: 68px;
+  border: solid 11px var(--first);
+  display: flex;
+  justify-content: center;
+  height: 136px;
+  width: 136px;
+
+  position: absolute;
+  top: 85px;
+  // left: 635px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 10;
+}
+
+@media only screen and (max-width: 480px) {
+  .center-logo-container {
+    border: solid 3px var(--first);
+    border-radius: 24px;
+    height: 48px;
+    top: 80px;
+    width: 48px;
+  }
+}
+
+.center-logo {
+  background-color: var(--first);
+  flex-shrink: 0;
+  height: 124px;
+  width: 124px;
+
+  border: solid 1px var(--first);
+  border-radius: 68px;
+}
+
+@media only screen and (max-width: 480px) {
+  .center-logo {
+    border-radius: 22px;
+    height: 44px;
+    width: 44px;
+  }
+}

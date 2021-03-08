@@ -1,0 +1,64 @@
+//Header
+
+.header-container {
+  display: inline;
+  margin-bottom: 96px;
+  z-index: 100;
+}
+
+@media only screen and (max-width: 480px) {
+  .header-container {
+    margin-bottom: 100px;
+  }
+}
+
+.header-container span {
+  background-color: var(--first);
+  padding-right: 35px;
+}
+
+.header-container h1 {
+  color: var(--second);
+  font-family: "Helvetica-Bold", Helvetica, Arial, serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+
+  background-color: transparent;
+  height: auto;
+  letter-spacing: 2.4px;
+  text-align: left;
+
+  display: inline;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 480px) {
+  .header-container h1 {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.1em;
+
+    position: absolute;
+    top: 160px;
+  }
+}
+
+.header-rect {
+  background-color: var(--second);
+  flex-shrink: 0;
+  height: 20px;
+  width: 984px;
+
+  position: absolute;
+  top: 150px;
+}
+
+@media only screen and (max-width: 480px) {
+  .header-rect {
+    height: 10px;
+    top: 100px;
+    width: 340px;
+  }
+}
