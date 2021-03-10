@@ -63,6 +63,7 @@ class Api::ArtistsController < ApplicationController
             :name,
             :description,
             :photo,
+            :banner,
             :style,
             :instagram,
             :mailer

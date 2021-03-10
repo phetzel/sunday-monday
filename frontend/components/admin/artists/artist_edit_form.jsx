@@ -13,6 +13,8 @@ const ArtistEditForm = ({ artist, history, setArtist }) => {
     const [description, setDescription] = useState();
     const [style, setStyle] = useState();
     const [instagram, setInstagram] = useState();
+    const [photo, setPhoto] = useState();
+    const [banner, setBanner] = useState();
 
     const [lottieVis, setLottieVis] = useState(false);
 
@@ -20,7 +22,9 @@ const ArtistEditForm = ({ artist, history, setArtist }) => {
         setName(artist.name);
         setDescription(artist.description);
         setStyle(artist.style);
-        setInstagram(artist.instagram)
+        setInstagram(artist.instagram);
+        setPhoto(artist.photo);
+        setBanner(artist.banner);
     }, [artist])
 
     const update = (func) => {
@@ -29,28 +33,27 @@ const ArtistEditForm = ({ artist, history, setArtist }) => {
         }
     }
 
-    const handleFile = (e) => {
+    const handlePhoto = (e) => {
         setPhoto(e.currentTarget.files[0]);
+    };
+
+    const handleBanner = (e) => {
+        setBanner(e.currentTarget.files[0]);
     };
 
     const handleSubmit = () => {
         setLottieVis(true);
 
-        // const formData = new FormData();
-        // formData.append('artist[id]', artist.id);
-        // formData.append('artist[name]', name);
-        // formData.append('artist[description]', description);
-        // formData.append('artist[style]', style);
-        // formData.append('artist[photo]', photo);
+        const formData = new FormData();
+        formData.append('artist[id]', artist.id);
+        formData.append('artist[name]', name);
+        formData.append('artist[description]', description);
+        formData.append('artist[style]', style);
+        formData.append('artist[instagram]', instagram);
+        formData.append('artist[photo]', photo);
+        formData.append('artist[banner]', banner);
 
-        let artistObj = {};
-        artistObj['artist'] = {};
-        artistObj['artist']['name'] = name;
-        artistObj['artist']['description'] = description;
-        artistObj['artist']['style'] = style;
-        artistObj['artist']['instagram'] = instagram;
-
-        artistApi.updateArtist(artistObj, artist.id)
+        artistApi.updateArtist(formData, artist.id)
             .then(res => {
                 history.push(`/artists/${res.id}`)
             }, err => {
@@ -65,14 +68,18 @@ const ArtistEditForm = ({ artist, history, setArtist }) => {
             <h2>{`Edit ${artist.name}`}</h2>
 
             <div className="admin-form" >
-                <input 
-                    onChange={update(setName)} 
-                    value={name}
-                    type="text"/>
+                <label>Name
+                    <input 
+                        onChange={update(setName)} 
+                        value={name}
+                        type="text"/>
+                </label>
 
-                <textarea 
-                    onChange={update(setDescription)} 
-                    value={description} />
+                <label>Description
+                    <textarea 
+                        onChange={update(setDescription)} 
+                        value={description} />
+                </label>
 
                 <select onChange={update(setStyle)}>
                     <option value={style}>Style</option>
@@ -83,14 +90,24 @@ const ArtistEditForm = ({ artist, history, setArtist }) => {
                     }
                 </select>
 
-                <input 
-                    onChange={update(setInstagram)} 
-                    value={instagram}
-                    type="text"/>
-{/* 
-                <input 
-                    onChange={handleFile}
-                    type="file"/> */}
+                <label>Instagram
+                    <input 
+                        onChange={update(setInstagram)} 
+                        value={instagram}
+                        type="text"/>
+                </label>
+                
+                <label>Photo
+                    <input 
+                        onChange={handlePhoto}
+                        type="file"/>
+                </label>
+
+                <label>Banner
+                    <input 
+                        onChange={handleBanner}
+                        type="file"/>
+                </label>
 
                 <button 
                     className="button"

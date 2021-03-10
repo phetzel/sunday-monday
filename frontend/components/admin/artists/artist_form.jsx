@@ -10,19 +10,25 @@ const styles = ["audio", "visual"];
 
 const ArtistForm = ({history}) => {
     const [photo, setPhoto] = useState();
+    const [banner, setBanner] = useState();
     const [lottieVis, setLottieVis] = useState(false);
 
     const initialValues = {
         name: "",
         description: "",
         photo: '',
+        banner: '',
         style: 'audio',
         instagram: '',
         mailer: false
     }
 
-    const handleFile = (e) => {
+    const handlePhoto = (e) => {
         setPhoto(e.currentTarget.files[0]);
+    };
+
+    const handleBanner = (e) => {
+        setBanner(e.currentTarget.files[0]);
     };
 
     const handleSubmit = (artist) => {
@@ -35,6 +41,7 @@ const ArtistForm = ({history}) => {
         formData.append('artist[instagram]', artist.instagram);
         formData.append('artist[mailer]', artist.mailer);
         formData.append('artist[photo]', photo);
+        formData.append('artist[banner]', banner);
 
         artistApi.createArtist(formData)
             .then(res => {
@@ -81,9 +88,18 @@ const ArtistForm = ({history}) => {
                             placeholder="Instagram"
                             type="text"/>
 
-                        <input 
-                            onChange={handleFile}
-                            type="file"/>
+                        <label>Photo
+                            <input 
+                                onChange={handlePhoto}
+                                type="file"/>
+                        </label>
+
+                        <label>Banner
+                            <input 
+                                onChange={handleBanner}
+                                type="file"/>
+                        </label>
+
                         
                         <div className="admin-form-mailer">
                             <label>Mail:</label>

@@ -36,7 +36,8 @@ const ArtistShowVisual = ({ artist_id, history, visuals }) => {
                 {visuals && visualsSlice.map(visual => (
                     <VisualIndexItem 
                         visual={visual} 
-                        onClick={() => openModal(visual)} />
+                        onClick={() => openModal(visual)} 
+                        key={visual.id} />
                 ))}
             </ul>
 

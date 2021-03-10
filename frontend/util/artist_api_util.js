@@ -27,7 +27,9 @@ const updateArtist = (data, id) => (
     $.ajax({
         method: 'PATCH',
         url: `api/artists/${id}`,
-        data
+        data,
+        processData: false,
+        contentType: false,
     })
 )
 
