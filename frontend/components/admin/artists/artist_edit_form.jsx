@@ -23,8 +23,6 @@ const ArtistEditForm = ({ artist, history, setArtist }) => {
         setDescription(artist.description);
         setStyle(artist.style);
         setInstagram(artist.instagram);
-        setPhoto(artist.photo);
-        setBanner(artist.banner);
     }, [artist])
 
     const update = (func) => {

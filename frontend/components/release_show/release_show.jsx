@@ -53,10 +53,13 @@ const ReleaseShow = ({ match }) => {
                     </div>
                 }
 
-                <div className="release-shadow-container">
-                    <div className="release-shadow-line" />
-                    <div className="release-shadow-line" />
-                </div>
+                { songs && songs.length > 4 && 
+                    <div className="release-shadow-container">
+                        <div className="release-shadow-line" />
+                        <div className="release-shadow-line" />
+                    </div>
+                }
+
             </div>
         </div>
     )
