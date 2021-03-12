@@ -2,10 +2,13 @@ import React from 'react';
 import { HashRouter } from 'react-router-dom';
 
 import App from './app';
+import ScrollToTop from './ScrollToTop';
 
 const Root = () => (
     <HashRouter>
-        <App />
+        <ScrollToTop>
+            <App />
+        </ScrollToTop>
     </HashRouter>
 );
 
