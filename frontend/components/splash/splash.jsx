@@ -16,9 +16,9 @@ const Splash = () => {
                         alt="Splash"/>
 
                     <h1 className="she">SHE</h1>
-                    <div className="she-partial">
+                    {/* <div className="she-partial">
                         <h1 className="splash-primary">SHE</h1>
-                    </div>
+                    </div> */}
 
                     <h1 className="descends">DESCENDS</h1>
                     <div className="descends-partial"> 

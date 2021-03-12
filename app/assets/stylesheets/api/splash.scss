@@ -7,6 +7,8 @@
 
 .splash-upper {
   align-self: center;
+  display: flex;
+  justify-content: center;
   position: relative;
   height: 482px;
   margin-top: 10px;
@@ -28,10 +30,13 @@
 
   position: absolute;
   left: 0;
+
+  display: none;
 }
 
 @media only screen and (max-width: 480px) {
   .splash-rect {
+    display: block;
     height: 10px;
     top: -50px;
     width: 340px;
@@ -39,10 +44,13 @@
 }
 
 .splash-image {
-  width: 873.5px;
-  height: 482px;
+  align-self: center;
+  // width: 873.5px;
+  width: 984px;
+  // height: 482px;
+  height: 472px;
 
-  margin-left: 151px;
+  // margin-left: 151px;
   object-fit: cover;
 }
 
@@ -81,7 +89,7 @@
 .she {
   color: var(--first);
   position: absolute;
-  bottom: 10px;
+  bottom: 23px;
   left: 100px;
 }
 
@@ -94,7 +102,7 @@
 .she-partial {
   color: var(--second);
   position: absolute;
-  bottom: 10px;
+  bottom: 23px;
   left: 100px;
   overflow: hidden;
   width: 50px;
@@ -109,7 +117,7 @@
 .descends {
   color: var(--second);
   position: absolute;
-  bottom: -50px;
+  bottom: -44px;
   left: 226px;
 }
 
@@ -125,7 +133,7 @@
 .descends-partial {
   color: var(--first);
   position: absolute;
-  bottom: 0.5px;
+  bottom: 6.5px;
   left: 226px;
   height: 50.5px;
   overflow: hidden;
