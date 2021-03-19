@@ -33,7 +33,7 @@ const Splash = () => {
                     <div className="splash-lower">
                         <div className="splash-lower-spotlight">
                             <h1>SPOTLIGHT</h1>
-                            <div className="splash-lower-rect" />
+                            {/* <div className="splash-lower-rect" /> */}
                         </div>
 
                         <div className="list">
