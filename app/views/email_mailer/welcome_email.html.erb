@@ -4,23 +4,22 @@
         <title></title>
     </head>
     <body>
-        <div class="email-logo">
-            <%= image_tag('logo-square.png') %>
-        </div>
+        <p>Hey there!</p>
+        <p>Thank you so much for becoming a part of the Spacemother family! </p>
+        <p>We can't wait to share some great new music and art with you.</p>
+        <p>At Spacemother we believe in community, and that engaging with ours brings the best possible experience for everyone!</p>
+        <p>Got an idea for something you'd like to see?</p>
+        <p>Know an amazing artist who you think does awesome work?</p>
+        <p>Want to share your favorite cookie recipe?</p>
+        <p>We want to hear from you!</p>
 
-        <h1>Welcome to the 
-            <%= link_to "Goodmother", root_url, target: :_blank %>
-        </h1>
+        <p>Feel free to drop us a line at Spacemother.recs@gmail.com</p>
 
-        <p>Founded on the philosophy that there is a inherent connection between 
-        music and visual art, Spacemother is a label designed to be a home for all 
-        kinds of creative beings. Our artists represent the diversity in our creative 
-        world, drawing from a multiverse of backgrounds and talents, and spawning 
-        all manner of expression. Brought together in the embrace of the Spacemother, 
-        they created new and collaborative works, with the singular goal of celebrating 
-        the whole of creation.</p>
+        <p>Sincerely,</p>
+        <p>Spacemother</p>
 
-        <p>Thanks for your support</p>
+        <p>She Descends</p>
+        <%= link_to "thespacemother.com", root_url, target: :_blank %>
         
         <p class="unsubscribe">
             <%= link_to "Unsubscribe", api_unsubscribe_url(@email.unsubscribe_hash, subscription:

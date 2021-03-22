@@ -4,7 +4,7 @@ class EmailMailer < ApplicationMailer
     def welcome_email(email)
         @email = email
         
-        mail(to: @email.email, subject: "Thanks for joining our mailing list!")
+        mail(to: @email.email, subject: "Thank you for joining Spacemother!")
     end
 
     def new_artist(email, artist)
