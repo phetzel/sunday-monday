@@ -23,6 +23,14 @@ class Api::ReleasesController < ApplicationController
         @release = Release.new(release_params)
         
         if @release.save
+            if @release.mailer
+                emails = Email.all
+                emails.each do |email|
+                    new_email = EmailMailer.new_release(email, @release)
+                    new_email.deliver
+                end
+            end
+
             render :show 
         else  
             render json: @release.errors.full_messages, status: 422
@@ -53,7 +61,8 @@ class Api::ReleasesController < ApplicationController
             :description,
             :audio,
             :photo,
-            :medium
+            :medium,
+            :mailer
         )
     end
 

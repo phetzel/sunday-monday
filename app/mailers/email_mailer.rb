@@ -14,8 +14,14 @@ class EmailMailer < ApplicationMailer
         mail(to: @email.email, subject: "Check out our new artist #{@artist.name}")
     end
 
-    def contact(obj)
+    def new_release(email, release)
+        @email = email
+        @release = release
 
+        mail(to: @email.email, subject: "Brand new Spacemother release!")
+    end
+
+    def contact(obj)
         @email = obj["email"]
         @name = obj["name"]
         @number = obj["number"]

@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <p>Hey there!</p>
+        <p>We've got a brand new release for you out now:</p>
+
+        <div><%= image_tag(url_for(@release.photo))%></div>
+
+        <p><%= @release.description %></p>
+
+        <p style="font-size: 14px; margin-top: 16px; Margin-top: 16px">
+            <%= link_to "Unsubscribe", api_unsubscribe_url(@email.unsubscribe_hash, subscription:
+            "welcome"), style: "color: #bbb;", target: :_blank %>
+        </p>
+    </body>
+</html>

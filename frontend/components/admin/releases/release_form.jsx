@@ -19,7 +19,8 @@ const ReleaseForm = ({history}) => {
         title: "",
         description: "",
         audio: "",
-        medium: "album"
+        medium: "album",
+        mailer: false
     }
 
     const handleFile = (e) => {
@@ -34,6 +35,7 @@ const ReleaseForm = ({history}) => {
         formData.append('release[description]', release.description);
         formData.append('release[audio]', release.audio);
         formData.append('release[medium]', release.medium);
+        formData.append('release[mailer]', release.mailer);
         formData.append('release[photo]', photo);
 
         releasesApi.createRelease(formData).then(res => {
@@ -94,6 +96,15 @@ const ReleaseForm = ({history}) => {
                         <input 
                             onChange={handleFile}
                             type="file"/>
+
+                        <div className="admin-form-mailer">
+                            <label>Mail:</label>
+                            <input
+                                className="admin-form-switch"
+                                onChange={handleChange("mailer")}
+                                type="checkbox"/>
+
+                        </div>
 
                         <div className="admin-release-buttons">
                             <button 
