@@ -11,11 +11,16 @@ import youtubeApi from '../../util/youtube_util';
 
  
 const MusicPlayer = ({ visible }) => {   
-    const { music, setMusic, playing, setPlaying } = useContext(MusicContext);
+    const { 
+        music, 
+        setMusic, 
+        playing, 
+        setPlaying, 
+        queueDisplay, 
+        setQueueDisplay } = useContext(MusicContext);
 
     const [defaultPlaylist, setDefaultPlaylist] = useState([]);
     const [previous, setPrevious] = useState([]);
-    const [queueDisplay, setQueueDisplay] = useState(false);
     const [volumeDisplay, setVolumeDisplay] = useState(false);
     const [volume, setVolume] = useState(1);
 

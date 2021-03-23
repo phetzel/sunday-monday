@@ -37,17 +37,28 @@ const App = () => {
     const [music, setMusic] = useState([]);
     const [playing, setPlaying] = useState(false);
     const [musicVis, setMusicVis] = useState(false);
+    const [queueDisplay, setQueueDisplay] = useState(false);
 
     const toggleMusicVis = () => {
         const newVis = musicVis ? false : true;
         setMusicVis(newVis);
+        setQueueDisplay(newVis);
     }
 
     const plusMinus = musicVis ? faMinus : faPlus;
 
     return (
         <UserContext.Provider value={{ user, setUser }}>
-            <MusicContext.Provider value={{ music, setMusic, playing, setPlaying }}>
+            <MusicContext.Provider 
+                value={{ 
+                    music, 
+                    setMusic, 
+                    playing, 
+                    setPlaying,
+                    musicVis,
+                    setMusicVis,
+                    queueDisplay,
+                    setQueueDisplay }}>
                 <div className="background">
                     <Navbar />
 

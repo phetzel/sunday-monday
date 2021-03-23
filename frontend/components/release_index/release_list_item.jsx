@@ -8,7 +8,7 @@ import youtubeApi from '../../util/youtube_util';
 import ReleaseListItemArtists from './release_list_item_artists';
 
 const ReleaseListItem = ({release, history }) => {
-    const { music, setMusic, setPlaying } = useContext(MusicContext);
+    const { music, setMusic, setPlaying, setMusicVis } = useContext(MusicContext);
 
     const handleClick = () => {
         history.push(`/music/${release.id}`);
@@ -20,6 +20,7 @@ const ReleaseListItem = ({release, history }) => {
                 const newMusic =  res.concat(music);
                 setMusic(newMusic);
                 setPlaying(true);
+                setMusicVis(true);
             });
     } 
 
