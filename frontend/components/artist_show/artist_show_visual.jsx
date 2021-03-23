@@ -21,7 +21,7 @@ const ArtistShowVisual = ({ artist_id, history, visuals }) => {
         history.push(`/artists/${artist_id}/visuals`)
     }
 
-    const visualsSlice = visuals.slice(0,3);
+    const visualsSlice = visuals.reverse().slice(0,3);
 
     return (
         <div>

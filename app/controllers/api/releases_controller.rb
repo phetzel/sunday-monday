@@ -1,6 +1,6 @@
 class Api::ReleasesController < ApplicationController
     def index
-        @releases = Release.all
+        @releases = Release.order("created_at DESC")
 
         if medium
             @releases = @releases.select{ |release| release.medium == medium }

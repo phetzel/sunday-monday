@@ -10,7 +10,7 @@ const ReleaseIndex = ({ artist, medium, title }) => {
         let type;
 
         if (artist) {
-            setReleases(artist.releases);
+            setReleases(artist.releases.reverse());
         } else {
             if (medium) {
                 type = {medium: medium};
@@ -18,7 +18,7 @@ const ReleaseIndex = ({ artist, medium, title }) => {
     
             releaseApi.fetchReleases(type).then(releases => {
                 const releasesArray = Object.values(releases);
-                setReleases(Array.from(releasesArray));
+                setReleases(Array.from(releasesArray.reverse()));
             })
         }
 

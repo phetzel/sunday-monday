@@ -13,7 +13,7 @@ const ArtistShowMusic = ({ artist_id, history, releases }) => {
         history.push(`/artists/${artist_id}/music`)
     }
 
-    const newMusic = releases.slice(0,3);
+    const newMusic = releases.reverse().slice(0,3);
 
     return (
         <div>

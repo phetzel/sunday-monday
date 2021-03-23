@@ -10,7 +10,7 @@ const ArtistShowVideo = ({ artist_id, history, videos }) => {
     }
 
     // const revVideos = videos.reverse();
-    const newVideos = videos.slice(0,3);
+    const newVideos = videos.reverse().slice(0,3);
 
     return (
         <div>
