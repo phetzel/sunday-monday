@@ -17,7 +17,7 @@ const Contact = () => {
                 <div className="contact">
                     <ul className="contact-left">
                         <li>CONTACT:</li>
-                        <li>SPACE MOTHER</li>
+                        <li>SPACEMOTHER</li>
                         <li>spacemother.recs@gmail.com</li>
                     </ul>
 

@@ -3,6 +3,7 @@ class Api::ReleasesController < ApplicationController
         @releases = Release.all
         if medium
             @releases = @releases.select{ |release| release.medium == medium }
+            puts @releases
         end
 
         render :index 

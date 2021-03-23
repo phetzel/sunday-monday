@@ -75,7 +75,7 @@ const Mailer = (props) => {
 
                 <button onClick={handleSubmit}>OK</button>
             </div>
-            <h5>© 2021, SPACE MOTHER</h5>
+            <h5>© 2021, SPACEMOTHER</h5>
         </div>
     );
 }

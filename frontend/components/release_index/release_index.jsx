@@ -4,7 +4,7 @@ import releaseApi from '../../util/release_api_util';
 import ReleaseListItem from './release_list_item';
 
 const ReleaseIndex = ({ artist, medium, title }) => {
-    const [releases, setReleases] = useState();
+    const [releases, setReleases] = useState([]);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(0);
     const [pageY, setPageY] = useState(0);
@@ -23,6 +23,7 @@ const ReleaseIndex = ({ artist, medium, title }) => {
             releaseApi.fetchReleases(data).then(releases => {
                 const releasesArray = Object.values(releases);
                 setReleases(Array.from(releasesArray));
+                console.log(releases);
                 setLoading(false);
             })
         }
@@ -31,7 +32,7 @@ const ReleaseIndex = ({ artist, medium, title }) => {
 
     useEffect(() => {
         fetchReleases();
-    }, []);
+    }, [page]);
 
 
 
@@ -54,6 +55,10 @@ const ReleaseIndex = ({ artist, medium, title }) => {
                             key={release.id}  />
                     )}
                 </ul>
+
+                {/* <div className="artist-show-button" onClick={() => setPage(page + 1)}>
+                    <h6>MORE</h6>               
+                </div> */}
             </div>
         </div>
     )
