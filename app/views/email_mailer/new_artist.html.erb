@@ -4,15 +4,12 @@
         <title></title>
     </head>
     <body>
-        <h1>Introducing  <%= @artist.name %></h1>
+        <p>Hey there!</p>
+        <p>We've got a brand new artist for you out now:</p>
 
-        <p>We at Goodmother are happy to announce our new artist <%= @artist.name %></p>
-        <br/>
+        <div><%= image_tag(url_for(@artist.photo))%></div>
 
         <p><%= @artist.description %></p>
-        <br/>
-
-        <p>As always thank you for your support.</p>
 
         <p style="font-size: 14px; margin-top: 16px; Margin-top: 16px">
             <%= link_to "Unsubscribe", api_unsubscribe_url(@email.unsubscribe_hash, subscription:

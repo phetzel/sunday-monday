@@ -11,7 +11,7 @@ class EmailMailer < ApplicationMailer
         @email = email
         @artist = artist
 
-        mail(to: @email.email, subject: "Check out our new artist #{@artist.name}")
+        mail(to: @email.email, subject: "Brand new Spacemother artist!")
     end
 
     def new_release(email, release)
