@@ -1,7 +1,6 @@
 class Api::ReleasesController < ApplicationController
     def index
-        @releases = Release.order("created_at DESC")
-
+        @releases = Release.all
         if medium
             @releases = @releases.select{ |release| release.medium == medium }
         end
@@ -67,6 +66,10 @@ class Api::ReleasesController < ApplicationController
     end
 
     def medium
-        params[:medium]
+        params[:type][:medium]
+    end
+
+    def page
+        params[:page]
     end
 end

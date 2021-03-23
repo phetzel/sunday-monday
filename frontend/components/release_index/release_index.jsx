@@ -5,9 +5,13 @@ import ReleaseListItem from './release_list_item';
 
 const ReleaseIndex = ({ artist, medium, title }) => {
     const [releases, setReleases] = useState();
+    const [loading, setLoading] = useState(false);
+    const [page, setPage] = useState(0);
+    const [pageY, setPageY] = useState(0);
 
     const fetchReleases = () => {
         let type;
+        setLoading(true);
 
         if (artist) {
             setReleases(artist.releases.reverse());
@@ -15,10 +19,11 @@ const ReleaseIndex = ({ artist, medium, title }) => {
             if (medium) {
                 type = {medium: medium};
             }
-    
-            releaseApi.fetchReleases(type).then(releases => {
+            const data = { type, page };
+            releaseApi.fetchReleases(data).then(releases => {
                 const releasesArray = Object.values(releases);
-                setReleases(Array.from(releasesArray.reverse()));
+                setReleases(Array.from(releasesArray));
+                setLoading(false);
             })
         }
 

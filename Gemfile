@@ -31,6 +31,7 @@ gem 'annotate'
 gem 'jquery-rails'
 gem 'aws-sdk-s3', require: false
 gem 'sendgrid-ruby'
+gem 'will_paginate', '~> 3.0.7'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
