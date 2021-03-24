@@ -7,7 +7,7 @@ const ReleaseIndex = ({ artist, medium, title }) => {
     const [releases, setReleases] = useState([]);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(0);
-    const [pageY, setPageY] = useState(0);
+    const [more, setMore] = useState();
 
     const fetchReleases = () => {
         let type;
@@ -20,14 +20,14 @@ const ReleaseIndex = ({ artist, medium, title }) => {
                 type = {medium: medium};
             }
             const data = { type, page };
-            releaseApi.fetchReleases(data).then(releases => {
-                const releasesArray = Object.values(releases);
-                setReleases(Array.from(releasesArray));
-                console.log(releases);
+            console.log(data);
+            releaseApi.fetchReleases(data).then(response => {
+                const releasesArray = Object.values(response).reverse();
+                setReleases([...releases, ...releasesArray]);
                 setLoading(false);
+                releasesArray.length < 6 ? setMore(false) : setMore(true);
             })
         }
-
     }
 
     useEffect(() => {
@@ -55,10 +55,12 @@ const ReleaseIndex = ({ artist, medium, title }) => {
                             key={release.id}  />
                     )}
                 </ul>
-
-                {/* <div className="artist-show-button" onClick={() => setPage(page + 1)}>
-                    <h6>MORE</h6>               
-                </div> */}
+                
+                { more && 
+                    <div className="artist-show-button" onClick={() => setPage(page + 1)}>
+                        <h6>MORE</h6>               
+                    </div>
+                }
             </div>
         </div>
     )

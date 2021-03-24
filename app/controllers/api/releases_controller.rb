@@ -3,7 +3,7 @@ class Api::ReleasesController < ApplicationController
         @releases = Release.all
         if medium
             @releases = @releases.select{ |release| release.medium == medium }
-            puts @releases
+            @releases = Release.where(medium: medium).order(created_at: :desc).limit(6).offset(page.to_i * 6)
         end
 
         render :index 
