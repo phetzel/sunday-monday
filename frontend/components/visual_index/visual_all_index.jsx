@@ -4,20 +4,6 @@ import visualApi from '../../util/visual_api_util';
 import VisualIndex from './visual_index';
 
 const VisualAllIndex = props => {
-    const [visuals, setVisuals] = useState();
-
-    const fetchVisuals = () => {
-        visualApi.fetchVisuals().then(visuals => {
-            const visualsArray = Object.values(visuals);
-            setVisuals(visualsArray);
-        })
-    }
-
-    useEffect(() => {
-        fetchVisuals();
-    }, []);
-
-
     return (
         <div>
             <div className="content-container">
@@ -31,9 +17,7 @@ const VisualAllIndex = props => {
                     
                     <div className="header-rect" />
 
-                    {visuals && 
-                        <VisualIndex visuals={visuals} />
-                    }
+                    <VisualIndex />
                 </div>
             </div>
         </div>

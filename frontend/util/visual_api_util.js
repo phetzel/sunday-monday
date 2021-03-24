@@ -15,10 +15,11 @@ const fetchVisual = id => (
     })
 )
 
-const fetchVisuals = () => (
+const fetchVisuals = (data) => (
     $.ajax({
         method: 'GET',
-        url: 'api/visuals'
+        url: 'api/visuals',
+        data
     })
 );
 

@@ -26,9 +26,8 @@ const VideoArtistIndex = ({ match }) => {
                     
                     <div className="header-rect" />
 
-                    {artist.visuals && 
-                        <VisualIndex visuals={artist.visuals} />
-                    }
+
+                    <VisualIndex id={id} />
                 </div>
             }
         </div>

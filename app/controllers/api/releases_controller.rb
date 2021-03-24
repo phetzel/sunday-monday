@@ -2,7 +2,6 @@ class Api::ReleasesController < ApplicationController
     def index
         @releases = Release.all
         if medium
-            @releases = @releases.select{ |release| release.medium == medium }
             @releases = Release.where(medium: medium).order(created_at: :desc).limit(6).offset(page.to_i * 6)
         end
 

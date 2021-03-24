@@ -1,6 +1,10 @@
 class Api::VisualsController < ApplicationController
     def index
         @visuals = Visual.order(created_at: :desc)
+        if page 
+            @visuals = Visual.order(created_at: :desc).limit(6).offset(page.to_i * 6)
+        end 
+        
         render :index
     end
 
@@ -43,5 +47,9 @@ class Api::VisualsController < ApplicationController
             :description,
             :photo
         )
+    end
+
+    def page
+        params[:page]
     end
 end

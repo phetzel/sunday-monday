@@ -5,7 +5,6 @@ import ReleaseIndex from './release_index';
 
 const ReleaseArtistIndex = ({ match }) => {
     const { id } = match.params;
-
     const [artist, setArtist] = useState();
 
     useEffect(() => {
