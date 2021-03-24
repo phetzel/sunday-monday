@@ -1,6 +1,9 @@
 class Api::VideosController < ApplicationController
     def index
         @videos = Video.order(created_at: :desc)
+        if page 
+            @videos = Video.order(created_at: :desc).limit(6).offset(page.to_i * 6)
+        end 
         render :index
     end
 
@@ -43,6 +46,10 @@ class Api::VideosController < ApplicationController
             :description,
             :url
         )
+    end
+
+    def page
+        params[:page]
     end
 
 end

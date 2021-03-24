@@ -15,10 +15,11 @@ const fetchVideo = id => (
     })
 )
 
-const fetchVideos = () => (
+const fetchVideos = (data) => (
     $.ajax({
         method: 'GET',
-        url: 'api/videos'
+        url: 'api/videos',
+        data
     })
 );
 

@@ -18,7 +18,7 @@ const VideoArtistIndex = ({ match }) => {
             {artist &&
                 <VideoIndex 
                     title={`${artist.name}'s Videos`}
-                    videos={artist.videos} />
+                    artist={artist} />
             }
         </div>
     )
