@@ -14,21 +14,9 @@ const VideoArtistIndex = ({ match }) => {
     }, []);
 
     return (
-        <div className="content-container">
+        <div>
             {artist && 
-                <div className="content">
-
-                    <div className="header-container">
-                        <div className="header">
-                        <h1><span>{artist.name}</span></h1>
-                        </div>
-                    </div>
-                    
-                    <div className="header-rect" />
-
-
-                    <VisualIndex id={id} />
-                </div>
+                <VisualIndex id={id} title={artist.name} />
             }
         </div>
 

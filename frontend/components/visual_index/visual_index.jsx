@@ -5,7 +5,7 @@ import artistApi from '../../util/artist_api_util';
 import visualApi from '../../util/visual_api_util';
 import VisualIndexItem from './visual_index_item';
 
-const VisualIndex = ({ id }) => {
+const VisualIndex = ({ id, title }) => {
     const [modalVis, setModalVis] = useState(false);
     const [modalCom, setModalCom] = useState(null);
     const [artsit, setArtist] = useState();
@@ -43,29 +43,40 @@ const VisualIndex = ({ id }) => {
     }, [page]);
 
     return (
-      <div>
-            <Modal 
-                component={modalCom}
-                modalVis={modalVis}
-                setModalVis={setModalVis}
-                func={setModalVis}
-            />
+        <div className="content-container">
+            <div className="content">
 
-            <ul className="list">
-                { visuals && visuals.map(visual => 
-                <VisualIndexItem
-                    onClick={() => openModal(visual)}
-                    key={visual.id}
-                    visual={visual} />
-                )}
-            </ul>
-
-            { more && 
-                <div className="artist-show-button" onClick={() => setPage(page + 1)}>
-                    <h6>MORE</h6>               
+                <div className="header-container">
+                    <div className="header">
+                    <h1><span>{title}</span></h1>
+                    </div>
                 </div>
-            }
-      </div>
+                
+                <div className="header-rect" />
+
+                <Modal 
+                    component={modalCom}
+                    modalVis={modalVis}
+                    setModalVis={setModalVis}
+                    func={setModalVis}
+                />
+
+                <ul className="list">
+                    { visuals && visuals.map(visual => 
+                    <VisualIndexItem
+                        onClick={() => openModal(visual)}
+                        key={visual.id}
+                        visual={visual} />
+                    )}
+                </ul>
+
+                { more && 
+                    <div className="list-show-button" onClick={() => setPage(page + 1)}>
+                        <h6>MORE</h6>               
+                    </div>
+                }
+            </div>
+        </div>
 
     )
 }

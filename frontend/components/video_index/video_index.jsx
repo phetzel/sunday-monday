@@ -68,7 +68,7 @@ const VideoIndex = ({ artist, title}) => {
                 </ul>
 
                 { more && 
-                    <div className="artist-show-button" onClick={() => setPage(page + 1)}>
+                    <div className="list-show-button" onClick={() => setPage(page + 1)}>
                         <h6>MORE</h6>               
                     </div>
                 }
