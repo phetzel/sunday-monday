@@ -7,7 +7,7 @@
         <p>Hey there!</p>
         <p>We've got a brand new release for you out now:</p>
 
-        <div><%= image_tag(url_for(@release.photo))%></div>
+        <div><%= image_tag(url_for(@release.photo), width: 500)%></div>
 
         <p><%= @release.description %></p>
 

@@ -3,7 +3,8 @@ class Api::ArtistsController < ApplicationController
         @artists = Artist.order(:name)
 
         if style
-            @artists = @artists.select{ |artist| artist.style == style }
+            # @artists = @artists.select{ |artist| artist.style == style }
+            @artists = Artist.order(:name).limit(6).offset(page.to_i * 6)
         end
 
         render :index
@@ -72,7 +73,11 @@ class Api::ArtistsController < ApplicationController
 
 
     def style
-        params[:style]
+        params[:type][:style]
+    end
+
+    def page
+        params[:page]
     end
     
 end

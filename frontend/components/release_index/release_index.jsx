@@ -20,7 +20,7 @@ const ReleaseIndex = ({ artist, medium, title }) => {
                 type = {medium: medium};
             }
             const data = { type, page };
-            console.log(data);
+            
             releaseApi.fetchReleases(data).then(response => {
                 const releasesArray = Object.values(response).reverse();
                 setReleases([...releases, ...releasesArray]);

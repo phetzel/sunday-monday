@@ -7,7 +7,7 @@
         <p>Hey there!</p>
         <p>We've got a brand new artist for you out now:</p>
 
-        <div><%= image_tag(url_for(@artist.photo))%></div>
+        <div class="email-image"><%= image_tag(url_for(@artist.photo), width: 500)%></div>
 
         <p><%= @artist.description %></p>
 
