@@ -5,10 +5,12 @@ import EventIndexItem from './event_index_item';
 
 const EventIndex = () => {
     const [events, setEvents] = useState();
+    const [empty, setEmpty] = useState(false);
 
     const fetchEvents = () => {
         eventApi.fetchEvents().then(events => {
             const eventsArray = Object.values(events);
+            if (eventsArray.length < 1) setEmpty(true);
             setEvents(eventsArray);    
         })
     }
