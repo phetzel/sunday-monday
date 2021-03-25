@@ -14,7 +14,10 @@ const ReleaseIndex = ({ artist, medium, title }) => {
         setLoading(true);
 
         if (artist) {
-            setReleases(artist.releases.reverse());
+            const newReleases = artist.releases.slice(page * 6, (page * 6) + 6).reverse();
+            setReleases([...releases, ...newReleases]);
+            setLoading(false);
+            newReleases.length < 6 ? setMore(false) : setMore(true);
         } else {
             if (medium) {
                 type = {medium: medium};
