@@ -205,6 +205,13 @@
   justify-content: space-between;
 }
 
+@media only screen and (max-width: 480px) {
+  .event-show {
+    flex-direction: column-reverse;
+    margin-top: 130px;
+  }
+}
+
 .event-show-details {
   width: 481px;
 
@@ -216,6 +223,16 @@
   text-transform: uppercase;
 
   color: #352d39;
+}
+
+@media only screen and (max-width: 480px) {
+  .event-show-details {
+    margin-top: 34px;
+    width: 340px;
+
+    font-size: 12px;
+    line-height: 14px;
+  }
 }
 
 .event-show-details-row {
@@ -236,4 +253,11 @@
   // float: right;
   height: 329px;
   width: 490px;
+}
+
+@media only screen and (max-width: 480px) {
+  .event-map-container {
+    height: 260px;
+    width: 340px;
+  }
 }
