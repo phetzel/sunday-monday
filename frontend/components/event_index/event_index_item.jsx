@@ -6,7 +6,7 @@ import timeUtil from '../../util/time_util';
 
 const EventIndexItem = ({event, history}) => {
     const handleClick = () => {
-        // history.push(`/events/${event.id}`);
+        history.push(`/events/${event.id}`);
     }
 
     const displayTime = timeUtil.displayEventIndex(event.datetime);
@@ -30,6 +30,10 @@ const EventIndexItem = ({event, history}) => {
 
             <div className="event-index-item-location">
                 <h6>{event.address}</h6>
+            </div>
+
+            <div className="event-index-button" onClick={handleClick}>
+                <h6>DETAILS</h6>               
             </div>
         </li>
     )

@@ -176,5 +176,64 @@
   }
 }
 
+.event-index-button {
+  align-items: center;
+  background-color: var(--third);
+  display: flex;
+  height: 38px;
+  justify-content: center;
+  width: 151px;
+
+  cursor: pointer;
+  // box-shadow: 0px 2.7066495418548584px 20.29987144470215px rgba(0, 0, 0, 0.25);
+}
+
+.event-index-button h6 {
+  color: var(--first);
+  font-family: "Helvetica-Regular", Helvetica, Arial, serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+
 //Event Show
 //------------------------------------------------------------------------------
+
+.event-show {
+  margin-top: 149px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.event-show-details {
+  width: 481px;
+
+  font-family: Helvetica;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  color: #352d39;
+}
+
+.event-show-details-row {
+  margin-bottom: 16px;
+}
+
+.event-show-details h6 {
+  display: inline;
+  font-weight: bold;
+}
+
+.event-show-details p {
+  display: inline;
+  margin-left: 10px;
+}
+
+.event-map-container {
+  // float: right;
+  height: 329px;
+  width: 490px;
+}

@@ -19,18 +19,33 @@ const EventShow = ({ match}) => {
         fetchEvent();
     }, []);
 
+    console.log(event);
+
     return(
-        <div>
-            <div className="event-show-container content">
+        <div className="content-container">
+            <div className="content">
                 {event && 
-                <div className="event-show">
-                    <img src={event.photoUrl} alt="dj pic"/>
-                    <EventShowDetail event={event}/>
-                    <Map event={event} />
+                <div>
+                    <div className="header-container">
+                        <div className="header">
+                            <h1><span>{event.title}</span></h1>
+                        </div>
+                    </div>
+
+                    <div className="header-rect" />
+
+
+                    <div className="event-show">
+                        {/* <img src={event.photoUrl} alt="dj pic"/> */}
+                        <EventShowDetail event={event}/>
+                        <Map event={event} />
+                    </div>
+
                 </div>
                 }
             </div>
         </div>
+
     )
 }
 

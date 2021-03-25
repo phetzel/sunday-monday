@@ -8,6 +8,7 @@ const Modal = ({performs, setPerforms, setVisible, visible}) => {
 
     const fetchArtists = () => {
         artistApi.fetchArtists().then(artists => {
+            console.log(artists);
             const artistsArray = Object.values(artists);
             setArtists(Array.from(artistsArray));
         })
