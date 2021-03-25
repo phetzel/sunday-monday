@@ -2,7 +2,9 @@ class Api::VideosController < ApplicationController
     def index
         @videos = Video.order(created_at: :desc)
         if page 
-            @videos = Video.order(created_at: :desc).limit(6).offset(page.to_i * 6)
+            limit = page == 0.to_s ? 7 : 6
+            num = page == 0.to_s ? 0 : 1
+            @videos = Video.order(created_at: :desc).limit(limit).offset(page.to_i * 6 + num)
         end 
         render :index
     end

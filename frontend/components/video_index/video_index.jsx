@@ -21,7 +21,17 @@ const VideoIndex = ({ artist, title}) => {
 
 
             if (artist) {
-                setVideos(artist.videos);
+                if (page === 0) {
+                    const videosArray = artist.videos.slice(0, 7);
+                    setVideos([...videos, ...videosArray]);
+                    setLoading(false);
+                    videosArray.length < 7 ? setMore(false) : setMore(true);
+                } else {
+                    const videosArray = artist.videos.slice(page * 6 + 1, page * 6 + 7);
+                    setVideos([...videos, ...videosArray]);
+                    setLoading(false);
+                    videosArray.length < 6 ? setMore(false) : setMore(true);
+                }
             } else {
                 setLoading(true);
                 const obj = { page: page };
@@ -37,8 +47,6 @@ const VideoIndex = ({ artist, title}) => {
     useEffect(() => {
         fetchVideos();
     }, [page]);
-
-    console.log(videos[0]);
 
     return (
         <div className="content-container">
