@@ -8,7 +8,7 @@ import VisualIndexItem from './visual_index_item';
 const VisualIndex = ({ id, title }) => {
     const [modalVis, setModalVis] = useState(false);
     const [modalCom, setModalCom] = useState(null);
-    const [artsit, setArtist] = useState();
+    const [artist, setArtist] = useState();
     const [visuals, setVisuals] = useState([]);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(0);
@@ -22,12 +22,25 @@ const VisualIndex = ({ id, title }) => {
     }
 
     const fetchVisuals = () => {
+        setLoading(true);
+
         if (id) {
-            artistApi.fetchArtist(id).then(artist => {
-                setVisuals(artist.visuals);
-            });
+            if (!artist) {
+                artistApi.fetchArtist(id).then(artist => {
+                    setArtist(artist);
+                    const newVisuals = artist.visuals.slice(page * 6, (page * 6) + 6);
+                    setVisuals([...visuals, ...newVisuals]);
+                    setLoading(false);
+                    newVisuals.length < 6 ? setMore(false) : setMore(true);
+                });
+            } else {
+                const newVisuals = artist.visuals.slice(page * 6, (page * 6) + 6);
+                setVisuals([...visuals, ...newVisuals]);
+                setLoading(false);
+                newVisuals.length < 6 ? setMore(false) : setMore(true);
+            }
+
         } else {
-            setLoading(true);
             const obj = { page: page };
             visualApi.fetchVisuals(obj).then(response => {
                 const visualsArray = Object.values(response);
