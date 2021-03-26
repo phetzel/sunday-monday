@@ -11,10 +11,8 @@ const EventIndexItem = ({event, history}) => {
 
     const displayTime = timeUtil.displayEventIndex(event.datetime);
 
-    console.log(event);
-
     return (
-        <li className="event-index-item" onClick={handleClick}>
+        <li className="event-index-item">
             <div className="event-index-item-date">
                 <h3>{displayTime["day"]}</h3>
                 <h3>{displayTime["month"]}</h3>
