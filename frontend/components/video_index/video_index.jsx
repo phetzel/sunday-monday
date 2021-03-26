@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import ReactPlayer from 'react-player/lazy';
 
+import ActivityIndicator from '../activity_indicator/activity_indicator';
 import MusicContext from '../../context/music_context';
 import videoApi from '../../util/video_api_util';
 import VideoIndexItem from './video_index_item';
@@ -48,6 +49,12 @@ const VideoIndex = ({ artist, title}) => {
         fetchVideos();
     }, [page]);
 
+    const infinity = loading ? 
+        <ActivityIndicator /> :
+        <div className="list-show-button" onClick={() => setPage(page + 1)}>
+            <h6>MORE</h6>               
+        </div>;
+
     return (
         <div className="content-container">
             <div className="content">
@@ -76,9 +83,7 @@ const VideoIndex = ({ artist, title}) => {
                 </ul>
 
                 { more && 
-                    <div className="list-show-button" onClick={() => setPage(page + 1)}>
-                        <h6>MORE</h6>               
-                    </div>
+                    infinity
                 }
             </div>
         </div>

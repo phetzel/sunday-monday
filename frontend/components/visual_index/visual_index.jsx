@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import Modal from '../modal/modal';
+import ActivityIndicator from '../activity_indicator/activity_indicator';
 import artistApi from '../../util/artist_api_util';
 import visualApi from '../../util/visual_api_util';
 import VisualIndexItem from './visual_index_item';
@@ -55,6 +56,12 @@ const VisualIndex = ({ id, title }) => {
         fetchVisuals();
     }, [page]);
 
+    const infinity = loading ? 
+        <ActivityIndicator /> :
+        <div className="list-show-button" onClick={() => setPage(page + 1)}>
+            <h6>MORE</h6>               
+        </div>;
+
     return (
         <div className="content-container">
             <div className="content">
@@ -84,9 +91,7 @@ const VisualIndex = ({ id, title }) => {
                 </ul>
 
                 { more && 
-                    <div className="list-show-button" onClick={() => setPage(page + 1)}>
-                        <h6>MORE</h6>               
-                    </div>
+                    infinity
                 }
             </div>
         </div>

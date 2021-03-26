@@ -10,10 +10,12 @@ const Splash = () => {
             <div className="splash-upper-container">
                 <div className="splash-upper">
                     <div className="splash-rect" />
-                    <img 
-                        className="splash-image" 
-                        src={"https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd07038a7566d7346c0dfd6/img/image-11@1x.jpg"} 
-                        alt="Splash"/>
+                    <div className="splash-image-cover">
+                        <img 
+                            className="splash-image" 
+                            src={"https://anima-uploads.s3.amazonaws.com/projects/5fc9b90894b52c603156d69f/releases/5fd07038a7566d7346c0dfd6/img/image-11@1x.jpg"} 
+                            alt="Splash"/>
+                    </div>
 
                     <h1 className="she">SHE</h1>
                     {/* <div className="she-partial">

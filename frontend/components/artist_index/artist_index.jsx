@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import ActivityIndicator from '../activity_indicator/activity_indicator';
 import artistApi from '../../util/artist_api_util';
 import ArtistListItem from './artist_list_item';
 
@@ -10,6 +11,7 @@ const ArtistIndex = ({style, title}) => {
     const [more, setMore] = useState();
 
     const fetchArtists = () => {
+        setLoading(true);
         const type = {style: style};
         const data = { type, page };
 
@@ -25,6 +27,13 @@ const ArtistIndex = ({style, title}) => {
     useEffect(() => {
         fetchArtists();
     }, [page]);
+
+    const infinity = loading ? 
+        <ActivityIndicator /> :
+        <div className="list-show-button" onClick={() => setPage(page + 1)}>
+            <h6>MORE</h6>               
+        </div>;
+
 
     return (
         <div>
@@ -45,9 +54,7 @@ const ArtistIndex = ({style, title}) => {
                     </ul>
 
                     { more && 
-                        <div className="list-show-button" onClick={() => setPage(page + 1)}>
-                            <h6>MORE</h6>               
-                        </div>
+                        infinity
                     }
                 </div>
             </div>
