@@ -11,6 +11,16 @@
   }
 }
 
+.event-index-empty {
+  font-family: Helvetica;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 28px;
+
+  letter-spacing: 0.1em;
+  color: var(--second);
+}
+
 .event-index-item {
   display: flex;
   justify-content: space-between;

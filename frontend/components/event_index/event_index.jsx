@@ -19,6 +19,17 @@ const EventIndex = () => {
         fetchEvents();
     }, []);
 
+    const display = empty ? (
+        <div className="event-index-empty">
+            <h6>No Upcoming Events. Check Back Soon!</h6>
+        </div>
+    ) : (
+        <ul className="event-index">
+            {events &&
+                events.map(event => <EventIndexItem key={event.id} event={event}/>)
+            }
+        </ul>
+    )
 
     return (
         <div className="content-container">
@@ -31,12 +42,7 @@ const EventIndex = () => {
 
                 <div className="header-rect" />
 
-
-                <ul className="event-index">
-                    {events &&
-                        events.map(event => <EventIndexItem key={event.id} event={event}/>)
-                    }
-                </ul>
+                {display}
 
             </div>
         </div>
