@@ -21,7 +21,8 @@ const EventForm = ({history}) => {
         description: "",
         address: "",
         city: "",
-        stateInit: ""
+        stateInit: "",
+        venue: ""
     }
 
     const handleFile = (e) => {
@@ -49,6 +50,7 @@ const EventForm = ({history}) => {
                 formData.append('event[title]', event.title);
                 formData.append('event[description]', event.description);
                 formData.append('event[address]', `${event.address} ${event.city} ${event.stateInit}`);
+                formData.append('event[venue]', event.venue);
                 formData.append('event[lat]', res.lat);
                 formData.append('event[lng]', res.lng);
                 formData.append('event[datetime]', date);
@@ -108,6 +110,11 @@ const EventForm = ({history}) => {
                                 placeholder="State Initials"
                                 type="text"/>
                         </div>
+
+                        <input 
+                            onChange={handleChange("Venue")} 
+                            placeholder="Venue"
+                            type="text"/>
 
                         <textarea 
                             onChange={handleChange("description")}

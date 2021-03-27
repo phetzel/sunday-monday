@@ -59,6 +59,7 @@ class Api::EventsController < ApplicationController
             :lat,
             :lng, 
             :address,
+            :venue,
             :photo,
             :data
         )
