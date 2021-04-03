@@ -4,7 +4,7 @@ class Api::ArtistsController < ApplicationController
         
         if params[:type] && style
             # @artists = @artists.select{ |artist| artist.style == style }
-            @artists = Artist.order(:name).limit(6).offset(page.to_i * 6)
+            @artists = Artist.where(style: style).order(:name).limit(6).offset(page.to_i * 6)
         end
 
         render :index
