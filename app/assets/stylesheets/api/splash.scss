@@ -125,7 +125,7 @@
 @media only screen and (max-width: 480px) {
   .descends {
     bottom: -14.5px;
-    color: var(--first);
+    // color: var(--first);
     left: 63px;
     text-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
   }
@@ -142,7 +142,10 @@
 
 @media only screen and (max-width: 480px) {
   .descends-partial {
-    display: none;
+    bottom: 0px;
+    left: 63px;
+    height: 13.5px;
+    // background-color: aqua;
   }
 }
 
