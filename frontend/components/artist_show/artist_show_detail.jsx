@@ -7,10 +7,10 @@ const ArtistShowDetail = ({ artist }) => {
 
     const url = artist.bannerUrl ? artist.bannerUrl : artist.photoUrl;
 
-    const openModal = (item) => {
+    const openModal = () => {
         setModalCom(
            <div className="artist-detail-popup">
-               
+               <p>{artist.description}</p>
            </div>
            )
         ;
@@ -19,12 +19,14 @@ const ArtistShowDetail = ({ artist }) => {
 
     return (
         <div className="artist-show-details">
-            <Modal 
-                component={modalCom}
-                modalVis={modalVis}
-                setModalVis={setModalVis}
-                func={setModalVis}
-            />
+            <div className="artist-show-mobile">
+                <Modal 
+                    component={modalCom}
+                    modalVis={modalVis}
+                    setModalVis={setModalVis}
+                    func={setModalVis}
+                />
+            </div>
 
             <div className="artist-banner">
                 <img src={url}/>
@@ -34,7 +36,7 @@ const ArtistShowDetail = ({ artist }) => {
             </div>
 
             <h1>{artist.name}</h1>
-            <div className="artist-show-bio">
+            <div className="artist-show-bio" onClick={openModal}>
                 <p>{artist.description}</p>
             </div>
         </div>
