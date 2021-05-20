@@ -1,0 +1,1 @@
+json.photoUrl url_for(setting.photo) if setting.photo.attached?
