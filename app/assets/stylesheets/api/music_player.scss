@@ -103,6 +103,7 @@
 
 .music-player-queue {
   background-color: var(--first);
+  border: 0.5px solid var(--second);
   position: absolute;
   right: 200px;
   height: 400px;
@@ -135,13 +136,19 @@
   width: 50px;
 }
 
+.music-player-marquee {
+  margin-left: 5px;
+  width: 100px;
+}
+
 .music-player-queue h6 {
   color: var(--second);
+  cursor: default;
   font-family: "Helvetica-Regular", Helvetica, Arial, serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  width: 100px;
+  // width: 100px;
   overflow: hidden;
   white-space: nowrap;
 }

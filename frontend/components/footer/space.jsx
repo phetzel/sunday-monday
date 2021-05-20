@@ -1,14 +1,16 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+// import { useNavigation } from '@react-navigation/native';
 
 const Space = ({ history }) => {
-    console.log(history);
+    // const navigation = useNavigation();
+
     const handleStore = () => {
         window.open('https://www.etsy.com/shop/SpaceMotherSupplies', '_blank');
     }
 
     const handleClick = (loc) => {
-        history.push(loc);
+        history.replace(loc);
     }
 
     return (

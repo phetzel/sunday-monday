@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinusCircle, faPlay } from '@fortawesome/free-solid-svg-icons';        
+import { faMinusCircle, faPlay } from '@fortawesome/free-solid-svg-icons'; 
+import Marquee from "react-fast-marquee";       
 
 const MusicPlayerQueue = ({ music, setMusic, setPlaying }) => {
     const queue = music.slice(1);
@@ -27,7 +28,14 @@ const MusicPlayerQueue = ({ music, setMusic, setPlaying }) => {
             {queue.map((song, idx) => (
                 <li key={idx}>
                     <img src={song.thumbnails.default.url} alt=""/>
-                    <h6>{song.title}</h6>
+                    <Marquee
+                        className="music-player-marquee"
+                        gradient={false}
+                        pauseOnHover={true}
+                        speed={5}
+                    >
+                        <h6>{song.title}</h6>
+                    </Marquee>
                     <button onClick={() => play(idx)}><FontAwesomeIcon icon={faPlay} /></button>
                     <button onClick={() => remove(idx)}><FontAwesomeIcon icon={faMinusCircle} /></button>
                 </li>

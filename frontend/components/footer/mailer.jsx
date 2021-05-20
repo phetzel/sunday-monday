@@ -29,12 +29,10 @@ const Mailer = (props) => {
                 setPlaceholder("Success");
                 setClassName("mailer-success");
                 setEmail("");
-                // setTimeout(resetPLaceholder(), 50000);
             }, err => {
                 setPlaceholder(err.responseJSON[0]);
                 setClassName("mailer-fail");
                 setEmail("");
-                // setTimeout(resetPLaceholder(), 50000);
             });
     }
 
