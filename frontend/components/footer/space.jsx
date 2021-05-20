@@ -10,6 +10,7 @@ const Space = ({ history }) => {
     }
 
     const handleClick = (loc) => {
+        // navigation.popToTop();
         history.replace(loc);
     }
 
